@@ -1,6 +1,7 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS profiles
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -17,6 +18,19 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
+
+CREATE TABLE profiles (
+    profile_id serial,
+    user_id int NOT NULL,
+    profile_img varchar(500),
+    zip_code int,
+    favorite_bird varchar(100),
+    skill_level varchar(50),
+    most_common_bird varchar(200),
+
+    CONSTRAINT PK_profile PRIMARY KEY (profile_id),
+    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
+)
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
