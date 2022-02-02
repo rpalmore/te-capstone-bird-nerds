@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "http://localhost:8080"
 });
 
 export default {
@@ -15,7 +15,7 @@ export default {
     },
 
     editProfile(profile) {
-        return http.put('/editProfile', profile)
+        return http.put('/editProfile', profile);
     },
 
     deleteProfile(username) {
