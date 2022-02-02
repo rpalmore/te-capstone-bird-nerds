@@ -4,12 +4,14 @@ import com.techelevator.dao.ProfileDao;
 import com.techelevator.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
 @RestController
 @CrossOrigin
+@PreAuthorize("isAuthenticated()")
 public class AppController {
 
     @Autowired
@@ -32,10 +34,10 @@ public class AppController {
         dao.updateProfile(updatedProfile);
     }
 
-    @RequestMapping(path="/deleteProfile/{profileId}", method=RequestMethod.DELETE)
+    @RequestMapping(path="/deleteProfile/{username}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeProfile(@PathVariable int profileId) {
-        dao.deleteProfile(profileId);
+    public void removeProfile(@PathVariable String username) {
+        dao.deleteProfile(username);
     }
 
 }

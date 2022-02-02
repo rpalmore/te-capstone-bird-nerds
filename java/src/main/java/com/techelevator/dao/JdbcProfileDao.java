@@ -19,7 +19,7 @@ public class JdbcProfileDao implements ProfileDao {
     @Override
     public Profile getProfile(String username) {
 
-        String sql = "SELECT username, profile_img, zip_code, favorite_bird, skill_level, most_common_bird " +
+        String sql = "SELECT profile_id, username, profile_img, zip_code, favorite_bird, skill_level, most_common_bird " +
                 "FROM profiles " +
                 "JOIN users ON users.user_id = profiles.user_id " +
                 "WHERE username = ?";
@@ -28,6 +28,7 @@ public class JdbcProfileDao implements ProfileDao {
         Profile profile = null;
         if (result.next()) {
             profile = new Profile();
+            profile.setProfileId(result.getInt("profile_id"));
             profile.setUsername(username);
             profile.setProfileImg(result.getString("profile_img"));
             profile.setZipCode(result.getInt("zip_code"));
@@ -66,8 +67,8 @@ public class JdbcProfileDao implements ProfileDao {
     }
 
     @Override
-    public void deleteProfile(int profileId) {
-        String sql = "DELETE FROM profiles WHERE profile_id = ?";
-        template.update(sql, profileId);
+    public void deleteProfile(String username) {
+        String sql = "DELETE FROM profiles WHERE user_id IN (SELECT user_id FROM users WHERE username = ?)";
+        template.update(sql, username);
     }
 }

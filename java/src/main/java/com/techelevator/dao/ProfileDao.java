@@ -8,7 +8,7 @@ public interface ProfileDao {
 
     Profile addProfile(Profile newProfile);
 
-    void deleteProfile(int profileId);
+    void deleteProfile(String username);
 
     void updateProfile(Profile updatedProfile);
 }
