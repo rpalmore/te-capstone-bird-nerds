@@ -25,7 +25,7 @@
         <label for="most-common-bird">Most commonly spotted bird: </label>
         <input type="text" id="most-common-bird" v-model="profile.mostCommonBird" />
       </p>
-      <button id="submit">Save profile</button>
+      <input type="submit" />
     </form>
   </main>
 </template>
@@ -45,10 +45,8 @@ export default {
     updateImage() {},
     updateProfile() {
         console.log(this.profile);
-        console.log(this.$store.state.user.username);
-        console.log("USERNAME: " + this.username);
-        
         profileService.updateProfile(this.profile).then((response) => {
+
             if (response.status === 200) {
                 alert("profile created!");
             }
