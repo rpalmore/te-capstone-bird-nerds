@@ -36,12 +36,18 @@ import profileService from '../services/ProfileService';
 export default {
   data() {
     return {
-      profile: {},
+      profile: {
+          username: this.$store.state.user.username,
+      },
     };
   },
   methods: {
     updateImage() {},
     updateProfile() {
+        console.log(this.profile);
+        console.log(this.$store.state.user.username);
+        console.log("USERNAME: " + this.username);
+        
         profileService.updateProfile(this.profile).then((response) => {
             if (response.status === 200) {
                 alert("profile created!");
