@@ -14,16 +14,13 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
-public class AppController {
+public class ProfileController {
 
     @Autowired
     UserDao userDao;
 
     @Autowired
     ProfileDao profileDao;
-
-    @Autowired
-    ListDao listDao;
 
     @RequestMapping(path="/profile", method=RequestMethod.GET)
     public Profile returnProfileByUsername(Principal principal) {
@@ -46,34 +43,6 @@ public class AppController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeProfile(@PathVariable String username) {
         profileDao.deleteProfile(username);
-    }
-
-    @RequestMapping(path="/lists", method=RequestMethod.GET)
-    public List<BirdList> getAllLists(Principal principal) {
-        String username = principal.getName();
-        int userId = userDao.findIdByUsername(username);
-        return listDao.getLists(userId);
-    }
-
-    @RequestMapping(path="/lists/{listId}", method=RequestMethod.GET)
-    public BirdList getList (@PathVariable int listId) {
-        return listDao.getList(listId);
-    }
-
-    @RequestMapping(path="/createList", method=RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public BirdList createList(@RequestBody BirdList newList) {
-        return listDao.addList(newList);
-    }
-
-    @RequestMapping(path="/editList", method=RequestMethod.PUT)
-    public BirdList editList(@RequestBody BirdList editedList) {
-        return listDao.updateList(editedList);
-    }
-
-    @RequestMapping(path="/deleteList/{listId}", method=RequestMethod.DELETE)
-    public void removeList(@PathVariable int listId) {
-        listDao.deleteList(listId);
     }
 
 }
