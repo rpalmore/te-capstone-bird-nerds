@@ -1,25 +1,22 @@
 import axios from 'axios';
 
-const http = axios.create({
-    baseURL: "http://localhost:3000"
-});
 
 export default {
 
     getProfile() {
-        return http.get('/profile');
+        return axios.get('/profile');
     },
 
     updateProfile(profile) {
-        return http.post('/createProfile', profile);
+        return axios.post('/createProfile', profile);
     },
 
     editProfile(profile) {
-        return http.put('/editProfile', profile)
+        return axios.put('/editProfile', profile);
     },
 
     deleteProfile(username) {
-        return http.delete('/deleteProfile/' + username);
+        return axios.delete('/deleteProfile/' + username);
     }
 
 
