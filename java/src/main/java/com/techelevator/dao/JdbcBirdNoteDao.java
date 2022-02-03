@@ -75,9 +75,9 @@ public class JdbcBirdNoteDao implements BirdNoteDao {
 
     @Override
     public BirdNote addNote(BirdNote note) {
-        String sql = "INSERT INTO bird_notes(bird_id, notes, date_spotted, num_males, num_females, feeder_type, food_blend " +
+        String sql = "INSERT INTO bird_notes(bird_id, notes, date_spotted, num_males, num_females, feeder_type, food_blend) " +
                 "VALUES(?, ?, ?, ?, ?, ?, ?) RETURNING note_id";
-        long noteId = template.queryForObject(
+        Long noteId = template.queryForObject(
                 sql,
                 Long.class,
                 note.getBirdId(),
