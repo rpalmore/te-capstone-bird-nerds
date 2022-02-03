@@ -1,8 +1,13 @@
 <template>
   <div id="nav">
     <button id="btn-search">SEARCH</button>
-    <button id="btn-login" v-on:click="toggleBtn($event)">
-      <router-link v-bind:to="{ name: 'login' }">{{
+
+    <button
+      class="btn"
+      v-bind:class="{ toggleDisplay: hideLogin === true }"
+      v-on:click="toggleBtn($event)"
+    >
+      <router-link id="btn-login" v-bind:to="{ name: 'login' }">{{
         clicked == false ? "LOGIN" : "WELCOME BACK"
       }}</router-link>
     </button>
@@ -10,11 +15,13 @@
     <!-- <Login /> -->
     <!-- </router-view> -->
     <button
-      id="btn-register"
-      v-bind:class="{ show: clicked === false }"
+      class="btn"
+      v-bind:class="{ toggleDisplay: hideReg === true }"
       v-on:click="toggleBtn($event)"
     >
-      <router-link :to="{ name: 'register' }">REGISTER</router-link>
+      <router-link id="btn-register" :to="{ name: 'register' }"
+        >REGISTER</router-link
+      >
     </button>
   </div>
 </template>
@@ -25,17 +32,37 @@ export default {
   data() {
     return {
       clicked: false,
+      hideReg: false,
+      hideLogin: false,
       message: "",
     };
   },
   methods: {
     toggleBtn(event) {
-      console.log("EVENT: " + event.target.id); // not returning any data
-      if (this.clicked == false) {
-        this.clicked = true;
+      if (event.target.id === "btn-login") {
+        if (this.hideReg === false) {
+          this.hideReg = true;
+        }
+        if (this.clicked === false) {
+          this.clicked = true;
+        } else {
+          this.clicked = false;
+          this.hideReg = false;
+          this.$router.push("/");
+        }
       } else {
-        this.clicked = false;
-        this.$router.push("/");
+        if (event.target.id === "btn-register") {
+          if (this.hideLogin === false) {
+            this.hideLogin = true;
+          }
+          if (this.clicked === false) {
+            this.clicked = true;
+          } else {
+            this.clicked = false;
+            this.hideLogin = false;
+            this.$router.push("/");
+          }
+        }
       }
     },
   },
@@ -64,12 +91,11 @@ export default {
   /* gap: 15px; */
   padding: 10px;
 }
-#btn-login > a,
-#btn-register > a {
+.btn > a {
   text-decoration: none;
   color: #fdfffc;
 }
-.show {
-  /* display: none; */
+.toggleDisplay {
+  display: none;
 }
 </style>
