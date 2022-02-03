@@ -1,7 +1,8 @@
 <template>
   <div id="register" class="text-center">
+    <button id="btn-search">SEARCH</button>
     <form class="form-register" @submit.prevent="register">
-      <!-- <h1 class="h3 mb-3 font-weight-normal">Create Account</h1> -->
+      <span>Create an account</span>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -91,18 +92,51 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #register {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .form-register {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin-top: 30px;
+  align-items: center;
+  padding: 18px 0 35px 0;
+  margin: 0 8px 0 8px;
+  background-color: #FF9F1C;
+  border: 1px solid #E71D36;
 }
 input[type] {
   text-align: center;
   border: 2px solid #ff9f1c;
+  border: 2px solid #E71D36;
+}
+#register button,
+input[type] {
+  width: 80%;
+  background-color: #011627;
+  color: #fdfffc;
+  border: 2px solid #ff9f1c;
+  border: 2px solid #E71D36;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+  margin-top: 35px;
+  padding: 10px;
+}
+input[type=text], input[type=password] {
+  width: 70%;
+}
+#btn-search {
+  margin-bottom: 35px;
+}
+span {
+  color: #011627;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-bottom: 2px solid #E71D36;
+  border-bottom: 2px solid #fdfffc;
+  padding-bottom: 18px;
 }
 </style>
