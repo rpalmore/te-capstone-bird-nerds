@@ -4,19 +4,13 @@
 
     <button
       class="btn"
-      v-bind:class="{ toggleDisplay: hideLogin === true }"
       v-on:click="toggleBtn($event)"
     >
-      <router-link id="btn-login" v-bind:to="{ name: 'login' }">{{
-        clicked == false ? "LOGIN" : "WELCOME BACK"
-      }}</router-link>
+      <router-link id="btn-login" v-bind:to="{ name: 'login' }">LOGIN</router-link>
     </button>
     <router-view />
-    <!-- <Login /> -->
-    <!-- </router-view> -->
     <button
       class="btn"
-      v-bind:class="{ toggleDisplay: hideReg === true }"
       v-on:click="toggleBtn($event)"
     >
       <router-link id="btn-register" :to="{ name: 'register' }"
@@ -32,34 +26,23 @@ export default {
   data() {
     return {
       clicked: false,
-      hideReg: false,
-      hideLogin: false,
-      message: "",
     };
   },
   methods: {
     toggleBtn(event) {
       if (event.target.id === "btn-login") {
-        if (this.hideReg === false) {
-          this.hideReg = true;
-        }
         if (this.clicked === false) {
           this.clicked = true;
         } else {
           this.clicked = false;
-          this.hideReg = false;
           this.$router.push("/");
         }
       } else {
         if (event.target.id === "btn-register") {
-          if (this.hideLogin === false) {
-            this.hideLogin = true;
-          }
           if (this.clicked === false) {
             this.clicked = true;
           } else {
             this.clicked = false;
-            this.hideLogin = false;
             this.$router.push("/");
           }
         }
