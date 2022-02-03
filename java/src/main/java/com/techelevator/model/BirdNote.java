@@ -2,13 +2,40 @@ package com.techelevator.model;
 
 import java.time.LocalDateTime;
 
-public class BirdNotes implements Comparable<BirdNotes> {
+public class BirdNote implements Comparable<BirdNote> {
 
+    private long noteId;
+    private long birdId;
+    private String notes;
     private LocalDateTime dateSpotted;
     private int numMales;
     private int numFemales;
     private String feederType;
     private String foodBlend;
+
+    public long getNoteId() {
+        return noteId;
+    }
+
+    public void setNoteId(long noteId) {
+        this.noteId = noteId;
+    }
+
+    public long getBirdId() {
+        return birdId;
+    }
+
+    public void setBirdId(long birdId) {
+        this.birdId = birdId;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
     public LocalDateTime getDateSpotted() {
         return dateSpotted;
@@ -58,7 +85,7 @@ public class BirdNotes implements Comparable<BirdNotes> {
      *          int < - if this object has a chronologically earlier date spotted than o
      */
     @Override
-    public int compareTo(BirdNotes o) {
+    public int compareTo(BirdNote o) {
         return this.getDateSpotted().compareTo(o.getDateSpotted());
     }
 }

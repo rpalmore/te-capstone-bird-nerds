@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Bird {
 
+    private long birdID;
     private String birdName;
     private String birdImg;
     private int numSightings;
     private int zipcode;
-    private List<BirdNotes> birdNotes;
 
     public String getBirdName() {
         return birdName;
@@ -40,13 +40,5 @@ public class Bird {
 
     public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
-    }
-
-    public List<BirdNotes> getBirdNotes() {
-        return birdNotes;
-    }
-
-    public void setBirdNotes(List<BirdNotes> birdNotes) {
-        this.birdNotes = birdNotes;
     }
 }
