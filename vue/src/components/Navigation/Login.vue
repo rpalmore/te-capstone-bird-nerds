@@ -12,7 +12,7 @@
       >
         Thank you for registering, please sign in.
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <!-- <label for="username" class="sr-only"></label> -->
       <input
         type="text"
         id="username"
@@ -22,7 +22,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <!-- <label for="password" class="sr-only">Password</label> -->
       <input
         type="password"
         id="password"
@@ -31,14 +31,14 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
+      <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
     </form>
   </div>
 </template>
 
 <script>
-import authService from "../services/AuthService";
+import authService from "../../services/AuthService";
 
 export default {
   name: "login",
@@ -77,6 +77,17 @@ export default {
 
 <style scoped>
 .form-signin {
-  padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+  background-color: #011627;
+  color: #fdfffc;
+  border: 2px solid #ff9f1c;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+}
+input[type] {
+  text-align: center;
 }
 </style>
