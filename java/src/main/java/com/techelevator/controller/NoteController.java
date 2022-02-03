@@ -33,5 +33,16 @@ public class NoteController {
         noteDao.deleteAllNotesForBird(birdId);
     }
 
+    @RequestMapping(path="/edit-note", method=RequestMethod.PUT)
+    public BirdNote editNote(@RequestBody BirdNote note) {
+        return noteDao.editNote(note);
+    }
+
+    @RequestMapping(path="/new-note", method=RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public BirdNote createNote(@RequestBody BirdNote note) {
+        return noteDao.addNote(note);
+    }
+
 
 }

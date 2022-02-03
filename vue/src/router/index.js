@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
+// import Login from '../views/Login.vue'
+import Login from '../components/Navigation/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
+import List from '../views/List.vue'
 
 Vue.use(Router)
 
@@ -27,7 +29,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -58,6 +60,14 @@ const router = new Router({
       path: "/profile",
       name: "profile",
       component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/lists",
+      name: "list",
+      component: List,
       meta: {
         requiresAuth: true
       }
