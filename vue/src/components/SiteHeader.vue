@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "header",
+  name: "site-header",
   data() {
     return {
       logo: "BIRD NERDS",

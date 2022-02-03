@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <SiteHeader />
     <LeftNav />
     <div>
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Header from './components/Header.vue';
+import SiteHeader from './components/SiteHeader.vue';
 import LeftNav from './components/LeftNav.vue';
 export default {
-  components: { Header, LeftNav },
+  components: { SiteHeader, LeftNav },
 }
 </script>
 
