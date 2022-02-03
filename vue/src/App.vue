@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <div id="nav">
+    <LeftNav />
+    <div>
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <!-- <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
     </div>
     <router-view />
   </div>
@@ -11,8 +12,9 @@
 
 <script>
 import Header from './components/Header.vue';
+import LeftNav from './components/LeftNav.vue';
 export default {
-  components: { Header },
+  components: { Header, LeftNav },
 }
 </script>
 
