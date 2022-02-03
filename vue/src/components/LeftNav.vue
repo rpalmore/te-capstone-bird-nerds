@@ -1,16 +1,44 @@
 <template>
   <div id="nav">
     <button id="btn-search">SEARCH</button>
-    <button id="btn-login">
-      <router-link v-bind:to="{ name: 'login' }">LOGIN</router-link>
+    <button id="btn-login" v-on:click="toggleBtn($event)">
+      <router-link v-bind:to="{ name: 'login' }">{{
+        clicked == false ? "LOGIN" : "WELCOME BACK"
+      }}</router-link>
     </button>
-    <button id="btn-register">REGISTER</button>
+    <router-view />
+    <!-- <Login /> -->
+    <!-- </router-view> -->
+    <button
+      id="btn-register"
+      v-bind:class="{ show: clicked === false }"
+      v-on:click="toggleBtn($event)"
+    >
+      <router-link :to="{ name: 'register' }">REGISTER</router-link>
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   name: "left-nav",
+  data() {
+    return {
+      clicked: false,
+      message: "",
+    };
+  },
+  methods: {
+    toggleBtn(event) {
+      console.log("EVENT: " + event.target.id); // not returning any data
+      if (this.clicked == false) {
+        this.clicked = true;
+      } else {
+        this.clicked = false;
+        this.$router.push("/");
+      }
+    },
+  },
 };
 </script>
 
@@ -36,8 +64,12 @@ export default {
   /* gap: 15px; */
   padding: 10px;
 }
-#btn-login > a {
-    text-decoration: none;
-    color: #fdfffc;
+#btn-login > a,
+#btn-register > a {
+  text-decoration: none;
+  color: #fdfffc;
+}
+.show {
+  /* display: none; */
 }
 </style>
