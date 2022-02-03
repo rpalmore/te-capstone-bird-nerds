@@ -2,7 +2,7 @@
   <div id="nav">
     <button id="btn-search">SEARCH</button>
     <button id="btn-login">
-      <router-link v-bind:to="{ name: 'login' }"> LOGIN</router-link>
+      <router-link v-bind:to="{ name: 'login' }">LOGIN</router-link>
     </button>
     <button id="btn-register">REGISTER</button>
   </div>
