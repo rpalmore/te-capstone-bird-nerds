@@ -1,6 +1,6 @@
 <template>
   <div id="profileForm">
-    <ProfileForm></ProfileForm>
+    <ProfileForm />
   </div>
 </template>
 

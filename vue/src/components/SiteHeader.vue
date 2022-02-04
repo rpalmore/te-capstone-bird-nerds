@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="header">
     <div id="logo-img">
       <img src="..\assets\placeholderLogo.png" alt="Placeholder logo" />
     </div>
@@ -27,7 +27,7 @@ export default {
 
 
 <style scoped>
-#main {
+#header {
   display: flex;
   background-color: #011627;
   height: 150px;

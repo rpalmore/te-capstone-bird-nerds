@@ -1,25 +1,24 @@
 <template>
   <div id="nav">
     <button id="btn-search">SEARCH</button>
-    
-    <button
-      class="btn"
-    >
-      <router-link id="btn-login" v-bind:to="{ name: 'login' }">LOGIN</router-link>
+
+    <button class="btn">
+      <router-link id="btn-login" v-bind:to="{ name: 'login' }"
+        >LOGIN</router-link
+      >
     </button>
-    
-    <button
-      class="btn"
-    >
+
+    <button class="btn">
       <router-link id="btn-register" :to="{ name: 'register' }"
-        >REGISTER</router-link>
+        >REGISTER</router-link
+      >
     </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "home",
 };
 </script>
 <style scoped>

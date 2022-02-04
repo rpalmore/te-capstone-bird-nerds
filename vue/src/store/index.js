@@ -19,7 +19,16 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    profile: {
+      // need to save this data to store?
+      username: currentUser,
+      profileImg: "",
+      zipCode: "",
+      favoriteBird: "",
+      skillLevel: "",
+      mostCommonBird: ""
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +46,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_PROFILE(state, payload) {
+      state.profile = payload;
+      
     }
   }
 })
