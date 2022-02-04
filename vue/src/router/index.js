@@ -81,6 +81,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: "list/:listID",
+      name: "listDetail",
+      component: ListDetail,
+      meta: {
+        requiresAuth: true
+      }
+    },
   ]
 })
 

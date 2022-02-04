@@ -74,6 +74,23 @@ public class JdbcBirdDao implements BirdDao{
 
     }
 
+    //listId can be sent in as a path variable, bird as request body
+    public Bird createBird(Bird bird, long listId) {
+        String sql = "INSERT INTO profiles(bird_name, bird_img, num_sightings, zipcode, list_id) " +
+                "VALUES (?, ?, ?, ?, ?) RETURNING bird_id";
+        long birdId = template.queryForObject(
+                sql,
+                Long.class,
+                bird.getBirdName(),
+                bird.getBirdImg(),
+                bird.getNumSightings(),
+                bird.getZipcode(),
+                listId
+        );
+        bird.setBirdID(birdId);
+        return bird;
+    }
+
     @Override
     public Bird updateBird(Bird bird) {
         String sql = "UPDATE birds " +
