@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.AnonymousBird;
 import com.techelevator.model.Bird;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -89,9 +90,26 @@ public class JdbcBirdDao implements BirdDao{
         return bird;
     }
 
-    public List<Bird> getBirdsByZip(int zipcode) {
-        List<Bird> birds = new ArrayList<>();
+    @Override
+    public List<AnonymousBird> getBirdsByZip(int zipcode) {
+        List<AnonymousBird> birds = new ArrayList<>();
 
+        String sql = "SELECT bird_name, zipcode, date_spotted\n" +
+                "FROM birds\n" +
+                "JOIN bird_notes ON birds.bird_id=bird_notes.bird_id\n" +
+                "WHERE zipcode = ?\n" +
+                "ORDER BY date_spotted DESC\n" +
+                "LIMIT 10";
+        SqlRowSet results = template.queryForRowSet(sql, zipcode);
+
+        while(results.next()) {
+            AnonymousBird bird = new AnonymousBird();
+            bird.setName(results.getString("bird_name"));
+            bird.setZipcode(results.getInt("zipcode"));
+            bird.setDateSpotted(results.getTimestamp("date_spotted").toLocalDateTime());
+
+            birds.add(bird);
+        }
 
         return birds;
     }
