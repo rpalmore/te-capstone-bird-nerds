@@ -8,6 +8,7 @@ import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
+import BirdNote from '../views/BirdNote.vue'
 
 Vue.use(Router)
 
@@ -68,6 +69,22 @@ const router = new Router({
       path: "/lists",
       name: "list",
       component: List,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/note",
+      name: "birdNoteForm",
+      component: BirdNote,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "list/:listID",
+      name: "listDetail",
+      component: ListDetail,
       meta: {
         requiresAuth: true
       }
