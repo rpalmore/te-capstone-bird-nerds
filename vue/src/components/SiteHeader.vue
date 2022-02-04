@@ -5,11 +5,9 @@
     </div>
     <div id="logo-text">
       <span>{{ logo }}</span>
-        <router-link
-          v-bind:to="{ name: 'logout' }"
-          v-if="$store.state.token != ''"
-          >Logout</router-link
-        >
+        <a id="logout" v-show="$store.state.token != ''" v-on:click="logout">
+        Logout
+      </a>
     </div>
   </div>
 </template>
@@ -22,6 +20,12 @@ export default {
       logo: "BIRD NERDS",
     };
   },
+  methods: {
+    logout() {
+    this.$store.commit("LOGOUT");
+    this.$router.push("/");
+  }
+  }
 };
 </script>
 
@@ -56,16 +60,10 @@ export default {
 #logo-text > span {
   font-size: 3rem;
 }
-#logout {
-  background-color: #ff9f1c;
-  padding: 5px 8px 5px 8px;
-  color: #011627;
-  border: 1px solid #fdfffc;
-
-}
 a {
   text-decoration: none;
   color: #fdfffc;
+  background-color: #011627;
   padding: 18px;
   border-left: 1px solid #E71D36;
 }

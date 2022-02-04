@@ -1,20 +1,16 @@
 <template>
   <div id="profile-form">
-    <div id="profile-nav">
-      
-    </div>
     <form v-on:submit.prevent="updateProfile">
       <!-- make this so it can swap the image dynamically when they upload -->
       <img v-bind:src="profile.profileImg" id="profile-img" />
       <input id="img-url" type="text" v-model="profile.profileImg" />
       <button id="upload-profile-image" v-on:click="updateImage">Upload</button>
-      <br />
 
       <label for="zip-code">Zipcode: </label>
-      <input id="zip-code" type="text" v-model="profile.zipCode" /> <br />
+      <input id="zip-code" type="text" v-model="profile.zipCode" />
 
       <label for="fav-bird">Favorite Bird: </label>
-      <input id="fav-bird" type="text" v-model="profile.favoriteBird" /> <br />
+      <input id="fav-bird" type="text" v-model="profile.favoriteBird" />
       <p>
         <label for="skill-lvl">Skill Level: </label>
         <select id="skill-lvl" size="3" v-model="profile.skillLevel">
@@ -51,8 +47,7 @@ export default {
     updateImage() {},
     updateProfile() {
       console.log(this.profile);
-      // Not sure about committing here ...
-      this.$store.commit('SET_PROFILE', this.profile);
+      this.$store.commit("SET_PROFILE", this.profile);
       profileService
         .updateProfile(this.profile)
         .then((response) => {
@@ -70,8 +65,11 @@ export default {
 
 <style scoped>
 #profile-form {
-  display: flex;
-  margin-top: 8px;
+  border: 1px solid #011627;
+  padding: 25px;
 }
-
+form {
+  display: flex;
+  flex-direction: column;
+}
 </style>
