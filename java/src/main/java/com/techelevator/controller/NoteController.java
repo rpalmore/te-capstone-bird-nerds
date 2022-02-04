@@ -27,18 +27,18 @@ public class NoteController {
         noteDao.deleteNote(noteId);
     }
 
-    @RequestMapping(path="/bird/{birdId}/delete-notes")
+    @RequestMapping(path="/bird/{birdId}/deleteNotes")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBirdsNotes(@PathVariable long birdId) {
         noteDao.deleteAllNotesForBird(birdId);
     }
 
-    @RequestMapping(path="/edit-note", method=RequestMethod.PUT)
+    @RequestMapping(path="/editNote", method=RequestMethod.PUT)
     public BirdNote editNote(@RequestBody BirdNote note) {
         return noteDao.editNote(note);
     }
 
-    @RequestMapping(path="/new-note", method=RequestMethod.POST)
+    @RequestMapping(path="/newNote", method=RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public BirdNote createNote(@RequestBody BirdNote note) {
         return noteDao.addNote(note);
