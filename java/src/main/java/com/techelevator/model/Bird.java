@@ -10,6 +10,14 @@ public class Bird {
     private int numSightings;
     private int zipcode;
 
+    public long getBirdID() {
+        return birdID;
+    }
+
+    public void setBirdID(long birdID) {
+        this.birdID = birdID;
+    }
+
     public String getBirdName() {
         return birdName;
     }
