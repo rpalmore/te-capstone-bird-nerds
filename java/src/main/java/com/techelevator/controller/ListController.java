@@ -1,6 +1,8 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.ListDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.model.BirdList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -11,7 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@PreAuthorize("isAuthenticated")
+@PreAuthorize("isAuthenticated()")
 public class ListController {
 
     @Autowired

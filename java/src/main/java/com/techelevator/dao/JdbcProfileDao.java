@@ -42,18 +42,13 @@ public class JdbcProfileDao implements ProfileDao {
     @Override
     public Profile addProfile(Profile newProfile) {
         String sql = "INSERT INTO profiles(user_id, profile_img, zip_code, favorite_bird, skill_level, most_common_bird) " +
-                "VALUES ((SELECT user_id FROM users WHERE username = ?), ?, ?, ?, ?, ?) RETURNING user_id";
+                "VALUES ((SELECT user_id FROM users WHERE username = ?), ?, ?, ?, ?, ?) RETURNING profile_id";
 
-        int newUser = template.queryForObject(sql, Integer.class, newProfile.getUsername(), newProfile.getProfileImg(),
+        int profileId = template.queryForObject(sql, Integer.class, newProfile.getUsername(), newProfile.getProfileImg(),
                 newProfile.getZipCode(), newProfile.getFavoriteBird(), newProfile.getSkillLevel(), newProfile.getMostCommonBird());
 
-        String sqlReceipt = "SELECT username FROM users WHERE user_id = ?";
-        SqlRowSet receipt = template.queryForRowSet(sqlReceipt, newUser);
-        String username = null;
-        if (receipt.next()) {
-            username = receipt.getString("username");
-        }
-        return getProfile(username);
+        newProfile.setProfileId(profileId);
+        return newProfile;
     }
 
     @Override
