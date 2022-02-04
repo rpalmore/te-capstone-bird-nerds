@@ -1,16 +1,47 @@
 <template>
   <div id="nav-well" v-if="$store.state.token === ''">
-    <router-view />
+    <!-- <div id="nav-well"> -->
+    <SearchBirds />
+
+    <button class="btn" id="btnLogin" v-on:click="toggleView($event)">
+      LOGIN
+    </button>
+    <Login v-if="loginClick === true"></Login>
+
+    <button class="btn" id="btnRegister" v-on:click="toggleView($event)">
+      REGISTER
+    </button>
+    <Register v-if="registerClick === true"></Register>
   </div>
-  <!-- use v-if or v-show depending on current page (which is in store) -->
-  <!-- when a component loads, on the created() we set an attribute in the store -->
-  <!-- nav: if this page is loaded, display the following options -->
-  <!-- each component has its own nav with its own router links -->
 </template>
 
 <script>
+import Login from "./Navigation/Login.vue";
+import SearchBirds from "./Navigation/SearchBirds.vue";
+import Register from "../views/Register.vue";
 export default {
   name: "left-nav",
+  components: { Login, SearchBirds, Register },
+  data() {
+    return {
+      loginClick: false,
+      registerClick: false,
+    };
+  },
+  methods: {
+    toggleView(event) {
+      if (event.target.id === "btnLogin") {
+        this.loginClick === false
+          ? (this.loginClick = true)
+          : (this.loginClick = false);
+      }
+      if (event.target.id === "btnRegister") {
+        this.registerClick === false
+          ? (this.registerClick = true)
+          : (this.registerClick = false);
+      }
+    },
+  },
 };
 </script>
 
@@ -18,10 +49,22 @@ export default {
 #nav-well {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 20%;
   border: 2px solid #011627;
   background-color: #2ec4b6;
-  margin-top: 8px;
-  height: 90%;
+  padding: 2px;
+}
+.btn {
+  margin-bottom: 35px;
+  width: 80%;
+  background-color: #011627;
+  color: #fdfffc;
+  border: 2px solid #ff9f1c;
+  border: 2px solid #e71d36;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+  margin-top: 35px;
+  padding: 10px;
 }
 </style>

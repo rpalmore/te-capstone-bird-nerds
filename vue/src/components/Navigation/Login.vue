@@ -1,6 +1,5 @@
 <template>
   <div id="login" class="text-center">
-    <button id="btn-search">SEARCH</button>
     <form class="form-signin" @submit.prevent="login">
       <span>{{ welcome }}</span>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
@@ -60,7 +59,6 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            // get profile object from database
             profileService.getProfile().then((response) => {
               if (response.status == 200) {
                 this.$store.commit("SET_PROFILE", response.data);
@@ -120,9 +118,6 @@ input[type] {
 input[type="text"],
 input[type="password"] {
   width: 70%;
-}
-#btn-search {
-  margin-bottom: 35px;
 }
 span {
   color: #011627;
