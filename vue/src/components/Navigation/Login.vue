@@ -1,9 +1,8 @@
 <template>
   <div id="login" class="text-center">
-    
     <button id="btn-search">SEARCH</button>
     <form class="form-signin" @submit.prevent="login">
-      <span>Welcome back!</span>
+      <span>{{ welcome }}</span>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -12,9 +11,8 @@
         role="alert"
         v-if="this.$route.query.registration"
       >
-        Thank you for registering, please sign in.
+        Please sign in!
       </div>
-      <!-- <label for="username" class="sr-only"></label> -->
       <input
         type="text"
         id="username"
@@ -24,7 +22,6 @@
         required
         autofocus
       />
-      <!-- <label for="password" class="sr-only">Password</label> -->
       <input
         type="password"
         id="password"
@@ -34,13 +31,13 @@
         required
       />
       <input type="submit" />
-      <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
     </form>
   </div>
 </template>
 
 <script>
 import authService from "../../services/AuthService";
+import profileService from "../../services/ProfileService";
 
 export default {
   name: "login",
@@ -52,6 +49,7 @@ export default {
         password: "",
       },
       invalidCredentials: false,
+      welcome: "Welcome back!",
     };
   },
   methods: {
@@ -62,7 +60,17 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/profile");
+            // get profile object from database
+            profileService.getProfile().then((response) => {
+              if (response.status == 200) {
+                this.$store.commit("SET_PROFILE", response.data);
+                if (this.$store.state.profile.favoriteBird != undefined) {
+                  this.$router.push("/lists");
+                } else {
+                  this.$router.push("/profile");
+                }
+              }
+            });
           }
         })
         .catch((error) => {
@@ -89,13 +97,13 @@ export default {
   align-items: center;
   padding: 18px 0 35px 0;
   margin: 0 8px 0 8px;
-  background-color: #FF9F1C;
-  border: 1px solid #E71D36;
+  background-color: #ff9f1c;
+  border: 1px solid #e71d36;
 }
 input[type] {
   text-align: center;
   border: 2px solid #ff9f1c;
-  border: 2px solid #E71D36;
+  border: 2px solid #e71d36;
 }
 #login button,
 input[type] {
@@ -103,13 +111,14 @@ input[type] {
   background-color: #011627;
   color: #fdfffc;
   border: 2px solid #ff9f1c;
-  border: 2px solid #E71D36;
+  border: 2px solid #e71d36;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   margin-top: 35px;
   padding: 10px;
 }
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   width: 70%;
 }
 #btn-search {
@@ -120,7 +129,7 @@ span {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   font-weight: bold;
-  border-bottom: 2px solid #E71D36;
+  border-bottom: 2px solid #e71d36;
   border-bottom: 2px solid #fdfffc;
   padding-bottom: 18px;
 }

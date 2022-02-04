@@ -1,6 +1,8 @@
 <template>
-  <main>
-    <h2>Update Profile</h2>
+  <div id="profile-form">
+    <div id="profile-nav">
+      
+    </div>
     <form v-on:submit.prevent="updateProfile">
       <!-- make this so it can swap the image dynamically when they upload -->
       <img v-bind:src="profile.profileImg" id="profile-img" />
@@ -13,8 +15,8 @@
 
       <label for="fav-bird">Favorite Bird: </label>
       <input id="fav-bird" type="text" v-model="profile.favoriteBird" /> <br />
-        <p>
-      <label for="skill-lvl">Skill Level: </label>
+      <p>
+        <label for="skill-lvl">Skill Level: </label>
         <select id="skill-lvl" size="3" v-model="profile.skillLevel">
           <option value="beginner">Beginner</option>
           <option value="intermediate">Intermediate</option>
@@ -23,42 +25,53 @@
       </p>
       <p>
         <label for="most-common-bird">Most commonly spotted bird: </label>
-        <input type="text" id="most-common-bird" v-model="profile.mostCommonBird" />
+        <input
+          type="text"
+          id="most-common-bird"
+          v-model="profile.mostCommonBird"
+        />
       </p>
       <input type="submit" />
     </form>
-  </main>
+  </div>
 </template>
 
 
 <script>
-import profileService from '../services/ProfileService';
+import profileService from "../services/ProfileService";
 export default {
   data() {
     return {
       profile: {
-          username: this.$store.state.user.username,
+        username: this.$store.state.user.username,
       },
     };
   },
   methods: {
     updateImage() {},
     updateProfile() {
-        console.log(this.profile);
-        profileService.updateProfile(this.profile).then((response) => {
-
-            if (response.status === 200) {
-                alert("profile created!");
-            }
+      console.log(this.profile);
+      // Not sure about committing here ...
+      this.$store.commit('SET_PROFILE', this.profile);
+      profileService
+        .updateProfile(this.profile)
+        .then((response) => {
+          if (response.status === 200) {
+            alert("profile created!");
+          }
         })
         .catch((err) => {
-            console.error(err + " problem updating profile!");
+          console.error(err + " problem updating profile!");
         });
     },
   },
-
 };
 </script>
 
-<style>
+<style scoped>
+#profile-form {
+  display: flex;
+  margin-top: 8px;
+}
+
 </style>
