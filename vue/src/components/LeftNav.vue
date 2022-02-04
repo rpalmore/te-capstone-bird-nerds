@@ -1,18 +1,16 @@
 <template>
-  <div id="nav-well" v-if="$store.state.token === ''">
-    <!-- <div id="nav-well"> -->
-    <SearchBirds />
-
-    <button class="btn" id="btnLogin" v-on:click="toggleView($event)">
-      LOGIN
-    </button>
-    <Login v-if="loginClick === true"></Login>
-
-    <button class="btn" id="btnRegister" v-on:click="toggleView($event)">
-      REGISTER
-    </button>
-    <Register v-if="registerClick === true"></Register>
-  </div>
+    <div id="nav-well">
+      <!-- to do: search for birds by zip -->
+      <SearchBirds />
+      <button v-if="$store.state.token === ''" class="btn" id="btnLogin" v-on:click="toggleView($event)">
+        LOGIN
+      </button>
+      <Login v-if="loginClick === true && $store.state.token === ''"></Login>
+      <button v-if="$store.state.token === ''" class="btn" id="btnRegister" v-on:click="toggleView($event)">
+        REGISTER
+      </button>
+      <Register v-if="registerClick === true && $store.state.token === ''"></Register>
+    </div>
 </template>
 
 <script>
