@@ -14,5 +14,12 @@ public class BirdController {
     @Autowired
     BirdDao birdDao;
 
+    // path /lists/{listId}/birds - get all birds in a list
+    // /bird/{birdId} - get a bird
+    // /deleteBird/{birdId}
+    // deleteBirdsFromLIst only called in ListDao
+    // /updateBird
+    //
+
 
 }
