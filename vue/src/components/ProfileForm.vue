@@ -1,33 +1,42 @@
 <template>
-  <div id="profile-form">
+  <div v-show="displayForm === true" id="profile-form">
     <form v-on:submit.prevent="updateProfile">
-      <!-- make this so it can swap the image dynamically when they upload -->
-      <img v-bind:src="profile.profileImg" id="profile-img" />
-      <input id="img-url" type="text" v-model="profile.profileImg" />
-      <button id="upload-profile-image" v-on:click="updateImage">Upload</button>
+      <!-- to do: make this so it can swap the image dynamically when they upload -->
+      <!-- <img v-bind:src="profile.profileImg" id="profile-img" /> -->
+      <label for="img-url"
+        >Customize your profile photo by adding an image URL.</label
+      >
+      <input
+        id="img-url"
+        placeholder=" Add an image URL here."
+        type="text"
+        v-model="profile.profileImg"
+      />
+      <!-- <button id="upload-profile-image" v-on:click="updateImage">Upload</button> -->
+      <label for="fav-bird">What is your favorite bird?</label>
+      <input id="fav-bird" type="text" v-model="profile.favoriteBird" />
 
-      <label for="zip-code">Zipcode: </label>
+      <label for="most-common-bird"
+        >Tell us what bird you most commonly spot.</label
+      >
+      <input
+        type="text"
+        id="most-common-bird"
+        v-model="profile.mostCommonBird"
+      />
+
+      <label for="zip-code">Please enter your zip code:</label>
       <input id="zip-code" type="text" v-model="profile.zipCode" />
 
-      <label for="fav-bird">Favorite Bird: </label>
-      <input id="fav-bird" type="text" v-model="profile.favoriteBird" />
-      <p>
-        <label for="skill-lvl">Skill Level: </label>
-        <select id="skill-lvl" size="3" v-model="profile.skillLevel">
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
-        </select>
-      </p>
-      <p>
-        <label for="most-common-bird">Most commonly spotted bird: </label>
-        <input
-          type="text"
-          id="most-common-bird"
-          v-model="profile.mostCommonBird"
-        />
-      </p>
+      <label for="skill-lvl">What is your skill level?</label>
+      <select id="skill-lvl" size="3" v-model="profile.skillLevel">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+
       <input type="submit" />
+      
     </form>
   </div>
 </template>
@@ -41,18 +50,24 @@ export default {
       profile: {
         username: this.$store.state.user.username,
       },
+      displayForm: true,
     };
   },
   methods: {
+    // cancelSubmit() {
+    //   this.profile = {},
+    //   this.displayForm = false;
+    // },
     updateImage() {},
     updateProfile() {
       console.log(this.profile);
       this.$store.commit("SET_PROFILE", this.profile);
+      this.displayForm = false;
       profileService
         .updateProfile(this.profile)
         .then((response) => {
           if (response.status === 200) {
-            alert("profile created!");
+            alert("Profile created!");
           }
         })
         .catch((err) => {
@@ -71,5 +86,10 @@ export default {
 form {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+label {
+  font-family: "Bitter", serif;
 }
 </style>

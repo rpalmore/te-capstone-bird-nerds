@@ -10,7 +10,9 @@
       <div v-if="this.$route.path == '/lists'">
         <List />
       </div>
-      <div v-if="this.$route.path == '/note'"><BirdNote /></div>
+      <div v-if="this.$route.path == '/note'">
+        <BirdNote />
+      </div>
     </div>
   </div>
 </template>

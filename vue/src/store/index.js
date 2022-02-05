@@ -23,10 +23,10 @@ export default new Vuex.Store({
     profile: {
       username: currentUser,
       profileImg: "",
-      zipCode: "",
       favoriteBird: "",
-      skillLevel: "",
-      mostCommonBird: ""
+      mostCommonBird: "",
+      zipCode: "",
+      skillLevel: ""
     },
   },
   mutations: {

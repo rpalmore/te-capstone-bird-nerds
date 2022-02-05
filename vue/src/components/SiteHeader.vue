@@ -63,7 +63,6 @@ export default {
 a {
   text-decoration: none;
   color: #fdfffc;
-  background-color: #011627;
   padding: 18px;
   border-left: 1px solid #E71D36;
 }

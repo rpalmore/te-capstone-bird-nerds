@@ -1,5 +1,7 @@
 <template>
-  
+  <div id="profileDisplay">
+      Here is the profile display page.
+  </div>
 </template>
 
 <script>

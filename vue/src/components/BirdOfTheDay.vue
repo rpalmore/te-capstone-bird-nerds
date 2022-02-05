@@ -4,6 +4,12 @@
   </div>
 </template>
 
+// Fiery-throated Hummingbird Panterpe insignis
+// © Carlos Sanchez
+// Macaulay Library
+// eBird
+
+
 <script>
 export default {
   name: "bird-of-the-day",
