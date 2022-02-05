@@ -36,7 +36,9 @@ public class ListController {
 
     @RequestMapping(path="/createList", method=RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public BirdList createList(@RequestBody BirdList newList) {
+    public BirdList createList(@RequestBody BirdList newList, Principal principal) {
+        int userId = userDao.findIdByUsername(principal.getName());
+        newList.setUserId(userId);
         return listDao.addList(newList);
     }
 
