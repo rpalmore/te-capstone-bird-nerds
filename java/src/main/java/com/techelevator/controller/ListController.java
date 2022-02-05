@@ -22,7 +22,7 @@ public class ListController {
     @Autowired
     ListDao listDao;
 
-    @RequestMapping(path="/lists", method= RequestMethod.GET)
+    @RequestMapping(path="/lists", method=RequestMethod.GET)
     public List<BirdList> getAllLists(Principal principal) {
         String username = principal.getName();
         int userId = userDao.findIdByUsername(username);
@@ -30,7 +30,7 @@ public class ListController {
     }
 
     @RequestMapping(path="/lists/{listId}", method=RequestMethod.GET)
-    public BirdList getList (@PathVariable int listId) {
+    public BirdList getList(@PathVariable int listId) {
         return listDao.getList(listId);
     }
 

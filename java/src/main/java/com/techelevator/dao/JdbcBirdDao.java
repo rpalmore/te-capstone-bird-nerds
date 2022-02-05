@@ -58,9 +58,9 @@ public class JdbcBirdDao implements BirdDao{
     @Override
     public void deleteBird(long birdId) {
 
-        String sql = "DELETE FROM bird WHERE bird_id = ?";
-        template.update(sql, birdId);
+        String sql = "DELETE FROM birds WHERE bird_id = ?";
         noteDao.deleteAllNotesForBird(birdId);
+        template.update(sql, birdId);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class JdbcBirdDao implements BirdDao{
 
     //listId can be sent in as a path variable, bird as request body
     public Bird createBird(Bird bird, long listId) {
-        String sql = "INSERT INTO profiles(bird_name, bird_img, num_sightings, zipcode, list_id) " +
+        String sql = "INSERT INTO birds(bird_name, bird_img, num_sightings, zipcode, list_id) " +
                 "VALUES (?, ?, ?, ?, ?) RETURNING bird_id";
         long birdId = template.queryForObject(
                 sql,

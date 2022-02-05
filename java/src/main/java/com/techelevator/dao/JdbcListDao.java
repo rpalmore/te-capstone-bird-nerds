@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.BirdList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,9 @@ import java.util.List;
 
 @Component
 public class JdbcListDao implements ListDao {
+
+    @Autowired
+    private BirdDao birdDao;
 
     private JdbcTemplate template;
 
@@ -84,7 +88,9 @@ public class JdbcListDao implements ListDao {
 
     @Override
     public void deleteList(int listId) {
+
         String sql = "DELETE FROM lists WHERE list_id = ?";
+        birdDao.deleteBirdsFromList(listId);
         template.update(sql, listId);
     }
 }

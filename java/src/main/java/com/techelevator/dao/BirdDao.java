@@ -14,6 +14,8 @@ public interface BirdDao {
 
     void deleteBirdsFromList(long listId);
 
+    Bird createBird(Bird bird, long listId);
+
     Bird updateBird(Bird bird);
 
     List<AnonymousBird> getBirdsByZip(int zipcode);

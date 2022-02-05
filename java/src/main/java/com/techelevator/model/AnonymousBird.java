@@ -1,11 +1,14 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 
 public class AnonymousBird {
 
     private String name;
     private int zipcode;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateSpotted;
 
     public String getName() {
