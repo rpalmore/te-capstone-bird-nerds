@@ -18,7 +18,8 @@ export default {
     data() {
         return {
             list: {
-                 username: this.$store.state.user.username,
+                 //username: this.$store.state.user.username,
+                 userId: 0,
             }
         }
     },
