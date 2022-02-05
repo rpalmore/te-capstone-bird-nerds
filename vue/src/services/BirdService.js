@@ -3,31 +3,27 @@ import axios from 'axios';
 export default {
 
     getBirdsInList(listId) {
-        return axios.get();
+        return axios.get(`/lists/${listId}/birds`);
     },
 
     getBird(birdId) {
-        return axios.get();
+        return axios.get(`/bird/${birdId}`);
     },
 
     deleteBird(birdId) {
-        return axios.delete();
-    },
-
-    deleteAllBirdsInList(listId) {
-        return axios.delete();
+        return axios.delete(`/deleteBird/${birdId}`);
     },
 
     editBird(bird) {
-        return axios.put();
+        return axios.put('/updateBird', bird);
     },
 
-    createBird(bird) {
-        return axios.post();
+    createBird(listId, bird) {
+        return axios.post(`/lists/${listId}/addBird`, bird);
     },
 
     getBirdByZip(zipcode) {
-        return axios.get();
+        return axios.get(`/birds/${zipcode}`);
     }
 
 

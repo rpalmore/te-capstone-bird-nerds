@@ -8,7 +8,7 @@ import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
 import BirdNote from '../views/BirdNote.vue'
-import ListDetail from '../components/ListDetail.vue';
+//import ListDetailView from '../views/ListDetailView.vue';
 
 Vue.use(Router)
 
@@ -86,14 +86,22 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    {
-      path: "list/:listID",
-      name: "list-detail",
-      component: ListDetail,
-      meta: {
-        requiresAuth: true
-      }
-    },
+    // {
+    //   path: "list/1",
+    //   name: "list-detail",
+    //   component: ListDetail,
+    //   meta: {
+    //     requiresAuth: true
+    //   }
+    // },
+    // {
+    //   path: "list/:listId/bird/:birdId",
+    //   name: "birdDetail",
+    //   component: BirdDetail,
+    //   meta: {
+    //     requiresAuth: true
+    //   }
+    // },
   ]
 })
 

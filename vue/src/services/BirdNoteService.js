@@ -15,7 +15,7 @@ export default {
     },
 
     addNote(birdNote) {
-        return axios.post('/addNote', birdNote);
+        return axios.post('/newNote', birdNote);
     },
 
     getNote() {

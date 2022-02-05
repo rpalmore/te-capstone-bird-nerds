@@ -4,15 +4,17 @@
       <BirdOfTheDay />
     </div>
     <div v-if="$store.state.token != ''">
+
       <div v-if="this.$route.path == '/profile'">
         <Profile />
       </div>
-      <div v-if="this.$route.path == '/lists'">
-        <List />
+      <div v-if="this.$store.state.profile.favoriteBird != undefined">
+      <List />
       </div>
       <div v-if="this.$route.path == '/note'">
         <BirdNote />
       </div>
+      <ListDetailView />
     </div>
   </div>
 </template>
@@ -22,8 +24,10 @@ import List from "../views/List.vue";
 import Profile from "../views/Profile.vue";
 import BirdOfTheDay from "./BirdOfTheDay.vue";
 import BirdNote from "../views/BirdNote.vue";
+import ListDetailView from "../views/ListDetailView.vue";
+
 export default {
-  components: { BirdOfTheDay, Profile, List, BirdNote },
+  components: { BirdOfTheDay, Profile, List, BirdNote, ListDetailView },
 };
 </script>
 
