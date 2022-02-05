@@ -6,13 +6,8 @@ export default {
         return axios.get(`/lists/${listId}/birds`);
     },
 
-<<<<<<< HEAD
-/*     getBird(birdId) {
-        return axios.get();
-=======
     getBird(birdId) {
         return axios.get(`/bird/${birdId}`);
->>>>>>> main
     },
 
     deleteBird(birdId) {
@@ -28,13 +23,8 @@ export default {
     },
 
     getBirdByZip(zipcode) {
-<<<<<<< HEAD
-        return axios.get();
-    } */
-=======
         return axios.get(`/birds/${zipcode}`);
     }
->>>>>>> main
 
 
 }
