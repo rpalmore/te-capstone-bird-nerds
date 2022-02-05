@@ -34,6 +34,15 @@ public class JdbcBirdDao implements BirdDao{
 
         while(results.next()) {
             Bird bird = makeBirdFromSqlRowSet(results);
+
+            String getDateSQL = "SELECT MAX(date_spotted) AS recent_sighting\n" +
+                    "FROM bird_notes\n" +
+                    "WHERE bird_id = ?";
+            SqlRowSet dateResult = template.queryForRowSet(getDateSQL, bird.getBirdID());
+
+            if (dateResult.next()) bird.setMostRecentSighting(dateResult.getTimestamp("recent_sighting").toLocalDateTime());
+            else bird.setMostRecentSighting(null);
+
             birds.add(bird);
         }
 
@@ -43,14 +52,22 @@ public class JdbcBirdDao implements BirdDao{
     @Override
     public Bird getBirdById(long birdId) {
 
-        String sql = "SELECT bird_id, bird_name, bird_img, num_sightings, zipcode " +
-                "FROM birds " +
-                "WHERE bird_id = ?";
+        String sql = "SELECT birds.bird_id, bird_name, bird_img, num_sightings, zipcode\n" +
+                "FROM birds\n" +
+                "WHERE birds.bird_id = ?\n";
         SqlRowSet result = template.queryForRowSet(sql, birdId);
+
+        String getDateSQL = "SELECT MAX(date_spotted) AS recent_sighting\n" +
+                "FROM bird_notes\n" +
+                "WHERE bird_id = ?";
+        SqlRowSet dateResult = template.queryForRowSet(getDateSQL, birdId);
 
         Bird bird = new Bird();
         if(result.next()) {
             bird = makeBirdFromSqlRowSet(result);
+            if (dateResult.next()) {
+                bird.setMostRecentSighting(dateResult.getTimestamp("recent_sighting").toLocalDateTime());
+            } else bird.setMostRecentSighting(null);
         }
         return bird;
     }
