@@ -8,13 +8,15 @@
       <div v-if="this.$route.path == '/profile'">
         <Profile />
       </div>
-      <div v-if="this.$store.state.profile.favoriteBird != undefined">
+      <div v-if="this.$route.path == '/lists'">
       <List />
       </div>
       <div v-if="this.$route.path == '/note'">
         <BirdNote />
       </div>
-      <ListDetailView />
+      <!-- RP commented this component out, below, since we don't have logic on when it should display yet.
+          This should be handled with dynamic route matching -->
+      <!-- <ListDetailView /> -->
     </div>
   </div>
 </template>
@@ -24,10 +26,10 @@ import List from "../views/List.vue";
 import Profile from "../views/Profile.vue";
 import BirdOfTheDay from "./BirdOfTheDay.vue";
 import BirdNote from "../views/BirdNote.vue";
-import ListDetailView from "../views/ListDetailView.vue";
+// import ListDetailView from "../views/ListDetailView.vue";
 
 export default {
-  components: { BirdOfTheDay, Profile, List, BirdNote, ListDetailView },
+  components: { BirdOfTheDay, Profile, List, BirdNote },
 };
 </script>
 
