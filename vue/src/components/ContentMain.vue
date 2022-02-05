@@ -22,16 +22,11 @@
 import List from "../views/List.vue";
 import Profile from "../views/Profile.vue";
 import BirdOfTheDay from "./BirdOfTheDay.vue";
-<<<<<<< HEAD
 import BirdNote from "../views/BirdNote.vue";
 import ListDetailView from "../views/ListDetailView.vue";
 
 export default {
   components: { BirdOfTheDay, Profile, List, BirdNote, ListDetailView },
-=======
-export default {
-  components: { BirdOfTheDay, Profile, List },
->>>>>>> parent of 7305ffc (new logic in ContentMain for displaying components based on path)
 };
 </script>
 
