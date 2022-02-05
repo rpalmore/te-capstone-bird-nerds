@@ -9,6 +9,7 @@ import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
 import BirdNote from '../views/BirdNote.vue'
+import ListDetail from '../components/ListDetail.vue';
 
 Vue.use(Router)
 
@@ -83,7 +84,7 @@ const router = new Router({
     },
     {
       path: "list/:listID",
-      name: "listDetail",
+      name: "list-detail",
       component: ListDetail,
       meta: {
         requiresAuth: true
