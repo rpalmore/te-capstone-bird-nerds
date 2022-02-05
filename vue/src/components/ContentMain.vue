@@ -8,8 +8,8 @@
       <div v-if="this.$route.path == '/profile'">
         <Profile />
       </div>
-      <div v-if="this.$route.path == '/lists'">
-        <List />
+      <div v-if="this.$store.state.profile.favoriteBird != undefined">
+      <List />
       </div>
       <div v-if="this.$route.path == '/note'"><BirdNote /></div>
       <div v-if="this.$route.path == '/list/1'"><ListDetailView /></div>
@@ -22,11 +22,16 @@
 import List from "../views/List.vue";
 import Profile from "../views/Profile.vue";
 import BirdOfTheDay from "./BirdOfTheDay.vue";
+<<<<<<< HEAD
 import BirdNote from "../views/BirdNote.vue";
 import ListDetailView from "../views/ListDetailView.vue";
 
 export default {
   components: { BirdOfTheDay, Profile, List, BirdNote, ListDetailView },
+=======
+export default {
+  components: { BirdOfTheDay, Profile, List },
+>>>>>>> parent of 7305ffc (new logic in ContentMain for displaying components based on path)
 };
 </script>
 
