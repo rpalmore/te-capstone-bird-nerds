@@ -3,10 +3,10 @@ import axios from 'axios';
 export default {
 
     getBirdsInList(listId) {
-        return axios.get();
+        return axios.get(`/lists/${listId}/birds`);
     },
 
-    getBird(birdId) {
+/*     getBird(birdId) {
         return axios.get();
     },
 
@@ -28,7 +28,7 @@ export default {
 
     getBirdByZip(zipcode) {
         return axios.get();
-    }
+    } */
 
 
 }

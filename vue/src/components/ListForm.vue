@@ -15,6 +15,7 @@
 <script>
 import listService from '../services/ListService';
 export default {
+    
     data() {
         return {
             list: {
