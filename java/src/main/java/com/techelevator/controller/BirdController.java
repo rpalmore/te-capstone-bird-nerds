@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.BirdDao;
+import com.techelevator.model.AnonymousBird;
 import com.techelevator.model.Bird;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,4 +45,8 @@ public class BirdController {
         birdDao.deleteBird(birdId);
     }
 
+    @RequestMapping(path="/birds/{zipcode}", method=RequestMethod.GET)
+    public List<AnonymousBird> getBirdByZip(@PathVariable int zipcode) {
+        return birdDao.getBirdsByZip(zipcode);
+    }
 }

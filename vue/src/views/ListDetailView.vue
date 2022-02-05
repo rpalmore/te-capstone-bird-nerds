@@ -1,12 +1,16 @@
 <template>
-  <ListDetail />
+    <div>
+        <h1>woo</h1>
+        <ListDetail />
+    </div>
 </template>
 
 <script>
-import ListDetail from '../components/ListDetail.vue'
+import ListDetail from '../components/ListDetail.vue';
 
 export default {
-    components: {ListDetail}
+    name: "listDetailView",
+    components: { ListDetail }
 };
 </script>
 

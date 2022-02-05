@@ -83,9 +83,9 @@ const router = new Router({
       }
     },
     {
-      path: "/list/:listId",
-      name: "ListDetailView",
-      component: ListDetailView,
+      path: "list/1",
+      name: "list-detail",
+      component: ListDetail,
       meta: {
         requiresAuth: true
       }
