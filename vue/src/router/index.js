@@ -88,7 +88,7 @@ const router = new Router({
       }
     },
     // {
-    //   path: "list/1",
+    //   path: "list/:listId",
     //   name: "list-detail",
     //   component: ListDetail,
     //   meta: {
