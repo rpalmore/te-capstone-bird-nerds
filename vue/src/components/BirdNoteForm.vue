@@ -1,26 +1,30 @@
 <template>
   <main>
-      <h2>Bird Notes</h2>
-      <form v-on:submit.prevent="addNote">
-      <br/>
+    <h2>Bird Notes</h2>
+    <form v-on:submit.prevent="addNote">
+      <br />
 
       <label for="date-spotted">Date: </label>
-      <input id="date-spotted" type="datetime-local" v-model="birdNote.dateSpotted"/>
+      <input
+        id="date-spotted"
+        type="datetime-local"
+        v-model="birdNote.dateSpotted"
+      />
 
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <label for="num-males">Males: </label>
-      <input id="num-males" type="text" v-model="birdNote.numMales"/>
+      <input id="num-males" type="text" v-model="birdNote.numMales" />
 
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <label for="num-females">Females: </label>
-      <input id="num-females" type="text" v-model="birdNote.numFemales"/>
+      <input id="num-females" type="text" v-model="birdNote.numFemales" />
 
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <label for="feeder-type">Feeder Type: </label>
       <select id="feeder-type" size="7" v-model="birdNote.feederType">
@@ -33,8 +37,8 @@
         <option value="peanut-feeder">Peanut-feeder</option>
       </select>
 
-      <br/>
-      
+      <br />
+
       <label for="food-blend">Food Blend: </label>
       <select id="food-blend" size="6" v-model="birdNote.foodBlend">
         <option value="live-mealworms">Live Mealworms</option>
@@ -44,15 +48,14 @@
         <option value="sunflower-blend">Sunflower-blend</option>
         <option value="nutty-blend">Nutty-blend</option>
       </select>
-      <br/>
+      <br />
       <p>
-      <label for="notes">Notes: </label>
-      <input id="notes" type="text" v-model="birdNote.notes">
+        <label for="notes">Notes: </label>
+        <input id="notes" type="text" v-model="birdNote.notes" />
       </p>
-      <br/>
+      <br />
       <input type="submit" />
-
-  </form>
+    </form>
   </main>
 </template>
 
@@ -68,21 +71,21 @@ export default {
   },
   methods: {
     addNote() {
-        console.log(this.birdNote);
-        birdNoteService.addNote(this.birdNote).then((response) => {
-
-            if (response.status === 201) {
-                alert("note created!");
-            }
+      console.log(this.birdNote);
+      birdNoteService
+        .addNote(this.birdNote)
+        .then((response) => {
+          if (response.status === 201) {
+            alert("note created!");
+          }
         })
         .catch((err) => {
-            console.error(err + " problem adding bird note!");
+          console.error(err + " problem adding bird note!");
         });
     },
-  }
-}
+  },
+};
 </script>
 
 <style>
-
 </style>
