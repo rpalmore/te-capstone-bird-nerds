@@ -11,9 +11,6 @@
 <script>
 export default {
   name: "list-of-lists",
-  // props: {
-  //   list: Object,
-  // },
 };
 </script>
 

@@ -60,13 +60,14 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            listService.getAllLists();
+            listService.getAllLists().then((response) => {
+              if (response.status == 200) {
+                this.$store.commit("SET_LIST", response.data);
+              }
+            });
             profileService.getProfile().then((response) => {
               if (response.status == 200) {
                 this.$store.commit("SET_PROFILE", response.data);
-                this.$store.commit("SET_LIST", response.data);
-                // console.log("LISTS");
-                // console.log(this.$store.state.lists);
                 if (this.$store.state.profile.favoriteBird != undefined) {
                   this.$router.push("/lists");
                 } else {

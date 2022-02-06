@@ -28,13 +28,8 @@ export default new Vuex.Store({
       zipCode: "",
       skillLevel: ""
     },
-    lists: [ {
-      listName: "",
-    }],
-    // list: {
-    //   listName: "",
-    // },
-    listCount: 0,
+    // use localStorage to prevent data from resetting after refreshing page
+    lists: JSON.parse(localStorage.getItem('lists') || "{}")
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -57,11 +52,12 @@ export default new Vuex.Store({
       state.profile = payload;
     },
     SET_LIST(state, payload) {
-      //state.lists.push(list);
       state.lists = payload;
+      localStorage.setItem("lists",JSON.stringify(state.lists));
     },
-    ADD_LIST(state) {
-      state.listCount++;
+    ADD_LIST(state, list) {
+      state.lists.push(list);
+      localStorage.setItem("lists",JSON.stringify(state.lists));
     },
   }
 })

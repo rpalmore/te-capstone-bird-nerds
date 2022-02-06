@@ -1,10 +1,15 @@
 <template>
-  <button id="btn-lists">MY LISTS: {{ $store.state.listCount }}</button>
+  <button id="btn-lists">MY LISTS: {{ count }}</button>
 </template>
 
 <script>
 export default {
   name: "my-lists",
+  computed: {
+    count() {
+      return this.$store.state.lists.length;
+    },
+  },
 };
 </script>
 

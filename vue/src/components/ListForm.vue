@@ -26,12 +26,10 @@ export default {
   methods: {
     createList() {
       console.log(this.list);
-      this.$store.commit("ADD_LIST", this.list);
-      listService
-        .createList(this.list)
-        .then((response) => {
-          if (response.status === 200) {
-            alert("list created!");
+      listService.createList(this.list).then((response) => {
+          if (response.status === 201) {
+            this.$store.commit("ADD_LIST", this.list);
+            console.log(this.$store.state.lists.length);
           }
         })
         .catch((err) => {

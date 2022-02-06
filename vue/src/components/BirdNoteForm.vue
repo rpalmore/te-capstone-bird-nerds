@@ -71,7 +71,7 @@ export default {
         console.log(this.birdNote);
         birdNoteService.addNote(this.birdNote).then((response) => {
 
-            if (response.status === 200) {
+            if (response.status === 201) {
                 alert("note created!");
             }
         })
