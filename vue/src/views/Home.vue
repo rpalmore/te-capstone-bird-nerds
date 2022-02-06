@@ -1,23 +1,14 @@
 <template>
   <div id="nav">
-    <button id="btn-search">SEARCH</button>
-
-    <button class="btn">
-      <router-link id="btn-login" v-bind:to="{ name: 'login' }"
-        >LOGIN</router-link
-      >
-    </button>
-
-    <button class="btn">
-      <router-link id="btn-register" :to="{ name: 'register' }"
-        >REGISTER</router-link
-      >
-    </button>
+    <bird-of-the-day />
   </div>
 </template>
 
 <script>
+import BirdOfTheDay from '../components/BirdOfTheDay.vue';
+
 export default {
+  components: { BirdOfTheDay },
   name: "home",
 };
 </script>

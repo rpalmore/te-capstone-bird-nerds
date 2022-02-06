@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../components/Navigation/Login.vue'
-import Logout from '../views/Logout.vue'
-import Register from '../views/Register.vue'
+// import Login from '../components/Navigation/Login.vue'
+// import Logout from '../views/Logout.vue'
+// import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
 import BirdNote from '../views/BirdNote.vue'
 //import ListDetailView from '../views/ListDetailView.vue';
+//import BirdOfTheDay from '../components/BirdOfTheDay.vue';
 
 Vue.use(Router)
 
@@ -31,36 +32,36 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home,
       meta: {
         requiresAuth: false
       }
     },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/logout",
-      name: "logout",
-      component: Logout,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
-      meta: {
-        requiresAuth: false
-      }
-    },
+    // {
+    //   path: "/login",
+    //   name: "login",
+    //   component: Login,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // },
+    // {
+    //   path: "/logout",
+    //   name: "logout",
+    //   component: Logout,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // },
+    // {
+    //   path: "/register",
+    //   name: "register",
+    //   component: Register,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // },
     {
       path: "/profile",
       name: "profile",
@@ -109,9 +110,10 @@ router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
 
-  // If it does and they are not logged in, send the user to "/login"
+  //If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
-    next("/login");
+    window.alert("You must be logged in to view this page");
+    next("/");
   } else {
     // Else let them go to their next destination
     next();

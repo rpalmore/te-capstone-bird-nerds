@@ -1,6 +1,6 @@
 <template>
   <div id="content-main">
-    <div v-if="$store.state.token === ''">
+    <!-- <div v-if="$store.state.token === ''">
       <BirdOfTheDay />
     </div>
     <div v-if="$store.state.token != ''">
@@ -12,22 +12,25 @@
       </div>
       <div v-if="this.$route.path == '/note'">
         <BirdNote />
-      </div>
+      </div> -->
       <!-- RP commented out ListDetailView while we figure out dynamic route matching -- otherwise component will always display in this container. -->
       <!-- <ListDetailView /> -->
-    </div>
+    <!-- </div> -->
+
+    <router-view />
+    
   </div>
 </template>
 
 <script>
-import List from "../views/List.vue";
-import Profile from "../views/Profile.vue";
-import BirdOfTheDay from "./BirdOfTheDay.vue";
-import BirdNote from "../views/BirdNote.vue";
-// import ListDetailView from "../views/ListDetailView.vue";
+// import List from "../views/List.vue";
+// import Profile from "../views/Profile.vue";
+// import BirdOfTheDay from "./BirdOfTheDay.vue";
+// import BirdNote from "../views/BirdNote.vue";
+//import ListDetailView from "../views/ListDetailView.vue";
 
 export default {
-  components: { BirdOfTheDay, Profile, List, BirdNote },
+  //components: { BirdOfTheDay, Profile, List, BirdNote },
 };
 </script>
 
