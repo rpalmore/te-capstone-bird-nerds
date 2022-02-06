@@ -1,15 +1,14 @@
 <template>
-  <button id="btn-profile" v-on:click="goToProfile">PROFILE</button>
+  <router-link :to="{ name: 'profile' }"
+    ><button id="btn-profile">PROFILE</button>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: "go-to-profile",
   methods: {
-      goToProfile() {
-          this.$router.push("/profile");
-      }
-  }
+  },
 };
 </script>
 
@@ -25,5 +24,10 @@ export default {
   font-size: 1.3rem;
   margin-top: 35px;
   padding: 10px;
+}
+a {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 </style>

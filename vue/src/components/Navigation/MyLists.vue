@@ -1,5 +1,7 @@
 <template>
-  <button id="btn-lists">MY LISTS: {{ count }}</button>
+  <router-link :to="{ name: 'list' }"
+    ><button id="btn-lists">MY LISTS: {{ count }}</button>
+  </router-link>
 </template>
 
 <script>
@@ -9,6 +11,8 @@ export default {
     count() {
       return this.$store.state.lists.length;
     },
+  },
+  methods: {
   },
 };
 </script>
@@ -25,5 +29,10 @@ export default {
   font-size: 1.3rem;
   margin-top: 35px;
   padding: 10px;
+}
+a {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 </style>

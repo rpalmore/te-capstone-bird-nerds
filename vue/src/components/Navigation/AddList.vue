@@ -1,15 +1,12 @@
 <template>
-  <button id="btn-add-list" v-on:click="createList">ADD LIST</button>
+  <router-link :to="{ name: 'list' }"><button id="btn-add-list">ADD LIST</button></router-link>
 </template>
 
 <script>
 export default {
   name: "add-list",
   methods: {
-    createList() {
-      this.$router.push("/lists");
-    }
-  }
+  },
 };
 </script>
 
@@ -25,5 +22,10 @@ export default {
   font-size: 1.3rem;
   margin-top: 35px;
   padding: 10px;
+}
+a {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 </style>
