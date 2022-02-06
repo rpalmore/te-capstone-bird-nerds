@@ -28,9 +28,12 @@ export default new Vuex.Store({
       zipCode: "",
       skillLevel: ""
     },
-    list: {
+    lists: [ {
       listName: "",
-    },
+    }],
+    // list: {
+    //   listName: "",
+    // },
     listCount: 0,
   },
   mutations: {
@@ -53,9 +56,12 @@ export default new Vuex.Store({
     SET_PROFILE(state, payload) {
       state.profile = payload;
     },
-    ADD_LIST(state, payload) {
-      state.list = payload;
+    SET_LIST(state, payload) {
+      //state.lists.push(list);
+      state.lists = payload;
+    },
+    ADD_LIST(state) {
       state.listCount++;
-    }
+    },
   }
 })

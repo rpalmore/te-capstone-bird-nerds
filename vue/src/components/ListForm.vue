@@ -5,7 +5,7 @@
       <br />
 
       <label for="create-list">List Name: </label>
-      <input id="create-list" type="text" v-model="list.listName" />
+      <input id="create-list" type="text" required v-model="list.listName" />
       <br />
       <input type="submit" />
     </form>
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       list: {
-        //username: this.$store.state.user.username,
+        // userId is handled in the backend -- we are passing in zero for now
         userId: 0,
       },
     };
@@ -26,7 +26,7 @@ export default {
   methods: {
     createList() {
       console.log(this.list);
-      this.$store.commit('ADD_LIST', this.list);
+      this.$store.commit("ADD_LIST", this.list);
       listService
         .createList(this.list)
         .then((response) => {
