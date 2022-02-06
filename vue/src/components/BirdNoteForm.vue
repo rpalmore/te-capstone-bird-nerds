@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       birdNote: {
-        username: this.$store.state.user.username,
+        // username: this.$store.state.user.username,
       },
     };
   },

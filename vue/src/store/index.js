@@ -28,6 +28,10 @@ export default new Vuex.Store({
       zipCode: "",
       skillLevel: ""
     },
+    list: {
+      listName: "",
+    },
+    listCount: 0,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -48,6 +52,10 @@ export default new Vuex.Store({
     },
     SET_PROFILE(state, payload) {
       state.profile = payload;
+    },
+    ADD_LIST(state, payload) {
+      state.list = payload;
+      state.listCount++;
     }
   }
 })

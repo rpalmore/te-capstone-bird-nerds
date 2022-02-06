@@ -52,12 +52,12 @@ export default {
   gap: 25px;
 }
 span,
-#edit {
+#edit, #cancel {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   color: #011627;
 }
-#edit {
+#edit, #cancel {
   font-size: 1rem;
 }
 #birdPlaceholder {

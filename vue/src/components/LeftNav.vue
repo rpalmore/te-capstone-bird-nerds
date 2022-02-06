@@ -1,25 +1,60 @@
 <template>
-    <div id="nav-well">
-      <!-- to do: search for birds by zip -->
-      <SearchBirds />
-      <button v-if="$store.state.token === ''" class="btn" id="btnLogin" v-on:click="toggleView($event)">
-        LOGIN
-      </button>
-      <Login v-if="loginClick === true && $store.state.token === ''"></Login>
-      <button v-if="$store.state.token === ''" class="btn" id="btnRegister" v-on:click="toggleView($event)">
-        REGISTER
-      </button>
-      <Register v-if="registerClick === true && $store.state.token === ''"></Register>
-    </div>
+  <div id="nav-well">
+    <!-- to do: search for birds by zip -->
+    <SearchBirds />
+
+    <!-- LOGIN btn appears if user IS NOT logged in -->
+    <button
+      v-if="$store.state.token === ''"
+      class="btn"
+      id="btnLogin"
+      v-on:click="toggleView($event)"
+    >
+      LOGIN
+    </button>
+    <Login v-if="loginClick === true && $store.state.token === ''"></Login>
+
+    <!-- REGISTER btn appears if user IS NOT logged in -->
+    <button
+      v-if="$store.state.token === ''"
+      class="btn"
+      id="btnRegister"
+      v-on:click="toggleView($event)"
+    >
+      REGISTER
+    </button>
+    <Register
+      v-if="registerClick === true && $store.state.token === ''"
+    ></Register>
+
+    <!-- MY LISTS appears if user IS logged in -->
+    <MyLists v-if="$store.state.token != ''"></MyLists>
+
+    <!-- CREATE LIST appears if user IS logged in -->
+    <AddList v-if="$store.state.token != ''"></AddList>
+
+    <!-- GO TO PROFILE appears if user IS logged in -->
+    <GoToProfile v-if="$store.state.token != ''"></GoToProfile>
+
+    <!-- NOT READY TO SOLVE FOR THIS QUITE YET ... -->
+    <!-- HOME appears only if user IS logged in -->
+    <!-- <GoHome v-if="$store.state.token != ''"></GoHome> -->
+
+  </div>
 </template>
 
 <script>
 import Login from "./Navigation/Login.vue";
 import SearchBirds from "./Navigation/SearchBirds.vue";
 import Register from "../views/Register.vue";
+import MyLists from './Navigation/MyLists.vue';
+import AddList from './Navigation/AddList.vue';
+import GoToProfile from './Navigation/GoToProfile.vue';
+// import GoHome from './Navigation/GoHome.vue';
+
 export default {
   name: "left-nav",
-  components: { Login, SearchBirds, Register },
+  components: { Login, SearchBirds, Register, MyLists, AddList, GoToProfile },
   data() {
     return {
       loginClick: false,

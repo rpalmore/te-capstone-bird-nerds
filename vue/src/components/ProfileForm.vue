@@ -1,6 +1,6 @@
 <template>
   <div v-show="displayForm === true" id="profile-form">
-    <form v-on:submit.prevent="updateProfile">
+    <form v-on:submit="updateProfile">
       <!-- to do: make this so it can swap the image dynamically when they upload -->
       <!-- <img v-bind:src="profile.profileImg" id="profile-img" /> -->
       <label for="img-url"
@@ -54,10 +54,6 @@ export default {
     };
   },
   methods: {
-    // cancelSubmit() {
-    //   this.profile = {},
-    //   this.displayForm = false;
-    // },
     updateImage() {},
     updateProfile() {
       console.log(this.profile);

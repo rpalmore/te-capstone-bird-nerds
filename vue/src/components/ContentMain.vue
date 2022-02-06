@@ -4,18 +4,19 @@
       <BirdOfTheDay />
     </div>
     <div v-if="$store.state.token != ''">
-
       <div v-if="this.$route.path == '/profile'">
         <Profile />
       </div>
       <div v-if="this.$route.path == '/lists'">
-      <List />
+        <List />
+      </div>
+      <div v-if="this.$route.path == '/lists'">
+        <ListOfLists />
       </div>
       <div v-if="this.$route.path == '/note'">
         <BirdNote />
       </div>
-      <!-- RP commented this component out, below, since we don't have logic on when it should display yet.
-          This should be handled with dynamic route matching -->
+      <!-- RP commented out ListDetailView while we figure out dynamic route matching -- otherwise component will always display in this container. -->
       <!-- <ListDetailView /> -->
     </div>
   </div>
@@ -23,13 +24,14 @@
 
 <script>
 import List from "../views/List.vue";
+import ListOfLists from "./ListOfLists.vue";
 import Profile from "../views/Profile.vue";
 import BirdOfTheDay from "./BirdOfTheDay.vue";
 import BirdNote from "../views/BirdNote.vue";
 // import ListDetailView from "../views/ListDetailView.vue";
 
 export default {
-  components: { BirdOfTheDay, Profile, List, BirdNote },
+  components: { BirdOfTheDay, Profile, List, ListOfLists, BirdNote },
 };
 </script>
 

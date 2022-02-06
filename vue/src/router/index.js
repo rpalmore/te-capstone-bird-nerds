@@ -70,7 +70,7 @@ const router = new Router({
       }
     },
     {
-      // create a new list
+      // create a new list or get all lists
       path: "/lists",
       name: "list",
       component: List,
