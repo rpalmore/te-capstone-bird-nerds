@@ -4,8 +4,9 @@ import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
+import BirdDetail from '../views/Bird.vue'
 import ListDetail from '@/views/ListDetailView'
-import BirdDetail from '@/views/Bird.vue'
+import Search from '../views/Search.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,14 @@ const router = new Router({
       }
     },
     {
+      path: '/search/:zipcode',
+      name: 'search',
+      component: Search,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       path: "/profile",
       name: "profile",
       component: Profile,
@@ -47,6 +56,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    // {
+    //   path: "/note",
+    //   name: "bird",
+    //   component: Bird,
+    //   meta: {
+    //     requiresAuth: true
+    //   }
+    // },
     {
       path: "/list/:listId",
       name: "list-detail",

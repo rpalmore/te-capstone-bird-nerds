@@ -27,7 +27,6 @@ export default {
         .createList(this.list)
         .then((response) => {
           if (response.status === 201) {
-            // changed from "this.list"
             this.$store.commit("ADD_LIST", response.data);
 
             console.log(this.$store.state.lists.length);
