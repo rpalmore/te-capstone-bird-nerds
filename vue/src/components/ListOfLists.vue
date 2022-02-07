@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #all-lists {
   display: flex;
   flex-direction: column;
@@ -43,8 +43,5 @@ export default {
 }
 a {
   text-decoration: none;
-}
-#horizontal {
-  height: auto;
 }
 </style>
