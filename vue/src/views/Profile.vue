@@ -6,7 +6,7 @@
       alt="Bird silhouette"
     />
     <span id="profile"> Welcome, bird nerd! </span>
-    <a id="edit" v-show="formDisplay === false" v-on:click="displayForm"
+    <a id="edit" class="editProfile" v-show="formDisplay === false" v-on:click="displayForm"
       >Create or edit your profile</a
     >
     <ProfileForm v-show="formDisplay === true"></ProfileForm>
@@ -60,6 +60,18 @@ span,
 #edit, #cancel {
   font-size: 1rem;
 }
+#edit.editProfile {
+  width: 39%;
+  background-color: #011627;
+  color: #fdfffc;
+  align-items: center;
+  border: 4px solid #ff9f1c;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+  margin-top: 10px;
+  padding: 10px;
+}
+
 #birdPlaceholder {
   border-radius: 50%;
   width: 25%;

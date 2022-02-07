@@ -1,9 +1,9 @@
 <template>
   <div id="nav-well">
     <!-- SEARCH appears whether or not user is logged in -->
-
-    <button id="btnSearch" class="btn" v-on:click="toggleView($event)">SEARCH</button>
-
+    <button id="btnSearch" class="btn" v-on:click="toggleView($event)">
+      SEARCH
+    </button>
     <SearchBirds v-if="searchClick === true"></SearchBirds>
 
     <!-- LOGIN btn appears if user IS NOT logged in -->
