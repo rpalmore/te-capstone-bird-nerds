@@ -66,6 +66,7 @@ export default {
     return {
       birdNote: {
         // username: this.$store.state.user.username,
+        birdId: this.$route.params.birdId,
       },
     };
   },
