@@ -4,9 +4,9 @@
       <!-- idk how to get ListName in as a prop, might resort to backend -->
       <h1>{{ listName }}</h1>
       <add-bird /> <br><br>
-      <div class="birdInList" v-for="bird in this.birds" v-bind:key="bird.birdId">
+      <div class="birdInList" v-bind:birds="birds" v-for="bird in this.birds" v-bind:key="bird.birdID">
           <div class="numSightingsCircle">{{ bird.numSightings }} </div>
-          <router-link :to="{name: 'bird-detail', params: {listId: bird.listId, birdId: bird.birdId} }" >
+          <router-link :to="{name: 'bird-detail', params: {listId: getlistId, birdId: bird.birdID}}" >
               <div class="birdInfoBox">
               {{ bird.birdName }} 
               <div class="dateBox" v-show="bird.mostRecentSighting != null" >{{ bird.mostRecentSighting }}</div>
@@ -27,6 +27,11 @@ export default {
         return {
             listId: this.$route.params.listId,
             birds: []
+        }
+    },
+    computed: {
+        getlistId() {
+            return this.listId;
         }
     },
     created() {
