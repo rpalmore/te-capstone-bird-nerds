@@ -1,10 +1,40 @@
 <template>
-  <button id="btn-search">SEARCH</button>
+  <div id="search">
+    <form id="searchByZip" @submit.prevent="search">
+      <input type="text" required id="zipcode" v-model="zipcode" />
+      <input type="submit" />
+    </form>
+  </div>
 </template>
 
 <script>
+import birdService from "../../services/BirdService";
+
 export default {
   name: "search-birds",
+  data() {
+    return {
+      zipcode: "",
+      birds: [],
+    };
+  },
+  methods: {
+    search() {
+      birdService
+        .getBirdByZip(this.zipcode).then((response) => {
+          if (response.status == 200) {
+            this.birds = response.data[0];
+            console.log(response);
+            console.log("********************");
+            console.log(this.birds);
+            this.$router.push({ name: 'search', params: { zipcode: this.zipcode } });
+          }
+        })
+        .catch((err) => {
+          console.error(err + " problem retrieving data!");
+        });
+    },
+  },
 };
 </script>
 

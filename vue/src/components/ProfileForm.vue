@@ -62,6 +62,7 @@ export default {
       profileService
         .updateProfile(this.profile)
         .then((response) => {
+          console.log(response);
           if (response.status === 200) {
             alert("Profile created!");
           }

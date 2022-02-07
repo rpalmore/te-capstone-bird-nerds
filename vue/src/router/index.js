@@ -4,8 +4,9 @@ import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
-import BirdNote from '../views/BirdNote.vue'
+import Bird from '../views/Bird.vue'
 import ListDetail from '@/views/ListDetailView'
+import Search from '../views/Search.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,14 @@ const router = new Router({
       }
     },
     {
+      path: '/search/:zipcode',
+      name: 'search',
+      component: Search,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       path: "/profile",
       name: "profile",
       component: Profile,
@@ -49,8 +58,8 @@ const router = new Router({
     },
     {
       path: "/note",
-      name: "birdNoteForm",
-      component: BirdNote,
+      name: "bird",
+      component: Bird,
       meta: {
         requiresAuth: true
       }

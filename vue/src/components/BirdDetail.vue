@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import birdService from "../services/BirdService.js";
+// import birdService from "../services/BirdService.js";
 
 export default {
     data() {
