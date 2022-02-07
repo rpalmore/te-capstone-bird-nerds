@@ -4,8 +4,8 @@ import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
-import Bird from '../views/Bird.vue'
-import ListDetail from '@/views/ListDetailView'
+import BirdDetail from '../views/Bird.vue'
+// import ListDetail from '@/views/ListDetailView'
 import Search from '../views/Search.vue'
 
 Vue.use(Router)
