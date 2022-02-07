@@ -50,4 +50,10 @@ export default {
 </script>
 
 <style>
+#notesContainer {
+ display: flex;
+ flex-direction: column;
+ width: 80%;
+ border: 4px solid whitesmoke;
+}
 </style>
