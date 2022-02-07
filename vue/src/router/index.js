@@ -65,21 +65,13 @@ const router = new Router({
       }
     },
     {
-      path: "/list/:listId",
-      name: "list-detail",
-      component: ListDetail,
+      path: "/list/:listId/bird/:birdId",
+      name: "bird-detail",
+      component: BirdDetail,
       meta: {
         requiresAuth: true
       }
     },
-    // {
-    //   path: "list/:listId/bird/:birdId",
-    //   name: "birdDetail",
-    //   component: BirdDetail,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
   ]
 })
 
