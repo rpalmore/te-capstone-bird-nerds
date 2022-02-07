@@ -4,8 +4,8 @@ import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
-import BirdNote from '../views/BirdNote.vue'
 import ListDetail from '@/views/ListDetailView'
+import BirdDetail from '@/views/Bird.vue'
 
 Vue.use(Router)
 
@@ -48,14 +48,6 @@ const router = new Router({
       }
     },
     {
-      path: "/note",
-      name: "birdNoteForm",
-      component: BirdNote,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: "/list/:listId",
       name: "list-detail",
       component: ListDetail,
@@ -63,14 +55,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: "list/:listId/bird/:birdId",
-    //   name: "birdDetail",
-    //   component: BirdDetail,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
+    {
+      path: "/list/:listId/bird/:birdId",
+      name: "birdDetail",
+      component: BirdDetail,
+      meta: {
+        requiresAuth: true
+      }
+    },
   ]
 })
 

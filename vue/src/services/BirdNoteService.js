@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
 
     getNotes(birdID) {
-        return axios.get('/notes/' + birdID);
+        return axios.get(`/bird/${birdID}/notes`);
     },
 
     deleteNote(noteID) {
