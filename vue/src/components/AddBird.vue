@@ -10,6 +10,7 @@
         placeholder="Add an image URL here"
         v-model="newBird.birdImg"
       />
+      <br/>
       <label for="birdName">Enter bird name: </label>
       <input
         id="birdName"
@@ -17,6 +18,7 @@
         placeholder="Name"
         v-model="newBird.birdName"
       />
+      <br/>
       <!-- get placeholder to be the user's zipcode -->
       <label for="zipcode">Zipcode: </label>
       <input
