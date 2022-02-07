@@ -1,7 +1,7 @@
 <template>
   <div id="notesContainer">
     <div class="note" v-for="note in this.notes" v-bind:key="note.noteId">
-      <div class="DateStuff">
+      <div class="dateStuff">
         Date:
         <p class="infoBox">{{ note.dateSpotted }}</p>
       </div>
@@ -50,11 +50,22 @@ export default {
 </script>
 
 <style>
-#notesContainer {
+.note {
  display: flex;
  flex-direction: column;
  width: 80%;
- border: 4px solid whitesmoke;
+ border: 1px solid #011627;
+ outline: 3px solid #fdfffc;
+ margin: 10px;
+ border-radius: 10px;
+ background-color: #2ec4b6;
+}
+
+.dateStuff {
+  display: inline-block;
+  align-items: center;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .genderStuff {
@@ -62,6 +73,10 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.infoBox {
+  background-color: #f7e1d7;
 }
 
 
