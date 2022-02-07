@@ -68,6 +68,7 @@ const router = new Router({
       path: "/list/:listId/bird/:birdId",
       name: "bird-detail",
       component: BirdDetail,
+      props: true,
       meta: {
         requiresAuth: true
       }

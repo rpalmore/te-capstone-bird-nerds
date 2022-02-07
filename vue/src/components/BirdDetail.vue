@@ -1,21 +1,15 @@
 <!-- For displaying one "listcard" aka the basic details of a bird -->
 <template>
   <div id='bird'>
-
+      {{this.bird}}
   </div>
 </template>
 
 <script>
-// import birdService from "../services/BirdService.js";
 
 export default {
-    //components: { birdService },
-    data() {
-        return {
-            bird: {}
-        };
-    },
-
+    name: "bird-detail",
+    props: ["bird"],
 }
 </script>
 
