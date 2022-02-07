@@ -1,21 +1,29 @@
 <!-- This component is for display a specific list + birds in that list (non-detailed view) -->
 <template>
-    <div>
-        <h1>woo2 {{ list.name }}</h1>
-        <div class="birdInList" v-for="bird in this.birds" v-bind:key="bird.birdId">
-            <div class="numSightingsCircle">{{ bird }}</div>
+  <div>
+      <!-- List Name must be sent in as a param -->
+      <h1>List Name</h1>
+      <add-bird />
+      <div class="birdInList" v-for="bird in this.birds" v-bind:key="bird.birdId">
+          {{ bird }}<br><br>
 
-        </div>
-    </div>
+          <div class="numSightingsCircle">{{ bird.numSightings }} </div>
+          <div class="birdInfoBox">
+              {{ bird.birdName }} 
+              <div class="dateBox" v-show="bird.mostRecentSighting != null" >{{ bird.mostRecentSighting }}</div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script>
-import birdService from "../services/BirdService.js";
+import birdService from '../services/BirdService.js';
 
 export default {
+    name: "list-detail",
     data() {
         return {
-            listId: 1,
+            listId: this.$route.params.listId,
             birds: []
         }
     },
@@ -23,7 +31,7 @@ export default {
         birdService.getBirdsInList(this.listId)
             .then( response => {
                 this.birds = response.data;
-        });
+            });
     }
 
 }

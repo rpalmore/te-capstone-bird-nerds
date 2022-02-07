@@ -40,8 +40,11 @@ public class JdbcBirdDao implements BirdDao{
                     "WHERE bird_id = ?";
             SqlRowSet dateResult = template.queryForRowSet(getDateSQL, bird.getBirdID());
 
-            if (dateResult.next()) bird.setMostRecentSighting(dateResult.getTimestamp("recent_sighting").toLocalDateTime());
-            else bird.setMostRecentSighting(null);
+
+            if (dateResult.next()) {
+                if (dateResult.getTimestamp("recent_sighting") != null) bird.setMostRecentSighting(dateResult.getTimestamp("recent_sighting").toLocalDateTime());
+                else bird.setMostRecentSighting(null);
+            }
 
             birds.add(bird);
         }

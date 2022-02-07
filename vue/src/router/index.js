@@ -1,15 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-// import Login from '../components/Navigation/Login.vue'
-// import Logout from '../views/Logout.vue'
-// import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
 import BirdNote from '../views/BirdNote.vue'
-//import ListDetailView from '../views/ListDetailView.vue';
-//import BirdOfTheDay from '../components/BirdOfTheDay.vue';
+import ListDetail from '@/views/ListDetailView'
 
 Vue.use(Router)
 
@@ -38,30 +34,6 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    // {
-    //   path: "/login",
-    //   name: "login",
-    //   component: Login,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
-    // {
-    //   path: "/logout",
-    //   name: "logout",
-    //   component: Logout,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
-    // {
-    //   path: "/register",
-    //   name: "register",
-    //   component: Register,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
     {
       path: "/profile",
       name: "profile",
@@ -87,14 +59,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: "list/:listId",
-    //   name: "list-detail",
-    //   component: ListDetail,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
+    {
+      path: "/list/:listId",
+      name: "list-detail",
+      component: ListDetail,
+      meta: {
+        requiresAuth: true
+      }
+    },
     // {
     //   path: "list/:listId/bird/:birdId",
     //   name: "birdDetail",
