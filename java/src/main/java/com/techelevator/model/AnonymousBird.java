@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 public class AnonymousBird {
 
     private String name;
+    private String imgUrl;
     private int zipcode;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateSpotted;
@@ -17,6 +18,14 @@ public class AnonymousBird {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public int getZipcode() {

@@ -1,7 +1,8 @@
 <template>
   <div id="search">
-    <form id="searchByZip" @submit.prevent="search">
-      <input type="text" required id="zipcode" v-model="zipcode" />
+    <form class="form-search" @submit.prevent="search">
+      <span>Recently spotted ...</span>
+      <input type="text" required id="zipcode" placeholder="Zip code" v-model="zipcode" />
       <input type="submit" />
     </form>
   </div>
@@ -23,9 +24,7 @@ export default {
       birdService
         .getBirdByZip(this.zipcode).then((response) => {
           if (response.status == 200) {
-            this.birds = response.data[0];
-            console.log(response);
-            console.log("********************");
+            this.birds = response.data;
             console.log(this.birds);
             this.$router.push({ name: 'search', params: { zipcode: this.zipcode } });
           }
@@ -38,7 +37,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #btn-search {
   margin-bottom: 35px;
   width: 80%;
@@ -50,5 +49,48 @@ export default {
   font-size: 1.3rem;
   margin-top: 35px;
   padding: 10px;
+}
+#search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0 35px 0;
+  margin: 0 8px 0 8px;
+  background-color: #ff9f1c;
+  border: 1px solid #e71d36;
+}
+input[type] {
+  text-align: center;
+  border: 2px solid #ff9f1c;
+  border: 2px solid #e71d36;
+}
+button,
+input[type] {
+  width: 80%;
+  background-color: #011627;
+  color: #fdfffc;
+  border: 2px solid #ff9f1c;
+  border: 2px solid #e71d36;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+  margin-top: 35px;
+  padding: 10px;
+}
+input[type="text"] {
+  width: 70%;
+}
+span {
+  color: #011627;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-bottom: 2px solid #e71d36;
+  border-bottom: 2px solid #fdfffc;
+  padding-bottom: 18px;
 }
 </style>
