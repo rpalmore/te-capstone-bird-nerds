@@ -1,8 +1,7 @@
 <!-- This component is for display a specific list + birds in that list (non-detailed view) -->
 <template>
   <div>
-      <!-- List Name must be sent in as a param -->
-      <h1>List Name</h1>
+      <h1>{{ this.listName }}</h1>
       <add-bird />
       <div class="birdInList" v-for="bird in this.birds" v-bind:key="bird.birdId">
           {{ bird }}<br><br>
@@ -18,9 +17,12 @@
 
 <script>
 import birdService from '../services/BirdService.js';
+import AddBird from './AddBird'
 
 export default {
     name: "list-detail",
+    props: "listName",
+    components: { AddBird },
     data() {
         return {
             listId: this.$route.params.listId,

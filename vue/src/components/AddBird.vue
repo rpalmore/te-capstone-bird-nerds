@@ -20,10 +20,10 @@ export default {
     },
     methods: {
         addBird() {
-            birdService.createBird(this.listId, newBird)
+            birdService.createBird(this.listId, this.newBird)
                 .then( response => {
                     if (response.status == 201) {
-                        this.$router.push({ name: "list-detail", params: { listId: this.listId } });
+                        this.$router.push({ name: "list-detail", params: { id: this.listId } });
                     }
                 })
         }

@@ -5,9 +5,9 @@
       id="listColumn"
       v-bind:list="list"
       v-for="list in $store.state.lists"
-      v-bind:key="list.id"
+      v-bind:key="list.listId"
     >
-      <router-link :to="{ name: 'list-detail', params: { id: list.id }}"><div id="listItem">{{ list.listName }}</div></router-link>
+      <router-link :to="{ name: 'list-detail', params: { listId: list.listId }} "><div id="listItem">{{ list.listName }}</div></router-link>
     </div>
   </div>
 </template>
