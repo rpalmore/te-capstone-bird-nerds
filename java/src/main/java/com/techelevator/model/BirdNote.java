@@ -2,15 +2,15 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class BirdNote implements Comparable<BirdNote> {
 
     private long noteId;
     private long birdId;
     private String notes;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dateSpotted;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate dateSpotted;
     private int numMales;
     private int numFemales;
     private String feederType;
@@ -40,11 +40,11 @@ public class BirdNote implements Comparable<BirdNote> {
         this.notes = notes;
     }
 
-    public LocalDateTime getDateSpotted() {
+    public LocalDate getDateSpotted() {
         return dateSpotted;
     }
 
-    public void setDateSpotted(LocalDateTime dateSpotted) {
+    public void setDateSpotted(LocalDate dateSpotted) {
         this.dateSpotted = dateSpotted;
     }
 

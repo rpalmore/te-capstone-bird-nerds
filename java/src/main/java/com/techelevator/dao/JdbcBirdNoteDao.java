@@ -33,7 +33,7 @@ public class JdbcBirdNoteDao implements BirdNoteDao {
             note.setNoteId(results.getLong("note_id"));
             note.setBirdId(birdId);
             note.setNotes(results.getString("notes"));
-            note.setDateSpotted(results.getTimestamp("date_spotted").toLocalDateTime());
+            note.setDateSpotted(results.getDate("date_spotted").toLocalDate());
             note.setNumMales(results.getInt("num_males"));
             note.setNumFemales(results.getInt("num_females"));
             note.setFeederType(results.getString("feeder_type"));
