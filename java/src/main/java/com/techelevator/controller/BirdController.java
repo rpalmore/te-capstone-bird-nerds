@@ -46,6 +46,7 @@ public class BirdController {
     }
 
     @RequestMapping(path="/birds/{zipcode}", method=RequestMethod.GET)
+    @PreAuthorize("permitAll")
     public List<AnonymousBird> getBirdByZip(@PathVariable int zipcode) {
         return birdDao.getBirdsByZip(zipcode);
     }
