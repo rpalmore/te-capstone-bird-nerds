@@ -7,7 +7,7 @@
     />
     <span id="profile"> Welcome, bird nerd! </span>
     <a id="edit" v-show="formDisplay === false" v-on:click="displayForm"
-      >Edit your profile</a
+      >Create or edit your profile</a
     >
     <ProfileForm v-show="formDisplay === true"></ProfileForm>
 
@@ -67,8 +67,5 @@ span,
   padding: 10px;
   background-color: #ff9f1c;
   border: 8px solid #e71d36;
-}
-#horizontal {
-  height: 100vh;
 }
 </style>

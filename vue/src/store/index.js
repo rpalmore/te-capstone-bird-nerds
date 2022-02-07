@@ -58,6 +58,8 @@ export default new Vuex.Store({
     ADD_LIST(state, list) {
       state.lists.push(list);
       localStorage.setItem("lists",JSON.stringify(state.lists));
+
+
     },
   }
 })

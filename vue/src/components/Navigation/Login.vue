@@ -1,17 +1,17 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <span>{{ welcome }}</span>
+      <span>{{ this.$route.query.registration ? "Please sign in" : "Welcome back!" }}</span>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
-      <div
+      <!-- <div
         class="alert alert-success"
         role="alert"
         v-if="this.$route.query.registration"
       >
         Please sign in!
-      </div>
+      </div> -->
       <input
         type="text"
         id="username"
@@ -49,7 +49,6 @@ export default {
         password: "",
       },
       invalidCredentials: false,
-      welcome: "Welcome back!",
     };
   },
   methods: {

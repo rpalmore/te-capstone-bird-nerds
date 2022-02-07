@@ -12,7 +12,14 @@
     >
       LOGIN
     </button>
-    <Login v-if="loginClick === true && $store.state.token === ''"></Login>
+
+    <!-- LOGIN form appears if click is true AND user IS NOT logged in 
+         OR if user has just successfully registered -->
+    <Login
+      v-if="
+        (loginClick === true && $store.state.token === '') ||
+        this.$route.query.registration"
+    ></Login>
 
     <!-- REGISTER btn appears if user IS NOT logged in -->
     <button
@@ -39,7 +46,6 @@
     <!-- NOT READY TO SOLVE FOR THIS QUITE YET ... -->
     <!-- HOME appears only if user IS logged in -->
     <!-- <GoHome v-if="$store.state.token != ''"></GoHome> -->
-
   </div>
 </template>
 
@@ -47,9 +53,9 @@
 import Login from "./Navigation/Login.vue";
 import SearchBirds from "./Navigation/SearchBirds.vue";
 import Register from "../views/Register.vue";
-import MyLists from './Navigation/MyLists.vue';
-import AddList from './Navigation/AddList.vue';
-import GoToProfile from './Navigation/GoToProfile.vue';
+import MyLists from "./Navigation/MyLists.vue";
+import AddList from "./Navigation/AddList.vue";
+import GoToProfile from "./Navigation/GoToProfile.vue";
 // import GoHome from './Navigation/GoHome.vue';
 
 export default {
