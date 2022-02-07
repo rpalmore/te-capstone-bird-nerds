@@ -7,7 +7,7 @@
       <label for="date-spotted">Date: </label>
       <input
         id="date-spotted"
-        type="datetime-local"
+        type="date"
         v-model="birdNote.dateSpotted"
       />
 

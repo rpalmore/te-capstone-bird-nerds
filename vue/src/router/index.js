@@ -56,14 +56,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: "/note",
-    //   name: "bird",
-    //   component: Bird,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
     {
       path: "/list/:listId",
       name: "list-detail",
