@@ -7,11 +7,11 @@
       </div>
       <br />
       <div class="genderStuff">
-        <div class="males">
+        <div class="males genderStuff">
           males
           <p class="infoBox">{{ note.numMales }}</p>
         </div>
-        <div class="females">
+        <div class="females genderStuff">
           females
           <p class="infoBox">{{ note.numFemales }}</p>
         </div>
@@ -56,4 +56,13 @@ export default {
  width: 80%;
  border: 4px solid whitesmoke;
 }
+
+.genderStuff {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
 </style>
