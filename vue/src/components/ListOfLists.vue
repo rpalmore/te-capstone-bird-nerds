@@ -7,7 +7,7 @@
       v-for="list in $store.state.lists"
       v-bind:key="list.listId"
     >
-      <router-link :to="{ name: 'list-detail', params: { listId: list.listId }} "><div id="listItem">{{ list.listName }}</div></router-link>
+      <router-link :to="{ name: 'list-detail', params: { listId: list.listId }}"><div id="listItem">{{ list.listName }}</div></router-link>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "list-of-lists",
+  name: "list-of-lists"
 };
 </script>
 

@@ -1,11 +1,10 @@
 <!-- This component is for display a specific list + birds in that list (non-detailed view) -->
 <template>
   <div>
-      <h1>{{ this.listName }}</h1>
-      <add-bird />
+      <!-- idk how to get ListName in as a prop, might resort to backend -->
+      <h1>{{ listName }}</h1>
+      <add-bird /> <br><br>
       <div class="birdInList" v-for="bird in this.birds" v-bind:key="bird.birdId">
-          {{ bird }}<br><br>
-
           <div class="numSightingsCircle">{{ bird.numSightings }} </div>
           <div class="birdInfoBox">
               {{ bird.birdName }} 
@@ -21,8 +20,10 @@ import AddBird from './AddBird'
 
 export default {
     name: "list-detail",
-    props: "listName",
     components: { AddBird },
+    props: {
+        listName: String
+    },
     data() {
         return {
             listId: this.$route.params.listId,
