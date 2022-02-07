@@ -1,7 +1,6 @@
 package com.techelevator.model;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 
 public class Bird {
 
@@ -10,7 +9,7 @@ public class Bird {
     private String birdImg;
     private int numSightings;
     private int zipcode;
-    private LocalDateTime mostRecentSighting;
+    private LocalDate mostRecentSighting;
 
     public long getBirdID() {
         return birdID;
@@ -52,11 +51,11 @@ public class Bird {
         this.zipcode = zipcode;
     }
 
-    public LocalDateTime getMostRecentSighting() {
+    public LocalDate getMostRecentSighting() {
         return mostRecentSighting;
     }
 
-    public void setMostRecentSighting(LocalDateTime mostRecentSighting) {
+    public void setMostRecentSighting(LocalDate mostRecentSighting) {
         this.mostRecentSighting = mostRecentSighting;
     }
 }

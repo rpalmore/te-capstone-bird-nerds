@@ -42,7 +42,7 @@ public class JdbcBirdDao implements BirdDao{
 
 
             if (dateResult.next()) {
-                if (dateResult.getTimestamp("recent_sighting") != null) bird.setMostRecentSighting(dateResult.getTimestamp("recent_sighting").toLocalDateTime());
+                if (dateResult.getTimestamp("recent_sighting") != null) bird.setMostRecentSighting(dateResult.getDate("recent_sighting").toLocalDate());
                 else bird.setMostRecentSighting(null);
             }
 
@@ -69,7 +69,7 @@ public class JdbcBirdDao implements BirdDao{
         if(result.next()) {
             bird = makeBirdFromSqlRowSet(result);
             if (dateResult.next()) {
-                if (dateResult.getTimestamp("recent_sighting") != null) bird.setMostRecentSighting(dateResult.getTimestamp("recent_sighting").toLocalDateTime());
+                if (dateResult.getDate("recent_sighting") != null) bird.setMostRecentSighting(dateResult.getDate("recent_sighting").toLocalDate());
                 else bird.setMostRecentSighting(null);
             }
         }
