@@ -68,10 +68,7 @@ span,
   background-color: #ff9f1c;
   border: 8px solid #e71d36;
 }
-#edit {
-  /* text-decoration: none; */
-  /* color: #fdfffc; */
-  /* padding: 18px;
-  border-left: 1px solid #e71d36; */
+#horizontal {
+  height: 100vh;
 }
 </style>

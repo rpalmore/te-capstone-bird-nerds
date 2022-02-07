@@ -1,12 +1,9 @@
 <template>
   <main>
-    <h2>Create List</h2>
+    <h2>Create a List</h2>
     <form v-on:submit.prevent="createList">
-      <br />
-
       <label for="create-list">List Name: </label>
       <input id="create-list" type="text" required v-model="list.listName" />
-      <br />
       <input type="submit" />
     </form>
   </main>
@@ -26,7 +23,9 @@ export default {
   methods: {
     createList() {
       console.log(this.list);
-      listService.createList(this.list).then((response) => {
+      listService
+        .createList(this.list)
+        .then((response) => {
           if (response.status === 201) {
             this.$store.commit("ADD_LIST", this.list);
             console.log(this.$store.state.lists.length);
@@ -40,5 +39,29 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  display: flex;
+  padding-bottom: 35px;
+  border-bottom: 3px solid #e71d36;
+}
+label {
+  padding: 0 10px 0 10px;
+  margin-right: 7px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #011627;
+  border: 1px solid #e71d36;
+}
+input {
+  padding: 8px;
+}
+input[type="submit"] {
+  margin-left: 7px;
+}
 </style>

@@ -1,16 +1,17 @@
 <template>
-  <router-link :to="{ name: 'list' }"><button id="btn-add-list">ADD LIST</button></router-link>
+  <router-link :to="{ name: 'list' }"
+    ><button id="btn-add-list">ADD LIST</button></router-link
+  >
 </template>
 
 <script>
 export default {
   name: "add-list",
-  methods: {
-  },
+  methods: {},
 };
 </script>
 
-<style>
+<style scoped>
 #btn-add-list {
   margin-bottom: 35px;
   width: 80%;

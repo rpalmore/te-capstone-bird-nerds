@@ -14,6 +14,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+#listForm {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 35px;
+}
 
 </style>

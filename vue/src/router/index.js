@@ -8,7 +8,8 @@ import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
 import BirdNote from '../views/BirdNote.vue'
-//import ListDetailView from '../views/ListDetailView.vue';
+// ListDetail or ListDetailVue? <<<<<<<<<<<<<<<<<<
+import ListDetail from '../components/ListDetail.vue';
 //import BirdOfTheDay from '../components/BirdOfTheDay.vue';
 
 Vue.use(Router)
@@ -22,10 +23,6 @@ Vue.use(Router)
  * If they have (or don't need to) they're allowed to go about their way.
  */
 
-//  const ListDetail = {
-//    template: '<div>ListDetail {{ $route.params.listID }}</div>'
-//  }
-
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -38,30 +35,6 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    // {
-    //   path: "/login",
-    //   name: "login",
-    //   component: Login,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
-    // {
-    //   path: "/logout",
-    //   name: "logout",
-    //   component: Logout,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
-    // {
-    //   path: "/register",
-    //   name: "register",
-    //   component: Register,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
     {
       path: "/profile",
       name: "profile",
@@ -87,14 +60,16 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: "list/:listId",
-    //   name: "list-detail",
-    //   component: ListDetail,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
+    {
+      // don't we need forward slash below at start of this path?
+      // following puppy API example from 18_Review
+      path: "/list/:id",
+      name: "list-detail",
+      component: ListDetail,
+      meta: {
+        requiresAuth: true
+      }
+    },
     // {
     //   path: "list/:listId/bird/:birdId",
     //   name: "birdDetail",
