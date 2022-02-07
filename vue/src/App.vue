@@ -19,8 +19,10 @@ export default {
 
 <style>
 #app {
-  height: 100vh;
+  /* height: 100vh; */
+  height: auto;
   background-color: #fdfffc;
+  font-family: "Bitter", serif;
 }
 #main-content {
   display: flex;
@@ -29,5 +31,6 @@ export default {
   display: flex;
   height: 100%;
   margin-top: 8px;
+  /* height: 100vh; */
 }
 </style>

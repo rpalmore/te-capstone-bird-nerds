@@ -18,10 +18,6 @@ Vue.use(Router)
  * If they have (or don't need to) they're allowed to go about their way.
  */
 
-//  const ListDetail = {
-//    template: '<div>ListDetail {{ $route.params.listID }}</div>'
-//  }
-
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
