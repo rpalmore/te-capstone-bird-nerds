@@ -1,7 +1,7 @@
 <template>
   <main>
     <h2>Create a List</h2>
-    <form v-on:submit="createList" v-on:submit.prevent="createList">
+    <form v-on:submit.prevent="createList">
       <input
         id="create-list"
         type="text"
@@ -67,7 +67,6 @@ label {
 }
 input {
   padding: 8px;
-  
 }
 input[type="submit"] {
   margin-left: 7px;
