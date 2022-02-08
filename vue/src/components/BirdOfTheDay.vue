@@ -4,7 +4,7 @@
     <iframe
         width="800"
         height="578"
-        v-bind:src="https://macaulaylibrary.org/asset/408852991/embed/800"
+        src="https://macaulaylibrary.org/asset/408852991/embed/800"
         frameborder="0"
         allowfullscreen
         style="width: 800px"
