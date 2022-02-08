@@ -4,9 +4,9 @@
       <label for="birdImgURL"
         >Upload a photo of this bird from our friends at
         <a href="https://search.macaulaylibrary.org/catalog" target="_blank"
-          >eBird.org and the Macaulay Library</a
-        >.</label
-      >
+          >eBird.org and the Macaulay Library : </a>
+      </label>
+      
       <input
         id="birdImgURL"
         type="text"
@@ -29,7 +29,7 @@
         type="text"
         placeholder="Zip code"
         v-model="newBird.zipcode"
-      />
+      /> <p></p>
       <input type="submit" size=10 />
     </form>
   </div>
@@ -59,9 +59,11 @@ export default {
 </script>
 
 <style scoped>
+
 #add-bird-form {
   display: flex;
   flex-direction: column;
+  align-content: center;
 }
 form {
   display: flex;
