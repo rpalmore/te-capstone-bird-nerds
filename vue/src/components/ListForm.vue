@@ -1,7 +1,7 @@
 <template>
   <main>
     <h2>Create a List</h2>
-    <form v-on:submit="createList">
+    <form v-on:submit="createList" v-on:submit.prevent="createList">
       <input
         id="create-list"
         type="text"

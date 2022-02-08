@@ -51,14 +51,14 @@ export default {
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
-  padding-left: 18%;
-  padding-right: 5%;
+  padding-left: 27%;
+  padding-right: 3%;
   border-left: 8px solid #fdfffc;
   color: #fdfffc;
   font-family: "Bitter", serif;
 }
 #logo-text > span {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 a {
   text-decoration: none;
