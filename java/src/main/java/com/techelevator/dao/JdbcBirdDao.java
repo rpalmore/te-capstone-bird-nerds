@@ -156,6 +156,12 @@ public class JdbcBirdDao implements BirdDao{
         return birds;
     }
 
+    @Override
+    public AnonymousBird getRandomBird() {
+        
+        return null;
+    }
+
     private Bird makeBirdFromSqlRowSet(SqlRowSet result) {
         Bird bird = new Bird();
         bird.setBirdID(result.getLong("bird_id"));
