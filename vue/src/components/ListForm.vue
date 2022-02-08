@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="list-form">
     <h2>Create a List</h2>
     <form v-on:submit.prevent="createList">
       <input
@@ -56,20 +56,24 @@ main {
 form {
   display: flex;
   padding-bottom: 25px;
-  border-bottom: 2px solid #e71d36;
-}
-label {
-  padding: 0 10px 0 10px;
-  margin-right: 7px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #011627;
-  border: 1px solid #e71d36;
+  /* border-bottom: 2px solid #e71d36; */
 }
 input {
   padding: 8px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid #011627;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
 }
 input[type="submit"] {
   margin-left: 7px;
+  border: 1px solid #011627;
+  background-color: #E71D36;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
 }
 </style>

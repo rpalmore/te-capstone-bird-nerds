@@ -29,7 +29,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 #bird-vue {
     display: flex;
 }

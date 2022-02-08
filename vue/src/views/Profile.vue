@@ -5,16 +5,25 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-    <h2 id="profile"> Welcome, bird nerd! </h2>
-    <a id="edit" class="editProfile" v-show="formDisplay === false" v-on:click="displayForm"
-      >Create your profile</a
+    <h2 id="profile">Welcome, bird nerd!</h2>
+    <a
+      id="create"
+      class="createProfile"
+      v-show="formDisplay === false"
+      v-on:click="displayForm"
+      >{{
+        this.$store.state.profile.favoriteBird == null
+          ? "Create your profile"
+          : "Edit your profile"
+      }}</a
     >
     <ProfileForm v-show="formDisplay === true"></ProfileForm>
 
-    <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit">Cancel</a>
-    
-    <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
+    <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
+      >Cancel</a
+    >
 
+    <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
   </div>
 </template>
 
@@ -51,15 +60,13 @@ export default {
   margin-top: 2%;
   gap: 25px;
 }
-#edit, #cancel {
+#create,
+#cancel {
   font-family: "Bitter", serif;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #011627;
 }
-#edit, #cancel {
-  font-size: 1rem;
-}
-#edit.editProfile {
+#create.createProfile {
   width: 39%;
   background-color: #011627;
   color: #fdfffc;
@@ -69,7 +76,6 @@ export default {
   padding: 10px;
   text-align: center;
 }
-
 #birdPlaceholder {
   border-radius: 50%;
   width: 25%;

@@ -13,7 +13,6 @@
         placeholder="Add an image URL here"
         v-model="newBird.birdImg"
       />
-      <br/><br/>
       <label for="birdName">Enter bird name:  </label>
       <input
         id="birdName"
@@ -21,16 +20,15 @@
         placeholder="Name"
         v-model="newBird.birdName"
       />
-      <br/> <br/>
       <!-- get placeholder to be the user's zipcode -->
-      <label for="zipcode">Zipcode:  </label>
+      <label for="zipcode">Zip code: </label>
       <input
         id="zipcode"
         type="text"
         placeholder="Zip code"
         v-model="newBird.zipcode"
       />
-      <input type="submit" size=10 />
+      <input type="submit" />
     </form>
   </div>
 </template>
@@ -62,13 +60,38 @@ export default {
 #add-bird-form {
   display: flex;
   flex-direction: column;
+  border: 4px solid #ff9f1c;
+  padding: 25px;
+  background-color: #011627;
+  color: #FDFFFC;
 }
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
+  align-items: center;
 }
 a {
   text-decoration: none;
-  color: #011627;
+  color: #FDFFFC;
 }
+label {
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+}
+input, input[type="submit"] {
+  padding: 8px;
+  width: 60%;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid #011627;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
+}
+input[type="submit"] {
+  margin-top: 25px;
+  width: 35%;
+  background-color: #E71D36;
+  font-weight: bold;
+}
+</style>

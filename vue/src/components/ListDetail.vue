@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #list-detail {
     display: flex;
     flex-direction: column;
