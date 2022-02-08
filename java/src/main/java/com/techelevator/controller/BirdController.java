@@ -51,9 +51,9 @@ public class BirdController {
         return birdDao.getBirdsByZip(zipcode);
     }
 
-    @RequestMapping(path="/birdOfTheDay", method=RequestMethod.GET)
+    @RequestMapping(path="/randomBird", method=RequestMethod.GET)
     @PreAuthorize("permitAll")
     public AnonymousBird getRandomBird() {
-        return null;
+        return birdDao.getRandomBird();
     }
 }
