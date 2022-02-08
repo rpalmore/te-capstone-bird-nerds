@@ -75,6 +75,11 @@ export default {
   margin-bottom: 15px;
   padding-top: 20px;
 }
+iframe {
+  padding: 5px 5px 0 5px;
+  background-color: white;
+  /* background-color: #FDFFFC; */
+}
 #date {
   padding: 10px;
 }
