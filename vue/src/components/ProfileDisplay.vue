@@ -17,10 +17,10 @@ export default {
       profile: []
     }
   },
-
   created(){
     profileService.getProfile().then((response) => {
     this.profile = response.data
+    console.log(response.data);
     })
      .catch((err) => {
         console.error(err + " nothing returned");
@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .profileInfo {
   justify-content: left;

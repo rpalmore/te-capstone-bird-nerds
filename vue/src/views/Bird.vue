@@ -1,10 +1,9 @@
 <template>
-    <div>
+    <div id="bird-vue">
         <bird-detail />
         <bird-note-form />
         <bird-notes />
     </div>
-  
 </template>
 
 <script>
@@ -29,6 +28,10 @@ export default {
 }
 </script>
 
-<style>
+
+<style scoped>
+#bird-vue {
+    display: flex;
+}
 
 </style>
