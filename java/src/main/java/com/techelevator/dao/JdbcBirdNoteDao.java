@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.AnonymousBird;
 import com.techelevator.model.BirdNote;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -97,5 +98,6 @@ public class JdbcBirdNoteDao implements BirdNoteDao {
         String sqlForRemove = "DELETE FROM bird_notes WHERE bird_id=?";
         template.update(sqlForRemove, birdId);
     }
+
 
 }

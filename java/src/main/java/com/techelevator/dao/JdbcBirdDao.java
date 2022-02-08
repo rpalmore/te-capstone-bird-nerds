@@ -145,8 +145,11 @@ public class JdbcBirdDao implements BirdDao{
             bird.setName(results.getString("bird_name"));
             bird.setImgUrl(results.getString("bird_img"));
             bird.setZipcode(results.getInt("zipcode"));
-            bird.setDateSpotted(results.getDate("date_spotted").toLocalDate());
-
+            if (results.getDate("date_spotted") != null) {
+                bird.setDateSpotted(results.getDate("date_spotted").toLocalDate());
+            } else {
+                bird.setDateSpotted(null);
+            }
             birds.add(bird);
         }
 
