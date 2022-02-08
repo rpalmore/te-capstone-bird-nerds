@@ -29,6 +29,5 @@ export default {
   display: flex;
   margin-top: 8px;
   height: 100vh;
-  /* height: auto; */
 }
 </style>

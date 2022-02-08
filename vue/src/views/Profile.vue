@@ -67,7 +67,6 @@ export default {
   border: 4px solid #ff9f1c;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
-  margin-top: 10px;
   padding: 10px;
 }
 
@@ -78,5 +77,10 @@ export default {
   padding: 10px;
   background-color: #ff9f1c;
   border: 8px solid #e71d36;
+}
+#horizontal {
+  /* display: flex;
+  margin-top: 8px; */
+  /* height: 100vh; */
 }
 </style>

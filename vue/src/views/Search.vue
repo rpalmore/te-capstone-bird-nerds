@@ -65,6 +65,7 @@ export default {
   border-top: 1px solid #e71d36;
   border-right: 3px solid #e71d36;
   border-left: 3px solid #e71d36;
+  border-top: 2px solid #e71d36;
 }
 #bird-card {
   display: flex;

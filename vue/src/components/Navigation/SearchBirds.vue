@@ -23,10 +23,13 @@ export default {
     search() {
       birdService
         .getBirdByZip(this.zipcode).then((response) => {
-          if (response.status == 200) {
+          if (response.status == 200 && response.data.length != 0) {
             this.birds = response.data;
             console.log(this.birds);
             this.$router.push({ name: 'search', params: { zipcode: this.zipcode } });
+          }
+          else {
+            this.$router.push({ name: 'not-found', params: { zipcode: this.zipcode } });
           }
         })
         .catch((err) => {
