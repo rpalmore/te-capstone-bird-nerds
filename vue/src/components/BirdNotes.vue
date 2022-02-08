@@ -7,11 +7,11 @@
       </div>
       <br />
       <div class="genderStuff">
-        <div class="males genderStuff">
+        <div class="males">
           males
           <p class="infoBox">{{ note.numMales }}</p>
         </div>
-        <div class="females genderStuff">
+        <div class="females">
           females
           <p class="infoBox">{{ note.numFemales }}</p>
         </div>
