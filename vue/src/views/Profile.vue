@@ -5,7 +5,7 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-    <span id="profile"> Welcome, bird nerd! </span>
+    <h2 id="profile"> Welcome, bird nerd! </h2>
     <a id="edit" class="editProfile" v-show="formDisplay === false" v-on:click="displayForm"
       >Create or edit your profile</a
     >
@@ -51,7 +51,6 @@ export default {
   margin-top: 2%;
   gap: 25px;
 }
-span,
 #edit, #cancel {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
