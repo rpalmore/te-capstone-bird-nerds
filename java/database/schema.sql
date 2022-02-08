@@ -60,7 +60,7 @@ CREATE TABLE bird_notes (
     note_id serial,
     bird_id int NOT NULL,
     notes varchar(5000),
-    date_spotted date,
+    date_spotted date NOT NULL,
     num_males int,
     num_females int,
     feeder_type varchar(150),
