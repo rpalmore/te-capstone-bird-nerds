@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="wholePage">
     <h2 id="notesHeader">Bird Notes</h2>
     <form v-on:submit.prevent="addNote">
 
@@ -88,6 +88,9 @@ export default {
 </script>
 
 <style>
+#wholePage {
+  align-content: center;
+}
 #notesHeader {
   font-family: "Bitter", sans-serif;
   font-size: 3em;
@@ -96,5 +99,7 @@ export default {
   font-family: "Bitter", sans-serif;;
   font-size: 25px;
   font-weight: 1000;
+  justify-content: center;
+  align-content: center;
 }
 </style>
