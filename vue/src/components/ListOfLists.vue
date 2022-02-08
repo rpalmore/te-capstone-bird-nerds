@@ -47,4 +47,7 @@ export default {
 a {
   text-decoration: none;
 }
+#horizontal {
+  height: auto;
+}
 </style>
