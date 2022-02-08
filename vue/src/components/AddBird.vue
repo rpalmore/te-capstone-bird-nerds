@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div id="add-bird-form">
     <form v-on:submit.prevent="addBird">
       <label for="birdImgURL"
-        >Customize bird photo by adding an image URL.</label
+        >Upload a photo of this bird from our friends at
+        <a href="https://search.macaulaylibrary.org/catalog" target="_blank"
+          >eBird.org and the Macaulay Library</a
+        >.</label
       >
       <input
         id="birdImgURL"
@@ -10,7 +13,7 @@
         placeholder="Add an image URL here"
         v-model="newBird.birdImg"
       />
-      <br/>
+      
       <label for="birdName">Enter bird name: </label>
       <input
         id="birdName"
@@ -18,16 +21,15 @@
         placeholder="Name"
         v-model="newBird.birdName"
       />
-      <br/>
       <!-- get placeholder to be the user's zipcode -->
-      <label for="zipcode">Zipcode: </label>
+      <label for="zipcode">Your zip code: </label>
       <input
         id="zipcode"
         type="text"
-        placeholder="Zipcode"
+        placeholder="Zip code"
         v-model="newBird.zipcode"
       />
-      <input type="submit" />
+      <input type="submit" size=10 />
     </form>
   </div>
 </template>
@@ -47,7 +49,7 @@ export default {
     addBird() {
       birdService.createBird(this.listId, this.newBird).then((response) => {
         if (response.status == 201) {
-            this.$router.go(0);
+          this.$router.go(0);
         }
       });
     },
@@ -55,5 +57,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#add-bird-form {
+  display: flex;
+  flex-direction: column;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+a {
+  text-decoration: none;
+  color: #011627;
+}
+
 </style>

@@ -3,7 +3,7 @@
     <form v-on:submit.prevent="updateProfile">
       <!-- to do: make this so it can swap the image dynamically when they upload -->
       <!-- <img v-bind:src="profile.profileImg" id="profile-img" /> -->
-      <label for="img-url"
+      <!-- <label for="img-url"
         >Customize your profile photo by adding an image URL.</label
       >
       <input
@@ -12,7 +12,7 @@
         type="text"
         size="50"
         v-model="profile.profileImg"
-      />
+      /> -->
       <!-- <button id="upload-profile-image" v-on:click="updateImage">Upload</button> -->
       <label for="fav-bird">What is your favorite bird?</label>
       <input
