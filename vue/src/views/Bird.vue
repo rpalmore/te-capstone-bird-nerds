@@ -20,7 +20,7 @@ export default {
             return this.$store.state.birds.find(
                 b => b.birdID = this.$store.state.activeBird
             );
-        }
+        },
     },
     created() {
         this.$store.commit("SET_ACTIVE_BIRD", this.$route.params.birdId);

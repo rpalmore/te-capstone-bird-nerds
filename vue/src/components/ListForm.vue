@@ -1,7 +1,8 @@
 <template>
   <main>
     <h2>Create a List</h2>
-    <form v-on:submit="createList">
+    <form v-on:submit.prevent="createList">
+      <label for="create-list">List Name: </label>
       <input
         id="create-list"
         type="text"
@@ -32,11 +33,12 @@ export default {
       listService
         .createList(this.list)
         .then((response) => {
-          if (response.status === 201) {
+          if (response.status == 201) {
             this.$store.commit("ADD_LIST", response.data);
-
             console.log(this.$store.state.lists.length);
+            console.log(this.$store.state.lists)
           }
+          this.list = {}; // this clears out the form field
         })
         .catch((err) => {
           console.error(err + " problem creating list!");
@@ -67,7 +69,6 @@ label {
 }
 input {
   padding: 8px;
-  
 }
 input[type="submit"] {
   margin-left: 7px;
