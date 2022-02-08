@@ -60,7 +60,7 @@ CREATE TABLE bird_notes (
     note_id serial,
     bird_id int NOT NULL,
     notes varchar(5000),
-    date_spotted date,
+    date_spotted date NOT NULL,
     num_males int,
     num_females int,
     feeder_type varchar(150),
@@ -72,5 +72,6 @@ CREATE TABLE bird_notes (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
 
 COMMIT TRANSACTION;

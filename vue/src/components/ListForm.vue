@@ -2,6 +2,7 @@
   <main>
     <h2>Create a List</h2>
     <form v-on:submit.prevent="createList">
+      <label for="create-list">List Name: </label>
       <input
         id="create-list"
         type="text"

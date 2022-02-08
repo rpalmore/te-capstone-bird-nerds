@@ -12,9 +12,15 @@ export default {
     computed: {
         bird() {
             return this.$store.state.birds.find(
-                b => b.birdID == this.$store.state.activeBird
+                b => b.birdID = this.$store.state.activeBird
             );
-        }
+        },
+        // listName() {
+        //     const list = this.$store.state.lists.find(l => l.listID = this.$route.params.listId)
+        //     console.log(list.listName);
+        //     return list.listName;
+        // }
+
     }
 }
 </script>

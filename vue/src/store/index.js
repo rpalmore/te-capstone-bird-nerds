@@ -32,7 +32,8 @@ export default new Vuex.Store({
     lists: JSON.parse(localStorage.getItem('lists') || "{}"),
     birds: [],
     activeBird: 0,
-    activeList: 0
+    activeList: 0,
+    notes: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -59,20 +60,26 @@ export default new Vuex.Store({
       localStorage.setItem("lists",JSON.stringify(state.lists));
     },
     ADD_LIST(state, list) {
-      state.lists.push(list);
+      state.lists.shift(list);
       localStorage.setItem("lists",JSON.stringify(state.lists));
     },
     SET_BIRDS(state, birds) {
       state.birds = birds;
     },
     ADD_BIRD(state, bird) {
-      state.birds.push(bird);
+      state.birds.shift(bird);
     },
     SET_ACTIVE_LIST(state, listId) {
       state.activeList = listId;
     },
     SET_ACTIVE_BIRD(state, birdId) {
       state.activeBird = birdId;
+    },
+    SET_NOTES(state, notes) {
+      state.notes = notes;
+    },
+    ADD_NOTE(state, note) {
+      state.notes.shift(note);
     }
   }
 })
