@@ -60,7 +60,7 @@ export default new Vuex.Store({
       localStorage.setItem("lists",JSON.stringify(state.lists));
     },
     ADD_LIST(state, list) {
-      state.lists.shift(list);
+      state.lists.unshift(list);
       localStorage.setItem("lists",JSON.stringify(state.lists));
     },
     SET_BIRDS(state, birds) {
