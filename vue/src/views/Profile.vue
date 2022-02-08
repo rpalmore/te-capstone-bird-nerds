@@ -67,7 +67,7 @@ export default {
   border: 4px solid #ff9f1c;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 10px;
 }
 

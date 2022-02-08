@@ -10,33 +10,39 @@
         id="img-url"
         placeholder=" Add an image URL here."
         type="text"
+        size="50"
         v-model="profile.profileImg"
       />
       <!-- <button id="upload-profile-image" v-on:click="updateImage">Upload</button> -->
       <label for="fav-bird">What is your favorite bird?</label>
-      <input id="fav-bird" type="text" v-model="profile.favoriteBird" />
+      <input
+        id="fav-bird"
+        type="text"
+        size="50"
+        v-model="profile.favoriteBird"
+      />
 
       <label for="most-common-bird"
         >Tell us what bird you most commonly spot.</label
       >
       <input
-        type="text"
         id="most-common-bird"
+        type="text"
+        size="50"
         v-model="profile.mostCommonBird"
       />
 
       <label for="zip-code">Please enter your zip code:</label>
-      <input id="zip-code" type="text" v-model="profile.zipCode" />
+      <input id="zip-code" type="text" size="10" v-model="profile.zipCode" />
 
       <label for="skill-lvl">What is your skill level?</label>
       <select id="skill-lvl" size="3" v-model="profile.skillLevel">
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
+        <option value="beginner" size="15">Beginner</option>
+        <option value="intermediate" size="15">Intermediate</option>
+        <option value="advanced" size="15">Advanced</option>
       </select>
 
       <input type="submit" />
-      
     </form>
   </div>
 </template>
@@ -77,7 +83,7 @@ export default {
 
 <style scoped>
 #profile-form {
-  border: 1px solid #011627;
+  border: 3px solid #e71d36;
   padding: 25px;
 }
 form {
