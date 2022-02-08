@@ -14,7 +14,17 @@ import birdNoteForm from '../components/BirdNoteForm.vue';
 
 
 export default {
-    components: {birdDetail, birdNotes, birdNoteForm}
+    components: {birdDetail, birdNotes, birdNoteForm},
+    computed: {
+        bird() {
+            return this.$store.state.birds.find(
+                b => b.birdID = this.$store.state.activeBird
+            );
+        }
+    },
+    created() {
+        this.$store.commit("SET_ACTIVE_BIRD", this.$route.params.birdId);
+    }
 
 }
 </script>

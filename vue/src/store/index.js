@@ -29,7 +29,10 @@ export default new Vuex.Store({
       skillLevel: ""
     },
     // use localStorage to prevent data from resetting after refreshing page
-    lists: JSON.parse(localStorage.getItem('lists') || "{}")
+    lists: JSON.parse(localStorage.getItem('lists') || "{}"),
+    birds: [],
+    activeBird: 0,
+    activeList: 0
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -58,8 +61,18 @@ export default new Vuex.Store({
     ADD_LIST(state, list) {
       state.lists.push(list);
       localStorage.setItem("lists",JSON.stringify(state.lists));
-
-
     },
+    SET_BIRDS(state, birds) {
+      state.birds = birds;
+    },
+    ADD_BIRD(state, bird) {
+      state.birds.push(bird);
+    },
+    SET_ACTIVE_LIST(state, listId) {
+      state.activeList = listId;
+    },
+    SET_ACTIVE_BIRD(state, birdId) {
+      state.activeBird = birdId;
+    }
   }
 })
