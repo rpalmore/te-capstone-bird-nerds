@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AnonymousBird {
@@ -9,8 +10,8 @@ public class AnonymousBird {
     private String name;
     private String imgUrl;
     private int zipcode;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dateSpotted;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate dateSpotted;
 
     public String getName() {
         return name;
@@ -36,11 +37,11 @@ public class AnonymousBird {
         this.zipcode = zipcode;
     }
 
-    public LocalDateTime getDateSpotted() {
+    public LocalDate getDateSpotted() {
         return dateSpotted;
     }
 
-    public void setDateSpotted(LocalDateTime dateSpotted) {
+    public void setDateSpotted(LocalDate dateSpotted) {
         this.dateSpotted = dateSpotted;
     }
 }
