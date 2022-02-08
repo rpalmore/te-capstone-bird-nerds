@@ -46,7 +46,14 @@
 
     <!-- NOT READY TO SOLVE FOR THIS QUITE YET ... -->
     <!-- HOME appears only if user IS logged in -->
-    <!-- <GoHome v-if="$store.state.token != ''"></GoHome> -->
+    <button
+      v-if="$store.state.token != ''"
+      class="btn"
+      v-on:click="goHome"
+    >
+      HOME
+    </button>
+    
   </div>
 </template>
 
@@ -69,6 +76,9 @@ export default {
     };
   },
   methods: {
+    goHome() {
+      this.$router.push('/');
+    },
     toggleView(event) {
       if (event.target.id === "btnLogin") {
         this.loginClick === false
@@ -101,7 +111,7 @@ export default {
   padding: 2px;
 }
 .btn {
-  margin-bottom: 35px;
+  /* margin-bottom: 35px; */
   width: 80%;
   background-color: #011627;
   color: #fdfffc;
@@ -109,7 +119,7 @@ export default {
   border: 2px solid #e71d36;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
-  margin-top: 35px;
+  margin-top: 45px;
   padding: 10px;
 }
 </style>

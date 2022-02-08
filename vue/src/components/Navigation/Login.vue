@@ -86,6 +86,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 86%;
 }
 .form-signin {
   display: flex;
@@ -94,7 +95,7 @@ export default {
   padding: 18px 0 35px 0;
   margin: 0 8px 0 8px;
   background-color: #ff9f1c;
-  border: 1px solid #e71d36;
+  border: 2px solid #e71d36;
 }
 input[type] {
   text-align: center;

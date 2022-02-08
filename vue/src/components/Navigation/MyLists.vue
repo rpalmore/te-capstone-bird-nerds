@@ -27,7 +27,7 @@ export default {
   border: 2px solid #e71d36;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
-  margin-top: 35px;
+  margin-top: 70px;
   padding: 10px;
 }
 a {
