@@ -33,9 +33,10 @@ export default {
       listService
         .createList(this.list)
         .then((response) => {
-          if (response.status === 201) {
+          if (response.status == 201) {
             this.$store.commit("ADD_LIST", response.data);
             console.log(this.$store.state.lists.length);
+            console.log(this.$store.state.lists)
           }
           this.list = {}; // this clears out the form field
         })
