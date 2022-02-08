@@ -2,7 +2,7 @@
   <div>
     <form v-on:submit.prevent="addBird">
       <label for="birdImgURL"
-        >Customize bird photo by adding an image URL.</label
+        >Customize bird photo by adding an image URL : </label
       >
       <input
         id="birdImgURL"
@@ -10,17 +10,17 @@
         placeholder="Add an image URL here"
         v-model="newBird.birdImg"
       />
-      <br/>
-      <label for="birdName">Enter bird name: </label>
+      <br/><br/>
+      <label for="birdName">Enter bird name:  </label>
       <input
         id="birdName"
         type="text"
         placeholder="Name"
         v-model="newBird.birdName"
       />
-      <br/>
+      <br/> <br/>
       <!-- get placeholder to be the user's zipcode -->
-      <label for="zipcode">Zipcode: </label>
+      <label for="zipcode">Zipcode:  </label>
       <input
         id="zipcode"
         type="text"
@@ -56,4 +56,6 @@ export default {
 </script>
 
 <style>
+
+
 </style>
