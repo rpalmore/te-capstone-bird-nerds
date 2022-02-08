@@ -4,7 +4,7 @@
     <div
       id="listColumn"
       v-bind:list="list"
-      v-for="list in $store.state.lists"
+      v-for="list in lists"
       v-bind:key="list.listId"
     >
       <router-link
@@ -19,6 +19,11 @@
 <script>
 export default {
   name: "list-of-lists",
+  computed: {
+    lists() {
+      return this.$store.state.lists;
+    }
+  }
 };
 </script>
 

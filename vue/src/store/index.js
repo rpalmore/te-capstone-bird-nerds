@@ -67,7 +67,7 @@ export default new Vuex.Store({
       state.birds = birds;
     },
     ADD_BIRD(state, bird) {
-      state.birds.shift(bird);
+      state.birds.unshift(bird);
     },
     SET_ACTIVE_LIST(state, listId) {
       state.activeList = listId;
@@ -79,7 +79,7 @@ export default new Vuex.Store({
       state.notes = notes;
     },
     ADD_NOTE(state, note) {
-      state.notes.shift(note);
+      state.notes.unshift(note);
     }
   }
 })
