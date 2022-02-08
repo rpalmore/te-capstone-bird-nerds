@@ -48,6 +48,6 @@ a {
   text-decoration: none;
 }
 #horizontal {
-  height: auto;
+  /* height: auto; */
 }
 </style>
