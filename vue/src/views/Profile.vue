@@ -7,7 +7,7 @@
     />
     <h2 id="profile"> Welcome, bird nerd! </h2>
     <a id="edit" class="editProfile" v-show="formDisplay === false" v-on:click="displayForm"
-      >Create or edit your profile</a
+      >Create your profile</a
     >
     <ProfileForm v-show="formDisplay === true"></ProfileForm>
 

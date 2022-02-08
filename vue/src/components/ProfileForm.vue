@@ -69,7 +69,8 @@ export default {
         .updateProfile(this.profile)
         .then((response) => {
           console.log(response);
-          if (response.status === 200) {
+          // this is a post method so status should be 201
+          if (response.status === 201) {
             alert("Profile created!");
           }
         })
