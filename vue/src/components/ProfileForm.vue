@@ -1,6 +1,6 @@
 <template>
   <div v-show="displayForm === true" id="profile-form">
-    <form v-on:submit="updateProfile">
+    <form v-on:submit.prevent="updateProfile">
       <!-- to do: make this so it can swap the image dynamically when they upload -->
       <!-- <img v-bind:src="profile.profileImg" id="profile-img" /> -->
       <label for="img-url"
@@ -71,7 +71,7 @@ export default {
           console.log(response);
           // this is a post method so status should be 201
           if (response.status === 201) {
-            alert("Profile created!");
+            this.$router.go(0); 
           }
         })
         .catch((err) => {

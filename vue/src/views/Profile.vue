@@ -63,11 +63,11 @@ export default {
   width: 39%;
   background-color: #011627;
   color: #fdfffc;
-  align-items: center;
   border: 4px solid #ff9f1c;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   padding: 10px;
+  text-align: center;
 }
 
 #birdPlaceholder {
