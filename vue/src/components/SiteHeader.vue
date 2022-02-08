@@ -51,7 +51,7 @@ export default {
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
-  padding-left: 27%;
+  padding-left: 28%;
   padding-right: 3%;
   border-left: 8px solid #fdfffc;
   color: #fdfffc;
