@@ -1,6 +1,6 @@
 <template>
   <div id="notesContainer">
-    <div class="note" v-for="note in this.notes" v-bind:key="note.noteId">
+    <div class="note" v-for="note in notes" v-bind:key="note.noteId">
       <div class="dateStuff">
         Date:
         <p class="infoBox">{{ note.dateSpotted }}</p>
@@ -38,12 +38,16 @@ export default {
   data() {
     return {
       birdId: this.$route.params.birdId,
-      notes: [],
     };
+  },
+  computed: {
+    notes() {
+      return this.$store.state.notes;
+    }
   },
   created() {
     noteService.getNotes(this.birdId).then((response) => {
-      this.notes = response.data;
+      this.$store.commit("SET_NOTES", response.data);
     });
   },
 };
