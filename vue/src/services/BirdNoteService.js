@@ -6,8 +6,8 @@ export default {
         return axios.get(`/bird/${birdID}/notes`);
     },
 
-    deleteNote(noteID) {
-        return axios.delete('/deleteNote/' + noteID);
+    delete(noteID) {
+        return axios.delete('/delete/' + noteID);
     },
 
     editNote(noteID) {

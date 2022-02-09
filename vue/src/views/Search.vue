@@ -1,28 +1,28 @@
 <template>
   <div id="header">
-     <h2>Birds recently spotted in {{ this.$route.params.zipcode }} </h2>
+    <h2>Birds recently spotted in {{ this.$route.params.zipcode }}</h2>
     <div id="search-results">
-    <div
-      id="bird-card"
-      v-for="bird in this.birdsByZip"
-      v-bind:key="bird.birdId"
-    >
-      <!-- This first one should work but it's not -->
-      <!-- <img id="bird-img" v-bind:src="bird.imgUrl"/> -->
-      <!-- So tried these others ...  -->
-      <!-- <img id="bird-img" v-bind:src="bird.imgUrl + '.jpg'"/> -->
-      <!-- <img id="bird-img" v-bind:src="bird.imgUrl + '/embed/640'"/> -->
-      <iframe
-        width="320"
-        height="342"
-        v-bind:src="bird.imgUrl + '/embed/400'"
-        frameborder="0"
-        allowfullscreen
-        style="width: 320px"
-      ></iframe>
-      <!-- <h2>{{ bird.name }}</h2> -->
-      <div id="date">Date: {{ bird.dateSpotted }}</div>
-    </div>
+      <div
+        id="bird-card"
+        v-for="bird in this.birdsByZip"
+        v-bind:key="bird.birdId"
+      >
+        <!-- This first one should work but it's not -->
+        <!-- <img id="bird-img" v-bind:src="bird.imgUrl"/> -->
+        <!-- So tried these others ...  -->
+        <!-- <img id="bird-img" v-bind:src="bird.imgUrl + '.jpg'"/> -->
+        <!-- <img id="bird-img" v-bind:src="bird.imgUrl + '/embed/640'"/> -->
+        <iframe
+          width="320"
+          height="342"
+          v-bind:src="bird.imgUrl + '/embed/400'"
+          frameborder="0"
+          allowfullscreen
+          style="width: 320px"
+        ></iframe>
+        <!-- <h2>{{ bird.name }}</h2> -->
+        <div id="date">Date: {{ bird.dateSpotted }}</div>
+      </div>
     </div>
   </div>
 </template>

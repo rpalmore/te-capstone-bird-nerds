@@ -53,7 +53,6 @@ main {
 form {
   display: flex;
   padding-bottom: 25px;
-  /* border-bottom: 2px solid #e71d36; */
 }
 input {
   padding: 8px;

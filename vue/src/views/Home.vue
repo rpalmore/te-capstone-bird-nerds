@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <div id="home">
     <bird-of-the-day />
   </div>
 </template>
@@ -13,12 +13,12 @@ export default {
 };
 </script>
 <style scoped>
-#nav {
+#home {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#nav button {
+#home button {
   width: 80%;
   background-color: #011627;
   color: #fdfffc;

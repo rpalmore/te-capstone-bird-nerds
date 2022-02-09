@@ -8,40 +8,44 @@
       v-bind:key="list.listId"
     >
       <router-link
+        id="anchor"
         :to="{ name: 'list-detail', params: { listId: list.listId } }"
-        ><div id="listItem">{{ list.listName }}</div></router-link
+        ><div id="listItem">
+          {{ list.listName }}
+        </div></router-link
       >
-      <button v-on:click="deleteList(list.listId)">Delete</button>
+      <a id="delete" v-on:click="deleteList(list.listId)">&#10006;</a>
     </div>
   </div>
 </template>
 
 
 <script>
-import listService from '../services/ListService.js';
+import listService from "../services/ListService.js";
 
 export default {
   name: "list-of-lists",
   computed: {
     lists() {
       return this.$store.state.lists;
-    }
+    },
   },
   methods: {
     deleteList(listId) {
-      
       if (confirm("Are you sure you want to delete this list?")) {
-      listService.deleteList(listId)
-        .then( response => {
-          if (response.status == 204) {
-            this.$store.commit("DELETE_LIST", listId);
-          }
-        }).catch((err) => {
-          console.error(err + " problem deleting list!");
-        });
+        listService
+          .deleteList(listId)
+          .then((response) => {
+            if (response.status == 204) {
+              this.$store.commit("DELETE_LIST", listId);
+            }
+          })
+          .catch((err) => {
+            console.error(err + " problem deleting list!");
+          });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -54,21 +58,35 @@ export default {
   align-items: center;
 }
 #listColumn {
+  display: flex;
   width: 100%;
-  text-align: center;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
-  border-radius: 20px;
 }
 #listItem {
+  display: flex;
   background-color: #011627;
   color: #fdfffc;
-  padding: 20px;
+  padding: 20px 20px 20px 30px;
   font-size: 1.5rem;
   border-radius: 20px;
+  border-left: 5px solid #ff9f1c;
+  border-right: 5px solid #ff9f1c;
 }
-a {
+#anchor {
   text-decoration: none;
+  flex-grow: 1;
+}
+#delete {
+  display: flex;
+  position: relative;
+  top: 19px;
+  right: 70px;
+  height: 22px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  color: #e71d36;
+  background-color: #fdfffc;
+  border: 2px solid #ff9f1c;
 }
 #horizontal {
   /* height: auto; */

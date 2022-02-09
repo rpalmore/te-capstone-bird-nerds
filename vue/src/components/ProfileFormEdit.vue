@@ -85,9 +85,10 @@ export default {
 <style scoped>
 #profile-form-edit {
   border: 4px solid #ff9f1c;
-  padding: 25px;
+  padding: 25px 25px 35px 25px;
   background-color: #011627;
   color: #fdfffc;
+  width: 75%;
 }
 form {
   display: flex;

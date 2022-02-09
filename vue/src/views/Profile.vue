@@ -5,7 +5,11 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
+<<<<<<< HEAD
     <h2 id="profile">Welcome, {{ this.$store.state.user.username }}! </h2>
+=======
+    <h2>Welcome, bird nerd!</h2>
+>>>>>>> main
     <a
       id="create"
       class="createProfile"
@@ -19,11 +23,11 @@
     >
     <ProfileForm v-show="formDisplay === true && this.$store.state.profile.favoriteBird == null"></ProfileForm>
 
-    <ProfileFormEdit v-show="formDisplay === true && this.$store.state.profile.favoriteBird != null"></ProfileFormEdit>
-
     <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
       >Cancel</a
     >
+
+    <ProfileFormEdit v-show="formDisplay === true && this.$store.state.profile.favoriteBird != null"></ProfileFormEdit>
 
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
   </div>
@@ -62,14 +66,13 @@ export default {
   align-items: center;
   margin-top: 2%;
   gap: 25px;
+  margin-bottom: 50px;
 }
 #create,
 #cancel {
   font-family: "Bitter", serif;
   font-size: 1rem;
   color: #011627;
-}
-#create.createProfile {
   width: 39%;
   background-color: #011627;
   color: #fdfffc;

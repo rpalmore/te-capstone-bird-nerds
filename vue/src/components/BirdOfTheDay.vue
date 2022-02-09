@@ -1,13 +1,9 @@
 <template>
   <div id="dailyBird">
-    <!-- <img src="..\assets\eBirdHomePage.webp" alt="" class="responsive" /> -->
-    <!-- src below will be replaced with: 
-         v-bind:src="bird.imgUrl + '/embed/800'"
-         -->
     <iframe
         width="800"
         height="578"
-        src="https://macaulaylibrary.org/asset/408852991/embed/800"
+        v-bind:src="imgUrl + '/embed/800'"
         frameborder="0"
         allowfullscreen
         style="width: 800px"
@@ -16,12 +12,23 @@
 </template>
 
 <script>
-//import birdService from '../services/BirdService';
+import birdService from '../services/BirdService';
 export default {
   name: "bird-of-the-day",
-  // created() {
-  //   //birdService.getRandomBird()???
-  // }
+  data() {
+    return {
+      imgUrl: "",
+    };
+  },
+  created() {
+    birdService.getRandomBird().then((response) => {
+      if (response.status == 200) {
+        this.imgUrl = response.data.imgUrl;
+      }
+    }).catch((err) => {
+      console.error(err + " problem generating a random bird!");
+    });
+  },
 };
 </script>
 

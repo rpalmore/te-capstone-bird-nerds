@@ -162,7 +162,7 @@ public class JdbcBirdDao implements BirdDao{
         String birdSql = "SELECT bird_name, bird_img, zipcode, date_spotted " +
                 "FROM birds " +
                 "JOIN bird_notes ON birds.bird_id=bird_notes.bird_id " +
-                "WHERE bird_id = ? " +
+                "WHERE birds.bird_id = ? " +
                 "ORDER BY date_spotted DESC " +
                 "LIMIT 1";
         result = template.queryForRowSet(birdSql, birdId);
