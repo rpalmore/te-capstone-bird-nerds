@@ -38,7 +38,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped>  
+
 #profileDisplay {
   background-color: #011627;
   color: #fdfffc;
@@ -55,6 +56,7 @@ export default {
 }
 .question {
   padding-top: 25px;
+
 }
 .response {
   padding-bottom: 10px;
