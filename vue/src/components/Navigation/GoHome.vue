@@ -1,5 +1,7 @@
 <template>
-  <button id="btn-home" v-on:click="goHome">HOME</button>
+  <router-link :to="{ name: 'home' }"
+    ><button id="btn-home">HOME</button>
+  </router-link>
 </template>
 
 <script>
@@ -8,8 +10,8 @@ export default {
   methods: {
     goHome() {
       this.$router.push("/");
-    }
-  }
+    },
+  },
 };
 </script>
 

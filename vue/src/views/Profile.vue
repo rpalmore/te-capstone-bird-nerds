@@ -12,19 +12,28 @@
       v-show="formDisplay === false"
       v-on:click="displayForm"
       >{{
-        this.$store.state.profile.favoriteBird == null
+        this.$store.state.profile.favoriteBird === undefined
           ? "Create your profile"
           : "Edit your profile"
       }}</a
     >
-    <ProfileForm v-show="formDisplay === true && this.$store.state.profile.favoriteBird == null"></ProfileForm>
+    <ProfileForm
+      v-show="
+        formDisplay === true && this.$store.state.profile.favoriteBird === undefined
+      "
+    ></ProfileForm>
 
     <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
       >Cancel</a
     >
 
-    <ProfileFormEdit v-show="formDisplay === true && this.$store.state.profile.favoriteBird != null"></ProfileFormEdit>
-
+    <ProfileFormEdit
+      v-show="
+        formDisplay === true &&
+        this.$store.state.profile.favoriteBird !== undefined
+      "
+    ></ProfileFormEdit>
+    
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
   </div>
 </template>

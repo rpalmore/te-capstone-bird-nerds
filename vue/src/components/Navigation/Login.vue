@@ -59,6 +59,7 @@ export default {
             });
             profileService.getProfile().then((response) => {
               if (response.status == 200) {
+                console.log(response);
                 this.$store.commit("SET_PROFILE", response.data);
                 if (this.$store.state.profile.favoriteBird != undefined) {
                   this.$router.push("/lists");
@@ -126,5 +127,9 @@ span {
   border-bottom: 2px solid #e71d36;
   border-bottom: 2px solid #fdfffc;
   padding-bottom: 18px;
+}
+.alert {
+  text-align: center;
+  padding-top: 5px;
 }
 </style>

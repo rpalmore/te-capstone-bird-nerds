@@ -29,7 +29,6 @@ export default {
       .getProfile()
       .then((response) => {
         this.profile = response.data;
-        console.log(response.data);
       })
       .catch((err) => {
         console.error(err + " nothing returned");
