@@ -2,9 +2,9 @@
   <div id="profileDisplay">
     <div id="image"> <img id= "image-link" v-bind:src="profile.profileImg"/></div>
     
-     <p class="profileInfo"> My favorite bird : {{ profile.favoriteBird }} </p>
-     <p class="profileInfo">Most common bird at my feeder : {{ profile.mostCommonBird }}</p>
-     <p class="profileInfo"> My skill level : {{ profile.skillLevel }} </p>
+     <p class="profileInfo"><strong>My favorite bird :</strong> {{ profile.favoriteBird }} </p>
+     <p class="profileInfo"><strong>Most common bird at my feeder :</strong> {{ profile.mostCommonBird }}</p>
+     <p class="profileInfo"><strong>My skill level :</strong> {{ profile.skillLevel }} </p>
 
   </div>
 </template>
@@ -33,11 +33,21 @@ export default {
 
 <style scoped>
 
+#profileDisplay {
+  border: 4px solid #ff9f1c;
+  padding: 25px;
+  background-color: #011627;
+  color: #FDFFFC;
+  padding-left: 100px;
+  padding-right: 100px;
+
+}
+
 .profileInfo {
   justify-content: left;
   font-family: "Bitter", sans-serif;
   font-size: 1.6rem;
-  font-weight: bold;
+  
   
 }
 

@@ -1,7 +1,7 @@
 <!-- For displaying one "listcard" aka the basic details of a bird -->
 <template>
   <div id='bird-detail'>
-      {{bird}}
+     
   </div>
 </template>
 

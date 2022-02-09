@@ -5,7 +5,7 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-    <h2 id="profile">Welcome, bird nerd!</h2>
+    <h2 id="profile">Welcome, {{ this.$store.state.user.username }}! </h2>
     <a
       id="create"
       class="createProfile"
