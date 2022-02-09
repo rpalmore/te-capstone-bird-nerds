@@ -5,11 +5,7 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-<<<<<<< HEAD
     <h2 id="profile">Welcome, {{ this.$store.state.user.username }}! </h2>
-=======
-    <h2>Welcome, bird nerd!</h2>
->>>>>>> main
     <a
       id="create"
       class="createProfile"
@@ -26,10 +22,12 @@
     <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
       >Cancel</a
     >
+    
 
     <ProfileFormEdit v-show="formDisplay === true && this.$store.state.profile.favoriteBird != null"></ProfileFormEdit>
 
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
+    
   </div>
 </template>
 
