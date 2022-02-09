@@ -64,7 +64,6 @@ export default {
   methods: {
     updateImage() {},
     updateProfile() {
-      console.log(this.profile);
       this.displayForm = false;
       profileService
         .updateProfile(this.profile)

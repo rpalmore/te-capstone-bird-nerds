@@ -33,6 +33,7 @@ export default {
   methods: {
     deleteList(listId) {
       if (confirm("Are you sure you want to delete this list?")) {
+        console.log(listId);
         listService
           .deleteList(listId)
           .then((response) => {

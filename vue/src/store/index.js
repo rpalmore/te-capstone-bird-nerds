@@ -83,6 +83,8 @@ export default new Vuex.Store({
     },
     DELETE_LIST(state, listId) {
       state.lists = state.lists.filter((list) => list.listId != listId);
+      // we have to reset local storage after this step above
+      localStorage.setItem("lists",JSON.stringify(state.lists));
     },
     DELETE_BIRD(state, birdId) {
       state.birds = state.birds.filter((bird) => bird.birdID != birdId);

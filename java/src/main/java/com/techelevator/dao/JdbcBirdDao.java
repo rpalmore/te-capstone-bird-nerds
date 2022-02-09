@@ -4,6 +4,7 @@ import com.techelevator.model.AnonymousBird;
 import com.techelevator.model.Bird;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
@@ -158,15 +159,25 @@ public class JdbcBirdDao implements BirdDao{
             numBirds = result.getInt("count");
         }
 
-        int birdId = (int)(Math.random() * numBirds);
+        String getIdsSql = "SELECT bird_id FROM birds";
+        SqlRowSet results = template.queryForRowSet(getIdsSql);
+        int[] birdIds = new int[numBirds];
+        int i = 0;
+        while (results.next()) {
+            birdIds[i] = results.getInt("bird_id");
+            i++;
+        }
+        int index = (int)(Math.random() * (numBirds));
+
+        int birdId = birdIds[index];
         String birdSql = "SELECT bird_name, bird_img, zipcode, date_spotted " +
                 "FROM birds " +
-                "JOIN bird_notes ON birds.bird_id=bird_notes.bird_id " +
+                "LEFT JOIN bird_notes ON birds.bird_id=bird_notes.bird_id " +
                 "WHERE birds.bird_id = ? " +
                 "ORDER BY date_spotted DESC " +
                 "LIMIT 1";
         result = template.queryForRowSet(birdSql, birdId);
-
+        System.out.println(birdId);
         AnonymousBird randomBird = null;
         if (result.next()) {
             randomBird = makeAnonBirdFromSqlRowSet(result);

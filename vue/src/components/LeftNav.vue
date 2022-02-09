@@ -122,4 +122,7 @@ export default {
   margin-top: 45px;
   padding: 10px;
 }
+a {
+  text-decoration: none;
+}
 </style>
