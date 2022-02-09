@@ -1,32 +1,27 @@
 <template>
   <main id="wholePage">
     <h2 id="notesHeader">Bird Notes</h2>
-    <form v-on:submit.prevent="addNote">
-
-      <label for="date-spotted" class="birdNotes">Date: </label>
+    <div id="formDiv">
+    <form id="wholeForm" v-on:submit.prevent="addNote">
+      <div class="formItem">
+      <label for="date-spotted" class="birdNotes">Date: </label><div></div>
       <input required
         id="date-spotted"
         type="date"
         v-model="birdNote.dateSpotted"
       />
-
-      <br />
-      <br />
-
-      <label for="num-males" class="birdNotes">Males: </label>
-      <input id="num-males" type="text" v-model="birdNote.numMales" />
-
-      <br />
-      <br />
-
-      <label for="num-females" class="birdNotes">Females: </label>
-      <input id="num-females" type="text" v-model="birdNote.numFemales" />
-
-      <br />
-      <br />
-
-      <label for="feeder-type" class="birdNotes">Feeder Type: </label>
-      <select id="feeder-type" size="7" v-model="birdNote.feederType">
+      </div>
+      <div class="formItem">
+      <label for="num-males" class="birdNotes">Males: </label><div></div>
+      <input id="num-males" type="text" placeholder="# of Males Spotted" v-model="birdNote.numMales" />
+      </div>
+      <div class="formItem">
+      <label for="num-females" class="birdNotes">Females: </label><div></div>
+      <input id="num-females" type="text" placeholder="# of Females Spotted" v-model="birdNote.numFemales" />
+      </div>
+      <div class="formItem">
+      <label for="feeder-type" class="birdNotes">Feeder Type: </label><div></div>
+      <select id="feeder-type" v-model="birdNote.feederType">
         <option value="cylinder">Cylinder</option>
         <option value="hopper">Hopper-feeder</option>
         <option value="nectar">Nectar-feeder</option>
@@ -35,12 +30,10 @@
         <option value="tray-feeder">Tray-feeder</option>
         <option value="peanut-feeder">Peanut-feeder</option>
       </select>
-
-      <br />
-      <br/>
-
-      <label for="food-blend" class="birdNotes">Food Blend: </label>
-      <select id="food-blend" size="6" v-model="birdNote.foodBlend">
+      </div>
+      <div class="formItem">
+      <label for="food-blend" class="birdNotes">Food Blend: </label><div></div>
+      <select id="food-blend" v-model="birdNote.foodBlend">
         <option value="live-mealworms">Live Mealworms</option>
         <option value="bark-butter">Bark-butter</option>
         <option value="suet-cake">Suet Cake</option>
@@ -48,14 +41,15 @@
         <option value="sunflower-blend">Sunflower-blend</option>
         <option value="nutty-blend">Nutty-blend</option>
       </select>
-      <br />
-      <p>
-        <label for="notes" class="birdNotes">Notes: </label>
+      </div>
+      <div class="formItem">
+        <label for="notes" class="birdNotes">Notes: </label><div></div>
         <input id="notes" type="text" v-model="birdNote.notes" />
-      </p>
-      <br />
-      <input type="submit" />
+      </div>
+      <br>
+      <input id="submit" type="submit" />
     </form>
+    </div>
   </main>
 </template>
 
@@ -88,18 +82,72 @@ export default {
 </script>
 
 <style>
-#wholePage {
-  align-content: center;
+
+#formDiv {
+  margin-right: auto;
+  margin-left: auto;
 }
-#notesHeader {
-  font-family: "Bitter", sans-serif;
-  font-size: 3em;
+ 
+h2 {
+  font-size: 3.5rem;
+  text-align: center;
+  
 }
-.birdNotes {
-  font-family: "Bitter", sans-serif;;
-  font-size: 25px;
-  font-weight: 1000;
-  justify-content: center;
-  align-content: center;
+
+.formItem{
+  padding-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+#wholeForm {
+  border: 4px solid #ff9f1c;
+  outline: 8px solid #ec0f0f;
+  padding: 25px;
+  background-color: #011627;
+  color: #FDFFFC;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+select {
+  width: 275px;
+  font-size: 1rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border-radius: 6px;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
+}
+
+label {
+  font-family: "Bitter", serif;
+  font-size: 1.6rem;
+  
+  text-align: center;
+}
+input {
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  border: 1px solid #011627;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
+  width: 250px;
+}
+
+#submit {
+  width: 100px;
+  background-color: #FF9F1C;
+  font-weight: bold;
+  color:#011627;
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+::placeholder {
+  text-align: center;
+}
+
 </style>
