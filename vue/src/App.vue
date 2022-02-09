@@ -17,10 +17,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   background-color: #fdfffc;
   font-family: "Bitter", serif;
+  display: flex;
+  flex-direction: column;
 }
 #main-content {
   display: flex;
@@ -28,6 +30,6 @@ export default {
 #horizontal {
   display: flex;
   margin-top: 8px;
-  height: 100vh;
+  height: auto;
 }
 </style>
