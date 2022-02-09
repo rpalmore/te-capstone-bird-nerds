@@ -86,6 +86,9 @@ export default new Vuex.Store({
     },
     DELETE_BIRD(state, birdId) {
       state.birds = state.birds.filter((bird) => bird.birdID != birdId);
+    },
+    DELETE_NOTE(state, noteId) {
+      state.notes = state.notes.filter((note) => note.noteId != noteId);
     }
   }
 })

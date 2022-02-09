@@ -1,6 +1,7 @@
 <template>
   <div id="notesContainer">
     <div class="note" v-for="note in notes" v-bind:key="note.noteId">
+      {{note}}
       <div class="dateStuff">
         Date:
         <p class="infoBox">{{ note.dateSpotted }}</p>
@@ -26,6 +27,7 @@
         Notes:
         <p class="noteField">{{ note.notes }}</p>
       </div>
+      <button v-on:click="deleteNote(note.noteId)">Delete</button>
     </div>
   </div>
 </template>
@@ -43,6 +45,21 @@ export default {
   computed: {
     notes() {
       return this.$store.state.notes;
+    }
+  },
+  methods: {
+    deleteNote(noteId) {
+      if (confirm("Are you sure you want to delete this note?")) {
+        noteService.deleteNote(noteId)
+        .then( response => {
+          console.log("made it here" + noteId)
+          if (response.status == 204) {
+            this.$store.commit("DELETE_NOTE", noteId);
+          }
+        }).catch((err) => {
+          console.error(err + " problem deleting note!");
+        });
+      }
     }
   },
   created() {
