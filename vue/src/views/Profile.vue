@@ -5,7 +5,7 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-    <h2 id="profile">Welcome, {{ this.$store.state.user.username }}! </h2>
+    <h2>Welcome, {{ this.$store.state.user.username }}! </h2>
     
     <a
       id="create"
@@ -79,7 +79,6 @@ export default {
 .welcome {
   font-size: 1.5rem;
 }
-
 #create,
 #cancel {
   font-family: "Bitter", serif;
