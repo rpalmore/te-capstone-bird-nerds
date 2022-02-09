@@ -1,51 +1,63 @@
 <template>
   <div id="profileDisplay">
-    <div id="image"> <img id= "image-link" v-bind:src="profile.profileImg"/></div>
-    
-     <p class="profileInfo"> My favorite bird : {{ profile.favoriteBird }} </p>
-     <p class="profileInfo">Most common bird at my feeder : {{ profile.mostCommonBird }}</p>
-     <p class="profileInfo"> My skill level : {{ profile.skillLevel }} </p>
-
+    <!-- <div id="image">
+      <img id="image-link" v-bind:src="profile.profileImg" />
+    </div> -->
+    <div id="profile-box">
+      <p class="question">My favorite bird:</p>
+      <span class="response">{{ profile.favoriteBird }}</span>
+      <p class="question">Most common bird at my feeder:</p>
+      <span class="response">{{ profile.mostCommonBird }}</span>
+      <p class="question">My skill level:</p>
+      <span class="response">{{ profile.skillLevel }}</span>
+      <p class="question">My zip code:</p>
+      <span class="response">{{ profile.zipCode }}</span>
+    </div>
   </div>
 </template>
 
 <script>
-import profileService from '../services/ProfileService.js';
+import profileService from "../services/ProfileService.js";
 export default {
-  data(){
+  data() {
     return {
-      profile: []
-    }
+      profile: [],
+    };
   },
-  created(){
-    profileService.getProfile().then((response) => {
-    this.profile = response.data
-    console.log(response.data);
-    })
-     .catch((err) => {
+  created() {
+    profileService
+      .getProfile()
+      .then((response) => {
+        this.profile = response.data;
+        console.log(response.data);
+      })
+      .catch((err) => {
         console.error(err + " nothing returned");
       });
-
-  }
-
-}
+  },
+};
 </script>
 
 <style scoped>
-
-.profileInfo {
-  justify-content: left;
-  font-family: "Bitter", sans-serif;
-  font-size: 1.6rem;
-  font-weight: bold;
-  
+#profileDisplay {
+  background-color: #011627;
+  color: #fdfffc;
+  border: 4px solid #ff9f1c;
+  padding: 0 25px 25px 25px;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
+  width: 65%;
+  text-align: center;
 }
-
+#profile-box {
+  padding-bottom: 25px;
+}
+.question {
+  padding-top: 25px;
+}
 .response {
-  justify-content: center;
-  font-family: "Bitter", sans-serif;
-  font-size: 1.5rem;
-  
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e71d36;
+  font-style: italic;
 }
-
 </style>
