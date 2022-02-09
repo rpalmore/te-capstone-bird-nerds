@@ -15,11 +15,6 @@ export default {
                 b => b.birdID = this.$store.state.activeBird
             );
         },
-        // listName() {
-        //     const list = this.$store.state.lists.find(l => l.listID = this.$route.params.listId)
-        //     console.log(list.listName);
-        //     return list.listName;
-        // }
 
     }
 }

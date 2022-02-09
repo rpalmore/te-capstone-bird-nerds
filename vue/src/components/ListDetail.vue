@@ -11,6 +11,7 @@
               <div class="dateBox" v-show="bird.mostRecentSighting != null" >{{ bird.mostRecentSighting }}</div>
           </div>
           </router-link>
+          <button v-on:click="deleteBird(bird.birdID)">Delete</button>
       </div>
   </div>
 </template>
@@ -37,6 +38,20 @@ export default {
             .then( response => {
                 this.$store.commit("SET_BIRDS", response.data)
             });
+    },
+    methods: {
+        deleteBird(birdId) {
+            if (confirm("Are you sure you want to delete this bird?")) {
+                birdService.deleteBird(birdId)
+                .then(response => {
+                    if (response.status == 204) {
+                        this.$store.commit("DELETE_BIRD", birdId);
+                    }
+                }).catch((err) => {
+                    console.error(err + " problem deleting bird!");
+                });
+            }
+        }
     }
 
 }
