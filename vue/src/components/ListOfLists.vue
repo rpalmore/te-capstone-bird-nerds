@@ -60,13 +60,12 @@ export default {
 #listColumn {
   display: flex;
   width: 100%;
-  /* text-align: center; */
 }
 #listItem {
   display: flex;
   background-color: #011627;
   color: #fdfffc;
-  padding: 20px;
+  padding: 20px 20px 20px 30px;
   font-size: 1.5rem;
   border-radius: 20px;
   border-left: 5px solid #ff9f1c;
@@ -78,9 +77,9 @@ export default {
 }
 #delete {
   display: flex;
-  position: absolute;
-  top: 445px;
-  right: 147px;
+  position: relative;
+  top: 18px;
+  right: 70px;
   height: 20px;
   padding: 5px 10px;
   font-weight: bold;
