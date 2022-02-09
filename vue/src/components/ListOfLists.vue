@@ -14,7 +14,7 @@
           {{ list.listName }}
         </div></router-link
       >
-      <a id="delete" v-on:click="deleteList(list.listId)">X</a>
+      <a id="delete" v-on:click="deleteList(list.listId)">&#10006;</a>
     </div>
   </div>
 </template>
@@ -78,9 +78,9 @@ export default {
 #delete {
   display: flex;
   position: relative;
-  top: 18px;
+  top: 19px;
   right: 70px;
-  height: 20px;
+  height: 22px;
   padding: 5px 10px;
   font-weight: bold;
   border-radius: 50%;

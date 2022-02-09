@@ -46,8 +46,9 @@ export default {
   padding: 0 25px 25px 25px;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
-  width: 65%;
+  width: 75%;
   text-align: center;
+  margin-bottom: 25px;
 }
 #profile-box {
   padding-bottom: 25px;

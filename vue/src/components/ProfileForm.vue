@@ -99,6 +99,7 @@ form {
 label {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
+  padding-top: 20px;
 }
 input[type="zip-code"] {
   width: 45%;
