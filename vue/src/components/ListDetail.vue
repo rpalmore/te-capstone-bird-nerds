@@ -4,14 +4,15 @@
       <h1>{{ list.listName }}</h1>
       <add-bird /> <br><br>
       <div class="birdInList" v-for="bird in this.$store.state.birds" v-bind:key="bird.birdID">
-          <div class="numSightingsCircle">{{ bird.numSightings }} </div>
+         <!--  <div class="numSightingsCircle">{{ bird.numSightings }} </div> -->
           <router-link :to="{name: 'bird-detail', params: {listId: listId, birdId: bird.birdID}}" >
               <div class="birdInfoBox">
               {{ bird.birdName }} 
               <div class="dateBox" v-show="bird.mostRecentSighting != null" >{{ bird.mostRecentSighting }}</div>
           </div>
           </router-link>
-          <button v-on:click="deleteBird(bird.birdID)">Delete</button>
+          <div id="deleteButton">
+          <button v-on:click="deleteBird(bird.birdID)">X</button></div>
       </div>
   </div>
 </template>
@@ -57,12 +58,43 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #list-detail {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+.birdInList {
+    font-size: 20px;
+    background-color: #ff9f1c;
+    color: #fdfffc;
+    border: 4px solid #ff9f1c;
+    padding-left: auto;
+    padding-right: auto;
+    font-family: "Bitter", serif;
+    font-size: 1.3rem;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+#deleteButton {
+      display: flex;
+  /* position: relative; */
+  top: 19px;
+  right: 370px;
+  height: 15px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  color: #e71d36;
+  background-color: #fdfffc;
+  border: 2px solid #ff9f1c;
 }
 
 </style>

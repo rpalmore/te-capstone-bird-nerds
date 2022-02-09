@@ -5,7 +5,8 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-    <h2 class="welcome">Welcome, {{ this.$store.state.user.username }}! </h2>
+    <h2 id="profile">Welcome, {{ this.$store.state.user.username }}! </h2>
+    
     <a
       id="create"
       class="createProfile"
@@ -26,6 +27,7 @@
     <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
       >Cancel</a
     >
+    
 
     <ProfileFormEdit
       v-show="
@@ -35,6 +37,7 @@
     ></ProfileFormEdit>
     
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
+    
   </div>
 </template>
 
@@ -76,6 +79,7 @@ export default {
 .welcome {
   font-size: 1.5rem;
 }
+
 #create,
 #cancel {
   font-family: "Bitter", serif;

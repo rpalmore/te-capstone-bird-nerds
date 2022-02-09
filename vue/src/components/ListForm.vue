@@ -54,15 +54,15 @@ form {
   display: flex;
   padding-bottom: 25px;
 }
-input {
+ input {
   padding: 8px;
   border-radius: 8px;
   font-size: 1rem;
   border: 1px solid #011627;
   border-left: 5px solid #FF9F1C;
   border-right: 5px solid #FF9F1C;
-}
-input[type="submit"] {
+} 
+ input[type="submit"] {
   margin-left: 7px;
   border: 1px solid #011627;
   background-color: #E71D36;
@@ -71,5 +71,5 @@ input[type="submit"] {
   border-radius: 8px;
   border-left: 5px solid #FF9F1C;
   border-right: 5px solid #FF9F1C;
-}
+} 
 </style>
