@@ -3,7 +3,7 @@
     <form v-on:submit.prevent="updateProfile">
       <!-- to do: make this so it can swap the image dynamically when they upload -->
       <!-- <img v-bind:src="profile.profileImg" id="profile-img" /> -->
-      <label for="img-url"
+      <!-- <label for="img-url"
         >Customize your profile photo by adding an image URL.</label
       >
       <input
@@ -12,7 +12,7 @@
         type="text"
         size="50"
         v-model="profile.profileImg"
-      />
+      /> -->
       <!-- <button id="upload-profile-image" v-on:click="updateImage">Upload</button> -->
       <label for="fav-bird">What is your favorite bird?</label>
       <input
@@ -33,16 +33,16 @@
       />
 
       <label for="zip-code">Please enter your zip code:</label>
-      <input id="zip-code" type="text" size="10" v-model="profile.zipCode" />
+      <input id="zip-code" type="text" v-model="profile.zipCode" />
 
       <label for="skill-lvl">What is your skill level?</label>
       <select id="skill-lvl" size="3" v-model="profile.skillLevel">
-        <option value="beginner" size="15">Beginner</option>
-        <option value="intermediate" size="15">Intermediate</option>
-        <option value="advanced" size="15">Advanced</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
       </select>
 
-      <input type="submit" />
+      <input type="submit"/>
     </form>
   </div>
 </template>
@@ -63,14 +63,13 @@ export default {
     updateImage() {},
     updateProfile() {
       console.log(this.profile);
-      this.$store.commit("SET_PROFILE", this.profile);
       this.displayForm = false;
       profileService
         .updateProfile(this.profile)
         .then((response) => {
-          console.log(response);
           // this is a post method so status should be 201
           if (response.status === 201) {
+            this.$store.commit("SET_PROFILE", this.profile);
             this.$router.go(0); 
           }
         })
@@ -84,8 +83,10 @@ export default {
 
 <style scoped>
 #profile-form {
-  border: 3px solid #e71d36;
+  border: 4px solid #ff9f1c;
   padding: 25px;
+  background-color: #011627;
+  color: #FDFFFC;
 }
 form {
   display: flex;
@@ -95,5 +96,32 @@ form {
 }
 label {
   font-family: "Bitter", serif;
+  font-size: 1.3rem;
 }
+input[type="zip-code"] {
+  width: 45%;
+}
+#skill-lvl {
+  width: 45%;
+}
+input, #skill-lvl {
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid #011627;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
+}
+input[type="submit"] {
+  margin-top: 25px;
+  width: 45%;
+  border: 1px solid #011627;
+  background-color: #E71D36;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
+}
+
 </style>

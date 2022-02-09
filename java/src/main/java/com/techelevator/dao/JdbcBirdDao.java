@@ -141,19 +141,37 @@ public class JdbcBirdDao implements BirdDao{
         SqlRowSet results = template.queryForRowSet(sql, zipcode);
 
         while(results.next()) {
-            AnonymousBird bird = new AnonymousBird();
-            bird.setName(results.getString("bird_name"));
-            bird.setImgUrl(results.getString("bird_img"));
-            bird.setZipcode(results.getInt("zipcode"));
-            if (results.getDate("date_spotted") != null) {
-                bird.setDateSpotted(results.getDate("date_spotted").toLocalDate());
-            } else {
-                bird.setDateSpotted(null);
-            }
+            AnonymousBird bird = makeAnonBirdFromSqlRowSet(results);
             birds.add(bird);
         }
 
         return birds;
+    }
+
+    @Override
+    public AnonymousBird getRandomBird() {
+        String countSql = "SELECT COUNT(*) FROM birds";
+        SqlRowSet result = template.queryForRowSet(countSql);
+
+        int numBirds = 0;
+        if (result.next()) {
+            numBirds = result.getInt("count");
+        }
+
+        int birdId = (int)(Math.random() * numBirds);
+        String birdSql = "SELECT bird_name, bird_img, zipcode, date_spotted " +
+                "FROM birds " +
+                "JOIN bird_notes ON birds.bird_id=bird_notes.bird_id " +
+                "WHERE bird_id = ? " +
+                "ORDER BY date_spotted DESC " +
+                "LIMIT 1";
+        result = template.queryForRowSet(birdSql, birdId);
+
+        AnonymousBird randomBird = null;
+        if (result.next()) {
+            randomBird = makeAnonBirdFromSqlRowSet(result);
+        }
+        return randomBird;
     }
 
     private Bird makeBirdFromSqlRowSet(SqlRowSet result) {
@@ -163,6 +181,19 @@ public class JdbcBirdDao implements BirdDao{
         bird.setBirdImg(result.getString("bird_img"));
         bird.setNumSightings(result.getInt("num_sightings"));
         bird.setZipcode(result.getInt("zipcode"));
+        return bird;
+    }
+
+    private AnonymousBird makeAnonBirdFromSqlRowSet(SqlRowSet result) {
+        AnonymousBird bird = new AnonymousBird();
+        bird.setName(result.getString("bird_name"));
+        bird.setImgUrl(result.getString("bird_img"));
+        bird.setZipcode(result.getInt("zipcode"));
+        if (result.getDate("date_spotted") != null) {
+            bird.setDateSpotted(result.getDate("date_spotted").toLocalDate());
+        } else {
+            bird.setDateSpotted(null);
+        }
         return bird;
     }
 }

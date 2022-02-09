@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="list-detail-view">
       <list-detail />
   </div>
 </template>
@@ -24,6 +24,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#list-detail-view {
+    display: flex;
+    flex-direction: column;
+}
 
 </style>

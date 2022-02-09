@@ -19,4 +19,6 @@ public interface BirdDao {
     Bird updateBird(Bird bird);
 
     List<AnonymousBird> getBirdsByZip(int zipcode);
+
+    AnonymousBird getRandomBird();
 }

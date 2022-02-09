@@ -24,6 +24,10 @@ export default {
 
     getBirdByZip(zipcode) {
         return axios.get(`/birds/${zipcode}`);
+    },
+
+    getRandomBird() {
+        return axios.get('/randomBird');
     }
 
     

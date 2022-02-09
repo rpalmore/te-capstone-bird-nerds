@@ -1,7 +1,6 @@
 <!-- This component is for display a specific list + birds in that list (non-detailed view) -->
 <template>
-  <div>
-      <!-- idk how to get ListName in as a prop, might resort to backend -->
+  <div id="list-detail">
       <h1>{{ list.listName }}</h1>
       <add-bird /> <br><br>
       <div class="birdInList" v-for="bird in this.$store.state.birds" v-bind:key="bird.birdID">
@@ -43,6 +42,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+#list-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
 
 </style>

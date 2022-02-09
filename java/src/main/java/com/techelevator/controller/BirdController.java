@@ -50,4 +50,10 @@ public class BirdController {
     public List<AnonymousBird> getBirdByZip(@PathVariable int zipcode) {
         return birdDao.getBirdsByZip(zipcode);
     }
+
+    @RequestMapping(path="/randomBird", method=RequestMethod.GET)
+    @PreAuthorize("permitAll")
+    public AnonymousBird getRandomBird() {
+        return birdDao.getRandomBird();
+    }
 }
