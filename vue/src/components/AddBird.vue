@@ -4,7 +4,7 @@
       <label for="birdImgURL"
         >Upload a photo of this bird from our friends at
         <a href="https://search.macaulaylibrary.org/catalog" target="_blank"
-          >eBird.org and the Macaulay Library : </a>
+          >eBird.org and the Macaulay Library</a>.
       </label>
       
       <input

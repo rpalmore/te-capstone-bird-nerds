@@ -17,7 +17,9 @@
           : "Edit your profile"
       }}</a
     >
-    <ProfileForm v-show="formDisplay === true"></ProfileForm>
+    <ProfileForm v-show="formDisplay === true && this.$store.state.profile.favoriteBird == null"></ProfileForm>
+
+    <ProfileFormEdit v-show="formDisplay === true && this.$store.state.profile.favoriteBird != null"></ProfileFormEdit>
 
     <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
       >Cancel</a
@@ -29,10 +31,11 @@
 
 <script>
 import ProfileForm from "../components/ProfileForm.vue";
+import ProfileFormEdit from "../components/ProfileFormEdit.vue";
 import ProfileDisplay from "../components/ProfileDisplay.vue";
 export default {
   name: "profile",
-  components: { ProfileForm, ProfileDisplay },
+  components: { ProfileForm, ProfileDisplay, ProfileFormEdit },
   data() {
     return {
       formDisplay: false,
