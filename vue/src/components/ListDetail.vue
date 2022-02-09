@@ -75,7 +75,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 #add-bird {
     padding: 15px;
