@@ -5,7 +5,7 @@
     </div>
     <div id="logo-text">
       <span>{{ logo }}</span>
-        <a id="logout" v-show="$store.state.token != ''" v-on:click="logout">
+      <a id="logout" v-show="$store.state.token != ''" v-on:click="logout">
         Logout
       </a>
     </div>
@@ -22,10 +22,10 @@ export default {
   },
   methods: {
     logout() {
-    this.$store.commit("LOGOUT");
-    this.$router.push("/");
-  }
-  }
+      this.$store.commit("LOGOUT");
+      this.$router.push({ name: "Home" });
+    },
+  },
 };
 </script>
 
@@ -58,12 +58,12 @@ export default {
   font-family: "Bitter", serif;
 }
 #logo-text > span {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 a {
   text-decoration: none;
   color: #fdfffc;
   padding: 18px;
-  border-left: 1px solid #E71D36;
+  border-left: 1px solid #e71d36;
 }
 </style>

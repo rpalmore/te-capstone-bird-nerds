@@ -16,6 +16,7 @@
       <!-- <button id="upload-profile-image" v-on:click="updateImage">Upload</button> -->
       <label for="fav-bird">What is your favorite bird?</label>
       <input
+        required
         id="fav-bird"
         type="text"
         size="50"
@@ -26,6 +27,7 @@
         >Tell us what bird you most commonly spot.</label
       >
       <input
+        required
         id="most-common-bird"
         type="text"
         size="50"
@@ -33,16 +35,16 @@
       />
 
       <label for="zip-code">Please enter your zip code:</label>
-      <input id="zip-code" type="text" v-model="profile.zipCode" />
+      <input required id="zip-code" type="text" v-model="profile.zipCode" />
 
       <label for="skill-lvl">What is your skill level?</label>
-      <select id="skill-lvl" size="3" v-model="profile.skillLevel">
+      <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
         <option value="beginner">Beginner</option>
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
       </select>
 
-      <input type="submit"/>
+      <input type="submit" />
     </form>
   </div>
 </template>
@@ -70,7 +72,7 @@ export default {
           // this is a post method so status should be 201
           if (response.status === 201) {
             this.$store.commit("SET_PROFILE", this.profile);
-            this.$router.go(0); 
+            this.$router.go(0);
           }
         })
         .catch((err) => {
@@ -86,7 +88,7 @@ export default {
   border: 4px solid #ff9f1c;
   padding: 25px;
   background-color: #011627;
-  color: #FDFFFC;
+  color: #fdfffc;
 }
 form {
   display: flex;
@@ -104,24 +106,24 @@ input[type="zip-code"] {
 #skill-lvl {
   width: 45%;
 }
-input, #skill-lvl {
+input,
+#skill-lvl {
   padding: 8px;
   border-radius: 8px;
   font-size: 1rem;
   border: 1px solid #011627;
-  border-left: 5px solid #FF9F1C;
-  border-right: 5px solid #FF9F1C;
+  border-left: 5px solid #ff9f1c;
+  border-right: 5px solid #ff9f1c;
 }
 input[type="submit"] {
   margin-top: 25px;
   width: 45%;
   border: 1px solid #011627;
-  background-color: #E71D36;
+  background-color: #e71d36;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 8px;
-  border-left: 5px solid #FF9F1C;
-  border-right: 5px solid #FF9F1C;
+  border-left: 5px solid #ff9f1c;
+  border-right: 5px solid #ff9f1c;
 }
-
 </style>
