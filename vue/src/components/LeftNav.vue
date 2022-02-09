@@ -111,7 +111,6 @@ export default {
   padding: 2px;
 }
 .btn {
-  /* margin-bottom: 35px; */
   width: 80%;
   background-color: #011627;
   color: #fdfffc;

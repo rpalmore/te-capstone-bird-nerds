@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #app {
   background-color: #fdfffc;
   font-family: "Bitter", serif;
@@ -30,6 +30,7 @@ export default {
 #horizontal {
   display: flex;
   margin-top: 8px;
+  min-height: 100vh;
   height: auto;
 }
 </style>

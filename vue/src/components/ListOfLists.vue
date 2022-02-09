@@ -89,7 +89,4 @@ export default {
   background-color: #fdfffc;
   border: 2px solid #ff9f1c;
 }
-#horizontal {
-  /* height: auto; */
-}
 </style>

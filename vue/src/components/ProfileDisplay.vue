@@ -48,7 +48,6 @@ export default {
   font-size: 1.3rem;
   width: 75%;
   text-align: center;
-  margin-bottom: 25px;
 }
 #profile-box {
   padding-bottom: 25px;

@@ -71,7 +71,7 @@ export default {
   align-items: center;
   margin-top: 2%;
   gap: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
 }
 .welcome {
   font-size: 1.5rem;
@@ -97,10 +97,5 @@ export default {
   padding: 10px;
   background-color: #ff9f1c;
   border: 8px solid #e71d36;
-}
-#horizontal {
-  /* display: flex;
-  margin-top: 8px; */
-  /* height: 100vh; */
 }
 </style>
