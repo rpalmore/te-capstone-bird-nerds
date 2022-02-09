@@ -22,13 +22,13 @@ public class NoteController {
         return noteDao.getNotes(birdId);
     }
 
-    @RequestMapping(path="/delete/{noteId}")
+    @RequestMapping(path="/deleteNote/{noteId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteNote(@PathVariable long noteId) {
         noteDao.deleteNote(noteId);
     }
 
-    @RequestMapping(path="/bird/{birdId}/deleteNotes")
+    @RequestMapping(path="/bird/{birdId}/deleteNotes", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBirdsNotes(@PathVariable long birdId) {
         noteDao.deleteAllNotesForBird(birdId);

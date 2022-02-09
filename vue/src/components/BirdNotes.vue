@@ -52,7 +52,6 @@ export default {
       if (confirm("Are you sure you want to delete this note?")) {
         noteService.deleteNote(noteId)
         .then( response => {
-          console.log("made it here" + noteId)
           if (response.status == 204) {
             this.$store.commit("DELETE_NOTE", noteId);
           }
