@@ -176,7 +176,7 @@ public class JdbcBirdDao implements BirdDao{
                 "ORDER BY date_spotted DESC " +
                 "LIMIT 1";
         result = template.queryForRowSet(birdSql, birdId);
-        System.out.println(birdId);
+
         AnonymousBird randomBird = null;
         if (result.next()) {
             randomBird = makeAnonBirdFromSqlRowSet(result);
