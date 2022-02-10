@@ -26,6 +26,7 @@ export default {
           if (response.status == 200 && response.data.length != 0) {
             this.birds = response.data;
             this.$router.push({ name: 'search', params: { zipcode: this.zipcode } });
+            this.$router.go(0);
           }
           else {
             this.$router.push({ name: 'not-found', params: { zipcode: this.zipcode } });
@@ -69,7 +70,6 @@ export default {
 }
 input[type] {
   text-align: center;
-  border: 2px solid #ff9f1c;
   border: 2px solid #e71d36;
 }
 button,
@@ -77,7 +77,6 @@ input[type] {
   width: 80%;
   background-color: #011627;
   color: #fdfffc;
-  border: 2px solid #ff9f1c;
   border: 2px solid #e71d36;
   font-family: "Bitter", serif;
   font-size: 1.3rem;

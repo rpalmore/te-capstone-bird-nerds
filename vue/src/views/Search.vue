@@ -7,11 +7,6 @@
         v-for="bird in this.birdsByZip"
         v-bind:key="bird.birdId"
       >
-        <!-- This first one should work but it's not -->
-        <!-- <img id="bird-img" v-bind:src="bird.imgUrl"/> -->
-        <!-- So tried these others ...  -->
-        <!-- <img id="bird-img" v-bind:src="bird.imgUrl + '.jpg'"/> -->
-        <!-- <img id="bird-img" v-bind:src="bird.imgUrl + '/embed/640'"/> -->
         <iframe
           width="320"
           height="342"
@@ -20,7 +15,6 @@
           allowfullscreen
           style="width: 320px"
         ></iframe>
-        <!-- <h2>{{ bird.name }}</h2> -->
         <div id="date">Date: {{ bird.dateSpotted }}</div>
       </div>
     </div>
@@ -78,7 +72,6 @@ export default {
 iframe {
   padding: 5px 5px 0 5px;
   background-color: white;
-  /* background-color: #FDFFFC; */
 }
 #date {
   padding: 10px;
