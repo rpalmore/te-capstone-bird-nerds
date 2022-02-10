@@ -1,8 +1,25 @@
 <!-- For displaying one "listcard" aka the basic details of a bird -->
 <template>
-  <div id='bird-detail'>
+  <div id='bird-detail' v-show="showForm === false">
+        <div id="birdPic">
+    <iframe
+        width="250"
+        height="250"
+        v-bind:src="bird.birdImg + '/embed/800'"
+        frameborder="0"
+        allowfullscreen
+        style="width: 300px"
+        scrolling="no"
+      ></iframe>
+      <div id="birdInfo">
+          <h2>{{bird.birdName}}</h2>
+          <p>Spotted {{numSightings}} times</p>
+          <p>Most recently seen on  {{bird.mostRecentSighting}}</p>
+          <p>Zipcode: {{bird.zipcode}}</p>
+      </div>
+      <button v-on:click="showForm = true">Edit bird details</button>
+  </div>
      
-        
     <form v-on:submit.prevent="updateBird" v-show="showForm === true">
         <label for="newName">Name:</label>
         <input id="newName" type="text" v-model="bird.birdName"/>
