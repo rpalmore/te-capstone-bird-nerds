@@ -40,7 +40,6 @@ export default {
     },
     methods: {
         updateBird() {
-            console.log(this.bird);
             birdService.editBird(this.bird).then(
                 response => {
                     if (response.status == 201) {

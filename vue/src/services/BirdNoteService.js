@@ -10,8 +10,8 @@ export default {
         return axios.delete('/delete/' + noteID);
     },
 
-    editNote(noteID) {
-        return axios.put('/editNote/' + noteID);
+    editNote(note) {
+        return axios.put('/editNote', note);
     },
 
     addNote(birdNote) {

@@ -27,7 +27,57 @@
         Notes:
         <p class="noteField">{{ note.notes }}</p>
       </div>
+
+      <button v-if="showForm===false" v-on:click="showForm = true">Edit</button>
       <button v-on:click="deleteNote(note.noteId)">Delete</button>
+
+      <form v-on:submit.prevent="updateNote(note.noteId)" v-show="showForm === true">
+ <div class="formItem">
+      <label for="date-spotted" class="birdNotes">Date: </label><div></div>
+      <input required
+        id="date-spotted"
+        type="date"
+        v-model="note.dateSpotted"
+      />
+      </div>
+      <div class="formItem">
+      <label for="num-males" class="birdNotes">Males: </label><div></div>
+      <input id="num-males" type="text" placeholder="# of Males Spotted" v-model="note.numMales" />
+      </div>
+      <div class="formItem">
+      <label for="num-females" class="birdNotes">Females: </label><div></div>
+      <input id="num-females" type="text" placeholder="# of Females Spotted" v-model="note.numFemales" />
+      </div>
+      <div class="formItem">
+      <label for="feeder-type" class="birdNotes">Feeder Type: </label><div></div>
+      <select id="feeder-type" v-model="note.feederType">
+        <option value="cylinder">Cylinder</option>
+        <option value="hopper">Hopper-feeder</option>
+        <option value="nectar">Nectar-feeder</option>
+        <option value="seed-tube">Seed-Tube</option>
+        <option value="suet-feeder">Suet-feeder</option>
+        <option value="tray-feeder">Tray-feeder</option>
+        <option value="peanut-feeder">Peanut-feeder</option>
+      </select>
+      </div>
+      <div class="formItem">
+      <label for="food-blend" class="birdNotes">Food Blend: </label><div></div>
+      <select id="food-blend" v-model="note.foodBlend">
+        <option value="live-mealworms">Live Mealworms</option>
+        <option value="bark-butter">Bark-butter</option>
+        <option value="suet-cake">Suet Cake</option>
+        <option value="wildlife-blend">Wildlife-blend</option>
+        <option value="sunflower-blend">Sunflower-blend</option>
+        <option value="nutty-blend">Nutty-blend</option>
+      </select>
+      </div>
+      <div class="formItem">
+        <label for="notes" class="birdNotes">Notes: </label><div></div>
+        <input id="notes" type="text" v-model="note.notes" />
+      </div>
+        <input type="submit" value="Save" />
+        <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
+    </form>
     </div>
   </div>
 </template>
@@ -40,7 +90,8 @@ export default {
   data() {
     return {
       birdId: this.$route.params.birdId,
-    };
+      showForm: false
+    }
   },
   computed: {
     notes() {
@@ -59,7 +110,26 @@ export default {
           console.error(err + " problem deleting note!");
         });
       }
-    }
+    },
+    updateNote(noteId) {
+            let note = {};
+            for(const n of this.notes) {
+              if (n.noteId == noteId) note = n;
+            }
+            console.log(note);
+            noteService.editNote(note).then(
+                response => {
+                    if (response.status == 200) {
+                        this.$store.commit("EDIT_NOTE", note);
+                    }
+                    }).catch((err) => {
+                        console.error(err + " problem editing note");
+                })
+            this.resetForm();
+        },
+        resetForm() {
+            this.showForm = false;
+        }
   },
   created() {
     noteService.getNotes(this.birdId).then((response) => {
