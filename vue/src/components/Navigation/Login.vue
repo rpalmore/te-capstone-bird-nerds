@@ -87,16 +87,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 86%;
+  width: 80%;
 }
 .form-signin {
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
   padding: 18px 0 35px 0;
-  margin: 0 8px 0 8px;
   background-color: #ff9f1c;
   border: 2px solid #e71d36;
+
 }
 input[type] {
   text-align: center;
@@ -124,12 +125,12 @@ span {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   font-weight: bold;
-  border-bottom: 2px solid #e71d36;
   border-bottom: 2px solid #fdfffc;
   padding-bottom: 18px;
+  text-align: center;
 }
 .alert {
   text-align: center;
-  padding-top: 5px;
+  padding-top: 10px;
 }
 </style>

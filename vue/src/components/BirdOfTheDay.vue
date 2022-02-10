@@ -24,7 +24,6 @@ export default {
     birdService.getRandomBird().then((response) => {
       if (response.status == 200) {
         this.imgUrl = response.data.imgUrl;
-        console.log(this.imgUrl);
       }
     }).catch((err) => {
       console.error(err + " problem generating a random bird!");

@@ -56,14 +56,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 86%;
+  width: 80%;
 }
 .form-search {
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
   padding: 18px 0 35px 0;
-  margin: 0 8px 0 8px;
   background-color: #ff9f1c;
   border: 1px solid #e71d36;
 }
@@ -92,8 +92,8 @@ span {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   font-weight: bold;
-  border-bottom: 2px solid #e71d36;
   border-bottom: 2px solid #fdfffc;
   padding-bottom: 18px;
+  text-align: center;
 }
 </style>
