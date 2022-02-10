@@ -2,6 +2,19 @@
 <template>
   <div id="list-detail">
       <h1>{{ list.listName }}</h1>
+      <a
+      id="rename-button"
+      href="#"
+      v-if="showForm === false"
+      v-on:click.prevent="showForm = true"
+    >Rename</a>
+    <form v-on:submit.prevent="updateName" v-show="showForm === true">
+        <label for="newName">Enter new name:</label>
+        <input id="newName" type="text" v-model="list.listName" />
+        <input type="submit" value="Save" />
+        <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
+    </form>
+
       <add-bird /> <br><br>
       <div class="birdInList" v-for="bird in this.$store.state.birds" v-bind:key="bird.birdID">
          <!--  <div class="numSightingsCircle">{{ bird.numSightings }} </div> -->
@@ -18,12 +31,18 @@
 </template>
 
 <script>
+import listService from '../services/ListService.js';
 import birdService from '../services/BirdService.js';
 import AddBird from './AddBird'
 
 export default {
     name: "list-detail",
     components: { AddBird },
+    data() {
+        return {
+            showForm: false,
+        }
+    },
     computed: {
         listId() {
             return this.$store.state.activeList
@@ -52,6 +71,20 @@ export default {
                     console.error(err + " problem deleting bird!");
                 });
             }
+        },
+        updateName() {
+            listService.editList(this.list).then(
+                response => {
+                    if (response.status == 201) {
+                        this.$store.commit("EDIT_LIST", this.list);
+                    }
+                    }).catch((err) => {
+                        console.error(err + " problem editing list");
+                })
+            this.resetForm();
+        },
+        resetForm() {
+            this.showForm = false;
         }
     }
 

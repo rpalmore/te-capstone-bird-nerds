@@ -91,6 +91,15 @@ export default new Vuex.Store({
     },
     DELETE_NOTE(state, noteId) {
       state.notes = state.notes.filter((note) => note.noteId != noteId);
+    },
+    EDIT_LIST(state, list) {
+      state.lists = state.lists.map(l => l.listId != list.listId ? l : list);
+    },
+    EDIT_BIRD(state, bird) {
+      state.birds = state.birds.map(b => b.birdID != bird.birdID ? b : bird);
+    },
+    EDIT_NOTE(state, note) {
+      state.notes = state.notes.map(n => n.noteId != note.noteId ? n : note);
     }
   }
 })
