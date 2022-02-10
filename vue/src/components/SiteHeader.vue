@@ -24,6 +24,8 @@ export default {
     logout() {
       this.$store.commit("LOGOUT");
       this.$router.push({ name: "Home" });
+      // this will refresh page to collapse expanded left nav buttons/forms but creates a slight delay
+      // this.$router.go(0);
     },
   },
 };
