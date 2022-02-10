@@ -1,43 +1,44 @@
 <template>
   <div id="notesContainer">
     <div class="note" v-for="note in notes" v-bind:key="note.noteId">
-      <div class="dateStuff">
-        <p class="label">Date:</p>
-        <p class="infoBox">{{ note.dateSpotted }}</p>
-      </div>
-      <br />
-      <div id="rowTwo">
-        <div class="genderStuff">
-          <div class="males">
-            <p class="label">Males :</p>
-            <p class="infoBox">{{ note.numMales }}</p>
+      <div id="noteItself" v-show="showForm === false">
+        <div class="dateStuff">
+          <p class="label">Date:</p>
+          <p class="infoBox">{{ note.dateSpotted }}</p>
+        </div>
+        <br />
+        <div id="rowTwo">
+          <div class="genderStuff">
+            <div class="males">
+              <p class="label">Males :</p>
+              <p class="infoBox">{{ note.numMales }}</p>
+            </div>
+            <div class="females">
+              <p class="label">Females :</p>
+              <p class="infoBox">{{ note.numFemales }}</p>
+            </div>
           </div>
-          <div class="females">
-            <p class="label">Females :</p>
-            <p class="infoBox">{{ note.numFemales }}</p>
+          <div class="foodStuff">
+            <div class="feeder">
+              <p class="label">Feeder :</p>
+              <p class="infoBox">{{ note.feederType }}</p>
+            </div>
+            <div class="foodBlend">
+              <p class="label">Food Blend :</p>
+              <p class="infoBox">{{ note.foodBlend }}</p>
+            </div>
           </div>
         </div>
-        <div class="foodStuff">
-        <div class="feeder">
-          <p class="label">Feeder :</p>
-          <p class="infoBox">{{ note.feederType }}</p>
+        <div class="writtenNotes">
+          <p class="label">Notes :</p>
+          <p class="infoBox">{{ note.notes }}</p>
         </div>
-        <div class="foodBlend">
-          <p class="label">Food Blend :</p>
-          <p class="infoBox">{{ note.foodBlend }}</p>
-        </div>
-        </div>
-      </div>
-      <div class="writtenNotes">
-        <p class="label">Notes :</p>
-        <p class="infoBox">{{ note.notes }}</p>
-      </div>
 
-      <button v-if="showForm === false" v-on:click="showForm = true">
-        Edit
-      </button>
-      <button v-on:click="deleteNote(note.noteId)">Delete</button>
-
+        <button v-if="showForm === false" v-on:click="showForm = true">
+          Edit
+        </button>
+        <button v-on:click="deleteNote(note.noteId)">Delete</button>
+      </div>
       <form
         v-on:submit.prevent="updateNote(note.noteId)"
         v-show="showForm === true"
@@ -170,7 +171,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .note {
   border: 4px solid #ff9f1c;
   outline: 8px solid #ec0f0f;
@@ -208,7 +209,6 @@ select {
   font-size: 1rem;
   margin-bottom: -1px;
   padding-left: 6px;
-
 }
 input {
   padding: 8px;
@@ -224,10 +224,10 @@ input {
   display: flex;
   flex-direction: row;
   align-items: center;
-
 }
 
-.males,.females {
+.males,
+.females {
   min-width: 85px;
 }
 
@@ -251,7 +251,8 @@ input {
   flex-direction: row;
 }
 
-.foodBlend, .feeder {
+.foodBlend,
+.feeder {
   min-width: 130px;
 }
 
@@ -270,9 +271,9 @@ input {
 
 button {
   width: 100px;
-  background-color: #FF9F1C;
+  background-color: #ff9f1c;
   font-weight: bold;
-  color:#011627;
+  color: #011627;
   text-align: center;
   display: inline-block;
   margin-left: 10px;
