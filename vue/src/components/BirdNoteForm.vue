@@ -1,6 +1,6 @@
 <template>
   <main id="wholePage">
-    <h2 id="notesHeader">Bird Notes</h2>
+    <h2 id="notesHeader">Log the Sighting</h2>
     <div id="formDiv">
     <form id="wholeForm" v-on:submit.prevent="addNote">
       <div class="formItem">
@@ -14,11 +14,11 @@
       <div>
       <span class="males">
       <label for="num-males" >Males: </label>
-      <input id="numMales" type="text" placeholder="#" v-model="birdNote.numMales" /></span>
+      <input id="numMales" type="number" min=0 placeholder="#" v-model="birdNote.numMales" /></span>
      
       <span class="females"></span>
       <label class="malesFemales" for="num-females" >Females: </label>
-      <input id="numFemales" type="text" placeholder="#" v-model="birdNote.numFemales" />
+      <input id="numFemales" type="number" min=0 placeholder="#" v-model="birdNote.numFemales" />
       </div>
      
       <div class="formItem">
@@ -46,7 +46,7 @@
       </div>
       <div class="notesArea">
         <label for="notes" class="birdNotes">Notes: </label><div></div>
-        <input id="notesArea" type="text" v-model="birdNote.notes" />
+        <textarea id="notesArea" wrap="soft" type="text" v-model="birdNote.notes" />
       </div>
       <br>
       <input id="submit" type="submit" />
@@ -97,7 +97,7 @@ export default {
   border: 1px solid #011627;
   border-left: 5px solid #FF9F1C;
   border-right: 5px solid #FF9F1C;
-  width: 13px;
+  width: 37px;
   margin-bottom: 10px;
 } 
 #numMales{
@@ -108,14 +108,18 @@ h2 {
   text-align: center;
 }
 #notesArea {
-  width: 250px;
+  width: 320px;
   height: 100px;
   font-family: "Bitter", serif;
-
- max-width: 250px;
+  max-width: 307px;
+  word-wrap: break-word;
+  word-break: break-word;
+  border-left: 5px solid #FF9F1C;
+  border-right: 5px solid #FF9F1C;
+  border-radius: 8px;
 }
 #dateInput {
-  width: 270px;
+  width: 320px;
 }
 
 .formItem, .notesArea{
@@ -128,14 +132,16 @@ h2 {
   border: 4px solid #ff9f1c;
   outline: 8px solid #ec0f0f;
   padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #011627;
   color: #FDFFFC;
-  padding-left: 50px;
+  padding-left: 60px;
   padding-right: 50px;
 }
 
 select {
-  width: 275px;
+  width: 320px;
   font-size: 1rem;
   padding-top: 9px;
   padding-bottom: 9px;
@@ -158,7 +164,7 @@ input {
   border: 1px solid #011627;
   border-left: 5px solid #FF9F1C;
   border-right: 5px solid #FF9F1C;
-  width: 250px;
+  width: 300px;
 }
 
 #submit {
