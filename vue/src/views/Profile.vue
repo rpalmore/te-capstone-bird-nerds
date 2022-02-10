@@ -5,8 +5,8 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-    <h2>Welcome, {{ this.$store.state.user.username }}! </h2>
-    
+    <h2>Welcome, {{ this.username }}!</h2>
+
     <a
       id="create"
       class="createProfile"
@@ -20,14 +20,14 @@
     >
     <ProfileForm
       v-show="
-        formDisplay === true && this.$store.state.profile.favoriteBird === undefined
+        formDisplay === true &&
+        this.$store.state.profile.favoriteBird === undefined
       "
     ></ProfileForm>
 
     <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
       >Cancel</a
     >
-    
 
     <ProfileFormEdit
       v-show="
@@ -35,9 +35,8 @@
         this.$store.state.profile.favoriteBird !== undefined
       "
     ></ProfileFormEdit>
-    
+
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
-    
   </div>
 </template>
 
@@ -52,6 +51,9 @@ export default {
     return {
       formDisplay: false,
       profileDisplay: true,
+      username:
+        this.$store.state.user.username.substring(0, 1).toUpperCase() +
+        this.$store.state.user.username.substring(1).toLowerCase(),
     };
   },
   methods: {

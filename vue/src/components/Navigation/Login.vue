@@ -59,7 +59,6 @@ export default {
             });
             profileService.getProfile().then((response) => {
               if (response.status == 200) {
-                console.log(response);
                 this.$store.commit("SET_PROFILE", response.data);
                 if (this.$store.state.profile.favoriteBird != undefined) {
                   this.$router.push("/lists");

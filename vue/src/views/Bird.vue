@@ -32,6 +32,7 @@ export default {
 <style scoped>
 #bird-vue {
     display: flex;
+    flex-direction: column;
 }
 
 </style>
