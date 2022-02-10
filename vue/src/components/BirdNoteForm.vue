@@ -90,8 +90,6 @@ export default {
   margin-left: auto;
 }
 #numMales, #numFemales {
- /* padding: 5px;
- padding-bottom: 5px; */
  border-radius: 8px;
   font-size: 1.1rem;
   border: 1px solid #011627;

@@ -1,19 +1,24 @@
 <!-- This component is for display a specific list + birds in that list (non-detailed view) -->
 <template>
   <div id="list-detail">
-      <h1>Add a bird to {{ list.listName }}</h1>
-      <a
-      id="rename-button"
+    <span id="add-bird">Add a bird to: {{ list.listName }}</span>
+    <a
+      id="rename-list"
       href="#"
       v-if="showForm === false"
       v-on:click.prevent="showForm = true"
-    >Rename</a>
-    <form v-on:submit.prevent="updateName" v-show="showForm === true">
-        <label for="newName">Enter new name:</label>
-        <input id="newName" type="text" v-model="list.listName" />
-        <input type="submit" value="Save" />
-        <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
-    </form><br><br>
+      >Rename</a
+    >
+    <form
+      class="new-name"
+      v-on:submit.prevent="updateName"
+      v-show="showForm === true"
+    >
+      <label for="newName">New name: &nbsp;</label>
+      <input id="newName" type="text" v-model="list.listName" />
+      <input type="submit" value="Save" />
+      <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
+    </form>
 
     <add-bird />
     <div
@@ -22,6 +27,7 @@
       v-bind:key="bird.birdID"
     >
       <router-link
+        id="birdAnchor"
         :to="{
           name: 'bird-detail',
           params: { listId: listId, birdId: bird.birdID },
@@ -34,9 +40,7 @@
           </div>
         </div>
       </router-link>
-      <div id="deleteButton">
-        <button v-on:click="deleteBird(bird.birdID)">X</button>
-      </div>
+      <a id="deleteBird" v-on:click="deleteBird(bird.birdID)">&#10006;</a>
     </div>
   </div>
 </template>
@@ -99,49 +103,62 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #list-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
-h1 {
-  font-size: 45px;
+#add-bird {
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 35px;
 }
-.birdInList {
-  font-size: 20px;
-  background-color: #ff9f1c;
-  color: #fdfffc;
-  border: 4px solid #ff9f1c;
-  padding-left: auto;
-  padding-right: auto;
-  font-family: "Bitter", serif;
-  font-size: 1.3rem;
-  width: 20%;
-  text-align: center;
+#rename-list,
+.new-name {
   margin-bottom: 25px;
   margin-top: 25px;
-  border-radius: 10%;
+  padding: 8px;
+  background-color: #011627;
+  color: #fdfffc;
+  border-right: 4px solid #ff9f1c;
+  border-left: 4px solid #ff9f1c;
+  text-decoration: none;
+  font-size: 1.3rem;
 }
-button {
-  background-color: red;
-  border-radius: 10px;
+.new-name {
+  display: flex;
+  gap: 10px;
 }
-#deleteButton {
+#birdAnchor {
+  text-decoration: none;
+  flex-grow: 1;
+  color: #fdfffc;
+}
+.birdInList {
+  display: flex;
+  margin-top: 35px;
+  align-items: center;
+  width: 100%;
+  background-color: #011627;
+  color: #fdfffc;
+  padding: 15px 15px 15px 25px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  border-left: 5px solid #ff9f1c;
+  border-right: 5px solid #ff9f1c;
+}
+#deleteBird {
+  display: flex;
   position: relative;
-  display: block;
-  padding: 0.5em;
+  top: 0;
+  right: 30px;
+  padding: 5px 10px;
   font-weight: bold;
-  border-radius: 10%
-  /* color: #e71d36; */
-  /* background-color: rgb(248, 8, 8) */;
-
+  border-radius: 50%;
+  color: #e71d36;
+  background-color: #fdfffc;
+  border: 2px solid #ff9f1c;
 }
-
-/* #deleteButton:hover {
-  border: 2px red;
-  background-color: yellow;
-  color: #ffffff;
-} */
 </style>

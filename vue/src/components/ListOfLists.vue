@@ -1,6 +1,6 @@
 <template>
   <div id="all-lists">
-    <h2>My Lists</h2>
+    <span>My Lists</span>
     <div
       id="listColumn"
       v-bind:list="list"
@@ -79,7 +79,7 @@ export default {
 #delete {
   display: flex;
   position: relative;
-  top: 19px;
+  top: 17px;
   right: 70px;
   height: 22px;
   padding: 5px 10px;
@@ -89,7 +89,7 @@ export default {
   background-color: #fdfffc;
   border: 2px solid #ff9f1c;
 }
-h2{
+span {
   font-size: 1.8rem;
 }
 </style>

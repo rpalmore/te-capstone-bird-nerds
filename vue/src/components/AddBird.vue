@@ -71,6 +71,7 @@ export default {
   background-color: #011627;
   color: #fdfffc;
   margin-top: 10px;
+  width: 100%;
 }
 form {
   display: flex;
