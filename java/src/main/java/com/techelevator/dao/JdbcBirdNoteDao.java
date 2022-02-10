@@ -90,6 +90,12 @@ public class JdbcBirdNoteDao implements BirdNoteDao {
                 note.getFoodBlend()
                 );
         note.setNoteId(noteId);
+
+        sql = "UPDATE birds " +
+                "SET num_sightings = num_sightings + 1 " +
+                "WHERE bird_id = ?";
+        template.update(sql, note.getBirdId());
+
         return note;
     }
 
@@ -97,6 +103,11 @@ public class JdbcBirdNoteDao implements BirdNoteDao {
     public void deleteAllNotesForBird(long birdId) {
         String sqlForRemove = "DELETE FROM bird_notes WHERE bird_id=?";
         template.update(sqlForRemove, birdId);
+
+        String sql = "UPDATE birds " +
+                "SET num_sightings = num_sightings - 1 " +
+                "WHERE bird_id = ?";
+        template.update(sql, birdId);
     }
 
 

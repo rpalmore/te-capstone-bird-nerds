@@ -65,6 +65,7 @@ export default {
   padding: 25px;
   background-color: #011627;
   color: #FDFFFC;
+  margin-top: 10px;
 }
 form {
   display: flex;
@@ -76,12 +77,16 @@ a {
   text-decoration: none;
   color: #FDFFFC;
 }
+a:hover {
+  color: #ff9f1c;
+}
 label {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
 }
 input, input[type="submit"] {
   padding: 8px;
+  margin-bottom: 10px;
   width: 60%;
   border-radius: 8px;
   font-size: 1rem;
