@@ -104,7 +104,7 @@ export default {
   margin-right: 8px;
 }
 h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   text-align: center;
 }
 #notesArea {
@@ -138,6 +138,9 @@ h2 {
   color: #FDFFFC;
   padding-left: 60px;
   padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 select {
