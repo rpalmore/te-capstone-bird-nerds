@@ -54,7 +54,7 @@ export default {
 #all-lists {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 20px;
   gap: 21px;
   align-items: center;
 }
@@ -88,5 +88,8 @@ export default {
   color: #e71d36;
   background-color: #fdfffc;
   border: 2px solid #ff9f1c;
+}
+h2{
+  font-size: 1.8rem;
 }
 </style>
