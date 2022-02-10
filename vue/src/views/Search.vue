@@ -2,6 +2,7 @@
   <div id="header">
     <h2>Birds recently spotted in {{ this.$route.params.zipcode }}</h2>
     <div id="search-results">
+      <div id="birds">
       <div
         id="bird-card"
         v-for="bird in this.birdsByZip"
@@ -13,9 +14,11 @@
           v-bind:src="bird.imgUrl + '/embed/400'"
           frameborder="0"
           allowfullscreen
+          scrolling="no"
           style="width: 320px"
         ></iframe>
         <div id="date">Date: {{ bird.dateSpotted }}</div>
+      </div>
       </div>
     </div>
   </div>
@@ -68,6 +71,12 @@ export default {
   border-bottom: 3px solid #ff9f1c;
   margin-bottom: 15px;
   padding-top: 20px;
+}
+#birds {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
 }
 iframe {
   padding: 5px 5px 0 5px;
