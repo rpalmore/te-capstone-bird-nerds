@@ -1,7 +1,7 @@
 <!-- This component is for display a specific list + birds in that list (non-detailed view) -->
 <template>
   <div id="list-detail">
-      <h1>{{ list.listName }}</h1>
+      <h1>Add a Bird to {{ list.listName }}</h1>
       <a
       id="rename-button"
       href="#"
@@ -106,7 +106,6 @@ export default {
   align-items: center;
   margin-top: 10px;
 }
-
 h1 {
   font-size: 45px;
 }
@@ -119,22 +118,30 @@ h1 {
   padding-right: auto;
   font-family: "Bitter", serif;
   font-size: 1.3rem;
-  width: 30%;
+  width: 20%;
   text-align: center;
   margin-bottom: 25px;
   margin-top: 25px;
+  border-radius: 10%;
+}
+button {
+  background-color: red;
+  border-radius: 10px;
 }
 #deleteButton {
-  display: flex;
-  /* position: relative; */
-  top: 19px;
-  right: 370px;
-  height: 15px;
-  padding: 5px 10px;
+  position: relative;
+  display: block;
+  padding: 0.5em;
   font-weight: bold;
-  border-radius: 50%;
-  color: #e71d36;
-  background-color: #fdfffc;
-  border: 2px solid #ff9f1c;
+  border-radius: 10%
+  /* color: #e71d36; */
+  /* background-color: rgb(248, 8, 8) */;
+
 }
+
+/* #deleteButton:hover {
+  border: 2px red;
+  background-color: yellow;
+  color: #ffffff;
+} */
 </style>
