@@ -44,7 +44,6 @@
     <!-- GO TO PROFILE appears if user IS logged in -->
     <GoToProfile v-if="$store.state.token != ''"></GoToProfile>
 
-    <!-- NOT READY TO SOLVE FOR THIS QUITE YET ... -->
     <!-- HOME appears only if user IS logged in -->
     <button
       v-if="$store.state.token != ''"
