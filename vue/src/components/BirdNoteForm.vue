@@ -1,6 +1,6 @@
 <template>
   <main id="wholePage">
-    <h2 id="notesHeader">Bird Notes</h2>
+    <h2 id="notesHeader">Add Notes</h2>
     <div id="formDiv">
     <form id="wholeForm" v-on:submit.prevent="addNote">
       <div class="formItem">
@@ -104,7 +104,7 @@ export default {
   margin-right: 8px;
 }
 h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   text-align: center;
 }
 #notesArea {
@@ -132,6 +132,9 @@ h2 {
   color: #FDFFFC;
   padding-left: 50px;
   padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 select {
