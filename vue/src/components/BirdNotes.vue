@@ -1,7 +1,6 @@
 <template>
   <div id="notesContainer">
     <div class="note" v-for="note in notes" v-bind:key="note.noteId">
-      {{note}}
       <div class="dateStuff">
         Date:
         <p class="infoBox">{{ note.dateSpotted }}</p>
@@ -141,6 +140,16 @@ export default {
 
 <style>
 .note {
+  border: 4px solid #ff9f1c;
+  outline: 8px solid #ec0f0f;
+  padding: 25px;
+  background-color: #011627;
+  color: #FDFFFC;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* .note {
  display: flex;
  flex-direction: column;
  width: 80%;
@@ -149,7 +158,7 @@ export default {
  margin: 10px;
  border-radius: 10px;
  background-color: #2ec4b6;
-}
+} */
 
 .dateStuff {
   display: inline-block;
