@@ -5,10 +5,10 @@
     </div>
     <div id="logo-text">
       <span>{{ logo }}</span>
-      <a id="logout" v-show="$store.state.token != ''" v-on:click="logout">
+    </div>
+        <a id="logout" v-show="$store.state.token != ''" v-on:click="logout">
         Logout
       </a>
-    </div>
   </div>
 </template>
 
@@ -52,9 +52,8 @@ export default {
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding-left: 29%;
-  padding-right: 3%;
   border-left: 8px solid #fdfffc;
   color: #fdfffc;
   font-family: "Bitter", serif;
@@ -63,6 +62,11 @@ export default {
   font-size: 3.8rem;
 }
 a {
+  display: flex;
+  position: absolute;
+  right: 25px;
+  top: 57px;
+  align-items: center;
   text-decoration: none;
   color: #fdfffc;
   padding: 18px;

@@ -1,7 +1,7 @@
 <!-- This component is for display a specific list + birds in that list (non-detailed view) -->
 <template>
   <div id="list-detail">
-      <h1>Add a Bird to {{ list.listName }}</h1>
+      <h1>Add a bird to {{ list.listName }}</h1>
       <a
       id="rename-button"
       href="#"
@@ -83,7 +83,7 @@ export default {
       listService
         .editList(this.list)
         .then((response) => {
-          if (response.status == 201) {
+          if (response.status == 200) {
             this.$store.commit("EDIT_LIST", this.list);
           }
         })
