@@ -30,6 +30,7 @@ export default {
           }
           else {
             this.$router.push({ name: 'not-found', params: { zipcode: this.zipcode } });
+            
           }
         })
         .catch((err) => {
