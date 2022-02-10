@@ -13,23 +13,14 @@
         <input id="newName" type="text" v-model="list.listName" />
         <input type="submit" value="Save" />
         <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
-    </form>
+    </form><br><br>
 
-      <add-bird /> <br><br>
-      <div class="birdInList" v-for="bird in this.$store.state.birds" v-bind:key="bird.birdID">
-         <!--  <div class="numSightingsCircle">{{ bird.numSightings }} </div> -->
-          <router-link :to="{name: 'bird-detail', params: {listId: listId, birdId: bird.birdID}}" >
-              <div class="birdInfoBox">
-              {{ bird.birdName }} 
-              <div class="dateBox" v-show="bird.mostRecentSighting != null" >{{ bird.mostRecentSighting }}</div>
-    <span id="add-bird">Add a bird to: {{ list.listName }}</span>
     <add-bird />
     <div
       class="birdInList"
       v-for="bird in this.$store.state.birds"
       v-bind:key="bird.birdID"
     >
-      <!--  <div class="numSightingsCircle">{{ bird.numSightings }} </div> -->
       <router-link
         :to="{
           name: 'bird-detail',
