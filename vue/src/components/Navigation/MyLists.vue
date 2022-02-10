@@ -29,6 +29,7 @@ export default {
   font-size: 1.3rem;
   margin-top: 70px;
   padding: 10px;
+  border-radius: 0 !important;
 }
 a {
   display: flex;

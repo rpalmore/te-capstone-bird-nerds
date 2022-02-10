@@ -62,7 +62,6 @@ import SearchBirds from "./Navigation/SearchBirds.vue";
 import Register from "../views/Register.vue";
 import MyLists from "./Navigation/MyLists.vue";
 import GoToProfile from "./Navigation/GoToProfile.vue";
-// import GoHome from './Navigation/GoHome.vue';
 
 export default {
   name: "left-nav",
@@ -124,6 +123,7 @@ export default {
   font-size: 1.3rem;
   margin-top: 45px;
   padding: 10px;
+  border-radius: 0 !important;
 }
 a {
   text-decoration: none;
