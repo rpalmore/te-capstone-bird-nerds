@@ -31,8 +31,8 @@ export default new Vuex.Store({
     // use localStorage to prevent data from resetting after refreshing page
     lists: JSON.parse(localStorage.getItem('lists') || "{}"),
     birds: JSON.parse(localStorage.getItem('birds') || "{}"),
-    activeBird: 0,
-    activeList: 0,
+    activeBird: JSON.parse(localStorage.getItem('activeBird') || 0),
+    activeList: JSON.parse(localStorage.getItem('activeList') || 0),
     notes: JSON.parse(localStorage.getItem('notes') || "{}"),
   },
   mutations: {
@@ -73,11 +73,11 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_LIST(state, listId) {
       state.activeList = listId;
-      localStorage.setItem("lists",JSON.stringify(state.lists));
+      localStorage.setItem("activeList",JSON.stringify(state.activeList));
     },
     SET_ACTIVE_BIRD(state, birdId) {
       state.activeBird = birdId;
-      localStorage.setItem("birds",JSON.stringify(state.birds));
+      localStorage.setItem("activeBird",JSON.stringify(state.activeBird));
     },
     SET_NOTES(state, notes) {
       state.notes = notes;
