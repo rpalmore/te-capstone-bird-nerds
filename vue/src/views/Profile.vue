@@ -5,7 +5,7 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-    <h2>Welcome, {{ this.$store.state.user.username.toUpperCase() }}!</h2>
+    <h2>Welcome, {{ this.username }}!</h2>
 
     <a
       id="create"
@@ -51,12 +51,12 @@ export default {
     return {
       formDisplay: false,
       profileDisplay: true,
+      username:
+        this.$store.state.user.username.substring(0, 1).toUpperCase() +
+        this.$store.state.user.username.substring(1).toLowerCase(),
     };
   },
   methods: {
-    // formatName() {
-    //   this.$store.state.user.username.toUpperCase();
-    // },
     displayForm() {
       this.formDisplay = true;
       this.profileDisplay = false;
