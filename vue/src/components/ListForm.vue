@@ -52,12 +52,12 @@ main {
 }
 form {
   display: flex;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
 }
  input {
   padding: 8px;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: 1px solid #011627;
   border-left: 5px solid #FF9F1C;
   border-right: 5px solid #FF9F1C;
@@ -72,4 +72,8 @@ form {
   border-left: 5px solid #FF9F1C;
   border-right: 5px solid #FF9F1C;
 } 
+
+h2 {
+  font-size: 2rem;
+}
 </style>

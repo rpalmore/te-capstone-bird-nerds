@@ -104,15 +104,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 10px;
 }
-#add-bird {
-  padding: 15px;
-  font-size: 30px;
-}
-/* h1 {
+
+h1 {
   font-size: 45px;
-} */
+}
 .birdInList {
   font-size: 20px;
   background-color: #ff9f1c;
