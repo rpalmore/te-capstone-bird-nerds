@@ -35,7 +35,15 @@
       />
 
       <label for="zip-code">Please enter your zip code:</label>
-      <input required id="zip-code" type="text" v-model="profile.zipCode" />
+      <input
+        required
+        id="zip-code"
+        type="text"
+        pattern="[0-9]{5}"
+        title="Numbers only, please!"
+        placeholder="#####"
+        v-model="profile.zipCode"
+      />
 
       <label for="skill-lvl">What is your skill level?</label>
       <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
