@@ -61,7 +61,7 @@ export default {
       birdService
         .editBird(this.bird)
         .then((response) => {
-          if (response.status == 201) {
+          if (response.status == 200) {
             this.$store.commit("EDIT_BIRD", this.bird);
           }
         })
