@@ -25,7 +25,6 @@ export default {
         .getBirdByZip(this.zipcode).then((response) => {
           if (response.status == 200 && response.data.length != 0) {
             this.birds = response.data;
-            console.log(this.birds);
             this.$router.push({ name: 'search', params: { zipcode: this.zipcode } });
           }
           else {

@@ -111,7 +111,6 @@ export default {
   padding: 2px;
 }
 .btn {
-  /* margin-bottom: 35px; */
   width: 80%;
   background-color: #011627;
   color: #fdfffc;
@@ -121,5 +120,8 @@ export default {
   font-size: 1.3rem;
   margin-top: 45px;
   padding: 10px;
+}
+a {
+  text-decoration: none;
 }
 </style>

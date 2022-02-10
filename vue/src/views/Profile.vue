@@ -5,31 +5,39 @@
       src="..\assets\BirdSiloutette.png"
       alt="Bird silhouette"
     />
-<<<<<<< HEAD
-    <h2 id="profile">Welcome, {{ this.$store.state.user.username }}! </h2>
-=======
-    <h2>Welcome, bird nerd!</h2>
->>>>>>> main
+    <h2>Welcome, {{ this.$store.state.user.username }}! </h2>
+    
     <a
       id="create"
       class="createProfile"
       v-show="formDisplay === false"
       v-on:click="displayForm"
       >{{
-        this.$store.state.profile.favoriteBird == null
+        this.$store.state.profile.favoriteBird === undefined
           ? "Create your profile"
           : "Edit your profile"
       }}</a
     >
-    <ProfileForm v-show="formDisplay === true && this.$store.state.profile.favoriteBird == null"></ProfileForm>
+    <ProfileForm
+      v-show="
+        formDisplay === true && this.$store.state.profile.favoriteBird === undefined
+      "
+    ></ProfileForm>
 
     <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
       >Cancel</a
     >
+    
 
-    <ProfileFormEdit v-show="formDisplay === true && this.$store.state.profile.favoriteBird != null"></ProfileFormEdit>
-
+    <ProfileFormEdit
+      v-show="
+        formDisplay === true &&
+        this.$store.state.profile.favoriteBird !== undefined
+      "
+    ></ProfileFormEdit>
+    
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
+    
   </div>
 </template>
 
@@ -66,7 +74,10 @@ export default {
   align-items: center;
   margin-top: 2%;
   gap: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
+}
+.welcome {
+  font-size: 1.5rem;
 }
 #create,
 #cancel {
@@ -89,10 +100,5 @@ export default {
   padding: 10px;
   background-color: #ff9f1c;
   border: 8px solid #e71d36;
-}
-#horizontal {
-  /* display: flex;
-  margin-top: 8px; */
-  /* height: 100vh; */
 }
 </style>

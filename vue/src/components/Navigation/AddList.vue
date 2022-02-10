@@ -19,7 +19,6 @@ export default {
   color: #fdfffc;
   border: 2px solid #ff9f1c;
   border: 2px solid #e71d36;
-  font-family: "Bitter", serif;
   font-size: 1.3rem;
   margin-top: 35px;
   padding: 10px;

@@ -24,6 +24,7 @@ export default {
     birdService.getRandomBird().then((response) => {
       if (response.status == 200) {
         this.imgUrl = response.data.imgUrl;
+        console.log(this.imgUrl);
       }
     }).catch((err) => {
       console.error(err + " problem generating a random bird!");
@@ -39,10 +40,6 @@ iframe {
   background-color: white;
   border: 3px solid #011627;
   border: 3px solid #FF9F1C;
+  margin-bottom: 50px;
 }
-/* .responsive {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #011627;
-} */
 </style>

@@ -33,6 +33,7 @@ export default {
   methods: {
     deleteList(listId) {
       if (confirm("Are you sure you want to delete this list?")) {
+        console.log(listId);
         listService
           .deleteList(listId)
           .then((response) => {
@@ -87,8 +88,5 @@ export default {
   color: #e71d36;
   background-color: #fdfffc;
   border: 2px solid #ff9f1c;
-}
-#horizontal {
-  /* height: auto; */
 }
 </style>

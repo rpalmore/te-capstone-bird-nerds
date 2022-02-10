@@ -66,4 +66,7 @@ a {
   padding: 18px;
   border-left: 1px solid #e71d36;
 }
+a:hover {
+  color: #ff9f1c;
+}
 </style>

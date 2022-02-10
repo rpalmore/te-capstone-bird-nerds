@@ -135,4 +135,8 @@ span {
   border-bottom: 2px solid #fdfffc;
   padding-bottom: 18px;
 }
+.alert {
+  text-align: center;
+  padding-top: 5px;
+}
 </style>

@@ -29,7 +29,6 @@ export default {
       .getProfile()
       .then((response) => {
         this.profile = response.data;
-        console.log(response.data);
       })
       .catch((err) => {
         console.error(err + " nothing returned");
@@ -49,7 +48,6 @@ export default {
   font-size: 1.3rem;
   width: 75%;
   text-align: center;
-  margin-bottom: 25px;
 }
 #profile-box {
   padding-bottom: 25px;
