@@ -30,10 +30,10 @@ export default new Vuex.Store({
     },
     // use localStorage to prevent data from resetting after refreshing page
     lists: JSON.parse(localStorage.getItem('lists') || "{}"),
-    birds: [],
+    birds: JSON.parse(localStorage.getItem('birds') || "{}"),
     activeBird: 0,
     activeList: 0,
-    notes: []
+    notes: JSON.parse(localStorage.getItem('notes') || "{}"),
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -65,21 +65,27 @@ export default new Vuex.Store({
     },
     SET_BIRDS(state, birds) {
       state.birds = birds;
+      localStorage.setItem("birds",JSON.stringify(state.birds));
     },
     ADD_BIRD(state, bird) {
       state.birds.unshift(bird);
+      localStorage.setItem("birds",JSON.stringify(state.birds));
     },
     SET_ACTIVE_LIST(state, listId) {
       state.activeList = listId;
+      localStorage.setItem("lists",JSON.stringify(state.lists));
     },
     SET_ACTIVE_BIRD(state, birdId) {
       state.activeBird = birdId;
+      localStorage.setItem("birds",JSON.stringify(state.birds));
     },
     SET_NOTES(state, notes) {
       state.notes = notes;
+      localStorage.setItem("notes",JSON.stringify(state.notes));
     },
     ADD_NOTE(state, note) {
       state.notes.unshift(note);
+      localStorage.setItem("notes",JSON.stringify(state.notes));
     },
     DELETE_LIST(state, listId) {
       state.lists = state.lists.filter((list) => list.listId != listId);
@@ -88,9 +94,11 @@ export default new Vuex.Store({
     },
     DELETE_BIRD(state, birdId) {
       state.birds = state.birds.filter((bird) => bird.birdID != birdId);
+      localStorage.setItem("birds",JSON.stringify(state.birds));
     },
     DELETE_NOTE(state, noteId) {
       state.notes = state.notes.filter((note) => note.noteId != noteId);
+      localStorage.setItem("notes",JSON.stringify(state.notes));
     },
     EDIT_LIST(state, list) {
       state.lists = state.lists.map(l => l.listId != list.listId ? l : list);
@@ -98,9 +106,11 @@ export default new Vuex.Store({
     },
     EDIT_BIRD(state, bird) {
       state.birds = state.birds.map(b => b.birdID != bird.birdID ? b : bird);
+      localStorage.setItem("birds",JSON.stringify(state.birds));
     },
     EDIT_NOTE(state, note) {
       state.notes = state.notes.map(n => n.noteId != note.noteId ? n : note);
+      localStorage.setItem("notes",JSON.stringify(state.notes));
     }
   }
 })
