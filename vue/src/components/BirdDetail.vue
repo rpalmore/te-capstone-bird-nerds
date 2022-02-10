@@ -1,13 +1,8 @@
 <!-- For displaying one "listcard" aka the basic details of a bird -->
 <template>
   <div id='bird-detail'>
-     {{bird}}
-          <a
-      id="edit-bird-button"
-      href="#"
-      v-if="showForm === false"
-      v-on:click.prevent="showForm = true"
-    >Edit</a>
+     
+        
     <form v-on:submit.prevent="updateBird" v-show="showForm === true">
         <label for="newName">Name:</label>
         <input id="newName" type="text" v-model="bird.birdName"/>
