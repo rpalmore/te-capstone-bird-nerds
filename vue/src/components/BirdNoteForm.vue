@@ -1,10 +1,6 @@
 <template>
   <main id="wholePage">
-<<<<<<< HEAD
-    <h2 id="notesHeader">Add Notes</h2>
-=======
     <h2 id="notesHeader">Log the Sighting</h2>
->>>>>>> main
     <div id="formDiv">
     <form id="wholeForm" v-on:submit.prevent="addNote">
       <div class="formItem">

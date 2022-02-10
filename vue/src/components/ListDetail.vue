@@ -83,7 +83,7 @@ export default {
       listService
         .editList(this.list)
         .then((response) => {
-          if (response.status == 201) {
+          if (response.status == 200) {
             this.$store.commit("EDIT_LIST", this.list);
           }
         })
