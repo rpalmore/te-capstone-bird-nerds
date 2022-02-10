@@ -45,14 +45,9 @@
     <GoToProfile v-if="$store.state.token != ''"></GoToProfile>
 
     <!-- HOME appears only if user IS logged in -->
-    <button
-      v-if="$store.state.token != ''"
-      class="btn"
-      v-on:click="goHome"
-    >
+    <button v-if="$store.state.token != ''" class="btn" v-on:click="goHome">
       HOME
     </button>
-    
   </div>
 </template>
 
@@ -62,7 +57,6 @@ import SearchBirds from "./Navigation/SearchBirds.vue";
 import Register from "../views/Register.vue";
 import MyLists from "./Navigation/MyLists.vue";
 import GoToProfile from "./Navigation/GoToProfile.vue";
-// import GoHome from './Navigation/GoHome.vue';
 
 export default {
   name: "left-nav",
@@ -76,7 +70,7 @@ export default {
   },
   methods: {
     goHome() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
     toggleView(event) {
       if (event.target.id === "btnLogin") {

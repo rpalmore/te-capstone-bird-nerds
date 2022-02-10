@@ -11,6 +11,7 @@
       <input
         id="birdImgURL"
         type="text"
+        required
         placeholder="Add an image URL here"
         v-model="newBird.birdImg"
       />
@@ -18,6 +19,7 @@
       <input
         id="birdName"
         type="text"
+        required
         placeholder="Name"
         v-model="newBird.birdName"
       />
@@ -26,6 +28,7 @@
       <input
         id="zipcode"
         type="text"
+        required
         pattern="[0-9]{5}"
         title="Numbers only, please!"
         placeholder="#####"
