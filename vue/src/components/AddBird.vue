@@ -71,7 +71,7 @@ export default {
   background-color: #011627;
   color: #fdfffc;
   margin-top: 10px;
-  width: 100%;
+  width: 80%;
 }
 form {
   display: flex;
@@ -89,6 +89,7 @@ a:hover {
 label {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
+  text-align: center;
 }
 input,
 input[type="submit"] {

@@ -140,7 +140,7 @@ export default {
   display: flex;
   margin-top: 35px;
   align-items: center;
-  width: 100%;
+  width: 80%;
   background-color: #011627;
   color: #fdfffc;
   padding: 15px 15px 15px 25px;
