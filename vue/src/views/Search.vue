@@ -52,6 +52,9 @@ export default {
   border-bottom: 2px solid #fdfffc;
   padding-bottom: 18px;
 }
+h2 {
+  margin-top: 35px;
+}
 #search-results {
   display: flex;
   flex-direction: column;

@@ -4,13 +4,13 @@
       <img id="image-link" v-bind:src="profile.profileImg" />
     </div> -->
     <div id="profile-box">
-      <p class="question"><strong>My favorite bird:</strong></p>
+      <p class="question">My favorite bird:</p>
       <span class="response">{{ profile.favoriteBird }}</span>
-      <p class="question"><strong>Most common bird at my feeder:</strong></p>
+      <p class="question">Most common bird at my feeder:</p>
       <span class="response">{{ profile.mostCommonBird }}</span>
-      <p class="question"><strong>My skill level:</strong></p>
+      <p class="question">My skill level:</p>
       <span class="response">{{ profile.skillLevel }}</span>
-      <p class="question"><strong>My zip code:</strong></p>
+      <p class="question">My zip code:</p>
       <span class="response">{{ profile.zipCode }}</span>
     </div>
   </div>
@@ -54,7 +54,6 @@ export default {
 }
 .question {
   padding-top: 25px;
-
 }
 .response {
   padding-bottom: 10px;
