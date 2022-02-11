@@ -17,7 +17,7 @@ export default {
     computed: {
         bird() {
             return this.$store.state.birds.find(
-                b => b.birdID = this.$store.state.activeBird
+                b => b.birdID == this.$store.state.activeBird
             );
         },
     },

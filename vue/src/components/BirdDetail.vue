@@ -1,7 +1,6 @@
 <!-- For displaying one "listcard" aka the basic details of a bird -->
 <template>
   <div id="bird-detail">
-    
     <div id="birdPic">
       <iframe
         width="200"
