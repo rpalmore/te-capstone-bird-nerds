@@ -52,9 +52,10 @@ export default {
   },
   methods: {
     addBird() {
+      console.log(this.newBird);
       birdService.createBird(this.listId, this.newBird).then((response) => {
         if (response.status == 201) {
-          this.$router.go(0);
+          this.$store.commit("ADD_BIRD", response.data);
         }
       });
     },
