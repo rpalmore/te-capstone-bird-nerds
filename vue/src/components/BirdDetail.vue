@@ -84,7 +84,7 @@ export default {
   background-color: #011627;
   display: flex;
   justify-content: left;
-  margin-top: 25px;
+  margin-top: 35px;
   align-items: center;
 }
 
