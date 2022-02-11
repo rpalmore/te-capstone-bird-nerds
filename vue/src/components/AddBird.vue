@@ -1,21 +1,7 @@
 <template>
   <div id="add-bird-form">
     <form v-on:submit.prevent="addBird">
-      <label for="birdImgURL"
-        >Upload a photo of this bird from our friends at
-        <a href="https://search.macaulaylibrary.org/catalog" target="_blank"
-          >eBird.org and the Macaulay Library</a
-        >.
-      </label>
-
-      <input
-        id="birdImgURL"
-        type="text"
-        required
-        placeholder="Add an image URL here"
-        v-model="newBird.birdImg"
-      />
-      <label for="birdName">Enter bird name: </label>
+      <label for="birdName">What bird did you see?</label>
       <input
         id="birdName"
         type="text"
@@ -23,8 +9,7 @@
         placeholder="Name"
         v-model="newBird.birdName"
       />
-      <!-- get placeholder to be the user's zipcode -->
-      <label for="zipcode">Zip code: </label>
+      <label for="zipcode">Zip code where you spotted this bird: </label>
       <input
         id="zipcode"
         type="text"
@@ -33,6 +18,19 @@
         title="Numbers only, please!"
         placeholder="#####"
         v-model="newBird.zipcode"
+      />
+      <label for="birdImgURL"
+        >Upload a photo of this bird from our friends at
+        <a href="https://search.macaulaylibrary.org/catalog" target="_blank"
+          >eBird.org and the Macaulay Library</a
+        >.
+      </label>
+      <input
+        id="birdImgURL"
+        type="text"
+        required
+        placeholder="Add an image URL here"
+        v-model="newBird.birdImg"
       />
       <input type="submit" />
     </form>

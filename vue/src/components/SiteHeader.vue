@@ -58,7 +58,7 @@ export default {
   font-family: "Bitter", serif;
 }
 #logo-text > span {
-  font-size: 3.8rem;
+  font-size: 3rem;
   font-weight: normal !important;
 }
 a {

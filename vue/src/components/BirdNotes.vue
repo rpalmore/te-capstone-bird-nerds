@@ -78,24 +78,24 @@
           <div></div>
           <select id="feeder-type" v-model="note.feederType">
             <option value="cylinder">Cylinder</option>
-            <option value="hopper">Hopper-feeder</option>
-            <option value="nectar">Nectar-feeder</option>
-            <option value="seed-tube">Seed-Tube</option>
-            <option value="suet-feeder">Suet-feeder</option>
-            <option value="tray-feeder">Tray-feeder</option>
-            <option value="peanut-feeder">Peanut-feeder</option>
+            <option value="hopper">Hopper</option>
+            <option value="nectar">Nectar</option>
+            <option value="seed-tube">Seed tube</option>
+            <option value="suet-feeder">Suet</option>
+            <option value="tray-feeder">Tray</option>
+            <option value="peanut-feeder">Peanut</option>
           </select>
         </div>
         <div class="formItem">
           <label for="food-blend" class="birdNotes">Food Blend: </label>
           <div></div>
           <select id="food-blend" v-model="note.foodBlend">
-            <option value="live-mealworms">Live Mealworms</option>
-            <option value="bark-butter">Bark-butter</option>
-            <option value="suet-cake">Suet Cake</option>
-            <option value="wildlife-blend">Wildlife-blend</option>
-            <option value="sunflower-blend">Sunflower-blend</option>
-            <option value="nutty-blend">Nutty-blend</option>
+            <option value="live-mealworms">Live mealworms</option>
+            <option value="bark-butter">Bark butter</option>
+            <option value="suet-cake">Suet cake</option>
+            <option value="wildlife-blend">Wildlife blend</option>
+            <option value="sunflower-blend">Sunflower blend</option>
+            <option value="nutty-blend">Nutty blend</option>
           </select>
         </div>
         <div class="formItem">
@@ -192,18 +192,6 @@ export default {
   padding-right: 100px;
   margin: 25px 0px;
 }
-
-/* .note {
- display: flex;
- flex-direction: column;
- width: 80%;
- border: 1px solid #011627;
- outline: 3px solid #fdfffc;
- margin: 10px;
- border-radius: 10px;
- background-color: #2ec4b6;
-} */
-
 select {
   width: 275px;
   font-size: 1rem;
@@ -213,7 +201,6 @@ select {
   border-left: 5px solid #ff9f1c;
   border-right: 5px solid #ff9f1c;
 }
-
 .label {
   font-family: "Bitter", serif;
   font-size: 1rem;
@@ -229,25 +216,21 @@ input {
   border-right: 5px solid #ff9f1c;
   width: 250px;
 }
-
 #rowTwo {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-
 .males,
 .females {
   min-width: 85px;
 }
-
 .dateStuff {
   display: inline-block;
   align-items: center;
   margin-left: 5px;
   margin-top: 5px;
 }
-
 .genderStuff {
   display: flex;
   flex-direction: row;
@@ -255,17 +238,14 @@ input {
   justify-content: space-evenly;
   margin-right: 100px;
 }
-
 .foodStuff {
   display: flex;
   flex-direction: row;
 }
-
 .foodBlend,
 .feeder {
   min-width: 130px;
 }
-
 .infoBox {
   padding: 8px;
   border-radius: 8px;
@@ -278,7 +258,6 @@ input {
   margin: 5px 5px;
   max-width: 500px;
 }
-
 button {
   width: 100px;
   background-color: #ff9f1c;

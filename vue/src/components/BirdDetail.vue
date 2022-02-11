@@ -3,21 +3,29 @@
   <div id="bird-detail">
     <div id="birdPic">
       <iframe
-        width="200"
-        height="215"
-        v-bind:src="bird.birdImg + '/embed/800'"
+        id="iframeBird"
+        width="320"
+        height="343"
+        v-bind:src="bird.birdImg + '/embed/320'"
         frameborder="0"
         allowfullscreen
-        style="width: 250px"
+        style="width: 320px"
         scrolling="no"
       ></iframe>
     </div>
     <div id="birdInfo" v-show="showForm === false">
       <h2>{{ bird.birdName }}</h2>
-      <p>Spotted {{ bird.numSightings }} times</p>
-      <p>Most recently seen on {{ bird.mostRecentSighting }}</p>
-      <p>Zipcode: {{ bird.zipcode }}</p>
-      <button v-on:click="showForm = true">Edit bird details</button>
+      <p>
+        Spotted:
+        {{
+          bird.numSightings > 1 || bird.numSightings === 0
+            ? bird.numSightings + " times"
+            : bird.numSightings + " time"
+        }}
+      </p>
+      <p>Most recently seen on: {{ bird.mostRecentSighting }}</p>
+      <p>Zip code: {{ bird.zipcode }}</p>
+      <button v-on:click="showForm = true">Edit</button>
     </div>
     <form v-on:submit.prevent="updateBird" v-show="showForm === true">
       <label for="newName">Name:</label>
@@ -52,7 +60,7 @@ export default {
   computed: {
     bird() {
       return this.$store.state.birds.find(
-        (b) => (b.birdID == this.$route.params.birdId)
+        (b) => b.birdID == this.$route.params.birdId
       );
     },
   },
@@ -79,17 +87,16 @@ export default {
 
 <style scoped>
 #bird-detail {
-  border: 4px solid #ff9f1c;
-  outline: 8px solid #ec0f0f;
   background-color: #011627;
   display: flex;
-  justify-content: left;
   margin-top: 35px;
   align-items: center;
 }
-
 #birdPic {
-  display: inline-block;
+  display: flex;
+}
+#iframeBird {
+  padding-left: 5px white;
 }
 
 form,
@@ -100,13 +107,16 @@ form,
   padding-right: 50px;
 }
 
-.button, button {
+.button,
+button {
   min-width: 65px;
   background-color: #ff9f1c;
   font-weight: bold;
+  padding: 5px;
   color: #011627;
   text-align: center;
-  margin-left: 1px;
+  margin-top: 10px;
+  border: 1px solid #fdfffc;
 }
 
 form {

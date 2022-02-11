@@ -1,19 +1,17 @@
 <template>
-  <main id="wholePage">
-    <h2 id="notesHeader">Log the Sighting</h2>
+  <main id="logSighting">
+    <span class="pageHeader">Log your sighting</span>
     <div id="formDiv">
-      <form id="wholeForm" v-on:submit.prevent="addNote">
+      <form id="loggingForm" v-on:submit.prevent="addNote">
         <div class="formItem">
-          <label class="dateInput" for="date-spotted">Date: </label>
-          <div></div>
+          <label for="date-spotted">Date: </label><br>
           <input
             required
-            id="date-spotted"
             type="date"
             v-model="birdNote.dateSpotted"
           />
         </div>
-        <div>
+        <div id="gender">
             <label for="num-males">Males: </label>
             <input
               id="numMales"
@@ -22,8 +20,7 @@
               placeholder="#"
               v-model="birdNote.numMales"
           />
-
-          <label class="malesFemales" for="num-females">Females: </label>
+          <label for="num-females">Females: </label>
           <input
             id="numFemales"
             type="number"
@@ -32,10 +29,8 @@
             v-model="birdNote.numFemales"
           />
         </div>
-
         <div class="formItem">
-          <label for="feeder-type" class="birdNotes">Feeder Type: </label>
-          <div></div>
+          <label for="feeder-type">Feeder Type: </label> <br>
           <select id="feeder-type" v-model="birdNote.feederType">
             <option value="cylinder">Cylinder</option>
             <option value="hopper">Hopper-feeder</option>
@@ -47,8 +42,7 @@
           </select>
         </div>
         <div class="formItem">
-          <label for="food-blend" class="birdNotes">Food Blend: </label>
-          <div></div>
+          <label for="food-blend">Food Blend: </label> <br>
           <select id="food-blend" v-model="birdNote.foodBlend">
             <option value="live-mealworms">Live Mealworms</option>
             <option value="bark-butter">Bark-butter</option>
@@ -59,8 +53,7 @@
           </select>
         </div>
         <div class="notesArea">
-          <label for="notes" class="birdNotes">Notes: </label>
-          <div></div>
+          <label for="notes">Notes: </label> <br>
           <textarea
             id="notesArea"
             wrap="soft"
@@ -112,9 +105,37 @@ export default {
 </script>
 
 <style scoped>
+#logSighting {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  padding: 20px;
+  background-color: #011627;
+  color: #fdfffc;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.pageHeader {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: normal;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid #E71D36;
+}
 #formDiv {
-  margin-right: auto;
-  margin-left: auto;
+  margin-top: 25px;
+  display: flex;
+}
+#loggingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#gender {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 #numMales,
 #numFemales {
@@ -124,87 +145,43 @@ export default {
   border-left: 5px solid #ff9f1c;
   border-right: 5px solid #ff9f1c;
   width: 37px;
-  margin-bottom: 10px;
 }
 #numMales {
   margin-right: 8px;
 }
-h2 {
-  font-size: 2.5rem;
-  text-align: center;
-}
 #notesArea {
-  width: 320px;
-  height: 100px;
-  font-family: "Bitter", serif;
-  max-width: 307px;
+  height: 300px;
   word-wrap: break-word;
   word-break: break-word;
   border-left: 5px solid #ff9f1c;
   border-right: 5px solid #ff9f1c;
   border-radius: 8px;
 }
-#dateInput {
-  width: 320px;
-}
-
-.formItem,
-.notesArea {
-  padding-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#wholeForm {
-  border: 4px solid #ff9f1c;
-  outline: 8px solid #ec0f0f;
-  padding: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #011627;
-  color: #fdfffc;
-  padding-left: 60px;
-  padding-right: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-select {
-  width: 320px;
-  font-size: 1rem;
-  padding-top: 9px;
-  padding-bottom: 9px;
-  border-radius: 6px;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
-}
 label {
-  font-family: "Bitter", serif;
   font-size: 1.6rem;
-  text-align: center;
 }
-
-input {
+input, select, textarea {
+  margin-top: 10px;
+  width: 320px;
   padding: 8px;
   border-radius: 8px;
   font-size: 1.1rem;
   border: 1px solid #011627;
   border-left: 5px solid #ff9f1c;
   border-right: 5px solid #ff9f1c;
-  width: 300px;
 }
-
+select {
+  width: 348px;
+}
 #submit {
-  width: 100px;
+  width: 33%;
   background-color: #ff9f1c;
+  border: 1px solid #E71D36;
   font-weight: bold;
   color: #011627;
-  text-align: center;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+  margin-bottom: 25px;
+  position: relative;
+  left: 33%;
 }
 ::placeholder {
   text-align: center;
