@@ -91,5 +91,6 @@ export default {
 }
 span {
   font-size: 1.8rem;
+  font-weight: bold;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <main id="list-form">
-    <h2>Create a List</h2>
+    <span>Create a List</span>
     <form v-on:submit.prevent="createList">
       <input
         id="create-list"
@@ -72,8 +72,10 @@ form {
   border-left: 5px solid #FF9F1C;
   border-right: 5px solid #FF9F1C;
 } 
-
-h2 {
-  font-size: 2rem;
+span {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 </style>
