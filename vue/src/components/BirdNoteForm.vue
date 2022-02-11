@@ -85,6 +85,7 @@ export default {
       },
     };
   },
+  props: ['bird'],
   methods: {
     addNote() {
       console.log(this.birdNote);
@@ -92,6 +93,9 @@ export default {
         .addNote(this.birdNote)
         .then((response) => {
           if (response.status === 201) {
+            const bird = this.bird;
+            bird.numSightings++;
+            this.$store.commit("EDIT_BIRD", bird);
             this.$router.go(0);
           }
         })
