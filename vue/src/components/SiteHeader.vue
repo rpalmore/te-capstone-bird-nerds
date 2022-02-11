@@ -51,7 +51,6 @@ export default {
 #logo-text {
   display: flex;
   flex-grow: 1;
-  justify-content: space-between;
   justify-content: center;
   align-items: center;
   border-left: 8px solid #fdfffc;
@@ -60,6 +59,7 @@ export default {
 }
 #logo-text > span {
   font-size: 3.8rem;
+  font-weight: normal !important;
 }
 a {
   display: flex;
