@@ -85,7 +85,11 @@ export default {
       },
     };
   },
-  props: ['bird'],
+  computed: {
+    bird() {
+      return this.$store.state.birds.find(b => b.birdID == this.$route.params.birdId);
+    }
+  },
   methods: {
     addNote() {
       console.log(this.birdNote);

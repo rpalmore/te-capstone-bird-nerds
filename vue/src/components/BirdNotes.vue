@@ -115,6 +115,7 @@ import noteService from "../services/BirdNoteService.js";
 
 export default {
   name: "bird-notes",
+  params: ['bird'],
   data() {
     return {
       birdId: this.$route.params.birdId,
@@ -125,6 +126,11 @@ export default {
     notes() {
       return this.$store.state.notes;
     },
+    bird() {
+      return this.$store.state.birds.find(
+                b => b.birdID == this.$route.params.birdId
+            );
+    }
   },
   methods: {
     deleteNote(noteId) {
@@ -134,6 +140,10 @@ export default {
           .then((response) => {
             if (response.status == 204) {
               this.$store.commit("DELETE_NOTE", noteId);
+              const bird = this.bird;
+              console.log(bird);
+              bird.numSightings--;
+              this.$store.commit("EDIT_BIRD", bird);
             }
           })
           .catch((err) => {
