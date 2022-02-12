@@ -1,7 +1,7 @@
 <template>
   <div id="nav-well">
     <!-- SEARCH appears whether or not user is logged in -->
-    <button id="btnSearch" class="btn" v-on:click="toggleView($event)">
+    <button id="btnSearch" class="nav-btn" v-on:click="toggleView($event)">
       SEARCH
     </button>
     <SearchBirds v-if="searchClick === true"></SearchBirds>
@@ -9,7 +9,7 @@
     <!-- LOGIN btn appears if user IS NOT logged in -->
     <button
       v-if="$store.state.token === ''"
-      class="btn"
+      class="nav-btn"
       id="btnLogin"
       v-on:click="toggleView($event)"
     >
@@ -28,7 +28,7 @@
     <!-- REGISTER btn appears if user IS NOT logged in -->
     <button
       v-if="$store.state.token === ''"
-      class="btn"
+      class="nav-btn"
       id="btnRegister"
       v-on:click="toggleView($event)"
     >
@@ -45,14 +45,9 @@
     <GoToProfile v-if="$store.state.token != ''"></GoToProfile>
 
     <!-- HOME appears only if user IS logged in -->
-    <button
-      v-if="$store.state.token != ''"
-      class="btn"
-      v-on:click="goHome"
-    >
+    <button v-if="$store.state.token != ''" class="nav-btn" v-on:click="goHome">
       HOME
     </button>
-    
   </div>
 </template>
 
@@ -75,7 +70,7 @@ export default {
   },
   methods: {
     goHome() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
     toggleView(event) {
       if (event.target.id === "btnLogin") {
@@ -96,36 +91,64 @@ export default {
     },
   },
   created() {
-    this.loginClick = false
-    this.registerClick = false
-    this.searchClick = false
-  }
+    this.loginClick = false;
+    this.registerClick = false;
+    this.searchClick = false;
+  },
 };
 </script>
 
-<style scoped>
+<style>
 #nav-well {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 20%;
-  border: 2px solid #011627;
-  background-color: #2ec4b6;
+  border: 2px solid var(--rich-black);
+  background-color: var(--tiffany-blue);
   padding: 2px;
 }
-.btn {
+.nav-btn {
   width: 80%;
-  background-color: #011627;
-  color: #fdfffc;
-  border: 2px solid #ff9f1c;
-  border: 2px solid #e71d36;
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  border-top: 3px solid var(--orange-peel);
+  border-left: 2px solid var(--rose-madder);
+  border-right: 2px solid var(--rose-madder);
   font-family: "Bitter", serif;
-  font-size: 1.3rem;
+  font-size: var(--nav-btn);
   margin-top: 45px;
   padding: 10px;
-  border-radius: 0 !important;
 }
-a {
-  text-decoration: none;
+.nav-form-display {
+  display: flex;
+  width: 80%;
+}
+.nav-form-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0 35px 0;
+  background-color: var(--orange-peel);
+  border: 2px solid var(--rose-madder);
+}
+input {
+  width: 80%;
+  margin-top: 35px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid var(--rose-madder);
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  font-family: "Bitter", serif;
+  font-size: var(--nav-btn);
+}
+input[type="text"],
+input[type="password"] {
+  width: 68%;
+}
+.alert {
+  text-align: center;
+  padding-top: 10px;
 }
 </style>

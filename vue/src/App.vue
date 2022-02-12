@@ -18,11 +18,32 @@ export default {
 </script>
 
 <style>
+:root {
+  /* Coolers palette: 
+     https://coolors.co/palette/011627-fdfffc-2ec4b6-e71d36-ff9f1c */
+  --rich-black: #011627;
+  --baby-powder: #fdfffc;
+  --tiffany-blue: #2ec4b6;
+  --rose-madder: #e71d36;
+  --orange-peel: #ff9f1c;
+  --nav-btn: 1.3rem;
+}
 #app {
-  background-color: #fdfffc;
-  font-family: "Bitter", serif;
+  background-color: var(--baby-powder);
   display: flex;
   flex-direction: column;
+  font-family: "Bitter", serif;
+}
+a {
+  text-decoration: none;
+}
+.helper-text {
+  color: var(--rich-black);
+  font-size: var(--nav-btn);
+  font-weight: bold;
+  border-bottom: 2px solid var(--baby-powder);
+  padding-bottom: 18px;
+  text-align: center;
 }
 #main-content {
   display: flex;

@@ -1,14 +1,13 @@
 <template>
-  <div id="login" class="text-center">
-    <form class="form-signin" @submit.prevent="login">
-      <span>{{ this.$route.query.registration ? "Please sign in" : "Welcome back!" }}</span>
+  <div class="nav-form-display">
+    <form class="nav-form-body" @submit.prevent="login">
+      <span class="helper-text">{{ this.$route.query.registration ? "Please sign in" : "Welcome back!" }}</span>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
       <input
         type="text"
         id="username"
-        class="form-control"
         placeholder="Username"
         v-model="user.username"
         required
@@ -17,7 +16,6 @@
       <input
         type="password"
         id="password"
-        class="form-control"
         placeholder="Password"
         v-model="user.password"
         required
@@ -82,54 +80,5 @@ export default {
 </script>
 
 <style scoped>
-#login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-}
-.form-signin {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  padding: 18px 0 35px 0;
-  background-color: #ff9f1c;
-  border: 2px solid #e71d36;
-
-}
-input[type] {
-  text-align: center;
-  border: 2px solid #ff9f1c;
-  border: 2px solid #e71d36;
-}
-#login button,
-input[type] {
-  width: 80%;
-  background-color: #011627;
-  color: #fdfffc;
-  border: 2px solid #ff9f1c;
-  border: 2px solid #e71d36;
-  font-family: "Bitter", serif;
-  font-size: 1.3rem;
-  margin-top: 35px;
-  padding: 10px;
-}
-input[type="text"],
-input[type="password"] {
-  width: 70%;
-}
-span {
-  color: #011627;
-  font-family: "Bitter", serif;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border-bottom: 2px solid #fdfffc;
-  padding-bottom: 18px;
-  text-align: center;
-}
-.alert {
-  text-align: center;
-  padding-top: 10px;
-}
+/* CSS for component in LeftNav.vue */
 </style>
