@@ -5,10 +5,10 @@
     </div>
     <div id="logo-text">
       <span>{{ logo }}</span>
-    </div>
-        <a id="logout" v-show="$store.state.token != ''" v-on:click="logout">
+      <a id="logout" v-show="$store.state.token != ''" v-on:click="logout">
         Logout
       </a>
+    </div>
   </div>
 </template>
 
@@ -35,15 +35,15 @@ export default {
 <style scoped>
 #header {
   display: flex;
-  background-color: #011627;
+  background-color: var(--rich-black);
   height: 150px;
 }
 #logo-img {
   display: flex;
   width: 20%;
   justify-content: center;
-  background-color: #e71d36;
-  border: 2px solid #011627;
+  background-color: var(--rose-madder);
+  border: 2px solid var(--rich-black);
 }
 #logo-img > img {
   padding: 10px;
@@ -51,28 +51,22 @@ export default {
 #logo-text {
   display: flex;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border-left: 8px solid #fdfffc;
-  color: #fdfffc;
-  font-family: "Bitter", serif;
+  padding-left: 18%;
+  padding-right: 5%;
+  border-left: 8px solid var(--baby-powder);
+  color: var(--baby-powder);
 }
 #logo-text > span {
   font-size: 3rem;
   font-weight: normal !important;
 }
 a {
-  display: flex;
-  position: absolute;
-  right: 25px;
-  top: 57px;
-  align-items: center;
-  text-decoration: none;
-  color: #fdfffc;
   padding: 18px;
-  border-left: 1px solid #e71d36;
+  border-left: 1px solid var(--rose-madder);
 }
 a:hover {
-  color: #ff9f1c;
+  color: var(--orange-peel);
 }
 </style>
