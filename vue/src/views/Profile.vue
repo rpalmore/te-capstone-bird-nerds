@@ -73,8 +73,10 @@ export default {
 #profile {
   display: flex;
   flex-direction: column;
+  /* position: absolute;
+  left: 30%; */
+  margin-top: 35px;
   align-items: center;
-  margin-top: 2%;
   gap: 25px;
   margin-bottom: 75px;
 }

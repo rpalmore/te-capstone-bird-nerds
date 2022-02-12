@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       list: {
-        // userId is handled in the backend -- we are passing in zero for now
+        // userId is handled in the backend -- we are passing in zero
         userId: 0,
       },
     };
