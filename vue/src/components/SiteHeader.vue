@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div id="logo-img">
-      <img src="..\assets\BirdNerdsLogo.png" alt="Placeholder logo" />
+      <img src="@/assets/BirdNerdsLogo.png" alt="Placeholder logo" />
     </div>
     <div id="logo-text">
       <span>{{ logo }}</span>

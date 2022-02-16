@@ -1,6 +1,6 @@
 <template>
-  <router-link :to="{ name: 'list' }"
-    ><button id="btn-lists">MY LISTS: {{ count }}</button>
+  <router-link :to="{ name: 'list' }" class="rtr"
+    ><button class="nav-btn">MY LISTS: {{ count }}</button>
   </router-link>
 </template>
 
@@ -12,28 +12,14 @@ export default {
       return this.$store.state.lists.length;
     },
   },
-  methods: {
-  },
+  methods: {},
 };
 </script>
 
-<style scoped>
-#btn-lists {
-  margin-bottom: 35px;
-  width: 80%;
-  background-color: #011627;
-  color: #fdfffc;
-  border: 2px solid #ff9f1c;
-  border: 2px solid #e71d36;
-  font-family: "Bitter", serif;
-  font-size: 1.3rem;
-  margin-top: 70px;
-  padding: 10px;
-  border-radius: 0 !important;
-}
-a {
+<style>
+/* .rtr {
   display: flex;
   width: 100%;
   justify-content: center;
-}
+} */
 </style>

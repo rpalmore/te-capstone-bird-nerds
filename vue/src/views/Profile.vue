@@ -2,7 +2,7 @@
   <div id="profile">
     <img
       id="birdPlaceholder"
-      src="..\assets\BirdSiloutette.png"
+      src="@/assets/BirdSilouette.png"
       alt="Bird silhouette"
     />
     <h2>Welcome, {{ this.username }}!</h2>

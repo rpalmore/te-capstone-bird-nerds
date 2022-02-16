@@ -115,10 +115,16 @@ export default {
   border-top: 3px solid var(--orange-peel);
   border-left: 2px solid var(--rose-madder);
   border-right: 2px solid var(--rose-madder);
+  border-bottom: 1px solid var(--rose-madder);
   font-family: "Bitter", serif;
   font-size: var(--nav-btn);
   margin-top: 45px;
   padding: 10px;
+}
+.rtr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 .nav-form-display {
   display: flex;
@@ -151,4 +157,5 @@ input[type="password"] {
   text-align: center;
   padding-top: 10px;
 }
+
 </style>
