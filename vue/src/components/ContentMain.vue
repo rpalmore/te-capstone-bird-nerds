@@ -18,8 +18,8 @@ export default {
   display: flex;
   width: 80%;
   justify-content: center;
-  background-color: #2ec4b6;
   margin-left: 8px;
-  border: 1px solid #011627;
+  background-color: var(--tiffany-blue);
+  border: 2px solid var(--rich-black);
 }
 </style>

@@ -1,15 +1,17 @@
 <template>
-  <div id="profile">
+  <div id="profile-container">
     <img
       id="birdPlaceholder"
-      src="@/assets/BirdSilouette.png"
-      alt="Bird silhouette"
+      v-bind:src="this.$store.state.profileUpload"
+      alt="User profile image"
     />
+    <button v-on:click="uploadPic">Add a photo</button>
+
     <h2>Welcome, {{ this.username }}!</h2>
 
     <a
       id="create"
-      class="createProfile"
+      class="edit-btn"
       v-show="formDisplay === false"
       v-on:click="displayForm"
       >{{
@@ -25,7 +27,11 @@
       "
     ></ProfileForm>
 
-    <a id="cancel" v-show="formDisplay === true" v-on:click="cancelSubmit"
+    <a
+      id="cancel"
+      class="edit-btn"
+      v-show="formDisplay === true"
+      v-on:click="cancelSubmit"
       >Cancel</a
     >
 
@@ -44,6 +50,8 @@
 import ProfileForm from "../components/ProfileForm.vue";
 import ProfileFormEdit from "../components/ProfileFormEdit.vue";
 import ProfileDisplay from "../components/ProfileDisplay.vue";
+import PhotoService from "../services/PhotoService.js";
+
 export default {
   name: "profile",
   components: { ProfileForm, ProfileDisplay, ProfileFormEdit },
@@ -57,6 +65,9 @@ export default {
     };
   },
   methods: {
+    uploadPic() {
+      PhotoService.myWidget.open();
+    },
     displayForm() {
       this.formDisplay = true;
       this.profileDisplay = false;
@@ -69,40 +80,100 @@ export default {
 };
 </script>
 
-<style scoped>
-#profile {
+<style>
+#profile-container {
   display: flex;
   flex-direction: column;
-  /* position: absolute;
-  left: 30%; */
-  margin-top: 35px;
+  margin-top: 45px;
   align-items: center;
   gap: 25px;
   margin-bottom: 75px;
 }
-.welcome {
-  font-size: 1.5rem;
-}
-#create,
-#cancel {
-  font-family: "Bitter", serif;
-  font-size: 1rem;
-  color: #011627;
-  width: 39%;
-  background-color: #011627;
-  color: #fdfffc;
-  border: 4px solid #ff9f1c;
-  font-family: "Bitter", serif;
-  font-size: 1.3rem;
-  padding: 10px;
+.edit-btn {
+  width: 40%;
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  border-top: 3px solid var(--orange-peel);
+  border-left: 2px solid var(--rose-madder);
+  border-right: 2px solid var(--rose-madder);
+  border-bottom: 2px solid var(--rose-madder);
+  font-size: var(--edit-btn);
   text-align: center;
+  padding: 10px;
+}
+.profile-content-container {
+  border-top: 4px solid var(--orange-peel);
+  border-right: 4px solid var(--rose-madder);
+  border-bottom: 4px solid var(--rose-madder);
+  border-left: 4px solid var(--rose-madder);
+  padding: 25px 25px 35px 25px;
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  width: 80%;
 }
 #birdPlaceholder {
   border-radius: 50%;
   width: 25%;
   height: auto;
   padding: 10px;
-  background-color: #ff9f1c;
-  border: 8px solid #e71d36;
+  background-color: var(--orange-peel);
+  border: 8px solid var(--rose-madder);
+}
+/* ProfileFormEdit.vue CSS */
+.profile-content-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+.profile-content-container label {
+  font-size: var(--nav-btn);
+}
+.profile-content-container input[type="zip-code"] {
+  width: 45%;
+}
+.profile-content-container input,
+select {
+  padding: 8px;
+  border-radius: 8px;
+  font-size: var(--edit-btn);
+  border: 1px solid var(--rich-black);
+  border-left: 5px solid var(--orange-peel);
+  border-right: 5px solid var(--orange-peel);
+}
+.profile-content-container option {
+  font-family: "Bitter", serif;
+}
+.profile-content-container input[type="submit"] {
+  margin-top: 25px;
+  width: 45%;
+  border: 1px solid var(--rich-black);
+  background-color: var(--rose-madder);
+  font-size: var(--edit-btn);
+  font-weight: bold;
+  font-family: "Bitter", serif;
+  color: var(--baby-powder);
+  border-radius: 8px;
+  border-left: 5px solid var(--orange-peel);
+  border-right: 5px solid var(--orange-peel);
+}
+/* ProfileDisplay.vue CSS */
+#profile-box {
+  text-align: center;
+  padding-bottom: 25px;
+}
+#profile-box > p:first-child {
+  padding-top: 0;
+}
+.question {
+  padding-top: 25px;
+  font-size: 1.3rem;
+}
+.response {
+  padding-bottom: 10px;
+  color: var(--orange-peel);
+  border-bottom: 1px solid var(--rose-madder);
+  font-style: italic;
+  font-size: 1.3rem;
 }
 </style>

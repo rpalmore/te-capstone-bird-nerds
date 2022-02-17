@@ -16,10 +16,6 @@ export default {
 };
 </script>
 
-<style>
-/* .rtr {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-} */
+<style scoped>
+/* CSS for component in LeftNav.vue */
 </style>

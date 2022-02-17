@@ -2,7 +2,7 @@
   <div id="not-found">
      <h2>We need more bird nerds!</h2>
      <span>No recent sightings in zip code {{ this.$route.params.zipcode }}.</span>
-     <img src="@/assets/BirdSilouette.png" alt="" id="bird">
+     <img src="@/assets/BirdSilhouette.png" alt="" id="bird">
   </div>
 </template>
 

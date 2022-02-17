@@ -1,19 +1,6 @@
 <template>
-  <div v-show="displayForm === true" id="profile-form-edit">
+  <div v-show="displayForm === true" class="profile-content-container">
     <form v-on:submit.prevent="editProfile">
-      <!-- to do: make this so it can swap the image dynamically when they upload -->
-      <!-- <img v-bind:src="profile.profileImg" id="profile-img" /> -->
-      <!-- <label for="img-url"
-        >Customize your profile photo by adding an image URL.</label
-      >
-      <input
-        id="img-url"
-        placeholder=" Add an image URL here."
-        type="text"
-        size="50"
-        v-model="profile.profileImg"
-      /> -->
-      <!-- <button id="upload-profile-image" v-on:click="updateImage">Upload</button> -->
       <label for="fav-bird">What is your favorite bird?</label>
       <input
         required
@@ -46,7 +33,7 @@
       />
 
       <label for="skill-lvl">What is your skill level?</label>
-      <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
+      <select required size="3" v-model="profile.skillLevel">
         <option value="beginner">Beginner</option>
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
@@ -83,7 +70,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.error(err + " problem updating profile!");
+          alert.error(err + " problem updating profile!");
         });
     },
   },
@@ -91,47 +78,5 @@ export default {
 </script>
 
 <style scoped>
-#profile-form-edit {
-  border: 4px solid #ff9f1c;
-  padding: 25px 25px 35px 25px;
-  background-color: #011627;
-  color: #fdfffc;
-  width: 75%;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-label {
-  font-family: "Bitter", serif;
-  font-size: 1.3rem;
-}
-input[type="zip-code"] {
-  width: 45%;
-}
-#skill-lvl {
-  width: 45%;
-}
-input,
-#skill-lvl {
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 1rem;
-  border: 1px solid #011627;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
-}
-input[type="submit"] {
-  margin-top: 25px;
-  width: 45%;
-  border: 1px solid #011627;
-  background-color: #e71d36;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
-}
+/* CSS for component in Profile.vue */
 </style>

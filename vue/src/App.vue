@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SiteHeader />
-    <div id="horizontal">
+    <div id="container-main">
       <LeftNav />
       <ContentMain />
     </div>
@@ -12,6 +12,7 @@
 import SiteHeader from "./components/SiteHeader.vue";
 import LeftNav from "./components/LeftNav.vue";
 import ContentMain from "./components/ContentMain.vue";
+
 export default {
   components: { SiteHeader, LeftNav, ContentMain },
 };
@@ -27,6 +28,7 @@ export default {
   --rose-madder: #e71d36;
   --orange-peel: #ff9f1c;
   --nav-btn: 1.3rem;
+  --edit-btn: 1rem;
 }
 #app {
   background-color: var(--baby-powder);
@@ -45,10 +47,7 @@ a {
   padding-bottom: 18px;
   text-align: center;
 }
-#main-content {
-  display: flex;
-}
-#horizontal {
+#container-main {
   display: flex;
   margin-top: 8px;
   min-height: 100vh;

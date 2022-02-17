@@ -28,6 +28,8 @@ export default new Vuex.Store({
       zipCode: "",
       skillLevel: ""
     },
+    // profileUpload: JSON.parse(localStorage.getItem('profileUpload') || "/img/BirdSilhouette.83f473b2.png"),
+    profileUpload: "/img/BirdSilhouette.83f473b2.png",
     // use localStorage to prevent data from resetting after refreshing page
     lists: JSON.parse(localStorage.getItem('lists') || "{}"),
     birds: JSON.parse(localStorage.getItem('birds') || "{}"),
@@ -52,24 +54,28 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
+    SET_PROFILE_UPLOAD(state, payload) {
+      state.profileUpload = payload;
+      localStorage.setItem("profileUpload", JSON.stringify(state.profileUpload));
+    },
     SET_PROFILE(state, payload) {
       state.profile = payload;
     },
     SET_LIST(state, payload) {
       state.lists = payload;
-      localStorage.setItem("lists",JSON.stringify(state.lists));
+      localStorage.setItem("lists", JSON.stringify(state.lists));
     },
     ADD_LIST(state, list) {
       state.lists.unshift(list);
-      localStorage.setItem("lists",JSON.stringify(state.lists));
+      localStorage.setItem("lists", JSON.stringify(state.lists));
     },
     SET_BIRDS(state, birds) {
       state.birds = birds;
-      localStorage.setItem("birds",JSON.stringify(state.birds));
+      localStorage.setItem("birds", JSON.stringify(state.birds));
     },
     ADD_BIRD(state, bird) {
       state.birds.unshift(bird);
-      localStorage.setItem("birds",JSON.stringify(state.birds));
+      localStorage.setItem("birds", JSON.stringify(state.birds));
     },
     SET_ACTIVE_LIST(state, listId) {
       state.activeList = listId;
@@ -79,23 +85,23 @@ export default new Vuex.Store({
     },
     SET_NOTES(state, notes) {
       state.notes = notes;
-      localStorage.setItem("notes",JSON.stringify(state.notes));
+      localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     ADD_NOTE(state, note) {
       state.notes.unshift(note);
-      localStorage.setItem("notes",JSON.stringify(state.notes));
+      localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     DELETE_LIST(state, listId) {
       state.lists = state.lists.filter((list) => list.listId != listId);
-      localStorage.setItem("lists",JSON.stringify(state.lists));
+      localStorage.setItem("lists", JSON.stringify(state.lists));
     },
     DELETE_BIRD(state, birdId) {
       state.birds = state.birds.filter((bird) => bird.birdID != birdId);
-      localStorage.setItem("birds",JSON.stringify(state.birds));
+      localStorage.setItem("birds", JSON.stringify(state.birds));
     },
     DELETE_NOTE(state, noteId) {
       state.notes = state.notes.filter((note) => note.noteId != noteId);
-      localStorage.setItem("notes",JSON.stringify(state.notes));
+      localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     EDIT_LIST(state, list) {
       state.lists = state.lists.map(l => l.listId != list.listId ? l : list);
@@ -103,11 +109,11 @@ export default new Vuex.Store({
     },
     EDIT_BIRD(state, bird) {
       state.birds = state.birds.map(b => b.birdID != bird.birdID ? b : bird);
-      localStorage.setItem("birds",JSON.stringify(state.birds));
+      localStorage.setItem("birds", JSON.stringify(state.birds));
     },
     EDIT_NOTE(state, note) {
       state.notes = state.notes.map(n => n.noteId != note.noteId ? n : note);
-      localStorage.setItem("notes",JSON.stringify(state.notes));
+      localStorage.setItem("notes", JSON.stringify(state.notes));
     }
   }
 })

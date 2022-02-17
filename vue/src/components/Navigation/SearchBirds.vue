@@ -45,7 +45,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.error(err + " problem retrieving data!");
+          alert.error(err + " problem retrieving data!");
         });
     },
   },

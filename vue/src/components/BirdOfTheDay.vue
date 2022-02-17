@@ -29,7 +29,7 @@ export default {
         }
       })
       .catch((err) => {
-        console.error(err + " problem generating a random bird!");
+        alert.error(err + " problem generating a random bird!");
       });
   },
 };
@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 iframe {
-  margin-top: 50px;
+  margin-top: 45px;
   padding: 8px 8px 0 8px;
   background-color: white;
   border: 3px solid #011627;
