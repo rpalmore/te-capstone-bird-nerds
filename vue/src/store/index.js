@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+Vue.config.devtools = true
+// import PhotoService from '../services/PhotoService'
 
 Vue.use(Vuex)
 
@@ -9,7 +11,7 @@ Vue.use(Vuex)
  * the page is refreshed. When that happens you need to check for the token in local storage and if it
  * exists you should set the header so that it will be attached to each request
  */
-const currentToken = localStorage.getItem('token')
+const currentToken = localStorage.getItem('token');
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
 if (currentToken != null) {
@@ -20,18 +22,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    profile: {
-      username: currentUser,
-      profileImg: "",
-      favoriteBird: "",
-      mostCommonBird: "",
-      zipCode: "",
-      skillLevel: ""
-    },
-    // profileUpload: JSON.parse(localStorage.getItem('profileUpload') || "/img/BirdSilhouette.83f473b2.png"),
-    profileUpload: "/img/BirdSilhouette.83f473b2.png",
-    // use localStorage to prevent data from resetting after refreshing page
-    lists: JSON.parse(localStorage.getItem('lists') || "{}"),
+    profile: JSON.parse(localStorage.getItem('profile') || {}),
+    lists: JSON.parse(localStorage.getItem('lists') || {}),
     birds: JSON.parse(localStorage.getItem('birds') || "{}"),
     activeBird: 0,
     activeList: 0,
@@ -54,12 +46,9 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_PROFILE_UPLOAD(state, payload) {
-      state.profileUpload = payload;
-      localStorage.setItem("profileUpload", JSON.stringify(state.profileUpload));
-    },
     SET_PROFILE(state, payload) {
       state.profile = payload;
+      localStorage.setItem('profile', JSON.stringify(state.profile));
     },
     SET_LIST(state, payload) {
       state.lists = payload;

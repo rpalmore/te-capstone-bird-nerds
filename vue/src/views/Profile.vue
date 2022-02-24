@@ -1,11 +1,12 @@
 <template>
   <div id="profile-container">
+    <!-- src="/img/BirdSilhouette.83f473b2.png" -->
     <img
-      id="birdPlaceholder"
-      v-bind:src="this.$store.state.profileUpload"
+      id="profile-image"
+      v-bind:src="selectImg"
       alt="User profile image"
     />
-    <button v-on:click="uploadPic">Add a photo</button>
+    <button v-on:click="useCloudinary">Add a photo</button>
 
     <h2>Welcome, {{ this.username }}!</h2>
 
@@ -15,17 +16,12 @@
       v-show="formDisplay === false"
       v-on:click="displayForm"
       >{{
-        this.$store.state.profile.favoriteBird === undefined
+        this.$store.state.profile.favoriteBird === undefined ||
+        this.$store.state.profile.favoriteBird === null
           ? "Create your profile"
           : "Edit your profile"
       }}</a
     >
-    <ProfileForm
-      v-show="
-        formDisplay === true &&
-        this.$store.state.profile.favoriteBird === undefined
-      "
-    ></ProfileForm>
 
     <a
       id="cancel"
@@ -35,12 +31,7 @@
       >Cancel</a
     >
 
-    <ProfileFormEdit
-      v-show="
-        formDisplay === true &&
-        this.$store.state.profile.favoriteBird !== undefined
-      "
-    ></ProfileFormEdit>
+    <ProfileForm v-show="formDisplay"></ProfileForm>
 
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
   </div>
@@ -48,13 +39,12 @@
 
 <script>
 import ProfileForm from "../components/ProfileForm.vue";
-import ProfileFormEdit from "../components/ProfileFormEdit.vue";
 import ProfileDisplay from "../components/ProfileDisplay.vue";
 import PhotoService from "../services/PhotoService.js";
 
 export default {
   name: "profile",
-  components: { ProfileForm, ProfileDisplay, ProfileFormEdit },
+  components: { ProfileForm, ProfileDisplay },
   data() {
     return {
       formDisplay: false,
@@ -62,10 +52,11 @@ export default {
       username:
         this.$store.state.user.username.substring(0, 1).toUpperCase() +
         this.$store.state.user.username.substring(1).toLowerCase(),
+        selectImg: this.$store.state.profile.profileImg === undefined ? "/img/BirdSilhouette.83f473b2.png" : this.$store.state.profile.profileImg,
     };
   },
   methods: {
-    uploadPic() {
+    useCloudinary() {
       PhotoService.myWidget.open();
     },
     displayForm() {
@@ -90,7 +81,7 @@ export default {
   margin-bottom: 75px;
 }
 .edit-btn {
-  width: 40%;
+  width: 25%;
   background-color: var(--rich-black);
   color: var(--baby-powder);
   border-top: 3px solid var(--orange-peel);
@@ -109,9 +100,9 @@ export default {
   padding: 25px 25px 35px 25px;
   background-color: var(--rich-black);
   color: var(--baby-powder);
-  width: 80%;
+  width: 65%;
 }
-#birdPlaceholder {
+#profile-image {
   border-radius: 50%;
   width: 25%;
   height: auto;
@@ -119,7 +110,7 @@ export default {
   background-color: var(--orange-peel);
   border: 8px solid var(--rose-madder);
 }
-/* ProfileFormEdit.vue CSS */
+/* ProfileForm.vue CSS */
 .profile-content-container form {
   display: flex;
   flex-direction: column;
@@ -146,7 +137,8 @@ select {
 }
 .profile-content-container input[type="submit"] {
   margin-top: 25px;
-  width: 45%;
+  /* width: 45%; */
+  width: 25%;
   border: 1px solid var(--rich-black);
   background-color: var(--rose-madder);
   font-size: var(--edit-btn);

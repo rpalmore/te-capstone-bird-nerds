@@ -10,27 +10,27 @@
         <div id="rowTwo">
           <div class="genderStuff">
             <div class="males">
-              <p class="label">Males :</p>
+              <p class="label">Males:</p>
               <p class="infoBox">{{ note.numMales }}</p>
             </div>
             <div class="females">
-              <p class="label">Females :</p>
+              <p class="label">Females:</p>
               <p class="infoBox">{{ note.numFemales }}</p>
             </div>
           </div>
           <div class="foodStuff">
             <div class="feeder">
-              <p class="label">Feeder :</p>
+              <p class="label">Feeder:</p>
               <p class="infoBox">{{ note.feederType }}</p>
             </div>
             <div class="foodBlend">
-              <p class="label">Food Blend :</p>
+              <p class="label">Food Blend:</p>
               <p class="infoBox">{{ note.foodBlend }}</p>
             </div>
           </div>
         </div>
         <div class="writtenNotes">
-          <p class="label">Notes :</p>
+          <p class="label">Notes:</p>
           <p class="infoBox">{{ note.notes }}</p>
         </div>
 
@@ -115,7 +115,7 @@ import noteService from "../services/BirdNoteService.js";
 
 export default {
   name: "bird-notes",
-  params: ['bird'],
+  params: ["bird"],
   data() {
     return {
       birdId: this.$route.params.birdId,
@@ -128,9 +128,9 @@ export default {
     },
     bird() {
       return this.$store.state.birds.find(
-                b => b.birdID == this.$route.params.birdId
-            );
-    }
+        (b) => b.birdID == this.$route.params.birdId
+      );
+    },
   },
   methods: {
     deleteNote(noteId) {
@@ -141,13 +141,12 @@ export default {
             if (response.status == 204) {
               this.$store.commit("DELETE_NOTE", noteId);
               const bird = this.bird;
-              console.log(bird);
               bird.numSightings--;
               this.$store.commit("EDIT_BIRD", bird);
             }
           })
           .catch((err) => {
-            console.error(err + " problem deleting note!");
+            alert.error(err + " problem deleting note!");
           });
       }
     },
@@ -156,7 +155,6 @@ export default {
       for (const n of this.notes) {
         if (n.noteId == noteId) note = n;
       }
-      console.log(note);
       noteService
         .editNote(note)
         .then((response) => {
@@ -165,7 +163,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.error(err + " problem editing note");
+          alert.error(err + " problem editing note");
         });
       this.resetForm();
     },
@@ -183,8 +181,6 @@ export default {
 
 <style scoped>
 .note {
-  border: 4px solid #ff9f1c;
-  outline: 8px solid #ec0f0f;
   padding: 25px;
   background-color: #011627;
   color: #fdfffc;

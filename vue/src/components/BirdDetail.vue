@@ -74,7 +74,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.error(err + " problem editing bird");
+          alert.error(err + " problem editing bird");
         });
       this.resetForm();
     },

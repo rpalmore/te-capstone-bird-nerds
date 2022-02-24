@@ -1,4 +1,4 @@
-<!-- This component is for display a specific list + birds in that list (non-detailed view) -->
+<!-- This component displays a specific list + birds in that list (non-detailed view) -->
 <template>
   <div id="list-detail">
     <span id="add-bird">Add a bird to: {{ list.listName }}</span>
@@ -92,7 +92,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.error(err + " problem editing list");
+          alert.error(err + " problem editing list");
         });
       this.resetForm();
     },
