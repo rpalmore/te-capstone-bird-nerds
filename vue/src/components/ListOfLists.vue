@@ -33,7 +33,6 @@ export default {
   methods: {
     deleteList(listId) {
       if (confirm("Are you sure you want to delete this list?")) {
-        console.log(listId);
         listService
           .deleteList(listId)
           .then((response) => {
@@ -42,7 +41,7 @@ export default {
             }
           })
           .catch((err) => {
-            console.error(err + " problem deleting list!");
+            alert(err + " problem deleting list!");
           });
       }
     },

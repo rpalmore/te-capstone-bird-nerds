@@ -8,7 +8,7 @@
       <p class="question">My skill level:</p>
       <span class="response">{{ profile.skillLevel }}</span>
       <p class="question">My zip code:</p>
-      <span class="response">{{ profile.zipCode }}</span>
+      <span class="response">{{ profile.zipCode === 0 ? " " : profile.zipCode }}</span>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ import profileService from "../services/ProfileService.js";
 export default {
   data() {
     return {
-      profile: [],
+      profile: {},
     };
   },
   created() {
@@ -28,7 +28,7 @@ export default {
         this.profile = response.data;
       })
       .catch((err) => {
-        alert.error(err + " nothing returned");
+        alert(err + " nothing returned");
       });
   },
 };

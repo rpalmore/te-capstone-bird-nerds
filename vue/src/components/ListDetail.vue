@@ -92,7 +92,7 @@ export default {
           }
         })
         .catch((err) => {
-          alert.error(err + " problem editing list");
+          alert(err + " problem editing list");
         });
       this.resetForm();
     },
@@ -111,8 +111,7 @@ export default {
   margin-top: 10px;
 }
 #add-bird {
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 2rem;
   margin-top: 35px;
 }
 #rename-list,

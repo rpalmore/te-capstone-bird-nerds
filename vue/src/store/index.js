@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 Vue.config.devtools = true
-// import PhotoService from '../services/PhotoService'
 
 Vue.use(Vuex)
 

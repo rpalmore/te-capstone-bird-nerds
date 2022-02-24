@@ -37,7 +37,7 @@ export default {
           this.list = {}; // this clears out the form field
         })
         .catch((err) => {
-          console.error(err + " problem creating list!");
+          alert(err + " problem creating list!");
         });
     },
   },

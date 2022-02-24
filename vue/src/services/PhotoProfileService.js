@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import store from "../store/index.js";
 import profileService from "./ProfileService.js";
-import router from "../router/index.js";
+ import router from "../router/index.js";
 const cloudName = "dgupilxum";
 const uploadPreset = "l1c4hxcn";
 let profile = {
@@ -17,7 +17,7 @@ const myWidget = window.cloudinary.createUploadWidget(
     {
         cloudName: cloudName,
         uploadPreset: uploadPreset,
-        sources: ["local", "url", "camera", "image_search", "google_drive", "facebook", "dropbox", "instagram", "unsplash"],
+        sources: ["local", "url", "camera", "image_search", "google_drive", "unsplash", "facebook", "dropbox", "instagram"],
         googleApiKey: "<image_search_google_api_key>",
         showAdvancedOptions: true,
         cropping: true,
@@ -26,15 +26,15 @@ const myWidget = window.cloudinary.createUploadWidget(
         styles: {
             palette:
             {
-                window: "#2EC4B6",
-                windowBorder: "#E71D36",
-                tabIcon: "#FDFFFC",
-                menuIcons: "#011627",
-                textDark: "#000000",
+                window: "#011627",
+                windowBorder: "#2EC4b6",
+                tabIcon: "#FF9F1C",
+                menuIcons: "#FF9F1C",
+                textDark: "#011627",
                 textLight: "#FDFFFC",
                 link: "#FDFFFC",
                 action: "#FF9F1C",
-                inactiveTabIcon: "#011627",
+                inactiveTabIcon: "#FDFFFC",
                 error: "#E71D36",
                 inProgress: "#FF9F1C",
                 complete: "#20B832",
@@ -46,8 +46,11 @@ const myWidget = window.cloudinary.createUploadWidget(
         if (!error && result && result.event === "success") {
             profile.profileImg = result.info.secure_url;
             profile.username = store.state.user.username;
-            console.log(profile);
             if (store.state.profile.favoriteBird === undefined) {
+                profile.favoriteBird = null;
+                profile.mostCommonBird = null;
+                profile.zipCode = null;
+                profile.skillLevel = null;
                 profileService.updateProfile(profile).then((response) => {
                     if (response.status === 201) {
                         store.commit("SET_PROFILE", profile);

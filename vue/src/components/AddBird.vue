@@ -19,7 +19,7 @@
         placeholder="#####"
         v-model="newBird.zipcode"
       />
-      <label for="birdImgURL"
+      <!-- <label for="birdImgURL"
         >Upload a photo of this bird from our friends at
         <a href="https://search.macaulaylibrary.org/catalog" target="_blank"
           >eBird.org and the Macaulay Library</a
@@ -31,7 +31,9 @@
         required
         placeholder="Add an image URL here"
         v-model="newBird.birdImg"
-      />
+      /> -->
+      <label for="birdImgURL">Upload a picture of the bird you spotted.</label>
+      <button id="add-bird" v-on:click="useCloudinary">Add photo</button>
       <input type="submit" />
     </form>
   </div>
@@ -39,6 +41,7 @@
 
 <script>
 import birdService from "../services/BirdService";
+import PhotoService from "../services/PhotoProfileService";
 
 export default {
   name: "add-bird",
@@ -49,8 +52,10 @@ export default {
     };
   },
   methods: {
+    useCloudinary() {
+      PhotoService.myWidget.open();
+    },
     addBird() {
-      console.log(this.newBird);
       birdService.createBird(this.listId, this.newBird).then((response) => {
         if (response.status == 201) {
           this.$store.commit("ADD_BIRD", response.data);
@@ -106,5 +111,6 @@ input[type="submit"] {
   width: 35%;
   background-color: #e71d36;
   font-weight: bold;
+  color: var(--baby-powder);
 }
 </style>

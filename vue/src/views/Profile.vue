@@ -1,15 +1,12 @@
 <template>
   <div id="profile-container">
-    <!-- src="/img/BirdSilhouette.83f473b2.png" -->
-    <img
-      id="profile-image"
-      v-bind:src="selectImg"
-      alt="User profile image"
-    />
-    <button v-on:click="useCloudinary">Add a photo</button>
-
+    <div id="image-section">
+      <img id="profile-image" v-bind:src="selectImg" alt="User profile image" />
+      <div id="image-overlay" v-on:click="useCloudinary">
+        <a id="cloudinary-link">Update image</a>
+      </div>
+    </div>
     <h2>Welcome, {{ this.username }}!</h2>
-
     <a
       id="create"
       class="edit-btn"
@@ -40,7 +37,7 @@
 <script>
 import ProfileForm from "../components/ProfileForm.vue";
 import ProfileDisplay from "../components/ProfileDisplay.vue";
-import PhotoService from "../services/PhotoService.js";
+import PhotoProfileService from "../services/PhotoProfileService.js";
 
 export default {
   name: "profile",
@@ -52,12 +49,15 @@ export default {
       username:
         this.$store.state.user.username.substring(0, 1).toUpperCase() +
         this.$store.state.user.username.substring(1).toLowerCase(),
-        selectImg: this.$store.state.profile.profileImg === undefined ? "/img/BirdSilhouette.83f473b2.png" : this.$store.state.profile.profileImg,
+      selectImg:
+        this.$store.state.profile.profileImg === undefined
+          ? "/img/BirdSilhouette.83f473b2.png"
+          : this.$store.state.profile.profileImg,
     };
   },
   methods: {
     useCloudinary() {
-      PhotoService.myWidget.open();
+      PhotoProfileService.myWidget.open();
     },
     displayForm() {
       this.formDisplay = true;
@@ -75,6 +75,7 @@ export default {
 #profile-container {
   display: flex;
   flex-direction: column;
+  width: 90%;
   margin-top: 45px;
   align-items: center;
   gap: 25px;
@@ -102,13 +103,37 @@ export default {
   color: var(--baby-powder);
   width: 65%;
 }
+#image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #profile-image {
   border-radius: 50%;
-  width: 25%;
+  transition: 0.5s ease;
+  width: 30%;
   height: auto;
-  padding: 10px;
+  padding: 5px;
   background-color: var(--orange-peel);
-  border: 8px solid var(--rose-madder);
+  border: 4px solid var(--rose-madder);
+}
+#image-overlay {
+  position: absolute;
+}
+#image-section:hover #profile-image {
+  opacity: 0.5;
+}
+#cloudinary-link {
+  transition: 0.5s ease;
+  opacity: 0;
+  padding: 15px;
+  background-color: var(--rich-black);
+  border: 1px solid var(--rose-madder);
+  border-top: 1px solid var(--orange-peel);
+  color: var(--baby-powder);
+}
+#image-section:hover #cloudinary-link {
+  opacity: 1;
 }
 /* ProfileForm.vue CSS */
 .profile-content-container form {
@@ -137,7 +162,6 @@ select {
 }
 .profile-content-container input[type="submit"] {
   margin-top: 25px;
-  /* width: 45%; */
   width: 25%;
   border: 1px solid var(--rich-black);
   background-color: var(--rose-madder);
