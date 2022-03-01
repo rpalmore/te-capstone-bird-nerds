@@ -1,24 +1,20 @@
 <template>
   <main id="logSighting">
-    <span class="pageHeader">Log your sighting</span>
+    <span class="pageHeader">Log this sighting</span>
     <div id="formDiv">
       <form id="loggingForm" v-on:submit.prevent="addNote">
         <div class="formItem">
-          <label for="date-spotted">Date: </label><br>
-          <input
-            required
-            type="date"
-            v-model="birdNote.dateSpotted"
-          />
+          <label for="date-spotted">Date: </label><br />
+          <input required type="date" v-model="birdNote.dateSpotted" />
         </div>
         <div id="gender">
-            <label for="num-males">Males: </label>
-            <input
-              id="numMales"
-              type="number"
-              min="0"
-              placeholder="#"
-              v-model="birdNote.numMales"
+          <label for="num-males">Males: </label>
+          <input
+            id="numMales"
+            type="number"
+            min="0"
+            placeholder="#"
+            v-model="birdNote.numMales"
           />
           <label for="num-females">Females: </label>
           <input
@@ -30,7 +26,7 @@
           />
         </div>
         <div class="formItem">
-          <label for="feeder-type">Feeder Type: </label> <br>
+          <label for="feeder-type">Feeder Type: </label> <br />
           <select id="feeder-type" v-model="birdNote.feederType">
             <option value="cylinder">Cylinder</option>
             <option value="hopper">Hopper-feeder</option>
@@ -42,7 +38,7 @@
           </select>
         </div>
         <div class="formItem">
-          <label for="food-blend">Food Blend: </label> <br>
+          <label for="food-blend">Food Blend: </label> <br />
           <select id="food-blend" v-model="birdNote.foodBlend">
             <option value="live-mealworms">Live Mealworms</option>
             <option value="bark-butter">Bark-butter</option>
@@ -53,7 +49,7 @@
           </select>
         </div>
         <div class="notesArea">
-          <label for="notes">Notes: </label> <br>
+          <label for="notes">Notes: </label> <br />
           <textarea
             id="notesArea"
             wrap="soft"
@@ -80,12 +76,13 @@ export default {
   },
   computed: {
     bird() {
-      return this.$store.state.birds.find(b => b.birdID == this.$route.params.birdId);
-    }
+      return this.$store.state.birds.find(
+        (b) => b.birdID == this.$route.params.birdId
+      );
+    },
   },
   methods: {
     addNote() {
-      console.log(this.birdNote);
       birdNoteService
         .addNote(this.birdNote)
         .then((response) => {
@@ -97,7 +94,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.error(err + " problem adding bird note!");
+          alert(err + " problem adding bird note!");
         });
     },
   },
@@ -120,7 +117,7 @@ export default {
   text-align: center;
   font-weight: normal;
   padding: 20px 0 20px 0;
-  border-bottom: 1px solid #E71D36;
+  border-bottom: 1px solid #e71d36;
 }
 #formDiv {
   margin-top: 25px;
@@ -160,7 +157,9 @@ export default {
 label {
   font-size: 1.6rem;
 }
-input, select, textarea {
+input,
+select,
+textarea {
   margin-top: 10px;
   width: 320px;
   padding: 8px;
@@ -176,7 +175,7 @@ select {
 #submit {
   width: 33%;
   background-color: #ff9f1c;
-  border: 1px solid #E71D36;
+  border: 1px solid #e71d36;
   font-weight: bold;
   color: #011627;
   margin-bottom: 25px;

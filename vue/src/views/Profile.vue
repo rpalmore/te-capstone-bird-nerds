@@ -27,7 +27,6 @@
       v-on:click="cancelSubmit"
       >Cancel</a
     >
-
     <ProfileForm v-show="formDisplay"></ProfileForm>
 
     <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
@@ -37,7 +36,7 @@
 <script>
 import ProfileForm from "../components/ProfileForm.vue";
 import ProfileDisplay from "../components/ProfileDisplay.vue";
-import PhotoProfileService from "../services/PhotoProfileService.js";
+import photoService from "../services/PhotoService.js";
 
 export default {
   name: "profile",
@@ -50,14 +49,16 @@ export default {
         this.$store.state.user.username.substring(0, 1).toUpperCase() +
         this.$store.state.user.username.substring(1).toLowerCase(),
       selectImg:
-        this.$store.state.profile.profileImg === undefined
+        this.$store.state.profile.profileImg === undefined ||
+        this.$store.state.profile.profileImg === null
           ? "/img/BirdSilhouette.83f473b2.png"
           : this.$store.state.profile.profileImg,
     };
   },
   methods: {
     useCloudinary() {
-      PhotoProfileService.myWidget.open();
+      photoService.myWidget.open();
+      this.$store.commit("SET_SOURCE_PROFILE");
     },
     displayForm() {
       this.formDisplay = true;
@@ -160,9 +161,10 @@ select {
 .profile-content-container option {
   font-family: "Bitter", serif;
 }
-.profile-content-container input[type="submit"] {
+.profile-content-container button#submit {
   margin-top: 25px;
-  width: 25%;
+  width: 20%;
+  padding: 5px;
   border: 1px solid var(--rich-black);
   background-color: var(--rose-madder);
   font-size: var(--edit-btn);

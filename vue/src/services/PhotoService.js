@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 import store from "../store/index.js";
 import profileService from "./ProfileService.js";
- import router from "../router/index.js";
+import router from "../router/index.js";
 const cloudName = "dgupilxum";
 const uploadPreset = "l1c4hxcn";
 let profile = {
@@ -43,7 +42,10 @@ const myWidget = window.cloudinary.createUploadWidget(
         }
     },
     (error, result) => {
-        if (!error && result && result.event === "success") {
+        if (!error && result && result.event === "success" && store.state.birdPhoto === true) {
+            let birdImg = result.info.secure_url;
+            store.commit("SET_BIRD_PHOTO", birdImg);
+        } else if (!error && result && result.event === "success" && store.state.birdPhoto === false) {
             profile.profileImg = result.info.secure_url;
             profile.username = store.state.user.username;
             if (store.state.profile.favoriteBird === undefined) {

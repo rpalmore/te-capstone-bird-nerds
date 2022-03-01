@@ -2,16 +2,7 @@
 <template>
   <div id="bird-detail">
     <div id="birdPic">
-      <iframe
-        id="iframeBird"
-        width="320"
-        height="343"
-        v-bind:src="bird.birdImg + '/embed/320'"
-        frameborder="0"
-        allowfullscreen
-        style="width: 320px"
-        scrolling="no"
-      ></iframe>
+      <img v-bind:src="bird.birdImg" alt="" id="bird-img" />
     </div>
     <div id="birdInfo" v-show="showForm === false">
       <h2>{{ bird.birdName }}</h2>
@@ -23,11 +14,15 @@
             : bird.numSightings + " time"
         }}
       </p>
-      <p>Most recently seen on: {{ bird.mostRecentSighting }}</p>
+      <p>Last spotted: {{ bird.mostRecentSighting }}</p>
       <p>Zip code: {{ bird.zipcode }}</p>
       <button v-on:click="showForm = true">Edit</button>
     </div>
-    <form v-on:submit.prevent="updateBird" v-show="showForm === true">
+    <form
+      id="log-sighting"
+      v-on:submit.prevent="updateBird"
+      v-show="showForm === true"
+    >
       <label for="newName">Name:</label>
       <input id="newName" type="text" v-model="bird.birdName" />
       <label for="newUrl">Image URL:</label>
@@ -87,27 +82,24 @@ export default {
 
 <style scoped>
 #bird-detail {
-  background-color: #011627;
+  background-color: var(--rich-black);
   display: flex;
-  margin-top: 35px;
+  margin-top: 45px;
   align-items: center;
+}
+#bird-img {
+  width: 33%;
 }
 #birdPic {
   display: flex;
 }
-#iframeBird {
-  padding-left: 5px white;
-}
-
 form,
 #birdInfo {
-  margin-left: 25px;
-  color: #fdfffc;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* margin-left: 25px; */
+  color: var(--baby-powder);
+  /* padding-left: 50px;
+  padding-right: 50px; */
 }
-
-.button,
 button {
   min-width: 65px;
   background-color: #ff9f1c;
@@ -115,12 +107,13 @@ button {
   padding: 5px;
   color: #011627;
   text-align: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   border: 1px solid #fdfffc;
+  margin-bottom: 15px;
 }
-
-form {
+#log-sighting {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 </style>

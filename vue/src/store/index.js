@@ -25,8 +25,9 @@ export default new Vuex.Store({
     lists: JSON.parse(localStorage.getItem('lists') || {}),
     birds: JSON.parse(localStorage.getItem('birds') || "{}"),
     activeBird: 0,
-    activeList: 0,
     notes: JSON.parse(localStorage.getItem('notes') || "{}"),
+    birdImg: JSON.parse(localStorage.getItem('birdImg') || ""),
+    birdPhoto: false
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -49,24 +50,31 @@ export default new Vuex.Store({
       state.profile = payload;
       localStorage.setItem('profile', JSON.stringify(state.profile));
     },
-    SET_LIST(state, payload) {
+    SET_LISTS(state, payload) {
       state.lists = payload;
       localStorage.setItem("lists", JSON.stringify(state.lists));
     },
     ADD_LIST(state, list) {
-      state.lists.unshift(list);
+      state.lists.push(list);
       localStorage.setItem("lists", JSON.stringify(state.lists));
     },
     SET_BIRDS(state, birds) {
       state.birds = birds;
       localStorage.setItem("birds", JSON.stringify(state.birds));
     },
+    SET_BIRD_PHOTO(state, birdImg) {
+      state.birdImg = birdImg;
+      localStorage.setItem("birdImg", JSON.stringify(state.birdImg));
+    },
+    SET_SOURCE_BIRD(state) {
+      state.birdPhoto = true;
+    },
+    SET_SOURCE_PROFILE(state) {
+      state.birdPhoto = false;
+    },
     ADD_BIRD(state, bird) {
       state.birds.unshift(bird);
       localStorage.setItem("birds", JSON.stringify(state.birds));
-    },
-    SET_ACTIVE_LIST(state, listId) {
-      state.activeList = listId;
     },
     SET_ACTIVE_BIRD(state, birdId) {
       state.activeBird = birdId;

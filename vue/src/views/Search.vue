@@ -3,22 +3,14 @@
     <h2>Birds recently spotted in {{ this.$route.params.zipcode }}</h2>
     <div id="search-results">
       <div id="birds">
-      <div
-        id="bird-card"
-        v-for="bird in this.birdsByZip"
-        v-bind:key="bird.birdId"
-      >
-        <iframe
-          width="320"
-          height="342"
-          v-bind:src="bird.imgUrl + '/embed/400'"
-          frameborder="0"
-          allowfullscreen
-          scrolling="no"
-          style="width: 320px"
-        ></iframe>
-        <div id="date">Date: {{ bird.dateSpotted }}</div>
-      </div>
+        <div
+          id="bird-card"
+          v-for="bird in this.birdsByZip"
+          v-bind:key="bird.birdId"
+        >
+          <img v-bind:src="bird.imgUrl" />
+          <div id="date">{{ bird.name }}: {{ bird.dateSpotted }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -79,11 +71,10 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-
 }
-iframe {
-  padding: 5px 5px 0 5px;
-  background-color: white;
+img {
+  width: 30%;
+  height: auto;
 }
 #date {
   padding: 10px;

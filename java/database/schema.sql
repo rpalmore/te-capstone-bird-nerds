@@ -76,58 +76,16 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO profiles (user_id, profile_img, zip_code, favorite_bird, skill_level, most_common_bird)
 VALUES (1, 'profile_img', 60625, 'Black-capped Chickadee', 'intermediate', 'Black-capped Chickadee');
 
-INSERT INTO lists (list_name, user_id) VALUES ('Home', 1), ('Tennessee', 1), ('Washington', 1), ('North Carolina', 1);
+INSERT INTO lists (list_name, user_id) VALUES ('Colorful birds of North America', 1);
 
 INSERT INTO birds (bird_name, bird_img, num_sightings, zipcode, list_id) VALUES
-('Canada Goose', 'https://macaulaylibrary.org/asset/49344561', 1, 60625, 1),
-('Red-bellied Woodpecker', 'https://macaulaylibrary.org/asset/51168831', 1, 60625, 1),
-('Northern Cardinal', 'https://macaulaylibrary.org/asset/257386271', 1, 60625, 1),
-('Black-capped Chickadee', 'https://macaulaylibrary.org/asset/47337851', 1, 60625, 1),
-('House Finch', 'https://macaulaylibrary.org/asset/283643061', 1, 60625, 1),
-('Bufflehead', 'https://macaulaylibrary.org/asset/39633601', 1, 60625, 1),
-('Great Horned Owl', 'https://macaulaylibrary.org/asset/63942211', 1, 37214, 2),
-('Mallard', 'https://macaulaylibrary.org/asset/63736171', 1, 37214, 2),
-('Belted Kingfisher', 'https://macaulaylibrary.org/asset/134468811', 1, 37214, 2),
-('American Robin', 'https://macaulaylibrary.org/asset/222821411', 1, 37214, 2),
-('Northern Flicker', 'https://macaulaylibrary.org/asset/29705611', 1, 37214, 2),
-('Ruby-crowned Kinglet', 'https://macaulaylibrary.org/asset/53418081', 1, 37214, 2),
-('Red-breasted Nuthatch', 'https://macaulaylibrary.org/asset/206532801', 1, 98028, 3),
-('Pacific Wren', 'https://macaulaylibrary.org/asset/87721071', 1, 98028, 3),
-('Peregrine Falcon', 'https://macaulaylibrary.org/asset/288347741', 1, 98028, 3),
-('Anna''s Hummingbird', 'https://macaulaylibrary.org/asset/45345081', 1, 98028, 3),
-('Yellow-rumped Warbler', 'https://macaulaylibrary.org/asset/168328261', 1, 98028, 3),
-('Steller''s Jay', 'https://macaulaylibrary.org/asset/60478861', 1, 98028, 3),
-('Eastern Screech Owl', 'https://macaulaylibrary.org/asset/261958361', 1, 28704, 4),
-('Carolina Wren', 'https://macaulaylibrary.org/asset/210392161', 1, 28704, 4),
-('Pileated Woodpecker', 'https://macaulaylibrary.org/asset/213294221', 1, 28704, 4),
-('Blue Jay', 'https://macaulaylibrary.org/asset/84878861', 1, 28704, 4),
-('Tufted Titmouse', 'https://macaulaylibrary.org/asset/84467431', 1, 28704, 4),
-('American Goldfinch', 'https://macaulaylibrary.org/asset/172924761', 1, 28704, 4);
+('Northern Cardinal', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646096224/sh4rblvlmm241jflxq0x.jpg', 1, 60625, 1),
+('Cooper''s Hawk', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646096345/k3akp5rdfwyieuagkrgl.jpg', 1, 60625, 1),
+('Blue Jay', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646146600/qd2zt3t2qc0bml0apwdw.jpg', 1, 60625, 1),
+('Goldfinch', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646155661/izfqldcwtzniyipugqe4.jpg', 1, 60625, 1);
 
-INSERT INTO bird_notes (bird_id, notes, date_spotted, num_males, num_females, feeder_type, food_blend) VALUES 
+INSERT INTO bird_notes (bird_id, notes, date_spotted, num_males, num_females, feeder_type, food_blend) VALUES
 (1, 'insert notes here', '2022-02-07', 5, 5, null, null),
-(2, 'insert notes here', '2022-02-02', 1, 1, 'cylinder', 'live-mealworms'),
-(3, 'insert notes here', '2022-01-08', 3, 2, 'suet-feeder', 'suet-cake'),
-(4, 'insert notes here', '2022-01-16', 4, 5, 'tray-feeder', 'wildlife-blend'),
-(5, 'insert notes here', '2022-02-08', 2, 3, 'seed-tube', 'sunflower-blend'),
-(6, 'insert notes here', '2022-02-01', 2, 2, null, null),
-(7, 'insert notes here', '2022-02-07', 0, 1, null, null),
-(8, 'insert notes here', '2022-02-02', 2, 4, null, null),
-(9, 'insert notes here', '2022-01-08', 1, 0, null, null),
-(10, 'insert notes here', '2022-01-16', 2, 1, 'hopper', 'live-mealworms'),
-(11, 'insert notes here', '2022-02-08', 1, 1, 'cylinder', 'bark-butter'),
-(12, 'insert notes here', '2022-02-01', 2, 2, 'seed-tube', 'nutty-blend'),
-(13, 'insert notes here', '2022-02-07', 2, 1, 'suet-feeder', 'suet-cake'),
-(14, 'insert notes here', '2022-02-02', 1, 1, 'tray-feeder', 'sunflower-blend'),
-(15, 'insert notes here', '2022-01-08', 0, 1, null, null),
-(16, 'insert notes here', '2022-01-16', 1, 1, 'nectar', null),
-(17, 'insert notes here', '2022-02-08', 1, 2, 'hopper', 'nutty-blend'),
-(18, 'insert notes here', '2022-02-01', 2, 2, 'peanut-feeder', 'nutty-blend'),
-(19, 'insert notes here', '2022-02-07', 1, 1, null, null),
-(20, 'insert notes here', '2022-02-02', 2, 3, 'seed-tube', 'wildlife-blend'),
-(21, 'insert notes here', '2022-01-08', 1, 0, 'suet-feeder', 'suet-cake'),
-(22, 'insert notes here', '2022-01-16', 1, 0, 'hopper', 'nutty-blend'),
-(23, 'insert notes here', '2022-02-08', 2, 1, 'seed-tube', 'bark-butter'),
-(24, 'insert notes here', '2022-02-01', 3, 2, 'hopper', 'sunflower-blend');
+(2, 'insert notes here', '2022-02-02', 1, 1, null, null);
 
 COMMIT TRANSACTION;

@@ -56,16 +56,18 @@ export default {
   data() {
     return {
       showForm: false,
+      activeList: this.$route.params.listId,
     };
   },
   computed: {
+    lists() {
+      return this.$store.state.lists;
+    },
     listId() {
-      return this.$store.state.activeList;
+      return this.activeList
     },
     list() {
-      return this.$store.state.lists.find(
-        (l) => (l.listId = this.$store.state.activeList)
-      );
+      return this.lists.find((l) => (l.listId == this.activeList));
     },
   },
   created() {
@@ -111,7 +113,7 @@ export default {
   margin-top: 10px;
 }
 #add-bird {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: 35px;
 }
 #rename-list,

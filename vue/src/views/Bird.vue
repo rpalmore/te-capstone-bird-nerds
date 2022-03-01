@@ -24,15 +24,14 @@ export default {
     created() {
         this.$store.commit("SET_ACTIVE_BIRD", this.$route.params.birdId);
     }
-
 }
 </script>
 
 
 <style scoped>
-#bird-vue {
+/* #bird-vue {
     display: flex;
     flex-direction: column;
-}
+} */
 
 </style>

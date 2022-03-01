@@ -19,45 +19,37 @@
         placeholder="#####"
         v-model="newBird.zipcode"
       />
-      <!-- <label for="birdImgURL"
-        >Upload a photo of this bird from our friends at
-        <a href="https://search.macaulaylibrary.org/catalog" target="_blank"
-          >eBird.org and the Macaulay Library</a
-        >.
-      </label>
-      <input
-        id="birdImgURL"
-        type="text"
-        required
-        placeholder="Add an image URL here"
-        v-model="newBird.birdImg"
-      /> -->
       <label for="birdImgURL">Upload a picture of the bird you spotted.</label>
-      <button id="add-bird" v-on:click="useCloudinary">Add photo</button>
-      <input type="submit" />
+      <a id="add-bird" v-on:click="useCloudinary()">Add photo</a>
+      <button id="submit">Save</button>
     </form>
   </div>
 </template>
 
 <script>
 import birdService from "../services/BirdService";
-import PhotoService from "../services/PhotoProfileService";
+import photoService from "../services/PhotoService";
 
 export default {
   name: "add-bird",
   data() {
     return {
-      newBird: {},
+      newBird: {
+        birdImg: ''
+      },
       listId: this.$route.params.listId,
+      addBirdTest: false,
     };
   },
   methods: {
     useCloudinary() {
-      PhotoService.myWidget.open();
+      photoService.myWidget.open();
+      this.$store.commit("SET_SOURCE_BIRD");
     },
     addBird() {
+      this.newBird.birdImg = this.$store.state.birdImg;
       birdService.createBird(this.listId, this.newBird).then((response) => {
-        if (response.status == 201) {
+        if (response.status === 201) {
           this.$store.commit("ADD_BIRD", response.data);
         }
       });
@@ -96,7 +88,7 @@ label {
   text-align: center;
 }
 input,
-input[type="submit"] {
+button#submit {
   padding: 8px;
   margin-bottom: 10px;
   width: 60%;
@@ -106,7 +98,7 @@ input[type="submit"] {
   border-left: 5px solid #ff9f1c;
   border-right: 5px solid #ff9f1c;
 }
-input[type="submit"] {
+button#submit {
   margin-top: 25px;
   width: 35%;
   background-color: #e71d36;

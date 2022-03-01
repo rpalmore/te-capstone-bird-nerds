@@ -88,7 +88,6 @@ public class JdbcListDao implements ListDao {
 
     @Override
     public void deleteList(int listId) {
-
         String sql = "DELETE FROM lists WHERE list_id = ?";
         birdDao.deleteBirdsFromList(listId);
         template.update(sql, listId);

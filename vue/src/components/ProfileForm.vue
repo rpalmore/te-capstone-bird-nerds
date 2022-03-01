@@ -38,8 +38,7 @@
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
       </select>
-
-      <input type="submit" />
+      <button id="submit">Update</button>
     </form>
   </div>
 </template>
@@ -54,6 +53,10 @@ export default {
       profile: {
         username: this.$store.state.user.username,
         profileImg: this.$store.state.profile.profileImg,
+        favoriteBird: this.$store.state.profile.favoriteBird,
+        mostCommonBird: this.$store.state.profile.mostCommonBird,
+        zipCode: this.$store.state.profile.zipCode,
+        skillLevel: this.$store.state.profile.skillLevel
       },
       displayForm: true,
     };

@@ -52,7 +52,7 @@ export default {
             this.$store.commit("SET_USER", response.data.user);
             listService.getAllLists().then((response) => {
               if (response.status == 200) {
-                this.$store.commit("SET_LIST", response.data);
+                this.$store.commit("SET_LISTS", response.data);
               }
             });
             profileService.getProfile().then((response) => {

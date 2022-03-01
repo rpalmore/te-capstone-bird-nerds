@@ -1,13 +1,7 @@
 <template>
   <div id="dailyBird">
-    <iframe
-      width="800"
-      height="578"
-      v-bind:src="imgUrl + '/embed/800'"
-      frameborder="0"
-      allowfullscreen
-      style="width: 800px"
-    ></iframe>
+    <img v-bind:src="imgUrl" />
+    <div id="caption">{{ name }}</div>
   </div>
 </template>
 
@@ -25,7 +19,10 @@ export default {
       .getRandomBird()
       .then((response) => {
         if (response.status == 200) {
+          // eslint-disable-next-line no-console
+          console.log(response.data);
           this.imgUrl = response.data.imgUrl;
+          this.name = response.data.name;
         }
       })
       .catch((err) => {
@@ -36,28 +33,31 @@ export default {
 </script>
 
 <style scoped>
-iframe {
+/* iframe {
   margin-top: 45px;
   padding: 8px 8px 0 8px;
   background-color: white;
   border: 3px solid #011627;
   border: 3px solid #ff9f1c;
   margin-bottom: 50px;
-}
-/* #dailyBird {
-  position: relative;
-  overflow: hidden;
-  width: 100%; */
-  /* 400:289 Aspect Ratio (divide 289 by 400 = 0.7225) */
-  /* padding-top: 72.25%;
-}
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
 } */
+#dailyBird {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+img {
+  width: 75%;
+  margin-top: 45px;
+  border: 3px solid #011627;
+  border: 3px solid #ff9f1c;
+  margin-bottom: 50px;
+}
+#caption {
+  position: relative;
+  left: -52%;
+  background-color: var(--orange-peel);
+  padding: 15px;
+  border: 4px solid var(--baby-powder);
+}
 </style>
