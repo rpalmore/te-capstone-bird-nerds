@@ -1,6 +1,6 @@
 <template>
   <router-link :to="{ name: 'list' }" class="rtr"
-    ><button class="nav-btn">MY LISTS: {{ count }}</button>
+    ><button class="nav-btn">MY LISTS<span id="my-lists">{{ count }}</span></button>
   </router-link>
 </template>
 

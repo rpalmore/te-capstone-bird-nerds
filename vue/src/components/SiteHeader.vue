@@ -43,7 +43,7 @@ export default {
   width: 20%;
   justify-content: center;
   background-color: var(--rose-madder);
-  border: 2px solid var(--rich-black);
+  border: 1px solid var(--rich-black);
 }
 #logo-img > img {
   padding: 10px;

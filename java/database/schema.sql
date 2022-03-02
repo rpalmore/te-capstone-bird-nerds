@@ -82,10 +82,14 @@ INSERT INTO birds (bird_name, bird_img, num_sightings, zipcode, list_id) VALUES
 ('Northern Cardinal', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646096224/sh4rblvlmm241jflxq0x.jpg', 1, 60625, 1),
 ('Cooper''s Hawk', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646096345/k3akp5rdfwyieuagkrgl.jpg', 1, 60625, 1),
 ('Blue Jay', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646146600/qd2zt3t2qc0bml0apwdw.jpg', 1, 60625, 1),
-('Goldfinch', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646155661/izfqldcwtzniyipugqe4.jpg', 1, 60625, 1);
+('Goldfinch', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646155661/izfqldcwtzniyipugqe4.jpg', 1, 60625, 1),
+('Peacock', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646166166/qfmc05pbxoioxfn92pkl.jpg', 1, 60625, 1);
 
 INSERT INTO bird_notes (bird_id, notes, date_spotted, num_males, num_females, feeder_type, food_blend) VALUES
 (1, 'insert notes here', '2022-02-07', 5, 5, null, null),
-(2, 'insert notes here', '2022-02-02', 1, 1, null, null);
+(2, 'insert notes here', '2022-02-02', 1, 1, null, null),
+(3, 'insert notes here', '2022-02-28', 1, 1, null, null),
+(4, 'insert notes here', '2022-02-25', 1, 1, null, null),
+(5, 'insert notes here', '2022-03-01', 1, 1, null, null);
 
 COMMIT TRANSACTION;

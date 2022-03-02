@@ -1,7 +1,6 @@
-<!-- This component displays a specific list + birds in that list (non-detailed view) -->
 <template>
   <div id="list-detail">
-    <span id="add-bird">Add a bird to: {{ list.listName }}</span>
+    <h2 id="add-bird">Add a bird to: {{ list.listName }}</h2>
     <a
       id="rename-list"
       href="#"
@@ -105,50 +104,48 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #list-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
 }
 #add-bird {
-  font-size: 1.5rem;
-  margin-top: 35px;
+  margin-top: 45px;
 }
 #rename-list,
 .new-name {
-  margin-bottom: 25px;
-  margin-top: 25px;
-  padding: 8px;
-  background-color: #011627;
-  color: #fdfffc;
-  border-right: 4px solid #ff9f1c;
-  border-left: 4px solid #ff9f1c;
+  margin-bottom: 35px;
+  padding: 3px 8px 3px 8px;
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  border-right: 4px solid var(--orange-peel);
+  border-left: 4px solid var(--orange-peel);
+  border-radius: 8px;
   text-decoration: none;
-  font-size: 1.3rem;
 }
 .new-name {
   display: flex;
   gap: 10px;
+  border-radius: 8px;
 }
 #birdAnchor {
   text-decoration: none;
   flex-grow: 1;
-  color: #fdfffc;
+  color: var(--baby-powder);
 }
 .birdInList {
   display: flex;
   margin-top: 35px;
   align-items: center;
   width: 80%;
-  background-color: #011627;
-  color: #fdfffc;
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
   padding: 15px 15px 15px 25px;
   font-size: 1.5rem;
-  border-radius: 20px;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
+  border-radius: 12px;
+  border-left: 5px solid var(--orange-peel);
+  border-right: 5px solid var(--orange-peel);
 }
 #deleteBird {
   display: flex;
@@ -158,8 +155,8 @@ export default {
   padding: 5px 10px;
   font-weight: bold;
   border-radius: 50%;
-  color: #e71d36;
-  background-color: #fdfffc;
-  border: 2px solid #ff9f1c;
+  color: var(--rose-madder);
+  background-color: var(--baby-powder);
+  border: 2px solid var(--orange-peel);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="listForm">
+  <div id="list-view">
       <ListForm></ListForm>
       <ListOfLists></ListOfLists>
   </div>    
@@ -15,10 +15,10 @@ export default {
 </script>
 
 <style scoped>
-#listForm {
+#list-view {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  position: absolute;
   margin-bottom: 35px;
 }
 

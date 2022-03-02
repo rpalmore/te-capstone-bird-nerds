@@ -101,7 +101,7 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 20%;
-  border: 2px solid var(--rich-black);
+  border: 1px solid var(--rich-black);
   background-color: var(--tiffany-blue);
   padding: 2px;
 }
@@ -153,5 +153,11 @@ input[type="password"] {
 .alert {
   text-align: center;
   padding-top: 10px;
+}
+span#my-lists {
+  color: var(--rose-madder);
+  padding-left: 10px;
+  font-weight: normal;
+  font-size: var(--nav-button);
 }
 </style>

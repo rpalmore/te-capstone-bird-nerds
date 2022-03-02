@@ -26,7 +26,7 @@ export default new Vuex.Store({
     birds: JSON.parse(localStorage.getItem('birds') || "{}"),
     activeBird: 0,
     notes: JSON.parse(localStorage.getItem('notes') || "{}"),
-    birdImg: JSON.parse(localStorage.getItem('birdImg') || ""),
+    birdImg: JSON.parse(localStorage.getItem('birdImg')),
     birdPhoto: false
   },
   mutations: {
@@ -68,6 +68,7 @@ export default new Vuex.Store({
     },
     SET_SOURCE_BIRD(state) {
       state.birdPhoto = true;
+      state.birdImg = "No photo";
     },
     SET_SOURCE_PROFILE(state) {
       state.birdPhoto = false;

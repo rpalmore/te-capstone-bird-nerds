@@ -28,10 +28,10 @@ export default {
 </script>
 
 
-<style scoped>
-/* #bird-vue {
+<style>
+#bird-vue {
     display: flex;
     flex-direction: column;
-} */
-
+    width: 80%;
+}
 </style>

@@ -20,6 +20,6 @@ export default {
   justify-content: center;
   margin-left: 8px;
   background-color: var(--tiffany-blue);
-  border: 2px solid var(--rich-black);
+  border: 1px solid var(--rich-black);
 }
 </style>

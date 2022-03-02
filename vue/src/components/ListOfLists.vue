@@ -1,6 +1,6 @@
 <template>
-  <div id="all-lists">
-    <span>My Lists</span>
+  <div id="list-of-lists">
+    <h2>My Lists</h2>
     <div
       id="listColumn"
       v-bind:list="list"
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style>
-#all-lists {
+#list-of-lists {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -59,37 +59,32 @@ export default {
 }
 #listColumn {
   display: flex;
-  width: 100%;
+  width: 112%;
+  align-items: center;
 }
 #listItem {
   display: flex;
-  background-color: #011627;
-  color: #fdfffc;
-  padding: 20px 20px 20px 30px;
-  font-size: 1.5rem;
-  border-radius: 20px;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  padding: 15px;
+  font-size: 1.3rem;
+  border-radius: 12px;
+  border-left: 5px solid var(--orange-peel);
+  border-right: 5px solid var(--orange-peel);
 }
 #anchor {
   text-decoration: none;
   flex-grow: 1;
 }
 #delete {
-  display: flex;
-  position: relative;
-  top: 17px;
-  right: 70px;
-  height: 22px;
-  padding: 5px 10px;
+  position: absolute;
+  right: -10px;
+  height: 20px;
+  padding: 5px 10px 5px 10px;
   font-weight: bold;
   border-radius: 50%;
-  color: #e71d36;
-  background-color: #fdfffc;
-  border: 2px solid #ff9f1c;
-}
-span {
-  font-size: 1.8rem;
-  font-weight: bold;
+  color: var(--rose-madder);
+  background-color: var(--baby-powder);
+  border: 2px solid var(--orange-peel);
 }
 </style>

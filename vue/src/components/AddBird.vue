@@ -3,7 +3,6 @@
     <form v-on:submit.prevent="addBird">
       <label for="birdName">What bird did you see?</label>
       <input
-        id="birdName"
         type="text"
         required
         placeholder="Name"
@@ -19,8 +18,12 @@
         placeholder="#####"
         v-model="newBird.zipcode"
       />
-      <label for="birdImgURL">Upload a picture of the bird you spotted.</label>
-      <a id="add-bird" v-on:click="useCloudinary()">Add photo</a>
+      <label for="birdImgURL"
+        ><a id="add-bird" v-on:click="useCloudinary()"
+          >Click here to upload a picture</a
+        >
+        of the bird you spotted.</label
+      >
       <button id="submit">Save</button>
     </form>
   </div>
@@ -35,7 +38,7 @@ export default {
   data() {
     return {
       newBird: {
-        birdImg: ''
+        birdImg: "",
       },
       listId: this.$route.params.listId,
       addBirdTest: false,
@@ -44,7 +47,6 @@ export default {
   methods: {
     useCloudinary() {
       photoService.myWidget.open();
-      this.$store.commit("SET_SOURCE_BIRD");
     },
     addBird() {
       this.newBird.birdImg = this.$store.state.birdImg;
@@ -55,21 +57,22 @@ export default {
       });
     },
   },
+  created() {
+      this.$store.commit("SET_SOURCE_BIRD");
+  }
 };
 </script>
 
-<style scoped>
+<style>
 #add-bird-form {
   display: flex;
   flex-direction: column;
-  border: 4px solid #ff9f1c;
+  border: 4px solid var(--orange-peel);
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
   padding: 25px;
-  background-color: #011627;
-  color: #fdfffc;
-  margin-top: 10px;
-  width: 80%;
 }
-form {
+#add-bird-form > form {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -77,31 +80,32 @@ form {
 }
 a {
   text-decoration: none;
-  color: #fdfffc;
+  color: var(--baby-powder);
 }
 a:hover {
-  color: #ff9f1c;
+  color: var(--orange-peel);
 }
 label {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   text-align: center;
 }
-input,
-button#submit {
+#add-bird-form input,
+#add-bird-form button#submit {
   padding: 8px;
   margin-bottom: 10px;
   width: 60%;
   border-radius: 8px;
   font-size: 1rem;
-  border: 1px solid #011627;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
-}
-button#submit {
+  font-family: "Bitter", serif;
+  border: 1px solid var(--rich-black);
+  border-left: 5px solid var(--orange-peel);
+  border-right: 5px solid var(--orange-peel);
+} 
+#add-bird-form button#submit {
   margin-top: 25px;
   width: 35%;
-  background-color: #e71d36;
+  background-color: var(--rose-madder);
   font-weight: bold;
   color: var(--baby-powder);
 }

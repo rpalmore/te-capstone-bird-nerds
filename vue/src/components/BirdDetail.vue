@@ -1,10 +1,9 @@
-<!-- For displaying one "listcard" aka the basic details of a bird -->
 <template>
   <div id="bird-detail">
-    <div id="birdPic">
+    <div id="bird-pic">
       <img v-bind:src="bird.birdImg" alt="" id="bird-img" />
     </div>
-    <div id="birdInfo" v-show="showForm === false">
+    <div id="bird-info" v-show="showForm === false">
       <h2>{{ bird.birdName }}</h2>
       <p>
         Spotted:
@@ -25,8 +24,11 @@
     >
       <label for="newName">Name:</label>
       <input id="newName" type="text" v-model="bird.birdName" />
-      <label for="newUrl">Image URL:</label>
-      <input id="newURL" type="text" v-model="bird.birdImg" />
+      <label for="birdImgURL"
+        ><a id="add-bird" v-on:click="useCloudinary()"
+          >Upload a picture</a
+        ></label
+      >
       <label for="newZip">Zipcode:</label>
       <input id="newZip" type="text" v-model="bird.zipcode" />
       <div id="buttons">
@@ -44,6 +46,7 @@
 
 <script>
 import birdService from "../services/BirdService.js";
+import photoService from "../services/PhotoService.js";
 
 export default {
   name: "bird-detail",
@@ -60,7 +63,12 @@ export default {
     },
   },
   methods: {
+    useCloudinary() {
+      photoService.myWidget.open();
+      this.$store.commit("SET_SOURCE_BIRD");
+    },
     updateBird() {
+      this.bird.birdImg = this.$store.state.birdImg;
       birdService
         .editBird(this.bird)
         .then((response) => {
@@ -82,33 +90,36 @@ export default {
 
 <style scoped>
 #bird-detail {
-  background-color: var(--rich-black);
   display: flex;
   margin-top: 45px;
   align-items: center;
+  background-color: var(--rich-black);
+  border: 1px solid var(--rich-black);
 }
 #bird-img {
-  width: 33%;
+  width: 100%;
 }
-#birdPic {
+#bird-pic {
   display: flex;
+  width: 50%;
 }
 form,
-#birdInfo {
-  /* margin-left: 25px; */
+#bird-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 50%;
   color: var(--baby-powder);
-  /* padding-left: 50px;
-  padding-right: 50px; */
 }
 button {
   min-width: 65px;
   background-color: #ff9f1c;
   font-weight: bold;
-  padding: 5px;
   color: #011627;
   text-align: center;
-  /* margin-top: 10px; */
   border: 1px solid #fdfffc;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 #log-sighting {

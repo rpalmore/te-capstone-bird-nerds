@@ -1,7 +1,10 @@
 <template>
   <div id="dailyBird">
     <img v-bind:src="imgUrl" />
-    <div id="caption">{{ name }}</div>
+    <div id="caption">
+      <span id="BODlabel">Bird of the Day</span>
+      <span id="birdName">{{ name }}</span>
+    </div>
   </div>
 </template>
 
@@ -19,8 +22,6 @@ export default {
       .getRandomBird()
       .then((response) => {
         if (response.status == 200) {
-          // eslint-disable-next-line no-console
-          console.log(response.data);
           this.imgUrl = response.data.imgUrl;
           this.name = response.data.name;
         }
@@ -32,32 +33,40 @@ export default {
 };
 </script>
 
-<style scoped>
-/* iframe {
-  margin-top: 45px;
-  padding: 8px 8px 0 8px;
-  background-color: white;
-  border: 3px solid #011627;
-  border: 3px solid #ff9f1c;
-  margin-bottom: 50px;
-} */
+<style>
 #dailyBird {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-img {
-  width: 75%;
+#dailyBird > img {
+  width: 85%;
   margin-top: 45px;
-  border: 3px solid #011627;
-  border: 3px solid #ff9f1c;
-  margin-bottom: 50px;
+  border: 1px solid var(--rich-black);
 }
 #caption {
-  position: relative;
-  left: -52%;
+  position: absolute;
+  top: 65px;
+  right: 10%;
+}
+#caption > span {
+  font-size: 1rem;
+}
+#BODlabel {
   background-color: var(--orange-peel);
-  padding: 15px;
-  border: 4px solid var(--baby-powder);
+  color: var(--rich-black);
+  border-top: 1px solid var(--rich-black);
+  border-bottom: 1px solid var(--rich-black);
+  border-left: 1px solid var(--rich-black);
+  padding: 5px;
+}
+#birdName {
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  border-top: 1px solid var(--orange-peel);
+  border-right: 1px solid var(--orange-peel);
+  border-bottom: 1px solid var(--orange-peel);
+  padding: 5px;
 }
 </style>
