@@ -78,7 +78,7 @@ export default {
 }
 #delete {
   position: absolute;
-  right: -10px;
+  right: -8px;
   height: 20px;
   padding: 5px 10px 5px 10px;
   font-weight: bold;

@@ -4,7 +4,7 @@
     <form id="loggingForm" v-on:submit.prevent="addNote">
       <label for="date-spotted">Date: </label>
       <input required type="date" v-model="birdNote.dateSpotted" />
-      <div id="gender">
+      <div class="row-space-between">
         <label for="num-males">Males:</label>
         <input
           id="numMales"
@@ -22,24 +22,24 @@
           v-model="birdNote.numFemales"
         />
       </div>
-      <label for="feeder-type">Feeder Type:</label>
+      <label for="feeder-type">Feeder type:</label>
       <select id="feeder-type" v-model="birdNote.feederType">
         <option value="cylinder">Cylinder</option>
-        <option value="hopper">Hopper-feeder</option>
-        <option value="nectar">Nectar-feeder</option>
-        <option value="seed-tube">Seed-Tube</option>
-        <option value="suet-feeder">Suet-feeder</option>
-        <option value="tray-feeder">Tray-feeder</option>
-        <option value="peanut-feeder">Peanut-feeder</option>
+        <option value="hopper">Hopper</option>
+        <option value="nectar">Nectar</option>
+        <option value="seed-tube">Seed tube</option>
+        <option value="suet-feeder">Suet</option>
+        <option value="tray-feeder">Tray</option>
+        <option value="peanut-feeder">Peanut</option>
       </select>
-      <label for="food-blend">Food Blend:</label>
+      <label for="food-blend">Food blend:</label>
       <select id="food-blend" v-model="birdNote.foodBlend">
-        <option value="live-mealworms">Live Mealworms</option>
-        <option value="bark-butter">Bark-butter</option>
-        <option value="suet-cake">Suet Cake</option>
-        <option value="wildlife-blend">Wildlife-blend</option>
-        <option value="sunflower-blend">Sunflower-blend</option>
-        <option value="nutty-blend">Nutty-blend</option>
+        <option value="live-mealworms">Live mealworms</option>
+        <option value="bark-butter">Bark butter</option>
+        <option value="suet-cake">Suet cake</option>
+        <option value="wildlife-blend">Wildlife blend</option>
+        <option value="sunflower-blend">Sunflower blend</option>
+        <option value="nutty-blend">Nutty blend</option>
       </select>
       <label for="notes">Notes:</label>
       <textarea
@@ -48,7 +48,9 @@
         type="text"
         v-model="birdNote.notes"
       />
+      <div class="row-data">
       <input type="submit" />
+      </div>
     </form>
   </main>
 </template>
@@ -90,12 +92,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #bird-note-form {
   display: flex;
   flex-direction: column;
+  margin-top: 45px;
+  width: 100%; 
   align-items: center;
-  margin-top: 35px;
   background-color: var(--rich-black);
   color: var(--baby-powder);
   margin-bottom: 50px;
@@ -103,17 +106,19 @@ export default {
 .pageHeader {
   padding: 20px 0 20px 0;
   border-bottom: 1px solid var(--rose-madder);
+  font-size: 1.5rem;
 }
 #loggingForm {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 52%;
 }
-#loggingForm > label {
+#loggingForm label {
   font-size: 1.3rem;
   text-align: left;
 }
-#gender {
+.row-space-between {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -121,28 +126,15 @@ export default {
 }
 #numMales,
 #numFemales {
-  border-radius: 8px;
-  font-size: 1.1rem;
-  border: 1px solid var(--rich-black);
-  border-left: 5px solid var(--orange-peel);
-  border-right: 5px solid var(--orange-peel);
   width: 37px;
-}
-#numMales {
-  margin-right: 8px;
 }
 #notesArea {
   height: 300px;
   word-wrap: break-word;
   word-break: break-word;
-  border-left: 5px solid var(--orange-peel);
-  border-right: 5px solid var(--orange-peel);
-  border-radius: 8px;
 }
-input,
-select,
-textarea {
-  width: 320px;
+#loggingForm input,
+#loggingForm textarea {
   padding: 8px;
   border-radius: 8px;
   font-size: 1.1rem;
@@ -150,13 +142,8 @@ textarea {
   border-left: 5px solid var(--orange-peel);
   border-right: 5px solid var(--orange-peel);
 }
-select {
-  width: 348px;
-}
-input[type="submit"] {
-  position: relative;
+#loggingForm input[type="submit"], #loggingForm input[type="button"] {
   width: 33%;
-  left: 33%;
   background-color: var(--orange-peel);
   border: 1px solid var(--rose-madder);
   border-right: 5px solid var(--rose-madder);
@@ -166,8 +153,5 @@ input[type="submit"] {
   color: var(--rich-black);
   margin-top: 10px;
   margin-bottom: 25px;
-}
-::placeholder {
-  text-align: center;
 }
 </style>

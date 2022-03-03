@@ -142,7 +142,6 @@ export default {
   background-color: var(--rich-black);
   color: var(--baby-powder);
   padding: 15px 15px 15px 25px;
-  font-size: 1.5rem;
   border-radius: 12px;
   border-left: 5px solid var(--orange-peel);
   border-right: 5px solid var(--orange-peel);

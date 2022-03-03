@@ -21,24 +21,23 @@
         v-model="profile.mostCommonBird"
       />
 
-      <label for="zip-code">Please enter your zip code:</label>
-      <input
-        required
-        id="zip-code"
-        type="text"
-        pattern="[0-9]{5}"
-        title="Numbers only, please!"
-        placeholder="#####"
-        v-model="profile.zipCode"
-      />
-
-      <label for="skill-lvl">What is your skill level?</label>
-      <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
-      </select>
-      <button id="submit">Update</button>
+        <label for="zip-code">Your zip code:</label>
+        <input
+          required
+          id="zip-code"
+          type="text"
+          pattern="[0-9]{5}"
+          title="Numbers only, please!"
+          placeholder="#####"
+          v-model="profile.zipCode"
+        />
+        <label for="skill-lvl">Your skill level:</label>
+        <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      <button id="submit">Save</button>
     </form>
   </div>
 </template>
@@ -56,7 +55,7 @@ export default {
         favoriteBird: this.$store.state.profile.favoriteBird,
         mostCommonBird: this.$store.state.profile.mostCommonBird,
         zipCode: this.$store.state.profile.zipCode,
-        skillLevel: this.$store.state.profile.skillLevel
+        skillLevel: this.$store.state.profile.skillLevel,
       },
       displayForm: true,
     };

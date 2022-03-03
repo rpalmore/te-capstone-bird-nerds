@@ -1,5 +1,5 @@
 <template>
-  <div id="dailyBird">
+  <div id="dailyBird" v-show="imgUrl != 'No photo'">
     <img v-bind:src="imgUrl" />
     <div id="caption">
       <span id="BODlabel">Bird of the Day</span>

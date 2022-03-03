@@ -140,14 +140,15 @@ export default {
 .profile-content-container form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
+  padding: 25px;
   align-items: center;
 }
 .profile-content-container label {
   font-size: var(--nav-btn);
 }
 .profile-content-container input[type="zip-code"] {
-  width: 45%;
+  width: 50%;
 }
 .profile-content-container input,
 select {
@@ -163,7 +164,7 @@ select {
 }
 .profile-content-container button#submit {
   margin-top: 25px;
-  width: 20%;
+  width: 25%;
   padding: 5px;
   border: 1px solid var(--rich-black);
   background-color: var(--rose-madder);

@@ -1,5 +1,6 @@
 <template>
   <div id="nav-well">
+    <div id="sticky">
     <!-- Appears whether or not user is logged in -->
     <button id="btnSearch" class="nav-btn" v-on:click="toggleView($event)">
       SEARCH
@@ -45,6 +46,7 @@
     <button v-if="$store.state.token != ''" class="nav-btn" v-on:click="goHome">
       HOME
     </button>
+    </div>
   </div>
 </template>
 
@@ -99,11 +101,17 @@ export default {
 #nav-well {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 20%;
   border: 1px solid var(--rich-black);
   background-color: var(--tiffany-blue);
   padding: 2px;
+}
+#sticky {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  align-items: center;
 }
 .nav-btn {
   width: 80%;
@@ -149,6 +157,10 @@ export default {
 .nav-form-body > input[type="text"],
 input[type="password"] {
   width: 68%;
+}
+#confirmPassword {
+  font-size: 1rem;
+  padding: 12px;
 }
 .alert {
   text-align: center;

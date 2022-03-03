@@ -85,7 +85,7 @@ a {
 a:hover {
   color: var(--orange-peel);
 }
-label {
+#add-bird-form > label {
   font-family: "Bitter", serif;
   font-size: 1.3rem;
   text-align: center;

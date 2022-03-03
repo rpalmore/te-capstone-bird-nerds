@@ -83,8 +83,5 @@ export default {
 </script>
 
 <style scoped>
-#confirmPassword {
-  font-size: 1rem;
-  padding: 12px;
-}
+/* CSS for component in LeftNav.vue */
 </style>

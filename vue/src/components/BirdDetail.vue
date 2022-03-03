@@ -4,7 +4,7 @@
       <img v-bind:src="bird.birdImg" alt="" id="bird-img" />
     </div>
     <div id="bird-info" v-show="showForm === false">
-      <h2>{{ bird.birdName }}</h2>
+      <h2 id="bird-name">{{ bird.birdName }}</h2>
       <p>
         Spotted:
         {{
@@ -15,21 +15,21 @@
       </p>
       <p>Last spotted: {{ bird.mostRecentSighting }}</p>
       <p>Zip code: {{ bird.zipcode }}</p>
-      <button v-on:click="showForm = true">Edit</button>
+      <input class="button" type="button" value="Edit" v-on:click="showForm = true" />
     </div>
     <form
       id="log-sighting"
       v-on:submit.prevent="updateBird"
       v-show="showForm === true"
     >
-      <label for="newName">Name:</label>
+      <label for="newName">Bird name:</label>
       <input id="newName" type="text" v-model="bird.birdName" />
       <label for="birdImgURL"
         ><a id="add-bird" v-on:click="useCloudinary()"
-          >Upload a picture</a
+          >Add/edit image</a
         ></label
       >
-      <label for="newZip">Zipcode:</label>
+      <label for="newZip">Zip code:</label>
       <input id="newZip" type="text" v-model="bird.zipcode" />
       <div id="buttons">
         <input class="button" type="submit" value="Save" />
@@ -89,6 +89,10 @@ export default {
 </script>
 
 <style scoped>
+#bird-name {
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--orange-peel);
+}
 #bird-detail {
   display: flex;
   margin-top: 45px;
@@ -112,19 +116,46 @@ form,
   width: 50%;
   color: var(--baby-powder);
 }
-button {
-  min-width: 65px;
-  background-color: #ff9f1c;
+#bird-info input.button {
+  background-color: var(--orange-peel);
+  border: 1px solid var(--rose-madder);
+  border-right: 5px solid var(--rose-madder);
+  border-left: 5px solid var(--rose-madder);
+  border-radius: 8px;
   font-weight: bold;
-  color: #011627;
-  text-align: center;
-  border: 1px solid #fdfffc;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  color: var(--rich-black);
+  margin-bottom: 20px;
+  width: 25%;
+  padding: 3px 0 3px 0;
 }
 #log-sighting {
+  gap: 9px;
+  margin: 15px 0 15px 0;
+}
+#log-sighting label, input {
+  font-size: 1.1rem;
+}
+#log-sighting input {
+  padding: 1px;
+  border-radius: 8px;
+  border: 1px solid var(--rich-black);
+  border-left: 5px solid var(--orange-peel);
+  border-right: 5px solid var(--orange-peel);
+}
+#buttons {
   display: flex;
-  flex-direction: column;
   gap: 5px;
+  width: 80%;
+  justify-content: center;
+}
+#buttons > input {
+  background-color: var(--orange-peel);
+  border: 1px solid var(--rose-madder);
+  border-right: 5px solid var(--rose-madder);
+  border-left: 5px solid var(--rose-madder);
+  border-radius: 8px;
+  font-weight: bold;
+  color: var(--rich-black);
+  width: 25%;
 }
 </style>

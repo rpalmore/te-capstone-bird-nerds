@@ -7,6 +7,7 @@
           id="bird-card"
           v-for="bird in this.birdsByZip"
           v-bind:key="bird.birdId"
+          v-show="bird.imgUrl != 'No photo'"
         >
           <img v-bind:src="bird.imgUrl" />
           <div id="date">{{ bird.name }}: {{ bird.dateSpotted }}</div>
@@ -41,30 +42,26 @@ export default {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  border-bottom: 2px solid #fdfffc;
   padding-bottom: 18px;
 }
-h2 {
-  margin-top: 35px;
+#header > h2 {
+  margin-top: 45px;
+  margin-bottom: 35px;
+  text-align: center;
 }
 #search-results {
   display: flex;
   flex-direction: column;
   width: 80%;
   align-items: center;
-  background-color: #011627;
-  color: #fdfffc;
-  border-top: 1px solid #e71d36;
-  border-right: 3px solid #e71d36;
-  border-left: 3px solid #e71d36;
-  border-top: 2px solid #e71d36;
+  color: var(--baby-powder);
 }
 #bird-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: 3px solid #ff9f1c;
-  margin-bottom: 15px;
+  background-color: var(--rich-black);
+  margin-bottom: 5px;
   padding-top: 20px;
 }
 #birds {
@@ -73,7 +70,7 @@ h2 {
   flex-wrap: wrap;
 }
 img {
-  width: 30%;
+  width: 40%;
   height: auto;
 }
 #date {

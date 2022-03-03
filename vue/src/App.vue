@@ -53,4 +53,7 @@ a {
   min-height: 100vh;
   height: auto;
 }
+input {
+  font-family: "Bitter", serif;
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
     <div id="bird-vue">
         <bird-detail />
-        <bird-note-form v-bind:bird="bird"/>
         <bird-notes v-bind:bird="bird"/>
+        <bird-note-form v-bind:bird="bird"/>
     </div>
 </template>
 

@@ -2,80 +2,75 @@
   <div id="notesContainer">
     <div class="note" v-for="note in notes" v-bind:key="note.noteId">
       <div id="noteItself" v-show="showForm === false">
-        <div class="dateStuff">
-          <p class="label">Date:</p>
-          <p class="infoBox">{{ note.dateSpotted }}</p>
+        <div class="row-data">
+          <span class="label">Date of sighting:</span>
+          <span class="note-data">{{ note.dateSpotted }}</span>
         </div>
-        <br />
-        <div id="rowTwo">
-          <div class="genderStuff">
-            <div class="males">
-              <p class="label">Males:</p>
-              <p class="infoBox">{{ note.numMales }}</p>
-            </div>
-            <div class="females">
-              <p class="label">Females:</p>
-              <p class="infoBox">{{ note.numFemales }}</p>
-            </div>
-          </div>
-          <div class="foodStuff">
-            <div class="feeder">
-              <p class="label">Feeder:</p>
-              <p class="infoBox">{{ note.feederType }}</p>
-            </div>
-            <div class="foodBlend">
-              <p class="label">Food Blend:</p>
-              <p class="infoBox">{{ note.foodBlend }}</p>
-            </div>
-          </div>
+        <div class="row-data">
+          <span class="label" v-show="note.numMales != 0">Males:</span>
+          <span class="note-data" v-show="note.numMales != 0">{{
+            note.numMales
+          }}</span>
+          <span class="label" v-show="note.numFemales != 0">Females:</span>
+          <span class="note-data" v-show="note.numFemales != 0">{{
+            note.numFemales
+          }}</span>
         </div>
-        <div class="writtenNotes">
-          <p class="label">Notes:</p>
-          <p class="infoBox">{{ note.notes }}</p>
+        <div class="row-data">
+          <span class="label" v-show="note.feederType != null"
+            >Feeder type:</span
+          >
+          <span class="note-data" v-show="note.feederType != null">{{
+            note.feederType
+          }}</span>
         </div>
-
-        <button v-if="showForm === false" v-on:click="showForm = true">
-          Edit
-        </button>
-        <button v-on:click="deleteNote(note.noteId)">Delete</button>
+        <div class="row-data">
+          <span class="label" v-show="note.foodBlend != null">Food blend:</span>
+          <span class="note-data" v-show="note.foodBlend != null">{{
+            note.foodBlend
+          }}</span>
+        </div>
+        <div class="row-data" v-show="note.notes != null">
+          <span class="label">Notes:</span>
+          <span class="note-data">{{ note.notes }}</span>
+        </div>
+        
+        <div class="row-data">
+          <input v-if="showForm === false" v-on:click="showForm = true" type="submit" value="Edit" />
+          <input type="button" value="Delete" v-on:click="deleteNote(note.noteId)" />
+        </div>
       </div>
-      <form
+
+      <main id="bird-note-form-edit" v-show="showForm === true">
+        <h2 class="pageHeader">Edit this sighting</h2>
+      <form id="loggingForm"
         v-on:submit.prevent="updateNote(note.noteId)"
-        v-show="showForm === true"
       >
-        <div class="formItem">
-          <label for="date-spotted" class="birdNotes">Date: </label>
-          <div></div>
+
+          <label for="date-spotted">Date: </label>
           <input
             required
             id="date-spotted"
             type="date"
             v-model="note.dateSpotted"
           />
-        </div>
-        <div class="formItem">
-          <label for="num-males" class="birdNotes">Males: </label>
-          <div></div>
+        
+        <div class="row-space-between">
+          <label for="num-males">Males: </label>
           <input
-            id="num-males"
+            id="numMales"
             type="text"
-            placeholder="# of Males Spotted"
             v-model="note.numMales"
           />
-        </div>
-        <div class="formItem">
-          <label for="num-females" class="birdNotes">Females: </label>
-          <div></div>
+          <label for="num-females">Females: </label>
           <input
-            id="num-females"
+            id="numFemales"
             type="text"
-            placeholder="# of Females Spotted"
             v-model="note.numFemales"
           />
-        </div>
-        <div class="formItem">
-          <label for="feeder-type" class="birdNotes">Feeder Type: </label>
-          <div></div>
+          </div>
+        
+          <label for="feeder-type">Feeder type: </label>
           <select id="feeder-type" v-model="note.feederType">
             <option value="cylinder">Cylinder</option>
             <option value="hopper">Hopper</option>
@@ -85,10 +80,8 @@
             <option value="tray-feeder">Tray</option>
             <option value="peanut-feeder">Peanut</option>
           </select>
-        </div>
-        <div class="formItem">
-          <label for="food-blend" class="birdNotes">Food Blend: </label>
-          <div></div>
+
+          <label for="food-blend">Food blend: </label>
           <select id="food-blend" v-model="note.foodBlend">
             <option value="live-mealworms">Live mealworms</option>
             <option value="bark-butter">Bark butter</option>
@@ -97,17 +90,16 @@
             <option value="sunflower-blend">Sunflower blend</option>
             <option value="nutty-blend">Nutty blend</option>
           </select>
+    
+          <label for="notes">Notes: </label>
+          <textarea id="notesArea" type="text" v-model="note.notes" />
+        <div class="row-data">
+        <input class="btn" type="submit" value="Save" />
+        <input class="btn" type="button" value="Cancel" v-on:click.prevent="resetForm" />
         </div>
-        <div class="formItem">
-          <label for="notes" class="birdNotes">Notes: </label>
-          <div></div>
-          <input id="notes" type="text" v-model="note.notes" />
-        </div>
-        <input type="submit" value="Save" />
-        <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
       </form>
+      </main>
     </div>
-  </div>
 </template>
 
 <script>
@@ -133,6 +125,12 @@ export default {
     },
   },
   methods: {
+    // editSingleNote(noteId) {
+    //   this.showForm = true;
+    //   // eslint-disable-next-line no-console
+    //   console.log(noteId);
+
+    // },
     deleteNote(noteId) {
       if (confirm("Are you sure you want to delete this note?")) {
         noteService
@@ -174,93 +172,65 @@ export default {
   created() {
     noteService.getNotes(this.birdId).then((response) => {
       this.$store.commit("SET_NOTES", response.data);
+      // eslint-disable-next-line
+      console.log(this.$store.state.notes);
     });
   },
 };
 </script>
 
-<style scoped>
-.note {
-  padding: 25px;
-  background-color: #011627;
-  color: #fdfffc;
-  padding-left: 100px;
-  padding-right: 100px;
-  margin: 25px 0px;
+<style>
+#notesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Bitter", serif;
+  font-size: 1.3rem;
 }
-select {
-  width: 275px;
-  font-size: 1rem;
-  padding-top: 9px;
-  padding-bottom: 9px;
-  border-radius: 6px;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
+.note {
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
+  margin-top: 45px;
+}
+#noteItself {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  gap: 12px;
+}
+.row-data {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.column-data {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .label {
-  font-family: "Bitter", serif;
-  font-size: 1rem;
-  margin-bottom: -1px;
-  padding-left: 6px;
+  color: var(--orange-peel);
 }
-input {
-  padding: 8px;
+#noteItself input[type="submit"], #noteItself input[type="button"] {
+  background-color: var(--orange-peel);
+  border: 1px solid var(--rose-madder);
+  border-right: 5px solid var(--rose-madder);
+  border-left: 5px solid var(--rose-madder);
   border-radius: 8px;
-  font-size: 1.1rem;
-  border: 1px solid #011627;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
-  width: 250px;
-}
-#rowTwo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.males,
-.females {
-  min-width: 85px;
-}
-.dateStuff {
-  display: inline-block;
-  align-items: center;
-  margin-left: 5px;
-  margin-top: 5px;
-}
-.genderStuff {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-right: 100px;
-}
-.foodStuff {
-  display: flex;
-  flex-direction: row;
-}
-.foodBlend,
-.feeder {
-  min-width: 130px;
-}
-.infoBox {
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  border: 1px solid #011627;
-  border-left: 5px solid #ff9f1c;
-  border-right: 5px solid #ff9f1c;
-  background-color: white;
-  color: black;
-  margin: 5px 5px;
-  max-width: 500px;
-}
-button {
-  width: 100px;
-  background-color: #ff9f1c;
+  width: 13%;
   font-weight: bold;
-  color: #011627;
-  text-align: center;
-  display: inline-block;
-  margin-left: 10px;
+  color: var(--rich-black);
+  margin-top: 10px;
+  padding: 3px 0 3px 0;
+}
+/* Additional styles for updating these notes 
+   included in BirdNoteForm.vue */
+#bird-note-form-edit {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  background-color: var(--rich-black);
+  color: var(--baby-powder);
 }
 </style>
