@@ -182,6 +182,7 @@ public class JdbcBirdDao implements BirdDao{
         if (result.next()) {
             randomBird = makeAnonBirdFromSqlRowSet(result);
         }
+
         return randomBird;
     }
 

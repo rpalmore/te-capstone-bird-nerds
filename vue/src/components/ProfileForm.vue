@@ -33,9 +33,9 @@
         />
         <label for="skill-lvl">Your skill level:</label>
         <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
         </select>
       <button id="submit">Save</button>
     </form>

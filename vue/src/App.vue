@@ -56,4 +56,14 @@ a {
 input {
   font-family: "Bitter", serif;
 }
+@media only screen and (max-width: 768px) {
+  #container-main {
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--tiffany-blue);
+    border-right: 1px solid var(--rich-black);
+    border-left: 1px solid var(--rich-black);
+    
+  }
+}
 </style>

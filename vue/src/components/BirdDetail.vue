@@ -1,7 +1,10 @@
 <template>
   <div id="bird-detail">
     <div id="bird-pic">
-      <img v-bind:src="bird.birdImg" alt="" id="bird-img" />
+      <img v-bind:src="selectImg" alt="" id="bird-img" />
+      <div id="image-overlay" v-on:click="useCloudinary">
+        <a id="cloudinary-link">Update image</a>
+      </div>
     </div>
     <div id="bird-info" v-show="showForm === false">
       <h2 id="bird-name">{{ bird.birdName }}</h2>
@@ -13,9 +16,16 @@
             : bird.numSightings + " time"
         }}
       </p>
-      <p>Last spotted: {{ bird.mostRecentSighting }}</p>
+      <p v-show="bird.mostRecentSighting != null">
+        Last spotted: {{ bird.mostRecentSighting }}
+      </p>
       <p>Zip code: {{ bird.zipcode }}</p>
-      <input class="button" type="button" value="Edit" v-on:click="showForm = true" />
+      <input
+        class="button"
+        type="button"
+        value="Edit"
+        v-on:click="showForm = true"
+      />
     </div>
     <form
       id="log-sighting"
@@ -24,11 +34,6 @@
     >
       <label for="newName">Bird name:</label>
       <input id="newName" type="text" v-model="bird.birdName" />
-      <label for="birdImgURL"
-        ><a id="add-bird" v-on:click="useCloudinary()"
-          >Add/edit image</a
-        ></label
-      >
       <label for="newZip">Zip code:</label>
       <input id="newZip" type="text" v-model="bird.zipcode" />
       <div id="buttons">
@@ -53,6 +58,10 @@ export default {
   data() {
     return {
       showForm: false,
+      selectImg:
+        this.$store.state.birdImg === "No photo" 
+          ? "/img/BirdSilhouette.83f473b2.png"
+          : this.$store.state.birdImg,
     };
   },
   computed: {
@@ -74,6 +83,8 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             this.$store.commit("EDIT_BIRD", this.bird);
+            // eslint-disable-next-line no-console
+            console.log(this.bird);
           }
         })
         .catch((err) => {
@@ -103,9 +114,18 @@ export default {
 #bird-img {
   width: 100%;
 }
+#bird-pic:hover #bird-img {
+  opacity: 0.5;
+}
+#bird-pic:hover #cloudinary-link {
+  opacity: 1;
+}
 #bird-pic {
   display: flex;
-  width: 50%;
+  /* width: 50%; */
+  justify-content: center;
+  align-items: center;
+  background-color: var(--baby-powder);
 }
 form,
 #bird-info {
@@ -115,6 +135,7 @@ form,
   text-align: center;
   width: 50%;
   color: var(--baby-powder);
+  margin-bottom: 15px;
 }
 #bird-info input.button {
   background-color: var(--orange-peel);
@@ -124,18 +145,20 @@ form,
   border-radius: 8px;
   font-weight: bold;
   color: var(--rich-black);
-  margin-bottom: 20px;
-  width: 25%;
-  padding: 3px 0 3px 0;
+  margin-top: 10px;
+  /* width: 25%; */
 }
 #log-sighting {
   gap: 9px;
-  margin: 15px 0 15px 0;
+  /* margin: 15px 0 15px 0; */
+  margin: 15px;
 }
-#log-sighting label, input {
+#log-sighting label,
+input {
   font-size: 1.1rem;
 }
 #log-sighting input {
+  width: 95%;
   padding: 1px;
   border-radius: 8px;
   border: 1px solid var(--rich-black);
@@ -145,7 +168,7 @@ form,
 #buttons {
   display: flex;
   gap: 5px;
-  width: 80%;
+  /* width: 80%; */
   justify-content: center;
 }
 #buttons > input {
@@ -156,6 +179,7 @@ form,
   border-radius: 8px;
   font-weight: bold;
   color: var(--rich-black);
-  width: 25%;
+  /* width: 25%; */
+  padding: 0 3px 0 3px;
 }
 </style>

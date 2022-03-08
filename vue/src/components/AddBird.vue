@@ -18,12 +18,12 @@
         placeholder="#####"
         v-model="newBird.zipcode"
       />
-      <label for="birdImgURL"
+      <!-- <label for="birdImgURL"
         ><a id="add-bird" v-on:click="useCloudinary()"
-          >Click here to upload a picture</a
+          >Add a picture</a
         >
         of the bird you spotted.</label
-      >
+      > -->
       <button id="submit">Save</button>
     </form>
   </div>
@@ -31,7 +31,7 @@
 
 <script>
 import birdService from "../services/BirdService";
-import photoService from "../services/PhotoService";
+// import photoService from "../services/PhotoService";
 
 export default {
   name: "add-bird",
@@ -41,19 +41,20 @@ export default {
         birdImg: "",
       },
       listId: this.$route.params.listId,
-      addBirdTest: false,
+      // addBirdTest: false,
     };
   },
   methods: {
-    useCloudinary() {
-      photoService.myWidget.open();
-    },
     addBird() {
-      this.newBird.birdImg = this.$store.state.birdImg;
+      this.newBird.birdImg = "No photo";
       birdService.createBird(this.listId, this.newBird).then((response) => {
         if (response.status === 201) {
           this.$store.commit("ADD_BIRD", response.data);
+          this.$store.commit("SET_BIRD_PHOTO", response.data.birdImg);
+          // eslint-disable-next-line no-console
+          console.log(response.data.birdImg); // "No photo"
         }
+        this.newBird = {};
       });
     },
   },
@@ -103,7 +104,6 @@ a:hover {
   border-right: 5px solid var(--orange-peel);
 } 
 #add-bird-form button#submit {
-  margin-top: 25px;
   width: 35%;
   background-color: var(--rose-madder);
   font-weight: bold;

@@ -1,5 +1,5 @@
 <template>
-  <div id="dailyBird" v-show="imgUrl != 'No photo'">
+  <div id="dailyBird" v-show="imgUrl != ''">
     <img v-bind:src="imgUrl" />
     <div id="caption">
       <span id="BODlabel">Bird of the Day</span>
@@ -21,13 +21,15 @@ export default {
     birdService
       .getRandomBird()
       .then((response) => {
-        if (response.status == 200) {
+        if (response.status == 200 && response.data.imgUrl != "No photo") {
           this.imgUrl = response.data.imgUrl;
           this.name = response.data.name;
+        } else if (response.data.imgUrl === "No photo") {
+          this.$router.go(0);
         }
       })
       .catch((err) => {
-        alert.error(err + " problem generating a random bird!");
+        alert(err + " problem generating a random bird!");
       });
   },
 };
@@ -68,5 +70,15 @@ export default {
   border-right: 1px solid var(--orange-peel);
   border-bottom: 1px solid var(--orange-peel);
   padding: 5px;
+}
+@media only screen and (max-width: 768px) {
+  #caption {
+    display: flex;
+    margin-top: 10px;
+    position: revert;
+  }
+  #dailyBird {
+    position: revert;
+  }
 }
 </style>

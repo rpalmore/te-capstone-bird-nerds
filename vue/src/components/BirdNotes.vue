@@ -172,8 +172,6 @@ export default {
   created() {
     noteService.getNotes(this.birdId).then((response) => {
       this.$store.commit("SET_NOTES", response.data);
-      // eslint-disable-next-line
-      console.log(this.$store.state.notes);
     });
   },
 };

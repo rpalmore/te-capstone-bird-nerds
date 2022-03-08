@@ -1,5 +1,7 @@
 <template>
-  <div id="header">
+  <div id="search-results">
+  <not-found v-show="!results" />
+  <div v-show="results" id="results-found">
     <h2>Birds recently spotted in {{ this.$route.params.zipcode }}</h2>
     <div id="search-results">
       <div id="birds">
@@ -15,39 +17,47 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 import birdService from "../services/BirdService.js";
+import NotFound from "../components/NotFound";
 
 export default {
   name: "search",
+  components: { NotFound },
   data() {
     return {
       zipcode: this.$route.params.zipcode,
       birdsByZip: [],
+      results: false,
     };
   },
   created() {
     birdService.getBirdByZip(this.zipcode).then((response) => {
-      this.birdsByZip = response.data;
+      if (response.data.length != 0) {
+        this.birdsByZip = response.data;
+        this.results = true;
+      }
     });
   },
 };
 </script>
 
 <style scoped>
-#header {
+#results-found {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
-  padding-bottom: 18px;
+  padding-bottom: 50px;
 }
-#header > h2 {
+#results-found > h2 {
   margin-top: 45px;
   margin-bottom: 35px;
   text-align: center;
+  color: var(--rich-black);
 }
 #search-results {
   display: flex;
@@ -63,6 +73,7 @@ export default {
   background-color: var(--rich-black);
   margin-bottom: 5px;
   padding-top: 20px;
+  width: 100%;
 }
 #birds {
   display: flex;
@@ -70,7 +81,7 @@ export default {
   flex-wrap: wrap;
 }
 img {
-  width: 40%;
+  width: 75%;
   height: auto;
 }
 #date {

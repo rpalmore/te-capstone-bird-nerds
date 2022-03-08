@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #list-view {
   display: flex;
   flex-direction: column;

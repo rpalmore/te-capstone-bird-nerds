@@ -144,6 +144,7 @@ export default {
 }
 #loggingForm input[type="submit"], #loggingForm input[type="button"] {
   width: 33%;
+  left: 33%;
   background-color: var(--orange-peel);
   border: 1px solid var(--rose-madder);
   border-right: 5px solid var(--rose-madder);
@@ -153,5 +154,8 @@ export default {
   color: var(--rich-black);
   margin-top: 10px;
   margin-bottom: 25px;
+}
+#loggingForm > .row-data {
+  justify-content: center;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <router-link :to="{ name: 'list' }" class="rtr"
-    ><button class="nav-btn">MY LISTS<span id="my-lists">{{ count }}</span></button>
+  <router-link :to="{ name: 'list' }" class="router"
+    ><button class="nav-btn">LISTS<span id="my-lists">{{ count }}</span></button>
   </router-link>
 </template>
 
@@ -12,7 +12,6 @@ export default {
       return this.$store.state.lists.length;
     },
   },
-  methods: {},
 };
 </script>
 

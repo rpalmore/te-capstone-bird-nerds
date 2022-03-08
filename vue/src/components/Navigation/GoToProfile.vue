@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'profile' }" class="rtr"
+  <router-link :to="{ name: 'profile' }" class="router"
     ><button class="nav-btn">PROFILE</button>
   </router-link>
 </template>

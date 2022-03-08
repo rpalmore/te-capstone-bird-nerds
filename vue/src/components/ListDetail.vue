@@ -129,6 +129,15 @@ export default {
   gap: 10px;
   border-radius: 8px;
 }
+.new-name input[type="submit"], .new-name input[type="button"] {
+  background-color: var(--orange-peel);
+  border: 1px solid var(--rose-madder);
+  border-right: 5px solid var(--rose-madder);
+  border-left: 5px solid var(--rose-madder);
+  border-radius: 8px;
+  font-weight: bold;
+  color: var(--rich-black);
+}
 #birdAnchor {
   text-decoration: none;
   flex-grow: 1;

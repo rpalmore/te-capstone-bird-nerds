@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="header-section">
     <div id="logo-img">
       <img src="@/assets/BirdNerdsLogo.png" alt="Official Bird Nerds logo" />
     </div>
@@ -24,8 +24,7 @@ export default {
     logout() {
       this.$store.commit("LOGOUT");
       this.$router.push({ name: "Home" });
-      // this will refresh page to collapse expanded left nav buttons/forms but creates a slight delay
-      // this.$router.go(0);
+      this.$router.go(0);
     },
   },
 };
@@ -33,7 +32,7 @@ export default {
 
 
 <style scoped>
-#header {
+#header-section {
   display: flex;
   background-color: var(--rich-black);
   height: 150px;
@@ -51,16 +50,13 @@ export default {
 #logo-text {
   display: flex;
   flex-grow: 1;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding-left: 18%;
-  padding-right: 5%;
   border-left: 8px solid var(--baby-powder);
   color: var(--baby-powder);
 }
 #logo-text > span {
   font-size: 3rem;
-  font-weight: normal !important;
 }
 a {
   padding: 18px;
@@ -68,5 +64,22 @@ a {
 }
 a:hover {
   color: var(--orange-peel);
+}
+@media only screen and (max-width: 768px) {
+  #header-section {
+    height: 130px;
+  }
+  #logo-img {
+    align-items: center;
+  }
+  #logo-img > img {
+    width: 90%;
+  }
+  #logo-text > span {
+    font-size: 2.5rem;
+  }
+  a {
+  padding: 8px;
+}
 }
 </style>

@@ -1,5 +1,6 @@
+
 <template>
-  <div class="nav-form-display">
+  <div id="search" class="nav-form-display">
     <form class="nav-form-body" @submit.prevent="search">
       <span class="helper-text">Recently spotted ...</span>
       <input
@@ -30,18 +31,13 @@ export default {
       birdService
         .getBirdByZip(this.zipcode)
         .then((response) => {
-          if (response.status == 200 && response.data.length != 0) {
+          if (response.status == 200) {
             this.birds = response.data;
             this.$router.push({
               name: "search",
               params: { zipcode: this.zipcode },
             });
-            this.$router.go(0);
-          } else {
-            this.$router.push({
-              name: "not-found",
-              params: { zipcode: this.zipcode },
-            });
+            this.$router.go();
           }
         })
         .catch((err) => {

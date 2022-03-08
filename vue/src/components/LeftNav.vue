@@ -1,51 +1,55 @@
 <template>
   <div id="nav-well">
     <div id="sticky">
-    <!-- Appears whether or not user is logged in -->
-    <button id="btnSearch" class="nav-btn" v-on:click="toggleView($event)">
-      SEARCH
-    </button>
-    <SearchBirds v-if="searchClick === true"></SearchBirds>
+      <!-- Appears whether or not user is logged in -->
+      <button id="btnSearch" class="nav-btn" v-on:click="toggleView($event)">
+        SEARCH
+      </button>
+      <SearchBirds v-show="searchClick === true"></SearchBirds>
 
-    <!-- Appear when user is not logged in -->
+      <!-- Appear when user is not logged in -->
 
-    <button
-      v-if="$store.state.token === ''"
-      class="nav-btn"
-      id="btnLogin"
-      v-on:click="toggleView($event)"
-    >
-      LOGIN
-    </button>
+      <button
+        v-if="$store.state.token === ''"
+        class="nav-btn"
+        id="btnLogin"
+        v-on:click="toggleView($event)"
+      >
+        LOGIN
+      </button>
 
-    <Login
-      v-if="
-        (loginClick === true && $store.state.token === '') ||
-        this.$route.query.registration
-      "
-    ></Login>
+      <Login
+        v-if="
+          (loginClick === true && $store.state.token === '') ||
+          this.$route.query.registration
+        "
+      ></Login>
 
-    <button
-      v-if="$store.state.token === ''"
-      class="nav-btn"
-      id="btnRegister"
-      v-on:click="toggleView($event)"
-    >
-      REGISTER
-    </button>
-    <Register
-      v-if="registerClick === true && $store.state.token === ''"
-    ></Register>
+      <button
+        v-if="$store.state.token === ''"
+        class="nav-btn"
+        id="btnRegister"
+        v-on:click="toggleView($event)"
+      >
+        REGISTER
+      </button>
+      <Register
+        v-if="registerClick === true && $store.state.token === ''"
+      ></Register>
 
-    <!-- Appear when user is logged in -->
+      <!-- Appear when user is logged in -->
 
-    <MyLists v-if="$store.state.token != ''"></MyLists>
+      <MyLists v-if="$store.state.token != ''"></MyLists>
 
-    <GoToProfile v-if="$store.state.token != ''"></GoToProfile>
+      <GoToProfile v-if="$store.state.token != ''"></GoToProfile>
 
-    <button v-if="$store.state.token != ''" class="nav-btn" v-on:click="goHome">
-      HOME
-    </button>
+      <button
+        v-if="$store.state.token != ''"
+        class="nav-btn"
+        v-on:click="goHome"
+      >
+        HOME
+      </button>
     </div>
   </div>
 </template>
@@ -94,6 +98,11 @@ export default {
     this.registerClick = false;
     this.searchClick = false;
   },
+  // updated() {
+  //   this.loginClick = false;
+  //   this.registerClick = false;
+  //   this.searchClick = false;
+  // },
 };
 </script>
 
@@ -126,7 +135,7 @@ export default {
   margin-top: 45px;
   padding: 10px;
 }
-.rtr {
+.router {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -141,7 +150,9 @@ export default {
   align-items: center;
   padding: 18px 0 35px 0;
   background-color: var(--orange-peel);
-  border: 2px solid var(--rose-madder);
+  border-right: 2px solid var(--rose-madder);
+  border-bottom: 2px solid var(--rose-madder);
+  border-left: 2px solid var(--rose-madder);
 }
 .nav-form-body > input {
   width: 80%;
@@ -171,5 +182,37 @@ span#my-lists {
   padding-left: 10px;
   font-weight: normal;
   font-size: var(--nav-button);
+}
+@media only screen and (max-width: 768px) {
+  #nav-well,
+  #sticky {
+    flex-direction: row;
+    width: 100%;
+    background-color: var(--tiffany-blue);
+    padding: 0;
+  }
+  .nav-btn {
+    margin-top: 0;
+    width: 100%;
+  }
+  .nav-form-display {
+    position: absolute;
+    top: 49px;
+    top: 96px;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    background-color: var(--rich-black);
+    border-top: 1px solid var(--orange-peel);
+  }
+  .nav-form-body {
+    /* width: 33%; */
+  }
+  #search {
+    /* justify-content: flex-start; */
+  }
+  #register {
+    /* justify-content: flex-end; */
+  }
 }
 </style>

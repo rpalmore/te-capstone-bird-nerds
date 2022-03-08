@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
@@ -24,8 +25,10 @@ export default new Vuex.Store({
     profile: JSON.parse(localStorage.getItem('profile') || {}),
     lists: JSON.parse(localStorage.getItem('lists') || {}),
     birds: JSON.parse(localStorage.getItem('birds') || "{}"),
+    bird: JSON.parse(localStorage.getItem('bird')),
     activeBird: 0,
     notes: JSON.parse(localStorage.getItem('notes') || "{}"),
+    // birdImg: "No photo",
     birdImg: JSON.parse(localStorage.getItem('birdImg')),
     birdPhoto: false
   },
@@ -65,16 +68,17 @@ export default new Vuex.Store({
     SET_BIRD_PHOTO(state, birdImg) {
       state.birdImg = birdImg;
       localStorage.setItem("birdImg", JSON.stringify(state.birdImg));
+      console.log(state.birdImg);
     },
     SET_SOURCE_BIRD(state) {
       state.birdPhoto = true;
-      state.birdImg = "No photo";
     },
     SET_SOURCE_PROFILE(state) {
       state.birdPhoto = false;
     },
     ADD_BIRD(state, bird) {
       state.birds.unshift(bird);
+      localStorage.setItem("bird", JSON.stringify(bird));
       localStorage.setItem("birds", JSON.stringify(state.birds));
     },
     SET_ACTIVE_BIRD(state, birdId) {
@@ -107,6 +111,7 @@ export default new Vuex.Store({
     EDIT_BIRD(state, bird) {
       state.birds = state.birds.map(b => b.birdID != bird.birdID ? b : bird);
       localStorage.setItem("birds", JSON.stringify(state.birds));
+      // localStorage.setItem("bird", JSON.stringify(bird));
     },
     EDIT_NOTE(state, note) {
       state.notes = state.notes.map(n => n.noteId != note.noteId ? n : note);

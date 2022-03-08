@@ -24,11 +24,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #list-detail-view {
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
 }
-
 </style>

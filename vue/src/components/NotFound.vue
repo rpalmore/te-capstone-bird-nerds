@@ -1,32 +1,41 @@
 <template>
-  <div id="not-found">
-     <h2>We need more bird nerds!</h2>
-     <span>No recent sightings in zip code {{ this.$route.params.zipcode }}.</span>
-     <img src="@/assets/BirdSilhouette.png" alt="" id="bird">
+  <div id="no-birds">
+    <h2>We need more bird nerds!</h2>
+    <span id="no-sightings"
+      >No recent sightings in zip code {{ this.$route.params.zipcode }}.</span
+    >
+    <img
+      id="bird-silhouette"
+      src="@/assets/BirdSilhouette.png"
+      alt="A bird silhouette"
+    />
   </div>
 </template>
 
 <script>
-
 export default {
-  name: "not-found"
+  name: "not-found",
 };
-  
 </script>
 
 <style scoped>
-#not-found {
-    display: flex;
-    flex-direction: column;
-    margin-top: 35px;
-    align-items: center;
+#no-birds{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  color: var(--rich-black);
 }
-span {
-    font-size: 1.3rem;
+#no-birds > h2 {
+  margin-top: 45px;
+  margin-bottom: 35px;
+  text-align: center;
 }
-img {
-    width: 65%;
-    margin-top: 35px;
+#no-sightings {
+  font-size: 1.3rem;
 }
-
+#bird-silhouette {
+  width: 65%;
+  margin-top: 35px;
+}
 </style>

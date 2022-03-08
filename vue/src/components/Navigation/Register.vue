@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-form-display">
+  <div id="register" class="nav-form-display">
     <form class="nav-form-body" @submit.prevent="register">
       <span class="helper-text">Create an account</span>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
