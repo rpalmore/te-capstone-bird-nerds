@@ -63,10 +63,10 @@ export default {
       return this.$store.state.lists;
     },
     listId() {
-      return this.activeList
+      return this.activeList;
     },
     list() {
-      return this.lists.find((l) => (l.listId == this.activeList));
+      return this.lists.find((l) => l.listId == this.activeList);
     },
   },
   created() {
@@ -129,7 +129,8 @@ export default {
   gap: 10px;
   border-radius: 8px;
 }
-.new-name input[type="submit"], .new-name input[type="button"] {
+.new-name input[type="submit"],
+.new-name input[type="button"] {
   background-color: var(--orange-peel);
   border: 1px solid var(--rose-madder);
   border-right: 5px solid var(--rose-madder);
@@ -166,5 +167,10 @@ export default {
   color: var(--rose-madder);
   background-color: var(--baby-powder);
   border: 2px solid var(--orange-peel);
+}
+@media only screen and (max-width: 768px) {
+  #deleteBird {
+    position: revert;
+  }
 }
 </style>

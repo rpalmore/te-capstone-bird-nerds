@@ -1,6 +1,6 @@
 <template>
   <div id="header-section">
-    <div id="logo-img">
+    <div id="logo-img" v-on:click="goHome">
       <img src="@/assets/BirdNerdsLogo.png" alt="Official Bird Nerds logo" />
     </div>
     <div id="logo-text">
@@ -26,6 +26,10 @@ export default {
       this.$router.push({ name: "Home" });
       this.$router.go(0);
     },
+    goHome() {
+      this.$router.push({ name: "Home" });
+      this.$router.go(0);
+    }
   },
 };
 </script>
@@ -43,6 +47,7 @@ export default {
   justify-content: center;
   background-color: var(--rose-madder);
   border: 1px solid var(--rich-black);
+  cursor: pointer;
 }
 #logo-img > img {
   padding: 10px;

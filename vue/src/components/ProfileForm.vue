@@ -20,7 +20,6 @@
         size="50"
         v-model="profile.mostCommonBird"
       />
-
         <label for="zip-code">Your zip code:</label>
         <input
           required

@@ -21,5 +21,11 @@ export default {
   position: absolute;
   margin-bottom: 35px;
 }
+  @media only screen and (max-width: 768px) {
+  #list-view {
+    position: revert;
+    width: 80%;
+  }
+}
 
 </style>

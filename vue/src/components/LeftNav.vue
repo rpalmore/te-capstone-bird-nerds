@@ -159,13 +159,14 @@ export default {
   color: var(--baby-powder);
   font-family: "Bitter", serif;
   font-size: var(--nav-btn);
+  cursor: pointer;
 }
 .nav-form-body > input[type="text"],
 input[type="password"] {
   width: 68%;
 }
 #confirmPassword {
-  font-size: 1rem;
+  font-size: .95rem;
   padding: 12px;
 }
 .alert {
@@ -189,25 +190,16 @@ span#my-lists {
   .nav-btn {
     margin-top: 0;
     width: 100%;
+    cursor: pointer;
   }
   .nav-form-display {
     position: absolute;
-    top: 49px;
     top: 96px;
     width: 100%;
     height: 100vh;
     justify-content: center;
     background-color: var(--rich-black);
-    border-top: 1px solid var(--orange-peel);
-  }
-  .nav-form-body {
-    /* width: 33%; */
-  }
-  #search {
-    /* justify-content: flex-start; */
-  }
-  #register {
-    /* justify-content: flex-end; */
+    border-top: 1px solid var(--rich-black);
   }
 }
 </style>

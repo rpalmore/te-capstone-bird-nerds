@@ -63,6 +63,7 @@ export default {
                 path: "/login",
                 query: { registration: "success" },
               });
+              this.$router.go(0);
             }
           })
           .catch((error) => {

@@ -146,18 +146,20 @@ export default {
 }
 .profile-content-container label {
   font-size: var(--nav-btn);
-}
-.profile-content-container input[type="zip-code"] {
-  width: 50%;
+  text-align: center;
 }
 .profile-content-container input,
 select {
+  width: 80%;
   padding: 8px;
   border-radius: 8px;
   font-size: var(--edit-btn);
   border: 1px solid var(--rich-black);
   border-left: 5px solid var(--orange-peel);
   border-right: 5px solid var(--orange-peel);
+}
+.profile-content-container #skill-lvl, #zip-code {
+  width: 40%;
 }
 .profile-content-container option {
   font-family: "Bitter", serif;
