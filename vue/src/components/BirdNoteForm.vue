@@ -49,7 +49,7 @@
         v-model="birdNote.notes"
       />
       <div class="row-data">
-      <input type="submit" />
+        <input type="submit" />
       </div>
     </form>
   </main>
@@ -97,7 +97,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-top: 45px;
-  width: 100%; 
+  width: 100%;
   align-items: center;
   background-color: var(--rich-black);
   color: var(--baby-powder);
@@ -142,7 +142,8 @@ export default {
   border-left: 5px solid var(--orange-peel);
   border-right: 5px solid var(--orange-peel);
 }
-#loggingForm input[type="submit"], #loggingForm input[type="button"] {
+#loggingForm input[type="submit"],
+#loggingForm input[type="button"] {
   width: 33%;
   left: 33%;
   background-color: var(--orange-peel);
@@ -157,5 +158,10 @@ export default {
 }
 #loggingForm > .row-data {
   justify-content: center;
+}
+@media only screen and (max-width: 768px) {
+  #loggingForm {
+    width: 80%;
+  }
 }
 </style>

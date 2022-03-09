@@ -58,10 +58,6 @@ export default {
   data() {
     return {
       showForm: false,
-      selectImg:
-        this.$store.state.birdImg === "No photo" 
-          ? "/img/BirdSilhouette.83f473b2.png"
-          : this.$store.state.birdImg,
     };
   },
   computed: {
@@ -70,21 +66,23 @@ export default {
         (b) => b.birdID == this.$route.params.birdId
       );
     },
+    selectImg() {
+      return this.bird.birdImg == "No photo"
+        ? "/img/BirdSilhouette.83f473b2.png"
+        : this.bird.birdImg;
+    },
   },
   methods: {
     useCloudinary() {
       photoService.myWidget.open();
-      this.$store.commit("SET_SOURCE_BIRD");
+      this.$store.commit("SET_SOURCE_BIRD", this.$route.params.birdId);
     },
     updateBird() {
-      this.bird.birdImg = this.$store.state.birdImg;
       birdService
         .editBird(this.bird)
         .then((response) => {
           if (response.status == 200) {
             this.$store.commit("EDIT_BIRD", this.bird);
-            // eslint-disable-next-line no-console
-            console.log(this.bird);
           }
         })
         .catch((err) => {
@@ -100,16 +98,16 @@ export default {
 </script>
 
 <style scoped>
-#bird-name {
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--orange-peel);
-}
 #bird-detail {
   display: flex;
   margin-top: 45px;
   align-items: center;
   background-color: var(--rich-black);
   border: 1px solid var(--rich-black);
+}
+#bird-name {
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--orange-peel);
 }
 #bird-img {
   width: 100%;
@@ -122,7 +120,6 @@ export default {
 }
 #bird-pic {
   display: flex;
-  /* width: 50%; */
   justify-content: center;
   align-items: center;
   background-color: var(--baby-powder);
@@ -136,6 +133,7 @@ form,
   width: 50%;
   color: var(--baby-powder);
   margin-bottom: 15px;
+  padding: 0 5px 0 5px;
 }
 #bird-info input.button {
   background-color: var(--orange-peel);
@@ -146,11 +144,9 @@ form,
   font-weight: bold;
   color: var(--rich-black);
   margin-top: 10px;
-  /* width: 25%; */
 }
 #log-sighting {
   gap: 9px;
-  /* margin: 15px 0 15px 0; */
   margin: 15px;
 }
 #log-sighting label,
@@ -168,7 +164,6 @@ input {
 #buttons {
   display: flex;
   gap: 5px;
-  /* width: 80%; */
   justify-content: center;
 }
 #buttons > input {
@@ -179,7 +174,11 @@ input {
   border-radius: 8px;
   font-weight: bold;
   color: var(--rich-black);
-  /* width: 25%; */
   padding: 0 3px 0 3px;
+}
+@media only screen and (max-width: 768px) {
+  #bird-detail {
+    flex-direction: column;
+  }
 }
 </style>

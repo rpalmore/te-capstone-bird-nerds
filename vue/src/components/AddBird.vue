@@ -18,12 +18,6 @@
         placeholder="#####"
         v-model="newBird.zipcode"
       />
-      <!-- <label for="birdImgURL"
-        ><a id="add-bird" v-on:click="useCloudinary()"
-          >Add a picture</a
-        >
-        of the bird you spotted.</label
-      > -->
       <button id="submit">Save</button>
     </form>
   </div>
@@ -31,7 +25,6 @@
 
 <script>
 import birdService from "../services/BirdService";
-// import photoService from "../services/PhotoService";
 
 export default {
   name: "add-bird",
@@ -41,7 +34,6 @@ export default {
         birdImg: "",
       },
       listId: this.$route.params.listId,
-      // addBirdTest: false,
     };
   },
   methods: {
@@ -50,9 +42,6 @@ export default {
       birdService.createBird(this.listId, this.newBird).then((response) => {
         if (response.status === 201) {
           this.$store.commit("ADD_BIRD", response.data);
-          this.$store.commit("SET_BIRD_PHOTO", response.data.birdImg);
-          // eslint-disable-next-line no-console
-          console.log(response.data.birdImg); // "No photo"
         }
         this.newBird = {};
       });
@@ -68,6 +57,7 @@ export default {
 #add-bird-form {
   display: flex;
   flex-direction: column;
+  width: 75%;
   border: 4px solid var(--orange-peel);
   background-color: var(--rich-black);
   color: var(--baby-powder);

@@ -7,7 +7,6 @@ import List from '../views/List.vue'
 import BirdDetail from '../views/Bird.vue'
 import ListDetail from '@/views/ListDetailView'
 import Search from '../views/Search.vue'
-// import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
 
@@ -27,7 +26,7 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      alias: '/login',
+      // alias: '/login',
       component: Home,
       meta: {
         requiresAuth: false
@@ -41,14 +40,6 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    // {
-    //   path: '/search/:zipcode',
-    //   name: "not-found",
-    //   component: NotFound,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
     {
       path: "/profile",
       name: "profile",
@@ -58,7 +49,6 @@ const router = new Router({
       }
     },
     {
-      // create a new list or get all lists
       path: "/lists",
       name: "list",
       component: List,

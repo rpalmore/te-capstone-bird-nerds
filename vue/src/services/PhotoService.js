@@ -12,11 +12,6 @@ let profile = {
     zipCode: store.state.profile.zipCode,
     skillLevel: store.state.profile.skillLevel
 };
-let bird = {
-    birdImg: "",
-    zipcode: store.state.bird.zipcode,
-    birdName: store.state.bird.birdName,
-}
 
 const myWidget = window.cloudinary.createUploadWidget(
     {
@@ -49,20 +44,16 @@ const myWidget = window.cloudinary.createUploadWidget(
     },
     (error, result) => {
         if (!error && result && result.event === "success" && store.state.birdPhoto === true) {
+            let bird = store.state.birds.find(
+                (b) => b.birdID == store.state.bird.birdId);
             bird.birdImg = result.info.secure_url;
-            // bird.zipcode = store.state.bird.zipcode;
-            // bird.birdName = store.state.bird.birdName;
             birdService.editBird(bird).then((response) => {
                 if (response.status === 200) {
                     store.commit("EDIT_BIRD", bird);
-                    store.commit("SET_BIRD_PHOTO", bird.birdImg);
-                    // eslint-disable-next-line no-console
-                    console.log(bird);
                 }
             }).catch((err) => {
                 alert(err + " problem updating photo!");
             });
-
         } else if (!error && result && result.event === "success" && store.state.birdPhoto === false) {
             profile.profileImg = result.info.secure_url;
             profile.username = store.state.user.username;

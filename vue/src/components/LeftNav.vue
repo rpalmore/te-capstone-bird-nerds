@@ -98,11 +98,6 @@ export default {
     this.registerClick = false;
     this.searchClick = false;
   },
-  // updated() {
-  //   this.loginClick = false;
-  //   this.registerClick = false;
-  //   this.searchClick = false;
-  // },
 };
 </script>
 
