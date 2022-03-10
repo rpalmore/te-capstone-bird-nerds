@@ -21,12 +21,12 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    profile: JSON.parse(localStorage.getItem('profile') || {}),
-    lists: JSON.parse(localStorage.getItem('lists') || {}),
-    birds: JSON.parse(localStorage.getItem('birds') || "{}"),
-    bird: JSON.parse(localStorage.getItem('bird')),
+    profile: localStorage.getItem('profile') || {},
+    lists: localStorage.getItem('lists') || {},
+    birds: localStorage.getItem('birds') || "{}",
+    bird: localStorage.getItem('bird'),
     activeBird: 0,
-    notes: JSON.parse(localStorage.getItem('notes') || "{}"),
+    notes: localStorage.getItem('notes') || "{}",
     birdPhoto: false
   },
   mutations: {
