@@ -7,8 +7,7 @@
 <script>
 export default {
   name: "go-to-profile",
-  methods: {
-  },
+  methods: {},
 };
 </script>
 

@@ -125,12 +125,6 @@ export default {
     },
   },
   methods: {
-    // editSingleNote(noteId) {
-    //   this.showForm = true;
-    //   // eslint-disable-next-line no-console
-    //   console.log(noteId);
-
-    // },
     deleteNote(noteId) {
       if (confirm("Are you sure you want to delete this note?")) {
         noteService
@@ -209,7 +203,8 @@ export default {
 .label {
   color: var(--orange-peel);
 }
-#noteItself input[type="submit"], #noteItself input[type="button"] {
+#noteItself input[type="submit"],
+#noteItself input[type="button"] {
   background-color: var(--orange-peel);
   border: 1px solid var(--rose-madder);
   border-right: 5px solid var(--rose-madder);

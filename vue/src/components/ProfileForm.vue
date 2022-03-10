@@ -20,22 +20,22 @@
         size="50"
         v-model="profile.mostCommonBird"
       />
-        <label for="zip-code">Your zip code:</label>
-        <input
-          required
-          id="zip-code"
-          type="text"
-          pattern="[0-9]{5}"
-          title="Numbers only, please!"
-          placeholder="#####"
-          v-model="profile.zipCode"
-        />
-        <label for="skill-lvl">Your skill level:</label>
-        <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Advanced">Advanced</option>
-        </select>
+      <label for="zip-code">Your zip code:</label>
+      <input
+        required
+        id="zip-code"
+        type="text"
+        pattern="[0-9]{5}"
+        title="Numbers only, please!"
+        placeholder="#####"
+        v-model="profile.zipCode"
+      />
+      <label for="skill-lvl">Your skill level:</label>
+      <select required id="skill-lvl" size="3" v-model="profile.skillLevel">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
       <button id="submit">Save</button>
     </form>
   </div>

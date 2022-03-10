@@ -63,7 +63,6 @@ input {
     background-color: var(--tiffany-blue);
     border-right: 1px solid var(--rich-black);
     border-left: 1px solid var(--rich-black);
-    
   }
 }
 </style>

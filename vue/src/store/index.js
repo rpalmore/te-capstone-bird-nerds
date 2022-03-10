@@ -99,7 +99,7 @@ export default new Vuex.Store({
     },
     EDIT_LIST(state, list) {
       state.lists = state.lists.map(l => l.listId != list.listId ? l : list);
-      localStorage.setItem("lists",JSON.stringify(state.lists));
+      localStorage.setItem("lists", JSON.stringify(state.lists));
     },
     EDIT_BIRD(state, bird) {
       state.birds = state.birds.map(b => b.birdID != bird.birdID ? b : bird);

@@ -1,22 +1,22 @@
 <template>
   <div id="search-results">
-  <not-found v-show="!results" />
-  <div v-show="results" id="results-found">
-    <h2>Birds recently spotted in {{ this.$route.params.zipcode }}</h2>
-    <div id="search-results">
-      <div id="birds">
-        <div
-          id="bird-card"
-          v-for="bird in this.birdsByZip"
-          v-bind:key="bird.birdId"
-          v-show="bird.imgUrl != 'No photo'"
-        >
-          <img v-bind:src="bird.imgUrl" />
-          <div id="date">{{ bird.name }}: {{ bird.dateSpotted }}</div>
+    <not-found v-show="!results" />
+    <div v-show="results" id="results-found">
+      <h2>Birds recently spotted in {{ this.$route.params.zipcode }}</h2>
+      <div id="search-results">
+        <div id="birds">
+          <div
+            id="bird-card"
+            v-for="bird in this.birdsByZip"
+            v-bind:key="bird.birdId"
+            v-show="bird.imgUrl != 'No photo'"
+          >
+            <img v-bind:src="bird.imgUrl" />
+            <div id="date">{{ bird.name }}: {{ bird.dateSpotted }}</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 

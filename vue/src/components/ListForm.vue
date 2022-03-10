@@ -5,7 +5,6 @@
       <input
         id="create-list"
         type="text"
-        size="35"
         placeholder="Add a list name"
         required
         v-model="list.listName"
@@ -54,8 +53,11 @@ main#list-form > h2 {
 }
 main#list-form > form {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 main#list-form input {
+  width: 90%;
   padding: 8px;
   border-radius: 8px;
   font-size: 1.2rem;

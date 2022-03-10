@@ -1,7 +1,9 @@
 <template>
   <div class="nav-form-display">
     <form class="nav-form-body" @submit.prevent="login">
-      <span class="helper-text">{{ this.$route.query.registration ? "Please sign in" : "Welcome back!" }}</span>
+      <span class="helper-text">{{
+        this.$route.query.registration ? "Please sign in" : "Welcome back!"
+      }}</span>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>

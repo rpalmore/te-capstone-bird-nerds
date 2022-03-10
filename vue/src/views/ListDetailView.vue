@@ -18,9 +18,6 @@ export default {
             );
         }
     },
-    // created() {
-    //     this.$store.commit("SET_ACTIVE_LIST", this.$route.params.listId);
-    // }
 };
 </script>
 

@@ -8,7 +8,9 @@
       <p class="question">My skill level:</p>
       <span class="response">{{ profile.skillLevel }}</span>
       <p class="question">My zip code:</p>
-      <span class="response">{{ profile.zipCode === 0 ? " " : profile.zipCode }}</span>
+      <span class="response">{{
+        profile.zipCode === 0 ? " " : profile.zipCode
+      }}</span>
     </div>
   </div>
 </template>

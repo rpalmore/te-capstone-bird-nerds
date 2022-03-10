@@ -8,7 +8,6 @@
       <SearchBirds v-show="searchClick === true"></SearchBirds>
 
       <!-- Appear when user is not logged in -->
-
       <button
         v-if="$store.state.token === ''"
         class="nav-btn"
@@ -166,7 +165,7 @@ input[type="password"] {
   width: 68%;
 }
 #confirmPassword {
-  font-size: .95rem;
+  font-size: 0.95rem;
   padding: 12px;
 }
 .alert {
@@ -200,6 +199,15 @@ span#my-lists {
     justify-content: center;
     background-color: var(--rich-black);
     border-top: 1px solid var(--rich-black);
+  }
+}
+@media only screen and (max-width: 420px) {
+  #nav-well,
+  #sticky {
+    flex-wrap: wrap;
+  }
+  .nav-form-display {
+    top: 160px;
   }
 }
 </style>

@@ -158,7 +158,8 @@ select {
   border-left: 5px solid var(--orange-peel);
   border-right: 5px solid var(--orange-peel);
 }
-.profile-content-container #skill-lvl, #zip-code {
+.profile-content-container #skill-lvl,
+#zip-code {
   width: 40%;
 }
 .profile-content-container option {
@@ -196,5 +197,19 @@ select {
   border-bottom: 1px solid var(--rose-madder);
   font-style: italic;
   font-size: 1.3rem;
+}
+@media only screen and (max-width: 768px) {
+  .edit-btn {
+    width: auto;
+  }
+  .profile-content-container form {
+    padding: 5px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .profile-content-container #skill-lvl,
+  #zip-code {
+    width: 75%;
+  }
 }
 </style>

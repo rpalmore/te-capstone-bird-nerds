@@ -59,7 +59,7 @@ export default {
 }
 #listColumn {
   display: flex;
-  width: 112%;
+  width: 100%;
   align-items: center;
 }
 #listItem {
@@ -78,7 +78,7 @@ export default {
 }
 #delete {
   position: absolute;
-  right: -8px;
+  right: 19px;
   height: 20px;
   padding: 5px 10px 5px 10px;
   font-weight: bold;
@@ -87,7 +87,7 @@ export default {
   background-color: var(--baby-powder);
   border: 2px solid var(--orange-peel);
 }
-  @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   #delete {
     position: revert;
   }

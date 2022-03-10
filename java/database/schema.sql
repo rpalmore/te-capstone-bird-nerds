@@ -84,11 +84,12 @@ INSERT INTO birds (bird_name, bird_img, num_sightings, zipcode, list_id) VALUES
 ('Blue Jay', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646146600/qd2zt3t2qc0bml0apwdw.jpg', 1, 60625, 1),
 ('Goldfinch', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646155661/izfqldcwtzniyipugqe4.jpg', 1, 60625, 1),
 ('Peacock', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646166166/qfmc05pbxoioxfn92pkl.jpg', 1, 60625, 1),
-('Thrush', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646345390/lbtfh4y9h3pfd88u9ise.jpg', 1, 60625, 1),
+('Bald Eagle', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646872398/x5x9wof5ytv30mvldrwa.jpg', 1, 60625, 1),
 ('Cedar Waxwing', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646345647/ctwlezwlqqtvv7ffshyx.jpg', 1, 60625, 1),
 ('Oriole', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646345858/dk8n1emhppmjnc75nerb.jpg', 1, 60625, 1),
 ('Carolina Chickadee', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646346148/vjtpeb5xwbg78yusgjlz.jpg', 1, 60625, 1),
-('Grosbeak', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646346320/cjszo6e9rzyv7sbgogvt.jpg', 1, 60625, 1);
+('Grosbeak', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646346320/cjszo6e9rzyv7sbgogvt.jpg', 1, 60625, 1),
+('Mountain Toucan', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646872482/agyhhkety3n9alpefqfc.jpg', 1, 60625, 1);
 
 INSERT INTO bird_notes (bird_id, notes, date_spotted, num_males, num_females, feeder_type, food_blend) VALUES
 (1, 'insert notes here', '2022-02-07', 5, 5, null, null),
@@ -100,7 +101,8 @@ INSERT INTO bird_notes (bird_id, notes, date_spotted, num_males, num_females, fe
 (7, 'insert notes here', '2022-03-03', 1, 1, null, null),
 (8, 'insert notes here', '2022-02-21', 1, 1, null, null),
 (9, 'insert notes here', '2022-02-14', 1, 1, null, null),
-(10, 'insert notes here', '2022-02-28', 1, 1, null, null);
+(10, 'insert notes here', '2022-02-28', 1, 1, null, null),
+(11, 'insert notes here', '2022-01-12', 1, 1, null, null);
 
 
 

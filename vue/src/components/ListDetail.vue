@@ -112,6 +112,7 @@ export default {
 }
 #add-bird {
   margin-top: 45px;
+  text-align: center;
 }
 #rename-list,
 .new-name {
@@ -160,7 +161,6 @@ export default {
   display: flex;
   position: relative;
   top: 0;
-  right: 30px;
   padding: 5px 10px;
   font-weight: bold;
   border-radius: 50%;

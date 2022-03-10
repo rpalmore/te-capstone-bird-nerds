@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-#no-birds{
+#no-birds {
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -29,7 +29,7 @@ export default {
     goHome() {
       this.$router.push({ name: "Home" });
       this.$router.go(0);
-    }
+    },
   },
 };
 </script>
@@ -84,7 +84,15 @@ a:hover {
     font-size: 2.5rem;
   }
   a {
-  padding: 8px;
+    padding: 8px;
+  }
 }
+@media only screen and (max-width: 420px) {
+  #logo-img {
+    display: none;
+  }
+  #logo-text {
+    border: none;
+  }
 }
 </style>

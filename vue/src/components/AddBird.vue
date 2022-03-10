@@ -48,8 +48,8 @@ export default {
     },
   },
   created() {
-      this.$store.commit("SET_SOURCE_BIRD");
-  }
+    this.$store.commit("SET_SOURCE_BIRD");
+  },
 };
 </script>
 
@@ -76,9 +76,9 @@ a {
 a:hover {
   color: var(--orange-peel);
 }
-#add-bird-form > label {
+#add-bird-form > form > label {
   font-family: "Bitter", serif;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-align: center;
 }
 #add-bird-form input,
@@ -92,7 +92,7 @@ a:hover {
   border: 1px solid var(--rich-black);
   border-left: 5px solid var(--orange-peel);
   border-right: 5px solid var(--orange-peel);
-} 
+}
 #add-bird-form button#submit {
   width: 35%;
   background-color: var(--rose-madder);

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BirdOfTheDay from '../components/BirdOfTheDay.vue';
+import BirdOfTheDay from "../components/BirdOfTheDay.vue";
 
 export default {
   components: { BirdOfTheDay },

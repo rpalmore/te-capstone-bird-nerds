@@ -1,4 +1,3 @@
-
 <template>
   <div id="search" class="nav-form-display">
     <form class="nav-form-body" @submit.prevent="search">
