@@ -16,23 +16,28 @@
 </template>
 
 <script>
-import profileService from "../services/ProfileService.js";
+// import profileService from "../services/ProfileService.js";
 export default {
-  data() {
-    return {
-      profile: {},
-    };
+  // data() {
+  //   return {
+  //     profile: {},
+  //   };
+  // },
+  computed: {
+    profile() {
+      return this.$store.state.profile;
+    }
   },
-  created() {
-    profileService
-      .getProfile()
-      .then((response) => {
-        this.profile = response.data;
-      })
-      .catch((err) => {
-        alert(err + " nothing returned");
-      });
-  },
+  // created() {
+  //   profileService
+  //     .getProfile()
+  //     .then((response) => {
+  //       this.profile = response.data;
+  //     })
+  //     .catch((err) => {
+  //       alert(err + " nothing returned");
+  //     });
+  // },
 };
 </script>
 

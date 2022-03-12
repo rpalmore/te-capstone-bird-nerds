@@ -10,7 +10,7 @@
     <a
       id="create"
       class="edit-btn"
-      v-show="formDisplay === false"
+      v-show="this.formDisplay === false"
       v-on:click="displayForm"
       >{{
         this.$store.state.profile.favoriteBird === undefined ||
@@ -23,13 +23,13 @@
     <a
       id="cancel"
       class="edit-btn"
-      v-show="formDisplay === true"
+      v-show="this.formDisplay === true"
       v-on:click="cancelSubmit"
       >Cancel</a
     >
-    <ProfileForm v-show="formDisplay"></ProfileForm>
+    <ProfileForm v-show="this.formDisplay === true"></ProfileForm>
 
-    <ProfileDisplay v-show="profileDisplay === true"></ProfileDisplay>
+    <ProfileDisplay v-show="this.profileDisplay === true"></ProfileDisplay>
   </div>
 </template>
 
@@ -43,17 +43,24 @@ export default {
   components: { ProfileForm, ProfileDisplay },
   data() {
     return {
-      formDisplay: false,
-      profileDisplay: true,
       username:
         this.$store.state.user.username.substring(0, 1).toUpperCase() +
         this.$store.state.user.username.substring(1).toLowerCase(),
-      selectImg:
-        this.$store.state.profile.profileImg === undefined ||
-        this.$store.state.profile.profileImg === null
-          ? "/img/BirdSilhouette.83f473b2.png"
-          : this.$store.state.profile.profileImg,
     };
+  },
+  computed: {
+    selectImg() {
+      return this.$store.state.profile.profileImg === undefined ||
+        this.$store.state.profile.profileImg === null
+        ? "/img/BirdSilhouette.83f473b2.png"
+        : this.$store.state.profile.profileImg;
+    },
+    formDisplay() {
+      return this.$store.state.formDisplay;
+    },
+    profileDisplay() {
+      return this.$store.state.profileDisplay;
+    },
   },
   methods: {
     useCloudinary() {
@@ -61,12 +68,12 @@ export default {
       this.$store.commit("SET_SOURCE_PROFILE");
     },
     displayForm() {
-      this.formDisplay = true;
-      this.profileDisplay = false;
+      this.$store.state.formDisplay = true;
+      this.$store.state.profileDisplay = false;
     },
     cancelSubmit() {
-      this.formDisplay = false;
-      this.profileDisplay = true;
+      this.$store.state.formDisplay = false;
+      this.$store.state.profileDisplay = true;
     },
   },
 };

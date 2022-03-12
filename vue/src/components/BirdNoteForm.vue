@@ -24,22 +24,22 @@
       </div>
       <label for="feeder-type">Feeder type:</label>
       <select id="feeder-type" v-model="birdNote.feederType">
-        <option value="cylinder">Cylinder</option>
-        <option value="hopper">Hopper</option>
-        <option value="nectar">Nectar</option>
-        <option value="seed-tube">Seed tube</option>
-        <option value="suet-feeder">Suet</option>
-        <option value="tray-feeder">Tray</option>
-        <option value="peanut-feeder">Peanut</option>
+        <option value="Cylinder">Cylinder</option>
+        <option value="Hopper">Hopper</option>
+        <option value="Nectar">Nectar</option>
+        <option value="Seed tube">Seed tube</option>
+        <option value="Suet feeder">Suet</option>
+        <option value="Tray feeder">Tray</option>
+        <option value="Peanut feeder">Peanut</option>
       </select>
       <label for="food-blend">Food blend:</label>
       <select id="food-blend" v-model="birdNote.foodBlend">
-        <option value="live-mealworms">Live mealworms</option>
-        <option value="bark-butter">Bark butter</option>
-        <option value="suet-cake">Suet cake</option>
-        <option value="wildlife-blend">Wildlife blend</option>
-        <option value="sunflower-blend">Sunflower blend</option>
-        <option value="nutty-blend">Nutty blend</option>
+        <option value="Live mealworms">Live mealworms</option>
+        <option value="Bark butter">Bark butter</option>
+        <option value="Suet cake">Suet cake</option>
+        <option value="Wildlife blend">Wildlife blend</option>
+        <option value="Sunflower blend">Sunflower blend</option>
+        <option value="Nutty blend">Nutty blend</option>
       </select>
       <label for="notes">Notes:</label>
       <textarea
@@ -49,7 +49,7 @@
         v-model="birdNote.notes"
       />
       <div class="row-data">
-        <input type="submit" />
+        <input type="submit" value="Save" />
       </div>
     </form>
   </main>
@@ -81,8 +81,9 @@ export default {
             const bird = this.bird;
             bird.numSightings++;
             this.$store.commit("EDIT_BIRD", bird);
-            this.$router.go(0);
+            this.$store.commit("ADD_NOTE", this.birdNote);
           }
+          this.birdNote = {};
         })
         .catch((err) => {
           alert(err + " problem adding bird note!");

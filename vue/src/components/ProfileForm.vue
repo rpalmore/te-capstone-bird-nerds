@@ -1,5 +1,5 @@
 <template>
-  <div v-show="displayForm === true" class="profile-content-container">
+  <div class="profile-content-container">
     <form v-on:submit.prevent="selectUpdateMethod">
       <label for="fav-bird">What is your favorite bird?</label>
       <input
@@ -43,11 +43,12 @@
 
 
 <script>
-import profileService from "../services/ProfileService";
+import ProfileService from "../services/ProfileService";
 export default {
   name: "profile-form",
   data() {
     return {
+      // Using Vuex data below populates form with existing data for easier editing
       profile: {
         username: this.$store.state.user.username,
         profileImg: this.$store.state.profile.profileImg,
@@ -56,32 +57,27 @@ export default {
         zipCode: this.$store.state.profile.zipCode,
         skillLevel: this.$store.state.profile.skillLevel,
       },
-      displayForm: true,
     };
   },
   methods: {
     selectUpdateMethod() {
       if (this.$store.state.profile.favoriteBird === undefined) {
-        this.displayForm = false;
-        profileService
+        ProfileService
           .updateProfile(this.profile)
           .then((response) => {
             if (response.status === 201) {
               this.$store.commit("SET_PROFILE", this.profile);
-              this.$router.go(0);
             }
           })
           .catch((err) => {
-            alert.error(err + " problem updating profile!");
+            alert.error(err + " problem creating profile!");
           });
       } else {
-        this.displayForm = false;
-        profileService
+        ProfileService
           .editProfile(this.profile)
           .then((response) => {
             if (response.status === 200) {
               this.$store.commit("SET_PROFILE", this.profile);
-              this.$router.go(0);
             }
           })
           .catch((err) => {

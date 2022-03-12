@@ -21,13 +21,15 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    profile: JSON.parse(localStorage.getItem('profile') || {}),
-    lists: JSON.parse(localStorage.getItem('lists') || {}),
-    birds: JSON.parse(localStorage.getItem('birds') || {}),
-    bird: JSON.parse(localStorage.getItem('bird')),
+    profile: JSON.parse(localStorage.getItem('profile') || '{}'),
+    lists: JSON.parse(localStorage.getItem('lists') || '{}'),
+    birds: JSON.parse(localStorage.getItem('birds') || '{}'),
+    bird: JSON.parse(localStorage.getItem('bird') || '{}'),
+    notes: JSON.parse(localStorage.getItem('notes') || '{}'),
     activeBird: 0,
-    notes: JSON.parse(localStorage.getItem('notes') || {}),
-    birdPhoto: false
+    birdPhoto: false,
+    formDisplay: false,
+    profileDisplay: true,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -49,6 +51,8 @@ export default new Vuex.Store({
     SET_PROFILE(state, payload) {
       state.profile = payload;
       localStorage.setItem('profile', JSON.stringify(state.profile));
+      state.profileDisplay = true;
+      state.formDisplay = false;
     },
     SET_LISTS(state, payload) {
       state.lists = payload;

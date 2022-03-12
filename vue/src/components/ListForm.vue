@@ -32,6 +32,7 @@ export default {
           if (response.status == 201) {
             this.$store.commit("ADD_LIST", response.data);
           }
+          // Clear the form after we commit the data submitted
           this.list = {};
         })
         .catch((err) => {

@@ -36,7 +36,7 @@ export default {
               name: "search",
               params: { zipcode: this.zipcode },
             });
-            this.$router.go();
+            // this.$router.go();
           }
         })
         .catch((err) => {

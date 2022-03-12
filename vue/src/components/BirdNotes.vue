@@ -7,12 +7,12 @@
           <span class="note-data">{{ note.dateSpotted }}</span>
         </div>
         <div class="row-data">
-          <span class="label" v-show="note.numMales != 0">Males:</span>
-          <span class="note-data" v-show="note.numMales != 0">{{
+          <span class="label" v-show="note.numMales != null && note.numMales != 0">Males:</span>
+          <span class="note-data" v-show="note.numMales != null && note.numMales != 0">{{
             note.numMales
           }}</span>
-          <span class="label" v-show="note.numFemales != 0">Females:</span>
-          <span class="note-data" v-show="note.numFemales != 0">{{
+          <span class="label" v-show="note.numFemales != null && note.numFemales != 0">Females:</span>
+          <span class="note-data" v-show="note.numFemales != null && note.numMales != 0">{{
             note.numFemales
           }}</span>
         </div>
@@ -72,23 +72,23 @@
         
           <label for="feeder-type">Feeder type: </label>
           <select id="feeder-type" v-model="note.feederType">
-            <option value="cylinder">Cylinder</option>
-            <option value="hopper">Hopper</option>
-            <option value="nectar">Nectar</option>
-            <option value="seed-tube">Seed tube</option>
-            <option value="suet-feeder">Suet</option>
-            <option value="tray-feeder">Tray</option>
-            <option value="peanut-feeder">Peanut</option>
+            <option value="Cylinder">Cylinder</option>
+            <option value="Hopper">Hopper</option>
+            <option value="Nectar">Nectar</option>
+            <option value="Seed tube">Seed tube</option>
+            <option value="Suet feeder">Suet</option>
+            <option value="Tray feeder">Tray</option>
+            <option value="Peanut feeder">Peanut</option>
           </select>
 
           <label for="food-blend">Food blend: </label>
           <select id="food-blend" v-model="note.foodBlend">
-            <option value="live-mealworms">Live mealworms</option>
-            <option value="bark-butter">Bark butter</option>
-            <option value="suet-cake">Suet cake</option>
-            <option value="wildlife-blend">Wildlife blend</option>
-            <option value="sunflower-blend">Sunflower blend</option>
-            <option value="nutty-blend">Nutty blend</option>
+            <option value="Live mealworms">Live mealworms</option>
+            <option value="Bark butter">Bark butter</option>
+            <option value="Suet cake">Suet cake</option>
+            <option value="Wildlife blend">Wildlife blend</option>
+            <option value="Sunflower blend">Sunflower blend</option>
+            <option value="Nutty blend">Nutty blend</option>
           </select>
     
           <label for="notes">Notes: </label>

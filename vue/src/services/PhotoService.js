@@ -1,7 +1,6 @@
 import store from "../store/index.js";
 import profileService from "./ProfileService.js";
 import birdService from "./BirdService.js";
-import router from "../router/index.js";
 const cloudName = "dgupilxum";
 const uploadPreset = "l1c4hxcn";
 let profile = {
@@ -65,14 +64,12 @@ const myWidget = window.cloudinary.createUploadWidget(
                 profileService.updateProfile(profile).then((response) => {
                     if (response.status === 201) {
                         store.commit("SET_PROFILE", profile);
-                        router.go(0);
                     }
                 })
             } else {
                 profileService.editProfile(profile).then((response) => {
                     if (response.status === 200) {
                         store.commit("SET_PROFILE", profile);
-                        router.go(0);
                     }
                 })
                     .catch((err) => {
