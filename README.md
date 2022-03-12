@@ -4,10 +4,11 @@
 
 For a live demo, please register as a user or sign in using the following credentials:
 
-Username: guest
-Password: guest
+Username: guest | Password: guest
 
 To see the search feature in action immediately, you can enter the following zip code: 60625
+
+## Description
 
 Boost your pandemic bird-watching hobby by keeping tabs on who's visiting your feeder and neighborhood. Register for the app to create a user profile, lists of feathered friends and details about their activity, and upload photos (your own or fair-use images from the web). Unregistered visitors can browse pictures of recent sightings logged by Bird Nerds in specific zip codes.
 
