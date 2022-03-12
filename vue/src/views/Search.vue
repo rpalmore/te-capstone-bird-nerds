@@ -1,8 +1,7 @@
 <template>
   <div id="search-results">
-    <not-found v-show="!results" />
     <div v-show="results" id="results-found">
-      <h2>Birds recently spotted in {{ this.$route.params.zipcode }}</h2>
+      <h2>Birds recently spotted in {{ this.zipcode }}</h2>
       <div id="search-results">
         <div id="birds">
           <div
@@ -22,24 +21,26 @@
 
 <script>
 import birdService from "../services/BirdService.js";
-import NotFound from "../components/NotFound";
 
 export default {
   name: "search",
-  components: { NotFound },
   data() {
     return {
-      zipcode: this.$route.params.zipcode,
       birdsByZip: [],
       results: false,
     };
+  },
+  computed: {
+    zipcode() {
+      return this.$route.params.zipcode;
+    },
   },
   created() {
     birdService.getBirdByZip(this.zipcode).then((response) => {
       if (response.data.length != 0) {
         this.birdsByZip = response.data;
         this.results = true;
-      }
+      } 
     });
   },
 };

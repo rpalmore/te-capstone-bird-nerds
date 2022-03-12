@@ -5,7 +5,7 @@
       <button id="btnSearch" class="nav-btn" v-on:click="toggleView($event)">
         SEARCH
       </button>
-      <SearchBirds v-show="searchClick === true"></SearchBirds>
+      <SearchBirds v-show="this.searchClick === true"></SearchBirds>
 
       <!-- Appear when user is not logged in -->
       <button
@@ -19,7 +19,7 @@
 
       <Login
         v-if="
-          (loginClick === true && $store.state.token === '') ||
+          (this.loginClick === true && $store.state.token === '') ||
           this.$route.query.registration
         "
       ></Login>
@@ -33,7 +33,7 @@
         REGISTER
       </button>
       <Register
-        v-if="registerClick === true && $store.state.token === ''"
+        v-if="this.registerClick === true && $store.state.token === ''"
       ></Register>
 
       <!-- Appear when user is logged in -->
@@ -63,12 +63,16 @@ import GoToProfile from "./Navigation/GoToProfile.vue";
 export default {
   name: "left-nav",
   components: { Login, SearchBirds, Register, MyLists, GoToProfile },
-  data() {
-    return {
-      loginClick: false,
-      registerClick: false,
-      searchClick: false,
-    };
+  computed: {
+    loginClick() {
+      return this.$store.state.loginClick;
+    }, 
+    registerClick() {
+      return this.$store.state.registerClick;
+    },
+    searchClick() {
+      return this.$store.state.searchClick;
+    }
   },
   methods: {
     goHome() {
@@ -76,19 +80,13 @@ export default {
     },
     toggleView(event) {
       if (event.target.id === "btnLogin") {
-        this.loginClick === false
-          ? (this.loginClick = true)
-          : (this.loginClick = false);
+        this.$store.commit("TOGGLE_LOGIN");
       }
       if (event.target.id === "btnRegister") {
-        this.registerClick === false
-          ? (this.registerClick = true)
-          : (this.registerClick = false);
+        this.$store.commit("TOGGLE_REGISTER");
       }
       if (event.target.id === "btnSearch") {
-        this.searchClick === false
-          ? (this.searchClick = true)
-          : (this.searchClick = false);
+        this.$store.commit("TOGGLE_SEARCH");
       }
     },
   },

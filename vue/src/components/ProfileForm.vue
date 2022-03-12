@@ -46,22 +46,14 @@
 import ProfileService from "../services/ProfileService";
 export default {
   name: "profile-form",
-  data() {
-    return {
-      // Using Vuex data below populates form with existing data for easier editing
-      profile: {
-        username: this.$store.state.user.username,
-        profileImg: this.$store.state.profile.profileImg,
-        favoriteBird: this.$store.state.profile.favoriteBird,
-        mostCommonBird: this.$store.state.profile.mostCommonBird,
-        zipCode: this.$store.state.profile.zipCode,
-        skillLevel: this.$store.state.profile.skillLevel,
-      },
-    };
+  computed: {
+    profile() {
+      return this.$store.state.profile;
+    }
   },
   methods: {
     selectUpdateMethod() {
-      if (this.$store.state.profile.favoriteBird === undefined) {
+      if (this.$store.state.profile.favoriteBird === undefined || this.$store.state.profile.favoriteBird === null) {
         ProfileService
           .updateProfile(this.profile)
           .then((response) => {

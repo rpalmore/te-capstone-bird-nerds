@@ -30,6 +30,9 @@ export default new Vuex.Store({
     birdPhoto: false,
     formDisplay: false,
     profileDisplay: true,
+    loginClick: false,
+    registerClick: false,
+    searchClick: false,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -47,6 +50,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+      state.loginClick = false;
+      state.registerClick = false;
+      state.searchClick = false;
     },
     SET_PROFILE(state, payload) {
       state.profile = payload;
@@ -113,6 +119,15 @@ export default new Vuex.Store({
     EDIT_NOTE(state, note) {
       state.notes = state.notes.map(n => n.noteId != note.noteId ? n : note);
       localStorage.setItem("notes", JSON.stringify(state.notes));
-    }
+    },
+    TOGGLE_LOGIN(state) {
+      state.loginClick === false ? state.loginClick = true : state.loginClick = false;
+    },
+    TOGGLE_REGISTER(state) {
+      state.registerClick === false ? state.registerClick = true : state.registerClick = false;
+    },
+    TOGGLE_SEARCH(state) {
+      state.searchClick === false ? state.searchClick = true : state.searchClick = false;
+    },
   }
 })

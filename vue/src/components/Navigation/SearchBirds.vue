@@ -32,11 +32,19 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             this.birds = response.data;
-            this.$router.push({
-              name: "search",
-              params: { zipcode: this.zipcode },
-            });
-            // this.$router.go();
+            if (this.birds.length > 0) {
+              this.$router.push({
+                name: "search",
+                params: { zipcode: this.zipcode },
+              });
+            } else {
+              this.$router.push({
+                name: "not-found",
+                params: {zipcode: this.zipcode },
+              })
+            }
+            this.$store.commit("TOGGLE_SEARCH");
+            this.zipcode = "";
           }
         })
         .catch((err) => {

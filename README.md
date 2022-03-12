@@ -2,9 +2,16 @@
 
 [See it live on Netlify!](https://bird-nerds.netlify.app/)
 
+For a live demo, please register as a user or sign in using the following credentials:
+
+Username: guest
+Password: guest
+
+To see the search feature in action immediately, you can enter the following zip code: 60625
+
 Boost your pandemic bird-watching hobby by keeping tabs on who's visiting your feeder and neighborhood. Register for the app to create a user profile, lists of feathered friends and details about their activity, and upload photos (your own or fair-use images from the web). Unregistered visitors can browse pictures of recent sightings logged by Bird Nerds in specific zip codes.
 
-This project was conceived by Ashley Hoffman and developed by Hoffman, Noah Griffin, Amy Pfaff and myself for the final capstone marking the end of our 14-week full-stack instruction at Tech Elevator.
+This project was conceived by Ashley Hoffman and developed by Hoffman, Noah Griffin, Amy Pfaff and myself to mark our completion of Tech Elevator's 14-week full-stack bootcamp in February 2022. Hooray!
 
 We used Java, Spring Boot, PostgreSQL, Vue.js, Vue Router, Vuex, JavaScript, CSS and HTML to build Bird Nerds over the course of 10 days. We followed the MVC design pattern and agile SDLC methodology.
 

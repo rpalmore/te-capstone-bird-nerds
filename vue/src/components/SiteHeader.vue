@@ -24,11 +24,9 @@ export default {
     logout() {
       this.$store.commit("LOGOUT");
       this.$router.push({ name: "Home" });
-      this.$router.go(0);
     },
     goHome() {
       this.$router.push({ name: "Home" });
-      this.$router.go(0);
     },
   },
 };

@@ -7,6 +7,7 @@ import List from '../views/List.vue'
 import BirdDetail from '../views/Bird.vue'
 import ListDetail from '@/views/ListDetailView'
 import search from '../views/search.vue'
+import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,14 @@ const router = new Router({
       path: '/search/:zipcode',
       name: 'search',
       component: search,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/search/:zipcode',
+      name: 'not-found',
+      component: NotFound,
       meta: {
         requiresAuth: false
       }
