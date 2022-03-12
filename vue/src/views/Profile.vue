@@ -218,5 +218,8 @@ select {
   #zip-code {
     width: 75%;
   }
+  .profile-content-container button#submit {
+    width: auto;
+  }
 }
 </style>

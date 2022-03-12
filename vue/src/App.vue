@@ -5,6 +5,9 @@
       <LeftNav />
       <ContentMain />
     </div>
+    <div id="container-footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -12,9 +15,10 @@
 import SiteHeader from "./components/SiteHeader.vue";
 import LeftNav from "./components/LeftNav.vue";
 import ContentMain from "./components/ContentMain.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  components: { SiteHeader, LeftNav, ContentMain },
+  components: { SiteHeader, LeftNav, ContentMain, Footer },
 };
 </script>
 
@@ -62,6 +66,7 @@ input {
     align-items: center;
     background-color: var(--tiffany-blue);
     border-right: 1px solid var(--rich-black);
+    border-bottom: 1px solid var(--rich-black);
     border-left: 1px solid var(--rich-black);
   }
 }

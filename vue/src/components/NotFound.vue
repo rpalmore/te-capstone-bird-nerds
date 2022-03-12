@@ -33,9 +33,17 @@ export default {
 }
 #no-sightings {
   font-size: 1.3rem;
+  text-align: center;
 }
 #bird-silhouette {
-  width: 65%;
   margin-top: 35px;
+}
+@media only screen and (max-width: 768px) {
+  #bird-silhouette {
+    width: 65%;
+  }
+  #no-sightings {
+    padding: 8px;
+  }
 }
 </style>

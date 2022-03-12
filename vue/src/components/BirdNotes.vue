@@ -226,4 +226,11 @@ export default {
   background-color: var(--rich-black);
   color: var(--baby-powder);
 }
+@media only screen and (max-width: 420px) {
+  #noteItself input[type="submit"],
+  #noteItself input[type="button"] {
+    width: auto;
+    padding: 8px;
+  }
+}
 </style>

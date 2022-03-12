@@ -121,6 +121,7 @@ export default {
 }
 .row-space-between {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -163,6 +164,12 @@ export default {
 @media only screen and (max-width: 768px) {
   #loggingForm {
     width: 80%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  #loggingForm input[type="submit"],
+  #loggingForm input[type="button"] {
+    width: auto;
   }
 }
 </style>

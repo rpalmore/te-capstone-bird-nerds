@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-import profile from '../views/profile.vue'
+import Profile from '../views/Profile.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
 import BirdDetail from '../views/Bird.vue'
 import ListDetail from '@/views/ListDetailView'
-import search from '../views/search.vue'
+import Search from '../views/Search.vue'
 import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
@@ -35,7 +35,7 @@ const router = new Router({
     {
       path: '/search/:zipcode',
       name: 'search',
-      component: search,
+      component: Search,
       meta: {
         requiresAuth: false
       }
@@ -51,7 +51,7 @@ const router = new Router({
     {
       path: "/profile",
       name: "profile",
-      component: profile,
+      component: Profile,
       meta: {
         requiresAuth: true
       }
