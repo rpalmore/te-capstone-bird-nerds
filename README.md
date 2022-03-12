@@ -4,8 +4,7 @@
 
 For a live demo, please register as a user or sign in using the following credentials:
 
-Username: guest
-Password: guest
+Username: guest | Password: guest
 
 To see the search feature in action immediately, you can enter the following zip code: 60625
 
