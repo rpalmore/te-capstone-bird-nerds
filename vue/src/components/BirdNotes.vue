@@ -12,7 +12,7 @@
             note.numMales
           }}</span>
           <span class="label" v-show="note.numFemales != null && note.numFemales != 0">Females:</span>
-          <span class="note-data" v-show="note.numFemales != null && note.numMales != 0">{{
+          <span class="note-data" v-show="note.numFemales != null && note.numFemales != 0">{{
             note.numFemales
           }}</span>
         </div>
@@ -210,7 +210,7 @@ export default {
   border-right: 5px solid var(--rose-madder);
   border-left: 5px solid var(--rose-madder);
   border-radius: 8px;
-  width: 13%;
+  width: 15%;
   font-weight: bold;
   color: var(--rich-black);
   margin-top: 10px;
@@ -226,7 +226,7 @@ export default {
   background-color: var(--rich-black);
   color: var(--baby-powder);
 }
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 768px) {
   #noteItself input[type="submit"],
   #noteItself input[type="button"] {
     width: auto;
