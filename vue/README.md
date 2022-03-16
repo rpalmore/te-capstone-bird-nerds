@@ -27,7 +27,7 @@ Before moving on, you'll need to modify the `.env` file. If you're a Java studen
 The last thing to do is start the back-end application before you work on the front-end application. Start your application with the following command:
 
 ```
-npm run serve
+npm run start
 ```
 
 ## Authentication

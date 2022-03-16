@@ -40,7 +40,7 @@ export default {
       if (response.data.length != 0) {
         this.birdsByZip = response.data;
         this.results = true;
-      } 
+      }
     });
   },
 };
@@ -87,5 +87,13 @@ img {
 }
 #date {
   padding: 10px;
+}
+@media only screen and (max-width: 420px) {
+  #search-results {
+    width: 88%;
+  }
+  img {
+    width: 80%;
+  }
 }
 </style>

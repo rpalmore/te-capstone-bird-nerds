@@ -119,7 +119,7 @@ export default {
 #profile-image {
   border-radius: 50%;
   transition: 0.5s ease;
-  width: 30%;
+  width: 38%;
   height: auto;
   padding: 5px;
   background-color: var(--orange-peel);
@@ -206,6 +206,9 @@ select {
   font-size: 1.3rem;
 }
 @media only screen and (max-width: 768px) {
+  #profile-image {
+    width: 60%;
+  }
   .edit-btn {
     width: auto;
   }
@@ -214,6 +217,9 @@ select {
   }
 }
 @media only screen and (max-width: 420px) {
+  #profile-image {
+    width: 75%;
+  }
   .profile-content-container #skill-lvl,
   #zip-code {
     width: 75%;
