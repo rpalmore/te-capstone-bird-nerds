@@ -3,7 +3,7 @@
     <div id="profile-box">
       <p class="question">My favorite bird:</p>
       <span class="response">{{ profile.favoriteBird }}</span>
-      <p class="question">Most common bird at my feeder:</p>
+      <p class="question">Bird I most commonly spot:</p>
       <span class="response">{{ profile.mostCommonBird }}</span>
       <p class="question">My skill level:</p>
       <span class="response">{{ profile.skillLevel }}</span>
@@ -18,11 +18,6 @@
 <script>
 import profileService from "../services/ProfileService.js";
 export default {
-  // data() {
-  //   return {
-  //     profile: {},
-  //   };
-  // },
   computed: {
     profile() {
       return this.$store.state.profile;

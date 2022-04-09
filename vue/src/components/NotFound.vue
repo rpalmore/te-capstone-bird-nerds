@@ -37,10 +37,12 @@ export default {
 }
 #bird-silhouette {
   margin-top: 35px;
+  width: 38%;
 }
 @media only screen and (max-width: 768px) {
   #bird-silhouette {
-    width: 65%;
+    width: 60%;
+    margin-bottom: 35px;
   }
   #no-sightings {
     padding: 8px;

@@ -62,7 +62,7 @@ export default {
             }
           })
           .catch((err) => {
-            alert.error(err + " problem creating profile!");
+            alert(err + " problem creating profile!");
           });
       } else {
         ProfileService
@@ -73,7 +73,7 @@ export default {
             }
           })
           .catch((err) => {
-            alert.error(err + " problem updating profile!");
+            alert(err + " problem updating profile!");
           });
       }
     },
