@@ -1,10 +1,13 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class BirdList {
 
     private int listId;
     private String listName;
     private int userId;
+    private LocalDate updated;
 
     public int getListId() {
         return listId;
@@ -28,5 +31,13 @@ public class BirdList {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public LocalDate getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(LocalDate updated) {
+        this.updated = updated;
     }
 }

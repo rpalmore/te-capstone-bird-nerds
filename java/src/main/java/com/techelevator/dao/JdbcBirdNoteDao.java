@@ -1,6 +1,5 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.AnonymousBird;
 import com.techelevator.model.BirdNote;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -95,6 +94,13 @@ public class JdbcBirdNoteDao implements BirdNoteDao {
                 "SET num_sightings = num_sightings + 1 " +
                 "WHERE bird_id = ?";
         template.update(sql, note.getBirdId());
+
+        String sql2 = "UPDATE lists SET " +
+                "updated = DEFAULT " +
+                "FROM birds " +
+                "WHERE lists.list_id = " +
+                "(SELECT birds.list_id WHERE birds.bird_id = ?)";
+        template.update(sql2, note.getBirdId());
 
         return note;
     }

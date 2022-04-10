@@ -81,9 +81,11 @@ export default {
             const bird = this.bird;
             bird.numSightings++;
             this.$store.commit("EDIT_BIRD", bird);
-            this.$store.commit("ADD_NOTE", this.birdNote);
+            this.$store.commit("ADD_NOTE", response.data);
           }
-          this.birdNote = {};
+          this.birdNote = {
+            birdId: this.$route.params.birdId,
+            }
         })
         .catch((err) => {
           alert(err + " problem adding bird note!");

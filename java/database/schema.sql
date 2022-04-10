@@ -39,6 +39,7 @@ CREATE TABLE lists (
     list_id serial,
     list_name varchar(250) NOT NULL,
     user_id int NOT NULL,
+    updated DATE DEFAULT CURRENT_DATE NOT NULL,
 
     CONSTRAINT PK_list_id PRIMARY KEY (list_id),
     CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -76,7 +77,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO profiles (user_id, profile_img, zip_code, favorite_bird, skill_level, most_common_bird)
 VALUES (1, 'profile_img', 60625, 'Black-capped Chickadee', 'intermediate', 'Black-capped Chickadee');
 
-INSERT INTO lists (list_name, user_id) VALUES ('Colorful birds of North America', 1);
+INSERT INTO lists (list_name, user_id, updated) VALUES ('Colorful birds of North America', 1, DEFAULT);
 
 INSERT INTO birds (bird_name, bird_img, num_sightings, zipcode, list_id) VALUES
 ('Northern Cardinal', 'https://res.cloudinary.com/dgupilxum/image/upload/v1646096224/sh4rblvlmm241jflxq0x.jpg', 1, 60625, 1),

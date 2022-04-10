@@ -27,8 +27,11 @@ public class JdbcListDao implements ListDao {
 
         List<BirdList> lists = new ArrayList<>();
 
-        String sql = "SELECT list_id, list_name, user_id " +
-                "FROM lists WHERE user_id = ?";
+        String sql = "SELECT list_id, list_name, user_id, updated " +
+                "FROM lists " +
+                "WHERE user_id = ? " +
+                "ORDER BY updated DESC";
+
         SqlRowSet results = template.queryForRowSet(sql, userId);
 
         while (results.next()) {
@@ -36,11 +39,10 @@ public class JdbcListDao implements ListDao {
             list.setListId(results.getInt("list_id"));
             list.setListName(results.getString("list_name"));
             list.setUserId(results.getInt("user_id"));
+            list.setUpdated(results.getDate("updated").toLocalDate());
 
             lists.add(list);
         }
-
-        // how do we want to sort lists? alphabetical? not sorted?
 
         return lists;
     }
@@ -66,8 +68,8 @@ public class JdbcListDao implements ListDao {
     @Override
     public BirdList addList(BirdList list) {
 
-        String sql = "INSERT INTO lists(list_name, user_id) " +
-                "VALUES(?, ?) RETURNING list_id";
+        String sql = "INSERT INTO lists(list_name, user_id, updated) " +
+                "VALUES(?, ?, DEFAULT) RETURNING list_id";
         int listId = template.queryForObject(sql, Integer.class,
                 list.getListName(), list.getUserId());
 
@@ -79,12 +81,13 @@ public class JdbcListDao implements ListDao {
     public BirdList updateList(BirdList list) {
 
         String sql = "UPDATE lists " +
-                "SET list_name = ? " +
+                "SET list_name = ?, updated = DEFAULT " +
                 "WHERE list_id = ?";
         template.update(sql, list.getListName(), list.getListId());
 
         return list;
     }
+
 
     @Override
     public void deleteList(int listId) {

@@ -92,7 +92,15 @@ export default new Vuex.Store({
       localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     ADD_NOTE(state, note) {
-      state.notes.unshift(note);
+      state.notes.push(note);
+      localStorage.setItem("notes", JSON.stringify(state.notes));
+    },
+    EDIT_NOTE(state, note) {
+      state.notes = state.notes.map(n => n.noteId != note.noteId ? n : note);
+      localStorage.setItem("notes", JSON.stringify(state.notes));
+    },
+    DELETE_NOTE(state, noteId) {
+      state.notes = state.notes.filter((note) => note.noteId != noteId);
       localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     DELETE_LIST(state, listId) {
@@ -103,10 +111,6 @@ export default new Vuex.Store({
       state.birds = state.birds.filter((bird) => bird.birdID != birdId);
       localStorage.setItem("birds", JSON.stringify(state.birds));
     },
-    DELETE_NOTE(state, noteId) {
-      state.notes = state.notes.filter((note) => note.noteId != noteId);
-      localStorage.setItem("notes", JSON.stringify(state.notes));
-    },
     EDIT_LIST(state, list) {
       state.lists = state.lists.map(l => l.listId != list.listId ? l : list);
       localStorage.setItem("lists", JSON.stringify(state.lists));
@@ -115,10 +119,6 @@ export default new Vuex.Store({
       state.birds = state.birds.map(b => b.birdID != bird.birdID ? b : bird);
       localStorage.setItem("birds", JSON.stringify(state.birds));
       localStorage.setItem("bird", JSON.stringify(bird));
-    },
-    EDIT_NOTE(state, note) {
-      state.notes = state.notes.map(n => n.noteId != note.noteId ? n : note);
-      localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     TOGGLE_LOGIN(state) {
       state.loginClick === false ? state.loginClick = true : state.loginClick = false;

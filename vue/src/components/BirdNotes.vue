@@ -112,6 +112,7 @@ export default {
     return {
       birdId: this.$route.params.birdId,
       showForm: false,
+      // note: {},
     };
   },
   computed: {
@@ -145,7 +146,9 @@ export default {
     updateNote(noteId) {
       let note = {};
       for (const n of this.notes) {
-        if (n.noteId == noteId) note = n;
+        if (n.noteId === noteId) {
+          note = n;
+        }
       }
       noteService
         .editNote(note)

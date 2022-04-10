@@ -145,6 +145,9 @@ export default {
   flex-grow: 1;
   color: var(--baby-powder);
 }
+.birdInfoBox {
+  font-size: 1.2rem;
+}
 .birdInList {
   display: flex;
   margin-top: 35px;
