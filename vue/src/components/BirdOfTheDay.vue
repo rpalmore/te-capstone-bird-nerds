@@ -1,6 +1,6 @@
 <template>
-  <div id="dailyBird" v-show="imgUrl != ''">
-    <img v-bind:src="imgUrl" />
+  <div id="dailyBird">
+    <img v-bind:src="imgUrl" rel="preload" />
     <div id="caption">
       <span id="BODlabel">Bird of the Day</span>
       <span id="birdName">{{ name }}</span>
