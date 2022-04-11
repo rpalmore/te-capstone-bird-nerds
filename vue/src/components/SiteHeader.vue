@@ -23,10 +23,14 @@ export default {
   methods: {
     logout() {
       this.$store.commit("LOGOUT");
-      this.$router.push({ name: "Home" });
+      if (this.$route.name != "Home") {
+        this.$router.push({ name: "Home" });
+      }
     },
     goHome() {
-      this.$router.push({ name: "Home" });
+      if (this.$route.name != "Home") {
+        this.$router.push({ name: "Home" });
+      }
     },
   },
 };

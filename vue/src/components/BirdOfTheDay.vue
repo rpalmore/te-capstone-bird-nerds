@@ -21,11 +21,9 @@ export default {
     birdService
       .getRandomBird()
       .then((response) => {
-        if (response.status == 200 && response.data.imgUrl != "No photo") {
+        if (response.status == 200) {
           this.imgUrl = response.data.imgUrl;
           this.name = response.data.name;
-        } else if (response.data.imgUrl === "No photo") {
-          this.$router.go(0);
         }
       })
       .catch((err) => {

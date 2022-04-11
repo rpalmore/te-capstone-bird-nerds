@@ -133,11 +133,11 @@ public class JdbcBirdDao implements BirdDao{
     public List<AnonymousBird> getBirdsByZip(int zipcode) {
         List<AnonymousBird> birds = new ArrayList<>();
 
-        String sql = "SELECT bird_name, bird_img, zipcode, date_spotted\n" +
-                "FROM birds\n" +
-                "JOIN bird_notes ON birds.bird_id=bird_notes.bird_id\n" +
-                "WHERE zipcode = ?\n" +
-                "ORDER BY date_spotted DESC\n" +
+        String sql = "SELECT bird_name, bird_img, zipcode, date_spotted " +
+                "FROM birds " +
+                "JOIN bird_notes ON birds.bird_id=bird_notes.bird_id " +
+                "WHERE zipcode = ? " +
+                "ORDER BY date_spotted DESC " +
                 "LIMIT 10";
         SqlRowSet results = template.queryForRowSet(sql, zipcode);
 
@@ -151,7 +151,7 @@ public class JdbcBirdDao implements BirdDao{
 
     @Override
     public AnonymousBird getRandomBird() {
-        String countSql = "SELECT COUNT(*) FROM birds";
+        String countSql = "SELECT COUNT(*) FROM birds WHERE bird_img != 'No photo'";
         SqlRowSet result = template.queryForRowSet(countSql);
 
         int numBirds = 0;
@@ -159,7 +159,7 @@ public class JdbcBirdDao implements BirdDao{
             numBirds = result.getInt("count");
         }
 
-        String getIdsSql = "SELECT bird_id FROM birds";
+        String getIdsSql = "SELECT bird_id FROM birds WHERE bird_img != 'No photo'";
         SqlRowSet results = template.queryForRowSet(getIdsSql);
         int[] birdIds = new int[numBirds];
         int i = 0;
@@ -170,17 +170,18 @@ public class JdbcBirdDao implements BirdDao{
         int index = (int)(Math.random() * (numBirds));
 
         int birdId = birdIds[index];
-        String birdSql = "SELECT bird_name, bird_img, zipcode, date_spotted " +
+
+        String birdSql = "SELECT bird_name, bird_img, zipcode " +
                 "FROM birds " +
-                "LEFT JOIN bird_notes ON birds.bird_id=bird_notes.bird_id " +
                 "WHERE birds.bird_id = ? " +
-                "ORDER BY date_spotted DESC " +
                 "LIMIT 1";
         result = template.queryForRowSet(birdSql, birdId);
 
         AnonymousBird randomBird = null;
         if (result.next()) {
-            randomBird = makeAnonBirdFromSqlRowSet(result);
+            randomBird = new AnonymousBird();
+            randomBird.setImgUrl(result.getString("bird_img"));
+            randomBird.setName(result.getString("bird_name"));
         }
 
         return randomBird;
