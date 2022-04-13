@@ -19,6 +19,12 @@ import Footer from "./components/Footer.vue";
 
 export default {
   components: { SiteHeader, LeftNav, ContentMain, Footer },
+  onIdle() {
+    this.$store.commit("LOGOUT");
+    if (this.$route.name != "Home") {
+      this.$router.push({ name: "Home" });
+    }
+  },
 };
 </script>
 
