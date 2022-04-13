@@ -30,7 +30,6 @@
 <script>
 import authService from "../../services/AuthService";
 import profileService from "../../services/ProfileService";
-import listService from "../../services/ListService";
 
 export default {
   name: "login",
@@ -52,11 +51,6 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            listService.getAllLists().then((response) => {
-              if (response.status == 200) {
-                this.$store.commit("SET_LISTS", response.data);
-              }
-            });
             profileService.getProfile().then((response) => {
               if (response.status == 200) {
                 this.$store.commit("SET_PROFILE", response.data);

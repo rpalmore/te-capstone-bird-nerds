@@ -110,6 +110,13 @@ public class JdbcBirdDao implements BirdDao{
                 listId
         );
         bird.setBirdID(birdId);
+
+        // After adding a bird, we update the associated list to reflect activity
+        String sql2 = "UPDATE lists SET " +
+                "updated = DEFAULT " +
+                "WHERE lists.list_id = ?";
+        template.update(sql2, listId);
+
         return bird;
     }
 

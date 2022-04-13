@@ -46,6 +46,13 @@ export default {
       }
     },
   },
+  created() {
+    listService.getAllLists().then((response) => {
+      if (response.status == 200) {
+        this.$store.commit("SET_LISTS", response.data);
+      }
+    });
+  },
 };
 </script>
 
@@ -78,7 +85,7 @@ export default {
 }
 #delete {
   position: absolute;
-  right: 19px;
+  right: 5%;
   height: 20px;
   padding: 5px 10px 5px 10px;
   font-weight: bold;
@@ -89,7 +96,7 @@ export default {
 }
 @media only screen and (max-width: 768px) {
   #delete {
-    position: revert;
+    right: 14%;
   }
 }
 </style>
