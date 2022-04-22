@@ -74,20 +74,11 @@ export default {
 }
 @media only screen and (max-width: 768px) {
   #caption {
-    margin-top: -9%;
+    display: flex;
+    justify-content: center;
   }
   #dailyBird {
     width: 85%;
-  }
-}
-@media only screen and (max-width: 578px) {
-  #dailyBird {
-    width: 65%;
-  }
-}
-@media only screen and (max-width: 450px) {
-  #dailyBird {
-    width: 55%;
   }
 }
 </style>
