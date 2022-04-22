@@ -32,7 +32,7 @@
         </div>
         <div class="row-data" v-show="note.notes != null">
           <span class="label">Notes:</span>
-          <span class="note-data">{{ note.notes }}</span>
+          <div class="note-data">{{ note.notes }}</div>
         </div>
         
         <div class="row-data">
@@ -176,11 +176,7 @@ export default {
 
 <style>
 #notesContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: "Bitter", serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 .note {
   background-color: var(--rich-black);
@@ -205,6 +201,17 @@ export default {
 }
 .label {
   color: var(--orange-peel);
+}
+.note-data {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 #noteItself input[type="submit"],
 #noteItself input[type="button"] {

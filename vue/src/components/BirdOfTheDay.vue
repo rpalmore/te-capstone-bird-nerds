@@ -17,7 +17,7 @@ export default {
       imgUrl: "",
     };
   },
-  created() {
+  mounted() {
     birdService
       .getRandomBird()
       .then((response) => {
@@ -27,7 +27,7 @@ export default {
         }
       })
       .catch((err) => {
-        alert(err + " problem generating a random bird!");
+        alert(err + " problem generating image!");
       });
   },
 };
@@ -35,20 +35,23 @@ export default {
 
 <style>
 #dailyBird {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 45px;
+  height: 400px;
+  width: 600px;
+  background-color: var(--rich-black);
 }
 #dailyBird > img {
-  width: 85%;
-  margin-top: 45px;
   border: 1px solid var(--rich-black);
+  height: 398px;
+  max-width: 600px;
+  object-fit: contain;
 }
 #caption {
-  position: absolute;
-  top: 65px;
-  right: 10%;
+  display: flex;
+  margin-top: -7%;
+  margin-left: 3%;
 }
 #caption > span {
   font-size: 1rem;
@@ -71,12 +74,20 @@ export default {
 }
 @media only screen and (max-width: 768px) {
   #caption {
-    display: flex;
-    margin-top: 10px;
-    position: revert;
+    margin-top: -9%;
   }
   #dailyBird {
-    position: revert;
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 578px) {
+  #dailyBird {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #dailyBird {
+    width: 55%;
   }
 }
 </style>
