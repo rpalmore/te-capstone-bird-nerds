@@ -80,7 +80,7 @@ export default new Vuex.Store({
       state.birdPhoto = false;
     },
     ADD_BIRD(state, bird) {
-      state.birds.push(bird);
+      state.birds.unshift(bird);
       localStorage.setItem("bird", JSON.stringify(bird));
       localStorage.setItem("birds", JSON.stringify(state.birds));
     },

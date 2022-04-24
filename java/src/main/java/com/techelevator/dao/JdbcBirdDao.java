@@ -28,7 +28,8 @@ public class JdbcBirdDao implements BirdDao{
 
         String sql = "SELECT bird_id, bird_name, bird_img, num_sightings, zipcode " +
                 "FROM birds " +
-                "WHERE list_id = ?";
+                "WHERE list_id = ? " +
+                "ORDER BY bird_id DESC";
         SqlRowSet results = template.queryForRowSet(sql, listId);
 
         List<Bird> birds = new ArrayList<>();

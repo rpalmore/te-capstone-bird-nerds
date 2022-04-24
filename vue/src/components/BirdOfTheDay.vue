@@ -1,6 +1,6 @@
 <template>
   <div id="dailyBird">
-    <img v-bind:src="imgUrl" rel="preload" />
+    <img v-bind:src="imgUrl" rel="preload" as="image" />
     <div id="caption">
       <span id="BODlabel">Bird of the Day</span>
       <span id="birdName">{{ name }}</span>
@@ -76,6 +76,7 @@ export default {
   #caption {
     display: flex;
     justify-content: center;
+    margin: 0;
   }
   #dailyBird {
     width: 85%;
