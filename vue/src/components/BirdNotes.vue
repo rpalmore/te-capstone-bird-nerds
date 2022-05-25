@@ -112,7 +112,6 @@ export default {
     return {
       birdId: this.$route.params.birdId,
       showForm: false,
-      // note: {},
     };
   },
   computed: {
@@ -239,8 +238,11 @@ export default {
 @media only screen and (max-width: 768px) {
   #noteItself input[type="submit"],
   #noteItself input[type="button"] {
-    width: auto;
+    min-width: 75px;
     padding: 8px;
+  }
+  .row-data {
+    flex-direction: column;
   }
 }
 </style>

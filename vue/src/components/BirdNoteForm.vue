@@ -121,6 +121,9 @@ export default {
   font-size: 1.3rem;
   text-align: left;
 }
+#loggingForm select {
+  width: 100%;
+}
 .row-space-between {
   display: flex;
   flex-wrap: wrap;

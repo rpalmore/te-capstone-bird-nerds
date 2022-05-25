@@ -65,38 +65,37 @@ export default {
   align-items: center;
 }
 #listColumn {
-  display: flex;
+  /* display: flex;
   width: 100%;
-  align-items: center;
-}
-#listItem {
+  align-items: center; */
+
   display: flex;
+  /* margin-top: 35px; */
+  align-items: center;
+  width: 100%;
   background-color: var(--rich-black);
   color: var(--baby-powder);
-  padding: 15px;
-  font-size: 1.3rem;
+  padding: 15px 15px 15px 25px;
   border-radius: 12px;
   border-left: 5px solid var(--orange-peel);
   border-right: 5px solid var(--orange-peel);
+}
+#listItem {
+  font-size: 1.3rem;
 }
 #anchor {
   text-decoration: none;
   flex-grow: 1;
 }
 #delete {
-  position: absolute;
-  right: 5%;
-  height: 20px;
-  padding: 5px 10px 5px 10px;
+  display: flex;
+  position: relative;
+  top: 0;
+  padding: 5px 10px;
   font-weight: bold;
   border-radius: 50%;
   color: var(--rose-madder);
   background-color: var(--baby-powder);
   border: 2px solid var(--orange-peel);
-}
-@media only screen and (max-width: 768px) {
-  #delete {
-    right: 14%;
-  }
 }
 </style>

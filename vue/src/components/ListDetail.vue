@@ -171,9 +171,4 @@ export default {
   background-color: var(--baby-powder);
   border: 2px solid var(--orange-peel);
 }
-@media only screen and (max-width: 768px) {
-  #deleteBird {
-    position: revert;
-  }
-}
 </style>

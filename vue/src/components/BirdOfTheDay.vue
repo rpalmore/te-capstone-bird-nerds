@@ -37,6 +37,7 @@ export default {
 #dailyBird {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 45px;
   height: 400px;
   width: 600px;
@@ -46,7 +47,8 @@ export default {
   border: 1px solid var(--rich-black);
   height: 398px;
   max-width: 600px;
-  object-fit: contain;
+  object-fit: cover;
+  overflow: hidden;
 }
 #caption {
   display: flex;
@@ -71,15 +73,18 @@ export default {
   border-right: 1px solid var(--orange-peel);
   border-bottom: 1px solid var(--orange-peel);
   padding: 5px;
+  min-width: auto;
 }
 @media only screen and (max-width: 768px) {
   #caption {
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin-top: 3%;
+    margin-bottom: 3%;
   }
   #dailyBird {
     width: 85%;
+    overflow: hidden;
   }
 }
 </style>
