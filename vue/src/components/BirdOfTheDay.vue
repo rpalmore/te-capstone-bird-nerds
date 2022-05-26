@@ -73,7 +73,7 @@ export default {
   border-right: 1px solid var(--orange-peel);
   border-bottom: 1px solid var(--orange-peel);
   padding: 5px;
-  min-width: auto;
+  min-width: 100px;
 }
 @media only screen and (max-width: 768px) {
   #caption {

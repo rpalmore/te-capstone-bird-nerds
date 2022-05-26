@@ -30,7 +30,4 @@ export default {
         return axios.get('/randomBird');
     }
 
-    
-
-
 }

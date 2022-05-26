@@ -1,8 +1,13 @@
 import store from "../store/index.js";
 import profileService from "./ProfileService.js";
 import birdService from "./BirdService.js";
-const cloudName = "dgupilxum";
-const uploadPreset = "l1c4hxcn";
+import keys from "../../keys.js";
+// const cloudName = "dgupilxum";
+// const uploadPreset = "l1c4hxcn";
+// const cloudName = keys.cloudName;
+// const uploadPreset = keys.uploadPreset;
+// const googleApiKey = keys.googleKey;
+
 let profile = {
     username: store.state.user.username,
     profileImg: "",
@@ -14,10 +19,10 @@ let profile = {
 
 const myWidget = window.cloudinary.createUploadWidget(
     {
-        cloudName: cloudName,
-        uploadPreset: uploadPreset,
+        cloudName: keys.keys.cloudName,
+        uploadPreset: keys.keys.uploadPreset,
         sources: ["local", "url", "camera", "image_search", "google_drive", "unsplash", "facebook", "dropbox", "instagram"],
-        googleApiKey: "AIzaSyDI7_QYJHcQo21uoCSIVz48MyCOpkv97zg",
+        googleApiKey: keys.keys.googleKey,
         showAdvancedOptions: true,
         searchByRights: true,
         cropping: true,
